@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>theITguys | theitguys.online</title>
+<meta name="description" content="The IT Guys UAE — Networking, CCTV, Websites, Home Automation, Cloud, Consulting, Used Laptops. Free consultation. theitguys.online"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#030508;--bg2:#0a0d12;--text:#e0e6f1;--dim:#5a6375;--green:#00e676;--amber:#ffb300;--cyan:#00b0ff;--glass:rgba(10,13,18,0.65);--grid:rgba(0,230,118,0.08)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:none}
+*{cursor:none}
+::selection{background:rgba(0,230,118,.3);color:var(--text)}
+#cursor{position:fixed;width:8px;height:8px;background:var(--green);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-radius .2s;mix-blend-mode:difference}
+#cursor.big{width:40px;height:40px;border-radius:50%;background:transparent;border:1px solid var(--green)}
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 80%)}
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:50;height:64px;display:flex;align-items:center;transition:background .3s,backdrop-filter .3s}
+nav.scrolled{background:rgba(3,5,8,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
+.nav-in{max-width:1400px;margin:0 auto;width:100%;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:-.02em}
+.logo .g{color:var(--green)}
+.nav-pills{display:flex;align-items:center;gap:4px;background:rgba(10,13,18,.6);border-radius:9999px;padding:4px 8px;border:1px solid rgba(255,255,255,.05)}
+.nav-pills button{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;color:var(--dim);background:none;border:none;padding:8px 16px;transition:color .2s;position:relative}
+.nav-pills button:hover{color:var(--text)}
+.nav-pills button::after{content:'';position:absolute;bottom:-2px;left:16px;width:0;height:1px;background:var(--green);transition:width .3s}
+.nav-pills button:hover::after{width:calc(100% - 32px)}
+.nav-cta{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;color:var(--green);border:1px solid var(--green);border-radius:9999px;padding:6px 16px;background:none;transition:all .2s}
+.nav-cta:hover{background:var(--green);color:var(--bg)}
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 1.5rem;z-index:10}
+.hero-in{text-align:center;max-width:900px;margin:0 auto}
+.hero-h{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,8vw,96px);line-height:1.05;letter-spacing:-.02em;opacity:0;transform:translateY(40px);transition:opacity 1.2s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1)}
+.hero-h.show{opacity:1;transform:none}
+.hero-h .g{color:var(--green);text-shadow:0 0 20px rgba(0,230,118,.5),0 0 40px rgba(0,230,118,.2)}
+.term-box{margin-top:2rem;display:inline-block;text-align:left;border:1px solid rgba(0,230,118,.15);border-radius:6px;background:var(--bg2);padding:1.5rem 2rem;opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);transition-delay:.5s;max-width:min(100%,680px)}
+.term-box.show{opacity:1;transform:none}
+.tdots{display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.05);padding-bottom:8px;margin-bottom:12px}
+.td{width:12px;height:12px;border-radius:50%}
+.tpath{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-left:8px}
+.tline{font-family:'JetBrains Mono',monospace;font-size:clamp(13px,1.5vw,16px);color:var(--text);line-height:1.5;min-height:1.5em}
+.tline .arr{color:var(--green);margin-right:8px}
+.tc{display:inline-block;width:8px;height:1.1em;background:var(--green);vertical-align:middle;margin-left:2px;animation:blink .8s steps(1) infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.scroll-ind{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+.scroll-line{width:1px;height:60px;background:rgba(90,99,117,.3);position:relative;overflow:hidden}
+.scroll-dot{width:4px;height:4px;background:var(--cyan);position:absolute;left:50%;top:0;transform:translateX(-50%);animation:sdot 2s ease-in-out infinite;border-radius:50%}
+@keyframes sdot{0%,100%{top:0;opacity:1}50%{top:56px;opacity:.3}}
+/* STRIP */
+.strip{position:relative;z-index:10;border-top:1px solid rgba(0,230,118,.1);border-bottom:1px solid rgba(0,230,118,.1);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;background:linear-gradient(90deg,rgba(0,230,118,.03),rgba(0,176,255,.03))}
+.strip-badge{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;color:var(--bg);background:var(--green);padding:.6rem 1.2rem;text-transform:uppercase;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);flex-shrink:0}
+.strip-txt h3{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--text);margin-bottom:.25rem}
+.strip-txt p{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--dim);line-height:1.6}
+.strip-txt p strong{color:var(--cyan)}
+.strip-cta{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;color:var(--green);border:1px solid rgba(0,230,118,.35);padding:.65rem 1.5rem;text-decoration:none;text-transform:uppercase;transition:all .2s;flex-shrink:0}
+.strip-cta:hover{background:var(--green);color:var(--bg)}
+/* SECTIONS */
+.sec{position:relative;z-index:10;padding:7rem 2.5rem}
+.sec-in{max-width:1400px;margin:0 auto}
+.stag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em}
+.sh{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,4vw,60px);color:var(--text);line-height:1.1;letter-spacing:-.02em;margin-top:16px}
+.sh .g{color:var(--green)}
+.sb{color:var(--dim);font-size:.9rem;line-height:1.75;max-width:400px;margin-top:1.2rem}
+/* REVEAL */
+.rv{opacity:0;transform:translateY(50px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rvl{opacity:0;transform:translateX(-50px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rvl.in{opacity:1;transform:none}
+.rvr{opacity:0;transform:translateX(50px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rvr.in{opacity:1;transform:none}
+.d1{transition-delay:.05s}.d2{transition-delay:.1s}.d3{transition-delay:.15s}.d4{transition-delay:.2s}.d5{transition-delay:.25s}.d6{transition-delay:.3s}
+/* GLASS */
+.glass{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.05)}
+/* SERVICES */
+.svc-layout{display:flex;gap:5rem}
+.svc-stick{width:35%;flex-shrink:0}
+.svc-stick-in{position:sticky;top:120px}
+.svc-cards{flex:1;display:flex;flex-direction:column;gap:1.5rem}
+.svc-card{background:var(--glass);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:2rem;position:relative;overflow:hidden;transition:border-color .3s}
+.svc-card:hover{border-color:rgba(0,230,118,.2)}
+.cdots{display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.cd{width:10px;height:10px;border-radius:50%}
+.cproto{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);margin-bottom:.5rem}
+.ctitle{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(18px,2vw,22px);color:var(--text);margin-bottom:.75rem}
+.cbody{color:var(--dim);font-size:.88rem;line-height:1.75}
+.card-img{width:33%;flex-shrink:0;overflow:hidden;border-radius:6px;max-height:160px}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.svc-card:hover .card-img img{transform:scale(1.05)}
+.cbot{position:absolute;bottom:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .5s}
+.svc-card:hover .cbot{opacity:.3}
+.dot-pulse{width:8px;height:8px;background:var(--green);border-radius:50%;display:inline-block;animation:dp 2s infinite}
+@keyframes dp{0%,100%{box-shadow:0 0 0 0 rgba(0,230,118,.5)}70%{box-shadow:0 0 0 8px transparent}}
+/* DREAM */
+.dream-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.dterm{background:var(--bg2);border:1px solid rgba(0,230,118,.12);border-radius:6px;overflow:hidden}
+.dt-body{padding:1.4rem;font-family:'JetBrains Mono',monospace;font-size:.75rem;line-height:2}
+.dp2{color:var(--cyan)}.dc2{color:var(--dim)}.dv{color:var(--text)}.ds{color:var(--amber)}.dok{color:var(--green)}.dcm{color:var(--dim);opacity:.6}
+.tl-wrap{display:flex;flex-direction:column;position:relative;margin-top:2rem}
+.tl-wrap::before{content:'';position:absolute;left:13px;top:18px;bottom:18px;width:1px;background:linear-gradient(180deg,var(--green),var(--cyan),transparent)}
+.tl-item{display:flex;gap:1.2rem;padding:0 0 1.8rem}
+.tl-dot{width:26px;height:26px;flex-shrink:0;border:1px solid rgba(0,230,118,.3);background:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--green);z-index:1}
+.tl-h{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text);margin-bottom:.28rem;letter-spacing:.5px}
+.tl-p{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--dim);line-height:1.75}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:2rem}
+.val{background:var(--glass);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:1.2rem;text-align:center;transition:border-color .2s}
+.val:hover{border-color:rgba(0,230,118,.2)}
+.val-i{font-size:1.4rem;margin-bottom:.6rem}
+.val h5{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text);margin-bottom:.3rem;letter-spacing:.5px}
+.val p{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim);line-height:1.65}
+/* PROCESS */
+.holo-card{background:var(--glass);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:3rem;position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform .1s}
+.holo-ov{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;border-radius:12px;background:conic-gradient(from 180deg at 50% 50%,rgba(0,255,255,.1) 0deg,rgba(255,0,255,.1) 60deg,rgba(0,255,0,.1) 120deg,rgba(0,100,255,.2) 180deg,rgba(255,255,0,.1) 240deg,rgba(0,255,255,.1) 300deg,rgba(0,255,255,.1) 360deg);mix-blend-mode:color-dodge}
+.holo-card:hover .holo-ov{opacity:1}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.steps-line{position:absolute;top:24px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,var(--green),var(--cyan));opacity:.2}
+.step{text-align:center;padding:0 1rem;position:relative;z-index:1}
+.step-n{width:48px;height:48px;background:var(--bg2);border:1px solid rgba(0,230,118,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.4rem;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--green);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .2s}
+.step:hover .step-n{background:rgba(0,230,118,.08)}
+.step h4{font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--text);margin-bottom:.4rem;letter-spacing:.5px}
+.step p{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--dim);line-height:1.8}
+/* STORE */
+.store-hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:4rem;flex-wrap:wrap}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prod-card{background:var(--glass);border:1px solid rgba(255,255,255,.05);border-radius:12px;overflow:hidden;transition:border-color .3s}
+.prod-card:hover{border-color:rgba(0,230,118,.2)}
+.prod-img{height:220px;background:linear-gradient(135deg,#0a0d12,#030508);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.prod-card:hover .prod-img img{transform:scale(1.05)}
+.prod-tag{position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border-radius:4px}
+.prod-tag.new{background:rgba(0,176,255,.15);color:var(--cyan)}
+.prod-tag.ref{background:rgba(255,179,0,.15);color:var(--amber)}
+.prod-btn{position:absolute;bottom:0;left:0;right:0;padding:12px 16px;transform:translateY(100%);transition:transform .3s}
+.prod-btn button{width:100%;background:var(--green);color:var(--bg);font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;padding:12px;border:none;border-radius:4px;transition:background .2s}
+.prod-btn button:hover{background:var(--cyan)}
+.prod-card:hover .prod-btn{transform:translateY(0)}
+.prod-info{padding:1.2rem}
+.prod-name{color:var(--text);font-weight:500;font-size:.95rem}
+.prod-price{font-family:'JetBrains Mono',monospace;color:var(--green);font-size:1.1rem;font-weight:500;margin-top:.5rem}
+.prod-stock{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim)}
+.no-img{color:var(--dim);opacity:.3}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem}
+.c-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.5vw,48px);color:var(--text);line-height:1.1;letter-spacing:-.02em;margin:1rem 0}
+.c-desc{color:var(--dim);font-size:.92rem;line-height:1.75;max-width:380px;margin-bottom:2.5rem}
+.c-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.c-arr{font-family:'JetBrains Mono',monospace;color:var(--green);margin-top:4px;flex-shrink:0}
+.c-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+.c-val{font-family:'JetBrains Mono',monospace;color:var(--text);margin-top:4px;font-size:.85rem}
+.c-val.online{color:var(--green);display:flex;align-items:center;gap:8px}
+.cf{display:flex;flex-direction:column;gap:2rem}
+.fg label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);display:block;margin-bottom:8px}
+.fg label span{color:var(--green);margin-right:4px}
+.fi,.ft,.fs{background:transparent;border:none;border-bottom:1px solid rgba(90,99,117,.5);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:14px;padding:12px 0;width:100%;outline:none;transition:border-color .3s}
+.fi:focus,.ft:focus,.fs:focus{border-bottom-color:var(--green)}
+.fi::placeholder,.ft::placeholder{color:var(--dim)}
+.ft{resize:vertical;min-height:120px}
+.fs{cursor:pointer;-webkit-appearance:none}
+.fs option{background:var(--bg2)}
+.sub-btn{width:100%;background:var(--green);color:var(--bg);font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:700;padding:1rem;border:none;border-radius:4px;transition:background .3s;letter-spacing:1px}
+.sub-btn:hover{background:var(--cyan)}
+.form-ok{background:var(--glass);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:3rem;text-align:center;display:none}
+.form-ok h3{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;color:var(--text);margin-top:1rem}
+.form-ok p{font-family:'JetBrains Mono',monospace;color:var(--dim);font-size:.8rem;margin-top:.5rem}
+/* FOOTER */
+footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255,255,255,.05)}
+.ft-in{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.ft-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)}
+.ft-logo .g{color:var(--green)}
+.ft-copy{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)}
+.ft-status{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green)}
+.wa{position:fixed;bottom:2rem;right:2rem;z-index:700;width:52px;height:52px;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 0 30px rgba(37,211,102,.45);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:transform .2s}
+.wa:hover{transform:scale(1.1)}
+@media(max-width:1024px){.svc-layout{flex-direction:column;gap:3rem}.svc-stick{width:100%}.svc-stick-in{position:static}.dream-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}.prod-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;gap:2rem}.steps-line{display:none}.vals{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-pills{display:none}.sec{padding:5rem 1.5rem}.strip{flex-direction:column;text-align:center}.prod-grid{grid-template-columns:1fr}.store-hdr{flex-direction:column}}
+@media(max-width:500px){.vals{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div id="cursor"></div>
+<canvas id="particles"></canvas>
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#" class="logo">the<span class="g">IT</span>guys</a>
+    <div class="nav-pills">
+      <button onclick="goto('services')">SERVICES</button>
+      <button onclick="goto('dream')">OUR DREAM</button>
+      <button onclick="goto('store')">STORE</button>
+      <button onclick="goto('contact')">CONTACT</button>
+    </div>
+    <button class="nav-cta" onclick="goto('contact')">CONTACT</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-in">
+    <h1 class="hero-h" id="heroH">WE ARE THE <span class="g">GUYS</span></h1>
+    <div class="term-box" id="termBox">
+      <div class="tdots">
+        <div class="td" style="background:rgba(255,95,87,.8)"></div>
+        <div class="td" style="background:rgba(255,189,46,.8)"></div>
+        <div class="td" style="background:rgba(40,202,65,.8)"></div>
+        <span class="tpath">theITguys@mainframe:~$</span>
+      </div>
+      <div class="tline"><span class="arr">></span><span id="tt"></span><span class="tc"></span></div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span class="scroll-lbl">Scroll</span>
+    <div class="scroll-line"><div class="scroll-dot"></div></div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip rv">
+  <div class="strip-badge">FREE_CONSULTATION</div>
+  <div class="strip-txt">
+    <h3>🎯 Free IT Consultation + Detailed Report</h3>
+    <p>We assess your IT needs and deliver a <strong>detailed written report</strong> — completely free, no obligation.</p>
+  </div>
+  <a href="#contact" class="strip-cta" onclick="event.preventDefault();goto('contact')">BOOK_NOW →</a>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="sec">
+  <div class="sec-in">
+    <div class="svc-layout">
+      <div class="svc-stick">
+        <div class="svc-stick-in rvl">
+          <span class="stag">&lt;services /&gt;</span>
+          <h2 class="sh">OUR<br>PROTOCOLS</h2>
+          <p class="sb">We engineer digital systems that power businesses and homes across UAE. Every solution built on proven technology.</p>
+          <div style="margin-top:2rem;display:flex;align-items:center;gap:12px"><span class="dot-pulse"></span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim)">All systems operational</span></div>
+        </div>
+      </div>
+      <div class="svc-cards">
+        <div class="svc-card rv d1">
+          <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+            <div class="card-img"><img src="images/networking.jpg" alt="Networking" loading="lazy"/></div>
+            <div style="flex:1"><div class="cproto">> protocol_init(networking)</div><div class="ctitle">Networking Solutions</div><div class="cbody">Complete network design, implementation and maintenance. LAN/WAN, Wi-Fi, Cisco, Ubiquiti and MikroTik solutions for homes and businesses.</div></div>
+          </div><div class="cbot"></div>
+        </div>
+        <div class="svc-card rv d2">
+          <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+            <div class="card-img"><img src="images/cctv.jpg" alt="CCTV" loading="lazy"/></div>
+            <div style="flex:1"><div class="cproto">> protocol_init(surveillance)</div><div class="ctitle">CCTV & Surveillance</div><div class="cbody">End-to-end security camera systems with remote monitoring, night vision, and cloud storage integration for homes and businesses.</div></div>
+          </div><div class="cbot"></div>
+        </div>
+        <div class="svc-card rv d3">
+          <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
+          <div class="cproto">> protocol_init(consultation)</div><div class="ctitle">IT Consultation</div><div class="cbody">Strategic technology consulting, cloud migration, cybersecurity audits, and digital transformation. Free initial consultation + detailed written report included.</div>
+          <div class="cbot"></div>
+        </div>
+        <div class="svc-card rv d4">
+          <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
+          <div class="cproto">> protocol_init(maintenance)</div><div class="ctitle">AMC Services</div><div class="cbody">Annual Maintenance Contracts for all IT hardware and infrastructure. Preventive maintenance, rapid response support, and guaranteed uptime SLAs.</div>
+          <div class="cbot"></div>
+        </div>
+        <div class="svc-card rv d5">
+          <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
+          <div class="cproto">> protocol_init(automation)</div><div class="ctitle">Home Automation</div><div class="cbody">Smart home integration — lighting, climate, security and entertainment. Alexa, Google Home, Apple HomeKit ecosystems tailored to your home.</div>
+          <div class="cbot"></div>
+        </div>
+        <div class="svc-card rv d6">
+          <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
+          <div class="cproto">> protocol_init(web_dev)</div><div class="ctitle">Website Development</div><div class="cbody">Custom websites, landing pages, e-commerce stores and web apps. Responsive, fast, and built to convert visitors into clients.</div>
+          <div class="cbot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR DREAM -->
+<section id="dream" class="sec" style="background:rgba(10,13,18,.5);border-top:1px solid rgba(255,255,255,.04)">
+  <div class="sec-in">
+    <div class="dream-grid">
+      <div class="rvl">
+        <div class="dterm">
+          <div class="tdots" style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.05)">
+            <div class="td" style="background:rgba(255,95,87,.8)"></div><div class="td" style="background:rgba(255,189,46,.8)"></div><div class="td" style="background:rgba(40,202,65,.8)"></div>
+            <span class="tpath">our_dream.sh</span>
+          </div>
+          <div class="dt-body">
+            <div><span class="dp2">$</span> <span class="dc2">cat</span> <span class="dv">story.txt</span></div><br/>
+            <div><span class="dcm">// CS &amp; Software Engineering graduates.</span></div>
+            <div><span class="dcm">// Life took us in different directions.</span></div>
+            <div><span class="dcm">// But IT was always the dream.</span></div><br/>
+            <div><span class="dp2">$</span> <span class="dc2">echo</span> <span class="dv">$UAE_EXPERIENCE</span></div>
+            <div><span class="dok">7+ years // hands-on across UAE</span></div><br/>
+            <div><span class="dp2">$</span> <span class="dc2">cat</span> <span class="dv">product.json</span></div>
+            <div style="color:var(--dim)">&#123;</div>
+            <div style="padding-left:1rem"><span class="dv">"name"</span>: <span class="ds">"Queue Management System"</span>,</div>
+            <div style="padding-left:1rem"><span class="dv">"status"</span>: <span class="dok">"LIVE_TESTING ✓"</span>,</div>
+            <div style="padding-left:1rem"><span class="dv">"market"</span>: <span class="ds">"restaurants, gaming_lounges"</span></div>
+            <div style="color:var(--dim)">&#125;</div><br/>
+            <div><span class="dp2">$</span> <span class="dc2">./launch.sh</span></div>
+            <div><span class="dok">[✓] theitguys.online — LIVE 🚀</span></div>
+            <div><span class="dp2">$ </span><span class="tc"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rvr">
+        <span class="stag">&lt;our_dream /&gt;</span>
+        <h2 class="sh" style="font-size:clamp(26px,3.2vw,48px)">We Took the<br><span class="g">Long Road</span><br>Back to IT.</h2>
+        <p style="color:var(--dim);font-size:.88rem;line-height:1.8;max-width:460px;margin:1rem 0 1.5rem;font-family:'JetBrains Mono',monospace">// CS graduates who loved technology but life pulled us elsewhere. Years of freelance IT work on the side. Then one day — enough waiting. The IT Guys is that dream, finally real.</p>
+        <div class="tl-wrap">
+          <div class="tl-item rv d1"><div class="tl-dot">01</div><div><div class="tl-h">EDUCATION</div><div class="tl-p">BSc Computer Science &amp; Software Engineering. Technical foundation built from day one.</div></div></div>
+          <div class="tl-item rv d2"><div class="tl-dot">02</div><div><div class="tl-h">THE DETOUR</div><div class="tl-p">Life pulled us elsewhere. But IT was always running in the background.</div></div></div>
+          <div class="tl-item rv d3"><div class="tl-dot">03</div><div><div class="tl-h">7+ YEARS BUILT</div><div class="tl-p">Freelance networking, CCTV, websites, consulting — one job at a time across UAE.</div></div></div>
+          <div class="tl-item rv d4"><div class="tl-dot">04</div><div><div class="tl-h">THE DECISION</div><div class="tl-p">Enough waiting. Time to go all in and build the company we always knew we would.</div></div></div>
+          <div class="tl-item rv d5"><div class="tl-dot" style="border-color:var(--green);color:var(--green)">🚀</div><div><div class="tl-h">THEITGUYS.ONLINE — LIVE</div><div class="tl-p">The dream is real. Full-service IT company in UAE. First product in live testing.</div></div></div>
+        </div>
+        <div class="vals" style="margin-top:2rem">
+          <div class="val rv d1"><div class="val-i">💪</div><h5>RESILIENCE</h5><p>We took the long road. Same persistence every job.</p></div>
+          <div class="val rv d2"><div class="val-i">🤝</div><h5>HONESTY</h5><p>Transparent pricing. Real advice. No jargon.</p></div>
+          <div class="val rv d3"><div class="val-i">🎯</div><h5>OWNERSHIP</h5><p>Full responsibility for every job, always.</p></div>
+          <div class="val rv d4"><div class="val-i">🌱</div><h5>GROWTH</h5><p>Haven't done it? We'll figure it out. Promise.</p></div>
+          <div class="val rv d5"><div class="val-i">❤️</div><h5>PASSION</h5><p>We waited years for this. Every client gets our best.</p></div>
+          <div class="val rv d6"><div class="val-i">🌍</div><h5>UAE FIRST</h5><p>Built to help UAE businesses and homes thrive.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="work" class="sec">
+  <div class="sec-in">
+    <div style="text-align:center;margin-bottom:3rem" class="rv">
+      <span class="stag">&lt;how_it_works /&gt;</span>
+      <h2 class="sh" style="margin:0 auto">HOW WE<br>EXECUTE</h2>
+      <p style="color:var(--dim);font-size:.85rem;max-width:400px;margin:1rem auto 0;font-family:'JetBrains Mono',monospace;line-height:1.8">// Simple. Transparent. Professional.</p>
+    </div>
+    <div class="rv">
+      <div class="holo-card" id="holoCard">
+        <div class="holo-ov" id="holoOv"></div>
+        <div class="steps">
+          <div class="steps-line"></div>
+          <div class="step"><div class="step-n">01</div><h4>CONTACT_US</h4><p>// Call, WhatsApp or fill the form. No jargon — just tell us your problem.</p></div>
+          <div class="step"><div class="step-n">02</div><h4>FREE_CONSULT</h4><p>// We assess your needs and deliver a detailed written report free.</p></div>
+          <div class="step"><div class="step-n">03</div><h4>EXECUTE</h4><p>// You approve, we arrive fully equipped and complete the job professionally.</p></div>
+          <div class="step"><div class="step-n">04</div><h4>SUPPORT++</h4><p>// AMC contracts, follow-ups and ongoing support always available.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORE -->
+<section id="store" class="sec" style="background:rgba(10,13,18,.5);border-top:1px solid rgba(255,255,255,.04)">
+  <div class="sec-in">
+    <div class="store-hdr rv">
+      <div><span class="stag">&lt;hardware_depot /&gt;</span><h2 class="sh">HARDWARE_DEPOT</h2></div>
+      <p style="color:var(--dim);font-size:.88rem;max-width:360px;line-height:1.75">Premium refurbished and new laptops. Every unit tested, certified and ready to deploy across UAE.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card rv d1"><div class="prod-img"><img src="images/gadgets.jpg" alt="MacBook" loading="lazy"/><div class="prod-tag ref">REFURBISHED</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">MacBook Pro 16"</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 4,200</div><div class="prod-stock">IN STOCK</div></div></div></div>
+      <div class="prod-card rv d2"><div class="prod-img"><img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80" alt="Dell" loading="lazy"/><div class="prod-tag new">NEW</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">Dell Latitude 7430</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 3,800</div><div class="prod-stock">IN STOCK</div></div></div></div>
+      <div class="prod-card rv d3"><div class="prod-img"><img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500&q=80" alt="ThinkPad" loading="lazy"/><div class="prod-tag ref">REFURBISHED</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">ThinkPad X1 Carbon</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 3,200</div><div class="prod-stock">IN STOCK</div></div></div></div>
+      <div class="prod-card rv d4"><div class="prod-img"><div class="no-img"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div class="prod-tag new">NEW</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">iPad Pro 12.9"</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 3,500</div><div class="prod-stock">IN STOCK</div></div></div></div>
+      <div class="prod-card rv d5"><div class="prod-img"><div class="no-img"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div class="prod-tag ref">REFURBISHED</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">Surface Laptop Studio</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 4,000</div><div class="prod-stock">IN STOCK</div></div></div></div>
+      <div class="prod-card rv d6"><div class="prod-img"><div class="no-img"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div class="prod-tag new">NEW</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">HP EliteBook 840</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 2,800</div><div class="prod-stock">IN STOCK</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div class="sec-in">
+    <span class="stag rv">&lt;contact /&gt;</span>
+    <h2 class="sh rv" style="font-size:clamp(32px,4vw,60px)">ESTABLISH_UPLINK</h2>
+    <div class="contact-grid" style="margin-top:4rem">
+      <div class="rvl">
+        <p style="font-size:clamp(15px,1.8vw,20px);color:var(--text);line-height:1.7;max-width:420px">Got an IT challenge or hardware requirement?</p>
+        <p class="c-desc" style="margin-top:1rem">Ready to deploy solutions for your business or home. Book your free consultation and get a detailed written report — no obligation.</p>
+        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val">+971 XX XXX XXXX</div></div></div>
+        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Email</div><div class="c-val">hello@theitguys.online</div></div></div>
+        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Coverage</div><div class="c-val">Dubai · Abu Dhabi · Sharjah · All UAE 🇦🇪</div></div></div>
+        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Hours</div><div class="c-val">Mon–Sat 8AM–8PM · Emergency 24/7</div></div></div>
+        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Status</div><div class="c-val online"><span class="dot-pulse"></span>Online — Accepting new connections</div></div></div>
+      </div>
+      <div class="rvr">
+        <div class="form-ok" id="formOk">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(0,230,118,.1);display:flex;align-items:center;justify-content:center;margin:0 auto"><svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="var(--green)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
+          <h3>DATA TRANSMITTED</h3><p>Message received. We respond within hours.</p>
+        </div>
+        <form id="cf" class="cf">
+          <div class="fg"><label><span>></span>ENTER_NAME</label><input type="text" class="fi" placeholder="your_name" required/></div>
+          <div class="fg"><label><span>></span>ENTER_EMAIL</label><input type="email" class="fi" placeholder="your@email.com" required/></div>
+          <div class="fg"><label><span>></span>WHATSAPP_NUMBER</label><input type="tel" class="fi" placeholder="+971 XX XXX XXXX"/></div>
+          <div class="fg"><label><span>></span>SERVICE_REQUIRED</label>
+            <select class="fs">
+              <option>--select_service--</option>
+              <option>networking_infrastructure</option>
+              <option>cctv_surveillance</option>
+              <option>website_development</option>
+              <option>home_automation</option>
+              <option>cloud_solutions</option>
+              <option>cybersecurity</option>
+              <option>amc_services</option>
+              <option>it_consulting</option>
+              <option>used_laptops_hardware</option>
+              <option>voip_telephony</option>
+              <option>data_recovery</option>
+              <option>other_not_sure</option>
+            </select>
+          </div>
+          <div class="fg"><label><span>></span>ENTER_MESSAGE</label><textarea class="ft" placeholder="Describe your IT challenge..." required></textarea></div>
+          <button type="submit" class="sub-btn">TRANSMIT_DATA →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-in">
+    <div class="ft-logo">the<span class="g">IT</span>guys <span style="font-size:.65rem;color:var(--dim);font-family:'JetBrains Mono',monospace">© 2025</span></div>
+    <p class="ft-copy">All systems operational · theitguys.online · UAE 🇦🇪</p>
+    <div class="ft-status"><span class="dot-pulse"></span>ONLINE</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/971XXXXXXXXX" class="wa" target="_blank">💬</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// CURSOR
+const cur=document.getElementById('cursor');
+document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button,.svc-card,.prod-card,.val,.tl-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+});
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50),{passive:true});
+// SCROLL TO
+function goto(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
+// HERO ANIM
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('heroH').classList.add('show'),300);
+  setTimeout(()=>document.getElementById('termBox').classList.add('show'),800);
+});
+// TERMINAL TYPING
+const TGT='Building digital infrastructure. Securing networks. Automating homes.';
+const SCR='010101ABCDEF<>[]{}|/\\';
+let disp='',idx=0;
+const tt=document.getElementById('tt');
+function typeNext(){
+  if(idx>=TGT.length){tt.textContent=TGT;return;}
+  const ch=TGT[idx];let sc=0;
+  const iv=setInterval(()=>{sc++;if(sc>=3){clearInterval(iv);disp+=ch;idx++;tt.textContent=disp;setTimeout(typeNext,40+Math.random()*60)}else{tt.textContent=disp+SCR[Math.floor(Math.random()*SCR.length)];setTimeout(()=>tt.textContent=disp,30)}},50);
+}
+setTimeout(typeNext,1500);
+// SCROLL REVEAL
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)}}),{threshold:.08});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
+// HOLO TILT
+const hc=document.getElementById('holoCard'),ho=document.getElementById('holoOv');
+if(hc){
+  hc.addEventListener('mousemove',e=>{
+    const r=hc.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    const cx=r.width/2,cy=r.height/2;
+    const rx=((y-cy)/cy)*-8,ry=((x-cx)/cx)*8;
+    hc.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;
+    ho.style.background=`conic-gradient(from ${ry*10+180}deg at 50% 50%,rgba(0,255,255,.1) 0deg,rgba(255,0,255,.1) 60deg,rgba(0,255,0,.1) 120deg,rgba(0,100,255,.2) 180deg,rgba(255,255,0,.1) 240deg,rgba(0,255,255,.1) 360deg)`;
+  });
+  hc.addEventListener('mouseleave',()=>hc.style.transform='rotateX(0deg) rotateY(0deg)');
+}
+// FORM
+document.getElementById('cf').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('cf').style.display='none';
+  document.getElementById('formOk').style.display='block';
+  setTimeout(()=>{document.getElementById('formOk').style.display='none';document.getElementById('cf').style.display='flex';document.getElementById('cf').reset();},4000);
+});
+// THREE.JS PARTICLES
+(function(){
+  const canvas=document.getElementById('particles');
+  const mob=window.matchMedia('(pointer:coarse)').matches;
+  const cnt=mob?400:1200,pr=Math.min(window.devicePixelRatio,2);
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false});
+  renderer.setSize(window.innerWidth,window.innerHeight);renderer.setPixelRatio(pr);
+  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,100);
+  camera.position.z=5;
+  const geo=new THREE.BufferGeometry();
+  const pos=new Float32Array(cnt*3),sc=new Float32Array(cnt);
+  for(let i=0;i<cnt;i++){pos[i*3]=(Math.random()-.5)*20;pos[i*3+1]=(Math.random()-.5)*20;pos[i*3+2]=(Math.random()-.5)*10;sc[i]=Math.random();}
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const mat=new THREE.PointsMaterial({color:0xe0e6f1,size:.04,transparent:true,opacity:.28,blending:THREE.AdditiveBlending,depthWrite:false});
+  const pts=new THREE.Points(geo,mat);
+  const grp=new THREE.Group();grp.add(pts);scene.add(grp);
+  let mx=0,my=0;
+  window.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth)*2-1;my=-(e.clientY/window.innerHeight)*2+1});
+  function tick(){
+    requestAnimationFrame(tick);
+    const p=geo.attributes.position.array;
+    for(let i=1;i<cnt*3;i+=3){p[i]+=.002*sc[Math.floor(i/3)];if(p[i]>10)p[i]=-10;}
+    geo.attributes.position.needsUpdate=true;
+    grp.rotation.x+=(my*.05-grp.rotation.x)*.02;
+    grp.rotation.y+=(mx*.05-grp.rotation.y)*.02;
+    renderer.render(scene,camera);
+  }
+  tick();
+  window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
+})();
+</script>
+</body>
+</html>
