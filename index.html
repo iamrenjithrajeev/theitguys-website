@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>theITguys | theitguys.online</title>
-<meta name="description" content="The IT Guys UAE — Networking, CCTV, Websites, Home Automation, Cloud, Consulting, Used Laptops. Free consultation. theitguys.online"/>
+<title>The IT Guys | theitguys.online — UAE's Complete IT Partner</title>
+<meta name="description" content="The IT Guys UAE — Networking, CCTV, Websites, Home Automation, Cloud, Consulting, Used Laptops. Free consultation & detailed report. theitguys.online"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23030508'/><rect width='32' height='32' rx='8' fill='%2300e676' fill-opacity='.15'/><text x='4' y='22' font-size='14' font-family='monospace' font-weight='900' fill='%2300e676'>IT</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -175,8 +176,44 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
 .ft-status{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green)}
 .wa{position:fixed;bottom:2rem;right:2rem;z-index:700;width:52px;height:52px;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 0 30px rgba(37,211,102,.45);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:transform .2s}
 .wa:hover{transform:scale(1.1)}
+/* MILESTONES */
+#milestones{background:var(--bg);border-top:1px solid rgba(255,255,255,.04)}
+.ms-header{text-align:center;margin-bottom:5rem}
+.ms-featured{background:var(--glass);backdrop-filter:blur(16px);border:1px solid rgba(0,230,118,.15);border-radius:16px;overflow:hidden;margin-bottom:3rem;position:relative}
+.ms-featured::before{content:'LIVE';position:absolute;top:1.5rem;right:1.5rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;color:var(--bg);background:var(--green);padding:.35rem .8rem;border-radius:4px;z-index:2}
+.ms-feat-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:420px}
+.ms-feat-left{padding:3rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.05)}
+.ms-feat-right{padding:3rem;background:rgba(0,0,0,.2);display:flex;flex-direction:column;gap:1.2rem;justify-content:center}
+.ms-live-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);padding:.35rem .9rem;border-radius:100px;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--green);letter-spacing:1px;margin-bottom:1.2rem;width:fit-content}
+.ms-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,3vw,42px);color:var(--text);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.ms-title .g{color:var(--green)}
+.ms-desc{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--dim);line-height:1.9;margin-bottom:1.5rem}
+.ms-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.ms-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--cyan);border:1px solid rgba(0,176,255,.2);padding:.28rem .7rem;border-radius:4px;background:rgba(0,176,255,.05)}
+.ms-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.ms-btn-p{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:1.5px;color:var(--bg);background:var(--green);padding:.75rem 1.6rem;text-decoration:none;text-transform:uppercase;transition:all .2s;border:none;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.ms-btn-p:hover{background:var(--cyan)}
+.ms-btn-s{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:1.5px;color:var(--green);border:1px solid rgba(0,230,118,.35);padding:.75rem 1.6rem;text-decoration:none;text-transform:uppercase;transition:all .2s}
+.ms-btn-s:hover{background:rgba(0,230,118,.08)}
+.ms-stat{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1.2rem}
+.ms-stat-n{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.8rem;color:var(--green);line-height:1}
+.ms-stat-l{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--dim);margin-top:.3rem;letter-spacing:1px}
+.ms-terminal{background:var(--bg2);border:1px solid rgba(0,230,118,.1);border-radius:6px;overflow:hidden;margin-top:1rem}
+.ms-term-body{padding:1rem 1.2rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;line-height:1.8;color:var(--dim)}
+.ms-term-body .g{color:var(--green)}.ms-term-body .c{color:var(--cyan)}.ms-term-body .a{color:var(--amber)}
+.ms-coming{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+.ms-coming-card{background:var(--glass);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:2rem;position:relative;overflow:hidden;transition:border-color .3s}
+.ms-coming-card:hover{border-color:rgba(0,176,255,.2)}
+.ms-coming-badge{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;color:var(--amber);border:1px solid rgba(255,179,0,.2);padding:.25rem .7rem;border-radius:4px;display:inline-block;margin-bottom:1rem;background:rgba(255,179,0,.05)}
+.ms-coming-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--text);margin-bottom:.6rem}
+.ms-coming-desc{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--dim);line-height:1.75}
+.ms-progress{margin-top:1rem;height:2px;background:rgba(255,255,255,.06);border-radius:1px;overflow:hidden}
+.ms-progress-bar{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));border-radius:1px;transition:width 1.5s cubic-bezier(.16,1,.3,1);width:0}
+.ms-progress-bar.animated{width:var(--w)}
+@media(max-width:900px){.ms-feat-inner{grid-template-columns:1fr}.ms-feat-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.05)}}
+@media(max-width:768px){.ms-coming{grid-template-columns:1fr}}
 @media(max-width:1024px){.svc-layout{flex-direction:column;gap:3rem}.svc-stick{width:100%}.svc-stick-in{position:static}.dream-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}.prod-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;gap:2rem}.steps-line{display:none}.vals{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.nav-pills{display:none}.sec{padding:5rem 1.5rem}.strip{flex-direction:column;text-align:center}.prod-grid{grid-template-columns:1fr}.store-hdr{flex-direction:column}}
+@media(max-width:768px){.nav-pills{display:none}.sec{padding:5rem 1.5rem}.strip{flex-direction:column;text-align:center}.prod-grid{grid-template-columns:1fr}.store-hdr{flex-direction:column}.vals{grid-template-columns:1fr 1fr}}
 @media(max-width:500px){.vals{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
 </style>
 </head>
@@ -190,6 +227,7 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
     <div class="nav-pills">
       <button onclick="goto('services')">SERVICES</button>
       <button onclick="goto('dream')">OUR DREAM</button>
+      <button onclick="goto('milestones')">PROJECTS</button>
       <button onclick="goto('store')">STORE</button>
       <button onclick="goto('contact')">CONTACT</button>
     </div>
@@ -200,7 +238,7 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
 <!-- HERO -->
 <section id="hero">
   <div class="hero-in">
-    <h1 class="hero-h" id="heroH">WE ARE THE <span class="g">GUYS</span></h1>
+    <h1 class="hero-h" id="heroH">WE ARE THE <span class="g">IT GUYS</span></h1>
     <div class="term-box" id="termBox">
       <div class="tdots">
         <div class="td" style="background:rgba(255,95,87,.8)"></div>
@@ -240,40 +278,115 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
         </div>
       </div>
       <div class="svc-cards">
+
+        <!-- NETWORKING -->
         <div class="svc-card rv d1">
           <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
           <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
             <div class="card-img"><img src="networking.jpg" alt="Networking" loading="lazy"/></div>
-            <div style="flex:1"><div class="cproto">> protocol_init(networking)</div><div class="ctitle">Networking Solutions</div><div class="cbody">Complete network design, implementation and maintenance. LAN/WAN, Wi-Fi, Cisco, Ubiquiti and MikroTik solutions for homes and businesses.</div></div>
+            <div style="flex:1">
+              <div class="cproto">> protocol_init(networking)</div>
+              <div class="ctitle">Networking Solutions</div>
+              <div class="cbody">Complete LAN/WAN design, Wi-Fi deployment, structured cabling and network security. We work with Cisco, Ubiquiti, MikroTik and TP-Link — for homes, offices and enterprises across UAE. Fast, stable, and built to scale.</div>
+              <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">LAN/WAN</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Wi-Fi</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Cabling</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Cisco · Ubiquiti</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--green);border:1px solid rgba(0,230,118,.18);padding:.2rem .55rem;border-radius:3px">Free Consultation</span>
+              </div>
+            </div>
           </div><div class="cbot"></div>
         </div>
+
+        <!-- CCTV -->
         <div class="svc-card rv d2">
           <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
           <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
             <div class="card-img"><img src="cctv.jpg" alt="CCTV" loading="lazy"/></div>
-            <div style="flex:1"><div class="cproto">> protocol_init(surveillance)</div><div class="ctitle">CCTV & Surveillance</div><div class="cbody">End-to-end security camera systems with remote monitoring, night vision, and cloud storage integration for homes and businesses.</div></div>
+            <div style="flex:1">
+              <div class="cproto">> protocol_init(surveillance)</div>
+              <div class="ctitle">CCTV & Surveillance</div>
+              <div class="cbody">Full security camera systems — IP cameras, DVR/NVR setup, remote live viewing, motion detection, night vision and cloud backup. We design, supply and install complete security systems for homes, offices, shops and warehouses.</div>
+              <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">IP Cameras</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">DVR/NVR</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Remote View</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Night Vision</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--green);border:1px solid rgba(0,230,118,.18);padding:.2rem .55rem;border-radius:3px">Free Consultation</span>
+              </div>
+            </div>
           </div><div class="cbot"></div>
         </div>
+
+        <!-- IT CONSULTATION -->
         <div class="svc-card rv d3">
           <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
-          <div class="cproto">> protocol_init(consultation)</div><div class="ctitle">IT Consultation</div><div class="cbody">Strategic technology consulting, cloud migration, cybersecurity audits, and digital transformation. Free initial consultation + detailed written report included.</div>
+          <div class="cproto">> protocol_init(consultation)</div>
+          <div class="ctitle">IT Consultation & Strategy</div>
+          <div class="cbody">Not sure where to start with your technology? We audit your current IT setup, identify problems and opportunities, then deliver a clear written action plan — completely free. From cloud migration and cybersecurity to full digital transformation, we guide you every step of the way.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">IT Audit</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Cloud Migration</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Cybersecurity</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Digital Transformation</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--green);border:1px solid rgba(0,230,118,.18);padding:.2rem .55rem;border-radius:3px">Free + Detailed Report</span>
+          </div>
           <div class="cbot"></div>
         </div>
+
+        <!-- AMC -->
         <div class="svc-card rv d4">
           <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
-          <div class="cproto">> protocol_init(maintenance)</div><div class="ctitle">AMC Services</div><div class="cbody">Annual Maintenance Contracts for all IT hardware and infrastructure. Preventive maintenance, rapid response support, and guaranteed uptime SLAs.</div>
+          <div class="cproto">> protocol_init(maintenance)</div>
+          <div class="ctitle">AMC — Annual Maintenance</div>
+          <div class="cbody">Keep your IT running at 100% all year. Our Annual Maintenance Contracts cover all your hardware, network, cameras and software. Regular health checks, priority response, remote support, on-site visits, and proactive issue prevention — so problems are fixed before you even notice them.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Monthly Checks</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Remote Support</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">On-Site Visits</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Priority Response</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--green);border:1px solid rgba(0,230,118,.18);padding:.2rem .55rem;border-radius:3px">Free Consultation</span>
+          </div>
           <div class="cbot"></div>
         </div>
+
+        <!-- HOME AUTOMATION -->
         <div class="svc-card rv d5">
           <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
-          <div class="cproto">> protocol_init(automation)</div><div class="ctitle">Home Automation</div><div class="cbody">Smart home integration — lighting, climate, security and entertainment. Alexa, Google Home, Apple HomeKit ecosystems tailored to your home.</div>
-          <div class="cbot"></div>
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+            <div class="card-img"><img src="gadgets.jpg" alt="Home Automation" loading="lazy"/></div>
+            <div style="flex:1">
+              <div class="cproto">> protocol_init(automation)</div>
+              <div class="ctitle">Home Automation</div>
+              <div class="cbody">Turn your home into a smart home. We design and install smart lighting, climate control, smart locks, automated blinds, security cameras and home theater systems. Control everything from one app — Alexa, Google Home or Apple HomeKit. We also sell ready-to-go smart home bundles.</div>
+              <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Smart Lighting</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Alexa / Google</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Smart Locks</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Climate Control</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--green);border:1px solid rgba(0,230,118,.18);padding:.2rem .55rem;border-radius:3px">Bundles Available</span>
+              </div>
+            </div>
+          </div><div class="cbot"></div>
         </div>
+
+        <!-- WEBSITE DEV -->
         <div class="svc-card rv d6">
           <div class="cdots"><div class="cd" style="background:rgba(255,95,87,.6)"></div><div class="cd" style="background:rgba(255,189,46,.6)"></div><div class="cd" style="background:rgba(40,202,65,.6)"></div></div>
-          <div class="cproto">> protocol_init(web_dev)</div><div class="ctitle">Website Development</div><div class="cbody">Custom websites, landing pages, e-commerce stores and web apps. Responsive, fast, and built to convert visitors into clients.</div>
+          <div class="cproto">> protocol_init(web_dev)</div>
+          <div class="ctitle">Website Development</div>
+          <div class="cbody">Professional websites, landing pages, e-commerce stores and custom web apps built for UAE businesses. Mobile responsive, fast loading, SEO optimised and designed to convert visitors into paying clients. We also build custom software and web dashboards — like our own QueMaster queue management system.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Business Websites</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">E-Commerce</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">Web Apps</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cyan);border:1px solid rgba(0,176,255,.18);padding:.2rem .55rem;border-radius:3px">SEO Ready</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--green);border:1px solid rgba(0,230,118,.18);padding:.2rem .55rem;border-radius:3px">Free Consultation</span>
+          </div>
           <div class="cbot"></div>
         </div>
+
       </div>
     </div>
   </div>
@@ -360,15 +473,121 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
   <div class="sec-in">
     <div class="store-hdr rv">
       <div><span class="stag">&lt;hardware_depot /&gt;</span><h2 class="sh">HARDWARE_DEPOT</h2></div>
-      <p style="color:var(--dim);font-size:.88rem;max-width:360px;line-height:1.75">Premium refurbished and new laptops. Every unit tested, certified and ready to deploy across UAE.</p>
+      <p style="color:var(--dim);font-size:.88rem;max-width:380px;line-height:1.75;font-family:'JetBrains Mono',monospace">// Tested & certified. All laptops include <strong style="color:var(--green)">6-month warranty</strong>, fresh OS, full setup & data transfer.</p>
+    </div>
+    <div style="background:rgba(0,230,118,.04);border:1px solid rgba(0,230,118,.12);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <span style="font-size:1.2rem">🛡️</span>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text)">All refurbished units: <strong style="color:var(--green)">6-month warranty</strong> + fresh OS + full setup + data transfer from old device</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);margin-top:.2rem">Delivery available across UAE · WhatsApp us to check stock</div>
+      </div>
     </div>
     <div class="prod-grid">
-      <div class="prod-card rv d1"><div class="prod-img"><img src="gadgets.jpg" alt="MacBook" loading="lazy"/><div class="prod-tag ref">REFURBISHED</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">MacBook Pro 16"</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 4,200</div><div class="prod-stock">IN STOCK</div></div></div></div>
-      <div class="prod-card rv d2"><div class="prod-img"><img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500&q=80" alt="Dell" loading="lazy"/><div class="prod-tag new">NEW</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">Dell Latitude 7430</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 3,800</div><div class="prod-stock">IN STOCK</div></div></div></div>
-      <div class="prod-card rv d3"><div class="prod-img"><img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500&q=80" alt="ThinkPad" loading="lazy"/><div class="prod-tag ref">REFURBISHED</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">ThinkPad X1 Carbon</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 3,200</div><div class="prod-stock">IN STOCK</div></div></div></div>
-      <div class="prod-card rv d4"><div class="prod-img"><div class="no-img"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div class="prod-tag new">NEW</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">iPad Pro 12.9"</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 3,500</div><div class="prod-stock">IN STOCK</div></div></div></div>
-      <div class="prod-card rv d5"><div class="prod-img"><div class="no-img"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div class="prod-tag ref">REFURBISHED</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">Surface Laptop Studio</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 4,000</div><div class="prod-stock">IN STOCK</div></div></div></div>
-      <div class="prod-card rv d6"><div class="prod-img"><div class="no-img"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div class="prod-tag new">NEW</div><div class="prod-btn"><button>ENQUIRE_NOW</button></div></div><div class="prod-info"><div class="prod-name">HP EliteBook 840</div><div style="display:flex;justify-content:space-between;margin-top:8px"><div class="prod-price">AED 2,800</div><div class="prod-stock">IN STOCK</div></div></div></div>
+
+      <!-- LENOVO X380 YOGA -->
+      <div class="prod-card rv d1">
+        <div class="prod-img" style="background:linear-gradient(135deg,#0d1520,#080d14);flex-direction:column;gap:.5rem">
+          <div style="font-size:3rem">💻</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim)">Lenovo X380 Yoga</div>
+          <div class="prod-tag ref">REFURBISHED</div>
+          <div class="prod-btn"><button onclick="goto('contact')">ENQUIRE NOW</button></div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Lenovo ThinkPad X380 Yoga</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);margin-top:.4rem;line-height:1.7">8GB RAM · 256GB SSD · Touch + Stylus<br>2-in-1 Convertible · Intel Core i5</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.8rem">
+            <div class="prod-price">AED 699</div><div class="prod-stock">✓ IN STOCK</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--green);margin-top:.3rem">🛡️ 6-month warranty</div>
+        </div>
+      </div>
+
+      <!-- LENOVO IDEAPAD FLEX -->
+      <div class="prod-card rv d2">
+        <div class="prod-img" style="background:linear-gradient(135deg,#0d1520,#080d14);flex-direction:column;gap:.5rem">
+          <div style="font-size:3rem">💻</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim)">Lenovo IdeaPad Flex</div>
+          <div class="prod-tag ref">REFURBISHED</div>
+          <div class="prod-btn"><button onclick="goto('contact')">ENQUIRE NOW</button></div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Lenovo IdeaPad Flex 5</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);margin-top:.4rem;line-height:1.7">8GB RAM · 256GB SSD · 2GB Graphics<br>Touch Screen · 2-in-1 Convertible</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.8rem">
+            <div class="prod-price">AED 1,200</div><div class="prod-stock">✓ IN STOCK</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--green);margin-top:.3rem">🛡️ 6-month warranty</div>
+        </div>
+      </div>
+
+      <!-- DELL INSPIRON -->
+      <div class="prod-card rv d3">
+        <div class="prod-img" style="background:linear-gradient(135deg,#0d1520,#080d14);flex-direction:column;gap:.5rem">
+          <div style="font-size:3rem">🖥️</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim)">Dell Inspiron</div>
+          <div class="prod-tag ref">REFURBISHED</div>
+          <div class="prod-btn"><button onclick="goto('contact')">ENQUIRE NOW</button></div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Dell Inspiron Gaming</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);margin-top:.4rem;line-height:1.7">16GB RAM · 256GB SSD · 4GB Graphics<br>High Performance · Design &amp; Gaming</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.8rem">
+            <div class="prod-price">AED 1,900</div><div class="prod-stock">✓ IN STOCK</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--green);margin-top:.3rem">🛡️ 6-month warranty</div>
+        </div>
+      </div>
+
+      <!-- SMART HOME BUNDLE -->
+      <div class="prod-card rv d4" style="border-color:rgba(255,179,0,.2)">
+        <div class="prod-img" style="background:linear-gradient(135deg,#12100a,#0a0d08);flex-direction:column;gap:.5rem">
+          <div style="font-size:2.8rem">🏠⚡</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--amber);letter-spacing:1px">SMART HOME BUNDLE</div>
+          <div class="prod-tag" style="background:rgba(255,179,0,.15);color:var(--amber)">BUNDLE DEAL</div>
+          <div class="prod-btn"><button onclick="goto('contact')" style="background:var(--amber)">ENQUIRE NOW</button></div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name" style="color:var(--amber)">Smart Room Starter Bundle</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);margin-top:.4rem;line-height:1.8">✓ Amazon Alexa Echo Dot<br>✓ 2x Smart Bulbs<br>✓ IR Blaster (control AC &amp; TV)<br>✓ Smart Plug<br><span style="color:var(--green)">✓ Setup &amp; installation included</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.8rem">
+            <div class="prod-price" style="color:var(--amber)">AED 749</div><div class="prod-stock">✓ AVAILABLE</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--green);margin-top:.3rem">🎁 Complete room setup included</div>
+        </div>
+      </div>
+
+      <!-- CUSTOM ORDER -->
+      <div class="prod-card rv d5" style="border-style:dashed;border-color:rgba(0,176,255,.15)">
+        <div class="prod-img" style="background:linear-gradient(135deg,#080d14,#050810);flex-direction:column;gap:.5rem">
+          <div style="font-size:2.8rem">🔧</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);text-align:center;padding:0 1rem">Need a specific spec?</div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name" style="color:var(--cyan)">Custom Hardware Order</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);margin-top:.4rem;line-height:1.8">Need a specific laptop, desktop, printer or server? Tell us your specs and budget — we source and deliver across UAE.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.8rem">
+            <div class="prod-price" style="color:var(--cyan)">GET QUOTE</div><div class="prod-stock">ANY SPEC</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--green);margin-top:.3rem">💬 WhatsApp your requirements</div>
+        </div>
+      </div>
+
+      <!-- BULK ORDER -->
+      <div class="prod-card rv d6" style="border-color:rgba(0,230,118,.12)">
+        <div class="prod-img" style="background:linear-gradient(135deg,#080e10,#050a08);flex-direction:column;gap:.5rem">
+          <div style="font-size:2.8rem">📦</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);text-align:center">5+ units — bulk pricing</div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Bulk Office Setup</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);margin-top:.4rem;line-height:1.8">Equipping your office or team? Get special pricing on 5+ laptops. We deliver, configure and set up everything — ready to work from day one.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.8rem">
+            <div class="prod-price">ASK PRICE</div><div class="prod-stock">MIN 5 UNITS</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--green);margin-top:.3rem">✓ Setup &amp; delivery included</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -382,8 +601,8 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
       <div class="rvl">
         <p style="font-size:clamp(15px,1.8vw,20px);color:var(--text);line-height:1.7;max-width:420px">Got an IT challenge or hardware requirement?</p>
         <p class="c-desc" style="margin-top:1rem">Ready to deploy solutions for your business or home. Book your free consultation and get a detailed written report — no obligation.</p>
-        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val">+971 XX XXX XXXX</div></div></div>
-        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Email</div><div class="c-val">hello@theitguys.online</div></div></div>
+        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val">+971 507359011</div></div></div>
+        <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Email</div><div class="c-val">iamrenjithrajeev@gmail.com</div></div></div>
         <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Coverage</div><div class="c-val">Dubai · Abu Dhabi · Sharjah · All UAE 🇦🇪</div></div></div>
         <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Hours</div><div class="c-val">Mon–Sat 8AM–8PM · Emergency 24/7</div></div></div>
         <div class="c-item"><span class="c-arr">></span><div><div class="c-lbl">Status</div><div class="c-val online"><span class="dot-pulse"></span>Online — Accepting new connections</div></div></div>
@@ -393,7 +612,9 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
           <div style="width:64px;height:64px;border-radius:50%;background:rgba(0,230,118,.1);display:flex;align-items:center;justify-content:center;margin:0 auto"><svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="var(--green)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
           <h3>DATA TRANSMITTED</h3><p>Message received. We respond within hours.</p>
         </div>
-        <form id="cf" class="cf">
+        <form id="cf" class="cf" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact"/>
+          <input type="hidden" name="bot-field" style="display:none"/>
           <div class="fg"><label><span>></span>ENTER_NAME</label><input type="text" class="fi" placeholder="your_name" required/></div>
           <div class="fg"><label><span>></span>ENTER_EMAIL</label><input type="email" class="fi" placeholder="your@email.com" required/></div>
           <div class="fg"><label><span>></span>WHATSAPP_NUMBER</label><input type="tel" class="fi" placeholder="+971 XX XXX XXXX"/></div>
@@ -422,6 +643,139 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
   </div>
 </section>
 
+<!-- MILESTONE PROJECTS -->
+<section id="milestones" class="sec">
+  <div class="sec-in">
+    <div class="ms-header rv">
+      <span class="stag">&lt;milestone_projects /&gt;</span>
+      <h2 class="sh" style="margin:0 auto;text-align:center">PRODUCTS WE<br><span class="g">BUILT & SHIPPED</span></h2>
+      <p style="color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:.8rem;max-width:500px;margin:1rem auto 0;line-height:1.85;text-align:center">// Real products. Real clients. Real results. Built by The IT Guys team — proving we don't just maintain tech, we create it.</p>
+    </div>
+
+    <!-- FEATURED — QUEMASTER -->
+    <div class="ms-featured rv">
+      <div class="ms-feat-inner">
+        <div class="ms-feat-left">
+          <div class="ms-live-badge">
+            <span class="dot-pulse"></span>
+            LIVE IN PRODUCTION
+          </div>
+          <div class="ms-title">Que<span class="g">Master</span><br>Queue Management<br>System</div>
+          <p class="ms-desc">A fully web-based queue management console built for restaurants, gaming lounges, and service businesses. No app download needed — manage your entire customer flow from any browser, any device. Currently live and running successfully at <strong style="color:var(--text)">The 44</strong> — one of Dubai's top resto-bars.</p>
+          <div class="ms-tags">
+            <span class="ms-tag">Web Console</span>
+            <span class="ms-tag">Real-Time</span>
+            <span class="ms-tag">Restaurants</span>
+            <span class="ms-tag">Gaming Lounges</span>
+            <span class="ms-tag">Fully Customisable</span>
+            <span class="ms-tag">SaaS</span>
+          </div>
+          <div class="ms-btns">
+            <a href="https://quemaster.vercel.app/the44" target="_blank" class="ms-btn-p">VIEW LIVE DEMO →</a>
+            <a href="#contact" class="ms-btn-s" onclick="event.preventDefault();goto('contact')">GET 7-DAY TRIAL</a>
+          </div>
+        </div>
+        <div class="ms-feat-right">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="ms-stat"><div class="ms-stat-n">The 44</div><div class="ms-stat-l">First live client — Dubai</div></div>
+            <div class="ms-stat"><div class="ms-stat-n">7</div><div class="ms-stat-l">Day free trial</div></div>
+            <div class="ms-stat"><div class="ms-stat-n">100%</div><div class="ms-stat-l">Web-based, no app needed</div></div>
+            <div class="ms-stat"><div class="ms-stat-n">∞</div><div class="ms-stat-l">Fully customisable</div></div>
+          </div>
+          <div class="ms-terminal">
+            <div class="tdots" style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05)">
+              <div class="td" style="background:rgba(255,95,87,.8)"></div>
+              <div class="td" style="background:rgba(255,189,46,.8)"></div>
+              <div class="td" style="background:rgba(40,202,65,.8)"></div>
+              <span class="tpath">quemaster.vercel.app/the44</span>
+            </div>
+            <div class="ms-term-body">
+              <div><span class="g">✓</span> Queue system: <span class="g">ACTIVE</span></div>
+              <div><span class="g">✓</span> Client: <span class="a">The 44, Dubai</span></div>
+              <div><span class="g">✓</span> Status: <span class="g">LIVE IN PRODUCTION</span></div>
+              <div><span class="g">✓</span> Trial: <span class="c">7 days FREE</span></div>
+              <div><span class="g">✓</span> Pricing: <span class="c">Subscription-based</span></div>
+              <div><span class="g">✓</span> Platform: <span class="c">Web Console — any device</span></div>
+            </div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--dim);line-height:1.8;padding:.8rem;border:1px solid rgba(255,255,255,.05);border-radius:6px">
+            <span style="color:var(--green)">💡 What it does:</span><br/>
+            Customers scan a QR code → join the queue → get notified when their table is ready. Staff manage everything from a clean web dashboard. No hardware required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMING SOON PROJECTS -->
+    <div class="rv" style="margin-top:4rem">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap">
+        <span class="stag">&lt;coming_soon /&gt;</span>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(20px,2.5vw,32px);color:var(--text);letter-spacing:-.02em">More Amazing Projects<br><span style="color:var(--cyan)">In The Pipeline</span></h3>
+      </div>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--dim);line-height:1.85;max-width:600px;margin-bottom:2.5rem">// The IT Guys isn't just a service company — we build products. Here's what's coming next from our development team.</p>
+      <div class="ms-coming">
+
+        <div class="ms-coming-card rv d1">
+          <div class="ms-coming-badge">IN DEVELOPMENT</div>
+          <div class="ms-coming-title">Smart Inventory Manager</div>
+          <p class="ms-coming-desc">A web-based inventory management system for small businesses and restaurants. Real-time stock tracking, low-stock alerts, and automated ordering — all from your browser.</p>
+          <div class="ms-tags" style="margin-top:1rem">
+            <span class="ms-tag">Web App</span>
+            <span class="ms-tag">Retail</span>
+            <span class="ms-tag">Restaurants</span>
+          </div>
+          <div class="ms-progress" style="margin-top:1.2rem">
+            <div class="ms-progress-bar" style="--w:45%" data-progress="45"></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim);margin-top:.4rem">45% complete</div>
+        </div>
+
+        <div class="ms-coming-card rv d2">
+          <div class="ms-coming-badge">PLANNING</div>
+          <div class="ms-coming-title">Staff Scheduling Platform</div>
+          <p class="ms-coming-desc">Automated shift scheduling, attendance tracking, and payroll integration for hospitality and retail businesses. Built for UAE's workforce management needs.</p>
+          <div class="ms-tags" style="margin-top:1rem">
+            <span class="ms-tag">HR Tech</span>
+            <span class="ms-tag">Hospitality</span>
+            <span class="ms-tag">UAE</span>
+          </div>
+          <div class="ms-progress" style="margin-top:1.2rem">
+            <div class="ms-progress-bar" style="--w:20%" data-progress="20"></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim);margin-top:.4rem">20% complete</div>
+        </div>
+
+        <div class="ms-coming-card rv d3">
+          <div class="ms-coming-badge">CONCEPT</div>
+          <div class="ms-coming-title">Smart Home Dashboard</div>
+          <p class="ms-coming-desc">A unified control panel for all smart home devices — CCTV, lighting, AC, locks, and sensors — accessible from one beautiful web interface. No separate apps.</p>
+          <div class="ms-tags" style="margin-top:1rem">
+            <span class="ms-tag">IoT</span>
+            <span class="ms-tag">Smart Home</span>
+            <span class="ms-tag">Web App</span>
+          </div>
+          <div class="ms-progress" style="margin-top:1.2rem">
+            <div class="ms-progress-bar" style="--w:10%" data-progress="10"></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim);margin-top:.4rem">10% complete</div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div style="margin-top:3rem;padding:2.5rem;background:linear-gradient(135deg,rgba(0,230,118,.04),rgba(0,176,255,.04));border:1px solid rgba(0,230,118,.1);border-radius:12px;text-align:center" class="rv">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--cyan);letter-spacing:2px;margin-bottom:.8rem">// INTERESTED IN OUR PRODUCTS?</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(18px,2.5vw,28px);color:var(--text);margin-bottom:.8rem">Want QueMaster for Your Business?</h3>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--dim);max-width:500px;margin:0 auto 2rem;line-height:1.85">Start your <strong style="color:var(--green)">7-day free trial</strong> today. No commitment, no credit card. See how QueMaster transforms your customer flow management.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="https://quemaster.vercel.app/the44" target="_blank" class="ms-btn-p">VIEW LIVE DEMO →</a>
+          <a href="#contact" class="ms-btn-s" onclick="event.preventDefault();goto('contact')">START FREE TRIAL</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="ft-in">
     <div class="ft-logo">the<span class="g">IT</span>guys <span style="font-size:.65rem;color:var(--dim);font-family:'JetBrains Mono',monospace">© 2025</span></div>
@@ -430,7 +784,7 @@ footer{position:relative;z-index:10;padding:2.5rem;border-top:1px solid rgba(255
   </div>
 </footer>
 
-<a href="https://wa.me/971XXXXXXXXX" class="wa" target="_blank">💬</a>
+<a href="https://wa.me/971507359011" class="wa" target="_blank">💬</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -483,7 +837,9 @@ document.getElementById('cf').addEventListener('submit',e=>{
   document.getElementById('formOk').style.display='block';
   setTimeout(()=>{document.getElementById('formOk').style.display='none';document.getElementById('cf').style.display='flex';document.getElementById('cf').reset();},4000);
 });
-// THREE.JS PARTICLES
+// PROGRESS BARS
+const pobs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('animated');pobs.unobserve(x.target)}}),{threshold:.5});
+document.querySelectorAll('.ms-progress-bar').forEach(b=>pobs.observe(b));
 (function(){
   const canvas=document.getElementById('particles');
   const mob=window.matchMedia('(pointer:coarse)').matches;
