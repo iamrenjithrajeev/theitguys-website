@@ -1,5 +1,6 @@
-// Cloudflare Pages: protects /demo/* on theitguys.online.
-// ---- Demo login check (same code in netlify/edge-functions/demo-guard.js, functions/_middleware.js and middleware.js) ----
+// Cloudflare Pages: protects /demo and /demo/* on theitguys.online.
+// It lives in functions/demo/ so it only runs for demo pages; the rest of the site is plain static files.
+// ---- Demo login check (same code in netlify/edge-functions/demo-guard.js, functions/demo/_middleware.js and middleware.js) ----
 // Logins live in the hosting dashboard, never in this repo:
 //   DEMO_USERS  = "storagekeys:LongPassword1,otherclient:LongPassword2"
 //   DEMO_SECRET = any long random string (signs the login cookie)
