@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta name="robots" content="noindex, nofollow"/>
 <meta name="theme-color" content="#030508"/>
-<title>Equipment and locks | Storage Keys demo | The IT Guys</title>
+<title>Equipment and models | Storage Keys demo | The IT Guys</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -44,6 +44,13 @@ ul.clean b{color:var(--text);font-weight:600}
 .pick .badge{color:var(--bg);background:var(--green);border-color:var(--green);font-weight:700}
 .bad .badge{color:var(--red);border-color:rgba(255,107,107,.5)}
 .price{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--dim)}
+.lock img{display:block;width:100%;height:170px;object-fit:contain;background:#f5f1ec;border-radius:12px;padding:10px}
+.lock .more{font-size:13px}
+.ok-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px}
+.ok-grid div{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--dim)}
+.ok-grid b{color:var(--text)}
+.ok-grid .y,.ok-grid .p,.ok-grid .x{flex:none;width:22px;height:22px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#030508}
+.ok-grid .y{background:var(--green)}.ok-grid .p{background:var(--amber)}.ok-grid .x{background:var(--red)}
 .lock dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
 .lock dt{color:var(--dim)}
 .lock dd{color:var(--text)}
@@ -72,126 +79,154 @@ footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--dim);fon
 <main>
 <div class="wrap hero">
 <div class="eyebrow">Storage Keys · Equipment plan</div>
-<h1>What we install, and which brands.</h1>
-<p class="lead">Everything the system needs to work like the demo: the smart padlocks, what connects them, the gate, cameras and the office. For each item we show the brand we recommend and where you can save money without lowering security.</p>
+<h1>What we install, and which models.</h1>
+<p class="lead">Every unit door gets a smart lock fixed to the frame, a keypad reader and a door sensor, run by Hikvision door controllers. The gate and lifts use Hikvision face terminals. The Storage Keys app controls all of it and keeps every log in one place.</p>
 </div>
 
 <section id="verdict"><div class="wrap">
 <h2>Will the plan work?</h2>
-<p class="sub">Yes, with three changes to what the demo shows today.</p>
-<div class="verdict">
-<ul class="clean">
-<li class="warn"><b>Unlock by card at the unit door needs the premium lock.</b> Only Nokē has a card reader on the unit lock. With the value lock (igloohome), customers open their unit with the app or a PIN, and the card works at the gate only.</li>
-<li class="warn"><b>Live logs and remote unlock need a connection box near every lock.</b> The padlocks work offline, but the admin panel only sees an unlock straight away, and can only open a lock remotely, if a gateway or bridge is in range. We plan these per corridor.</li>
-<li class="warn"><b>Fire mode must be wired, not only in the app.</b> When the fire alarm goes off, the gate and exit doors must open on their own, through a relay from the fire panel, even if the internet or the app is down. The app then shows and logs it. Unit padlocks stay locked, as in the demo.</li>
-</ul>
+<p class="sub">Yes. This is what we checked against Hikvision's own datasheets, manuals and integration documents.</p>
+<div class="ok-grid">
+<div><span class="y">✓</span><span><b>Fixed lock on every unit door.</b> No padlock to cut or remove. The lock stays locked in a power cut.</span></div>
+<div><span class="y">✓</span><span><b>Open any door from the app.</b> The controllers accept remote door control from our software (ISAPI and ISUP 5.0).</span></div>
+<div><span class="y">✓</span><span><b>Face registered from the app.</b> The customer's selfie is sent to the face terminals with their access dates. They walk up and the gate opens.</span></div>
+<div><span class="y">✓</span><span><b>Card, PIN, QR code and Bluetooth at each unit door</b> with the DS-K1105EMKB-QR reader.</span></div>
+<div><span class="y">✓</span><span><b>Time-limited PINs from the app.</b> Each person can have a PIN with a start and end time. Newer firmware lets the platform set PINs ("Platform-Applied Personal PIN"). For a single-use PIN, our system deletes it after the first opening.</span></div>
+<div><span class="y">✓</span><span><b>Live door status and "left open" alerts.</b> The controller has a door-sensor input per door and raises door-not-secured and forced-open alarms, which the app turns into notifications.</span></div>
+<div><span class="y">✓</span><span><b>Works when the internet is down.</b> The controllers work offline and keep their data when power is off. Face, card and PIN keep working. Events upload when the line is back.</span></div>
+<div><span class="y">✓</span><span><b>All logs in one place.</b> Every terminal and controller sends its events to our system: who, which door, when, how, allowed or refused, with the camera clip.</span></div>
+<div><span class="p">!</span><span><b>Opening from the app when away needs internet.</b> Everything at the door keeps working without it.</span></div>
+<div><span class="x">✕</span><span><b>Not battery powered.</b> Locks and controllers run on mains power. Each corridor cabinet needs a battery backup (UPS).</span></div>
 </div>
 </div></section>
 
-<section id="locks"><div class="wrap">
-<h2>Smart padlock: which brand</h2>
-<p class="sub">This is the biggest cost, one lock per unit. Prices are a guide only; we confirm them in the quotation after testing sample locks on your mesh doors.</p>
+<section id="models"><div class="wrap">
+<h2>The models</h2>
+<p class="sub">Product photos are from hikvision.com. Final models are confirmed with the Hikvision distributor at the quotation.</p>
 <div class="locks">
-
 <article class="lock pick">
-<span class="badge">Recommended · best value</span>
-<h3>igloohome Padlock 2E</h3>
-<span class="price">Mid price · sold in the UAE</span>
+<span class="badge">Gate and lift lobbies</span>
+<img src="https://assets.hikvision.com/prd/normal/all/image/m000111055/K1T342-%E9%BB%91%E8%89%B2-%E6%8C%87%E7%BA%B9%E6%AC%BE-%E6%AD%A3%E8%A7%86%E5%9B%BE.png.thumb.1280.1280.png" alt="Hikvision MinMoe DS-K1T342 face recognition terminal" referrerpolicy="no-referrer" loading="lazy">
+<h3>Face terminal · DS-K1T342MFWX-E1</h3>
+<span class="price">Hikvision MinMoe</span>
 <dl>
-<dt>Opens with</dt><dd>App (Bluetooth) and PIN code</dd>
-<dt>Strength</dt><dd>9 mm boron steel shackle, CEN grade 3, anti-tamper</dd>
-<dt>Weather</dt><dd>IPX8, −30 to 55 °C</dd>
-<dt>Offline</dt><dd>One-time and timed PINs work with no internet</dd>
-<dt>Battery</dt><dd>Rechargeable, about 12 months, USB-C emergency power</dd>
-<dt>Wrong PINs</dt><dd>Keypad locks after several wrong tries</dd>
-<dt>Needs</dt><dd>igloohome Bridge for remote unlock and live logs (each Bridge covers only a few locks)</dd>
+<dt>Opens with</dt><dd>Face, card, fingerprint, PIN</dd>
+<dt>Connects</dt><dd>ISAPI and ISUP 5.0, Wi-Fi or network cable</dd>
+<dt>Power</dt><dd>PoE: one network cable powers it, and it can power a 12 V door lock</dd>
+<dt>Holds</dt><dd>1,500 faces, 3,000 cards</dd>
+<dt>Cheaper</dt><dd>DS-K1T342MX: the same terminal without fingerprint</dd>
 </dl>
+<a class="more" href="https://www.hikvision.com/en/products/Access-Control-Products/terminals/face-recognition-terminal/ds-k1t342mfwx-e1/" target="_blank" rel="noopener">Product page on hikvision.com</a>
 </article>
-
-<article class="lock">
-<span class="badge">Premium · storage industry standard</span>
-<h3>Nokē Infinitē by Janus</h3>
-<span class="price">Highest price · imported</span>
+<article class="lock pick">
+<span class="badge">Every unit door</span>
+<img src="https://assets.hikvision.com/prd/normal/all/image/m000164033/1105-%E4%BA%8C%E7%BB%B4%E7%A0%81-%E6%AD%A3%E8%A7%86%E5%9B%BE.png.thumb.1280.1280.png" alt="Hikvision DS-K1105EMKB-QR card, PIN and QR code reader" referrerpolicy="no-referrer" loading="lazy">
+<h3>Keypad reader · DS-K1105EMKB-QR</h3>
+<span class="price">Hikvision Pro Series</span>
 <dl>
-<dt>Opens with</dt><dd>App (Bluetooth) and NFC card</dd>
-<dt>Strength</dt><dd>Boron hardened steel, 128-bit AES encryption, built for storage doors</dd>
-<dt>Battery</dt><dd>5-year guaranteed battery; the card still works after the battery runs out</dd>
-<dt>Extras</dt><dd>Gate keypads, overlocking and lock checks designed for self-storage</dd>
-<dt>Best for</dt><dd>If unit-door card access is a must, or the owner wants the most proven storage system</dd>
+<dt>Opens with</dt><dd>Card (M1 and EM), PIN keypad, QR code, Bluetooth</dd>
+<dt>Connects</dt><dd>To the door controller (RS-485, OSDP or Wiegand)</dd>
+<dt>Cheaper</dt><dd>DS-K1107MK: card and PIN keypad only, IP65</dd>
 </dl>
+<a class="more" href="https://www.hikvision.com/en/products/Access-Control-Products/Readers/Pro-Series/ds-k1105emkb-qr/" target="_blank" rel="noopener">Product page on hikvision.com</a>
 </article>
-
-<article class="lock bad">
-<span class="badge">Not recommended</span>
-<h3>Cheap TTLock-based padlocks</h3>
-<span class="price">Lowest price · many brand names</span>
+<article class="lock pick">
+<span class="badge">Corridor cabinets</span>
+<img src="https://assets.hikvision.com/prd/normal/all/image/m000044507/2600T.png.thumb.1280.1280.png" alt="Hikvision DS-K2604T four-door access controller" referrerpolicy="no-referrer" loading="lazy">
+<h3>Door controller · DS-K2604T</h3>
+<span class="price">Hikvision Pro Series · 4 doors</span>
 <dl>
-<dt>Why not</dt><dd>Security researchers have published serious flaws in the TTLock system: a fixed encryption key built into the app and locks, expired PINs that can be made to work again by faking the lock's clock, and pairing keys that can be captured over Bluetooth.</dd>
-<dt>Watch for</dt><dd>These locks are sold under many different brand names. Before buying any cheap smart padlock, we check which app and platform it uses.</dd>
+<dt>Runs</dt><dd>4 unit doors: 4 locks, 4 door sensors, up to 8 readers</dd>
+<dt>Connects</dt><dd>Network cable, ISAPI and ISUP (EHome 5.0)</dd>
+<dt>Alarms</dt><dd>Door not secured, forced open, reader tampered</dd>
+<dt>Offline</dt><dd>Works without the server. Keeps data when power is off</dd>
+<dt>Holds</dt><dd>100,000 cards, 300,000 events</dd>
+<dt>Smaller</dt><dd>DS-K2602T (2 doors) for short corridors</dd>
 </dl>
+<a class="more" href="https://www.hikvision.com/us-en/products/access-control-products/controllers/Pro-Series/DS-K2604T/" target="_blank" rel="noopener">Product page on hikvision.com</a>
 </article>
-
 </div>
-<p class="note">How we decide: lock strength (shackle grade), how the electronics are protected, whether it still opens when the battery or internet fails, and whether every unlock is logged. Price comes after these.</p>
+<p class="note">With each door: a 12 V fail-secure electric lock that suits the mesh door frame, and a magnetic door sensor. The lock type is chosen after testing a sample on a real mesh door.</p>
 </div></section>
 
 <section id="list"><div class="wrap">
 <h2>Full equipment list</h2>
-<p class="sub">Per site. Quantities depend on the survey: number of units, corridor lengths and where the network can reach.</p>
+<p class="sub">Per site. Quantities come from the survey: number of units, corridor lengths and where the cabinets go.</p>
 <div class="scroll">
 <table class="table">
 <thead><tr><th>Item</th><th>Recommended</th><th>Cheaper option, same security</th><th>Why it matters</th></tr></thead>
 <tbody>
-<tr><td colspan="4" class="area">Unit doors</td></tr>
-<tr><td>Smart padlock<span class="n">1 per unit + 5% spares</span></td><td>igloohome Padlock 2E</td><td>None cheaper without losing security (see above)</td><td class="why">The lock is what customers trust. Spares cover a failed lock without waiting.</td></tr>
-<tr><td>Hardened hasp<span class="n">1 per unit</span></td><td>Shrouded steel hasp, welded or through-bolted to the door frame</td><td>Local fabrication to the same design</td><td class="why">On mesh doors, the hasp and door are easier to attack than the lock. A strong lock on a weak hasp is wasted money.</td></tr>
-<tr><td>Bridge / gateway<span class="n">Per corridor, by survey</span></td><td>igloohome Bridge (or Nokē gateway for Nokē)</td><td>Fewer bridges, with live logs only at the busiest corridors</td><td class="why">Needed for remote unlock from the admin panel and for logs that show straight away.</td></tr>
+<tr><td colspan="4" class="area">Every unit door</td></tr>
+<tr><td>Smart lock<span class="n">1 per unit</span></td><td>12 V fail-secure electric lock on the door frame</td><td>Local brand with the same rating, after a sample test</td><td class="why">Can't be cut or removed like a padlock. Stays locked in a power cut.</td></tr>
+<tr><td>Keypad reader<span class="n">1 per unit</span></td><td>Hikvision DS-K1105EMKB-QR</td><td>Hikvision DS-K1107MK (card and PIN only)</td><td class="why">Card, PIN, QR code and phone at the door.</td></tr>
+<tr><td>Door sensor<span class="n">1 per unit</span></td><td>Magnetic door contact</td><td>—</td><td class="why">Live open or closed status and "left open" alerts.</td></tr>
+<tr><td>Door controller<span class="n">1 per 4 units</span></td><td>Hikvision DS-K2604T</td><td>DS-K2602T where only 2 doors are near</td><td class="why">Makes the decision at the door and works offline.</td></tr>
+<tr><td>Cabinet power<span class="n">1 per cabinet</span></td><td>12 V lock power supply with battery backup</td><td>—</td><td class="why">Keeps doors working in a power cut.</td></tr>
 
-<tr><td colspan="4" class="area">Site entrance and lifts</td></tr>
-<tr><td>Gate face and card terminal<span class="n">1 per entrance</span></td><td>Hikvision or ZKTeco face recognition terminal with card reader</td><td>Card and PIN terminal without face recognition</td><td class="why">First check at the door. Face match stops shared or stolen logins.</td></tr>
-<tr><td>Access controller<span class="n">1 per site</span></td><td>Same brand as the terminal</td><td>—</td><td class="why">Opens the gate and lifts only for active, paid customers.</td></tr>
-<tr><td>Fail-safe gate and exit locks<span class="n">Per door</span></td><td>Magnetic or electric strike locks, fail-safe</td><td>—</td><td class="why">Open automatically on power loss or fire alarm. Required for safety.</td></tr>
-<tr><td>Fire alarm interface relay<span class="n">1 per site</span></td><td>Approved relay module from the fire alarm contractor</td><td>—</td><td class="why">Fire mode must work even if the internet or app is down.</td></tr>
-<tr><td>Lift access control<span class="n">Per lift</span></td><td>Card or face reader in the lift, through the lift company</td><td>Floor access at the lift lobby door instead</td><td class="why">Stops visitors reaching floors they don't rent on.</td></tr>
+<tr><td colspan="4" class="area">Entrance and lifts</td></tr>
+<tr><td>Face terminal<span class="n">Gate and each lift lobby</span></td><td>Hikvision DS-K1T342MFWX-E1</td><td>DS-K1T342MX (no fingerprint)</td><td class="why">Customers registered from the app walk straight in.</td></tr>
+<tr><td>Gate and exit door locks<span class="n">Per door</span></td><td>Fail-safe magnetic locks</td><td>—</td><td class="why">Open automatically on power loss or fire alarm.</td></tr>
+<tr><td>Fire alarm relay<span class="n">1 per site</span></td><td>Approved module from the fire alarm contractor</td><td>—</td><td class="why">Fire mode works even if the internet or app is down.</td></tr>
 
 <tr><td colspan="4" class="area">CCTV</td></tr>
-<tr><td>Cameras<span class="n">Every corridor, entrance, lift lobby</span></td><td>Hikvision or Dahua 4 MP, night vision</td><td>2 MP in short corridors, 4 MP at entrances</td><td class="why">Each unlock is saved with a camera clip, as in the demo.</td></tr>
-<tr><td>Recorder (NVR) + hard drives<span class="n">1 per site</span></td><td>Same brand as cameras, 30+ days storage</td><td>Fewer days of storage, if the authorities allow it</td><td class="why">Evidence if anything goes wrong. Check how many days Sharjah requires.</td></tr>
+<tr><td>Cameras and recorder<span class="n">Corridors, entrance, lifts</span></td><td>Hikvision cameras and NVR, 30+ days storage</td><td>2 MP in short corridors</td><td class="why">Same brand as access control, so every door event can link to its camera clip.</td></tr>
 
 <tr><td colspan="4" class="area">Network and power</td></tr>
-<tr><td>Wi-Fi access points<span class="n">Corridors, by survey</span></td><td>Ubiquiti UniFi</td><td>TP-Link Omada</td><td class="why">Connects bridges and customers' phones inside the building.</td></tr>
-<tr><td>PoE switches + firewall<span class="n">1 set per site</span></td><td>Ubiquiti UniFi</td><td>TP-Link Omada</td><td class="why">Keeps cameras and locks on their own separate network, away from guest Wi-Fi.</td></tr>
-<tr><td>Internet<span class="n">2 lines</span></td><td>Fibre + 4G/5G backup</td><td>—</td><td class="why">The gate and live logs keep working if one line goes down.</td></tr>
-<tr><td>UPS battery backup<span class="n">Network cabinet + gate</span></td><td>APC or Eaton</td><td>Smaller UPS, network cabinet only</td><td class="why">Keeps the gate, cameras and network running in a power cut.</td></tr>
+<tr><td>PoE switches<span class="n">Per cabinet</span></td><td>Managed PoE switches</td><td>—</td><td class="why">Powers the face terminals and keeps access devices on their own network.</td></tr>
+<tr><td>Internet<span class="n">2 lines</span></td><td>Fibre plus 4G/5G backup</td><td>—</td><td class="why">The app and live logs keep working if one line fails.</td></tr>
+<tr><td>UPS<span class="n">Network and gate</span></td><td>APC or Eaton</td><td>Smaller UPS for the network cabinet only</td><td class="why">Gate, cameras and network keep running in a power cut.</td></tr>
 
 <tr><td colspan="4" class="area">Office</td></tr>
-<tr><td>Touchscreen for the admin panel<span class="n">1 per site</span></td><td>All-in-one touchscreen PC</td><td>Wall-mounted Android tablet</td><td class="why">Live map, remote unlock and fire mode at the front desk.</td></tr>
+<tr><td>Admin touchscreen<span class="n">1 per site</span></td><td>All-in-one touchscreen PC</td><td>Wall-mounted tablet</td><td class="why">Live map, remote unlock, devices and fire mode at the front desk.</td></tr>
 </tbody>
 </table>
 </div>
-<p class="note">Brands are what we would normally quote. The final choice depends on availability and price in the UAE at the time of the quotation.</p>
 </div></section>
 
-<section id="register"><div class="wrap">
-<h2>Adding a padlock to a custom-built unit</h2>
-<p class="sub">Padlocks are not set up in advance. A new lock is registered on site when its unit is built, and it takes a few minutes. Try it in the demo: Admin panel → First floor → Set up a new unit.</p>
+<section id="gateway"><div class="wrap">
+<h2>Do we need a gateway?</h2>
+<p class="sub">No separate gateway box. Hikvision devices sit on the facility network and talk to the Storage Keys server in one of two ways.</p>
 <div class="two">
 <div class="box">
-<h3>The four steps</h3>
+<h3>Recommended: ISUP 5.0</h3>
 <ul class="clean">
-<li><b>1. Unit size.</b> Staff enter width, depth and height. The system works out the square feet and suggested rent, and links the unit to the customer's booking.</li>
-<li><b>2. Register the padlock.</b> Standing at the door with the admin phone app, staff scan the QR code on the new lock. It pairs over Bluetooth, is registered to the Storage Keys account, and is linked to that unit. Its clock is set and factory codes are removed.</li>
-<li><b>3. Connect a bridge.</b> The lock is added to the nearest bridge on the corridor wall that has a strong signal and a free slot. Without this, live logs and remote unlock don't work for that unit.</li>
-<li><b>4. Test and go live.</b> Test unlock, test lock and an install photo, then "Mark ready to rent". The unit appears on the map and the customer gets their digital key.</li>
+<li><b>The device connects out to our server by itself</b>, using a Device ID and key typed into the device once.</li>
+<li><b>No PC on site and no port forwarding</b> on the facility's router.</li>
+<li>Supported by the DS-K1T342 face terminal and the DS-K2600T controllers.</li>
+<li class="warn">The ISUP developer kit comes through Hikvision's Technology Partner Program. We register before development starts.</li>
 </ul>
 </div>
 <div class="box">
-<h3>Good to know</h3>
+<h3>Alternative: ISAPI on the local network</h3>
 <ul class="clean">
-<li class="warn"><b>Pairing needs the phone at the door.</b> It uses Bluetooth, so it is done from the admin phone app, not the office computer. The admin panel shows the progress.</li>
-<li class="warn"><b>Only staff accounts can register locks</b>, and every registration is saved in the access log with who did it.</li>
-<li class="warn"><b>Moving or replacing a lock</b> is the same flow: remove it from the old unit first, then register it to the new one.</li>
-<li class="warn"><b>Check this with the supplier</b> before ordering: igloohome and Nokē both support registering locks to a business account and an API for our app, but the exact steps are confirmed with sample locks at the survey.</li>
+<li><b>Our software talks to each device by its IP address</b> on the facility network.</li>
+<li>Needs a small always-on PC or mini server on site to connect the devices to our cloud.</li>
+<li>Fully documented by Hikvision, and good as a backup to ISUP.</li>
+</ul>
+</div>
+</div>
+</div></section>
+
+<section id="adding"><div class="wrap">
+<h2>Adding devices and doors later, without us</h2>
+<p class="sub">Try both in the demo admin panel: <b>Devices</b> at the top, and <b>First floor → Set up a new unit</b>.</p>
+<div class="two">
+<div class="box">
+<h3>A new device</h3>
+<ul class="clean">
+<li><b>Search the network</b> to find Hikvision devices that aren't added yet, or type the device's IP address and its login.</li>
+<li><b>Or use ISUP:</b> the app shows a Device ID and key to type into the device's own settings.</li>
+<li><b>Test connection</b> reads the model, serial and what it can do, then adds it and syncs customers, faces and access rules.</li>
+<li class="warn"><b>Rule for buying new devices:</b> the datasheet must list <b>ISAPI or ISUP 5.0</b>. Any Hikvision device that does is added the same way.</li>
+</ul>
+</div>
+<div class="box">
+<h3>A door for a custom-built unit</h3>
+<ul class="clean">
+<li><b>1. Unit size:</b> width, depth and height give the square feet and suggested rent.</li>
+<li><b>2. Fit the door hardware:</b> lock, keypad reader and door sensor, wired to the corridor cabinet.</li>
+<li><b>3. Add the door to the system:</b> pick the controller and its free door number. Access and live alerts switch on.</li>
+<li><b>4. Test and go live:</b> open from the app, check the door sensor, test a card and PIN, add an install photo.</li>
 </ul>
 </div>
 </div>
@@ -203,39 +238,39 @@ footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--dim);fon
 <div class="box">
 <h3>Where you can save</h3>
 <ul class="clean">
-<li><b>igloohome instead of Nokē</b> for the unit locks, if card access at the unit door is not needed.</li>
-<li><b>TP-Link Omada instead of Ubiquiti</b> for the network.</li>
-<li><b>2 MP cameras in short corridors</b>, 4 MP only at entrances and lifts.</li>
-<li><b>Card and PIN terminal at the gate</b> instead of face recognition, if the owner accepts it.</li>
-<li><b>Fewer bridges</b>: live logs at the busiest corridors, offline PIN logs elsewhere.</li>
+<li><b>DS-K1107MK readers</b> instead of DS-K1105EMKB-QR, if QR and Bluetooth at the unit door are not needed.</li>
+<li><b>DS-K1T342MX face terminals</b> without fingerprint.</li>
+<li><b>DS-K2602T controllers</b> where only two doors are close together.</li>
+<li><b>2 MP cameras in short corridors</b>, 4 MP at the entrance and lifts.</li>
 </ul>
 </div>
 <div class="box">
 <h3>Where not to save</h3>
 <ul class="clean">
-<li class="no"><b>No cheap TTLock-based padlocks.</b> Known, published security flaws.</li>
-<li class="no"><b>No weak hasps.</b> The mesh door and hasp must be as strong as the lock.</li>
+<li class="no"><b>No unit locks that open in a power cut.</b> Unit doors must be fail-secure, and exit doors fail-safe.</li>
+<li class="no"><b>No cabinets without battery backup.</b></li>
 <li class="no"><b>No fire mode through the app only.</b> It must be wired to the fire alarm panel.</li>
-<li class="no"><b>No cameras on the guest Wi-Fi</b> or open to the internet without protection.</li>
-<li class="no"><b>No single internet line</b> for the gate.</li>
+<li class="no"><b>No access devices on the guest Wi-Fi</b>, and no device admin accounts used by the app.</li>
+<li class="no"><b>No single internet line.</b></li>
 </ul>
 </div>
 </div>
 </div></section>
 
 <section id="next"><div class="wrap">
-<h2>What we confirm at the site survey</h2>
+<h2>What we confirm before ordering</h2>
 <ul class="clean">
-<li>Number of units per floor, and the first-floor units built to order.</li>
-<li>Whether the owner needs card access at the unit door (decides igloohome or Nokē).</li>
-<li>Sample locks and hasps tested on a real mesh door.</li>
-<li>Signal checks along each corridor to decide where bridges and Wi-Fi go.</li>
-<li>Requirements from Sharjah Civil Defence for fire mode, and for CCTV approval and recording time.</li>
+<li>A sample kit on one real mesh door: lock, keypad reader, door sensor, controller and a face terminal, all controlled from our software.</li>
+<li>The face terminal firmware has the Platform-Applied PIN mode, so PINs can come from the app.</li>
+<li>Registration with Hikvision's Technology Partner Program for the ISUP developer kit.</li>
+<li>Prices and stock from the Hikvision distributor in the UAE.</li>
+<li>Sharjah Civil Defence requirements for fire mode, and CCTV approval and recording time.</li>
+<li>Customer consent and a privacy notice for face data, which is sensitive personal data under UAE law. Faces are deleted when a customer leaves.</li>
 </ul>
 </div></section>
 </main>
 
 <div class="wm" aria-hidden="true"></div>
-<footer><div class="wrap">Confidential client preview by The IT Guys. Brands and prices are a guide until the quotation.</div></footer>
+<footer><div class="wrap">Confidential client preview by The IT Guys. Models and prices are a guide until the quotation.</div></footer>
 </body>
 </html>

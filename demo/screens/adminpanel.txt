@@ -28,6 +28,7 @@ button{font-family:inherit}
 <button style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #F48922; background: #2B2622; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Sharjah</button>
 <button style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #4A423A; background: transparent; color: #E7DDD4; font-size: 14px; cursor: pointer">Second site</button>
 <span style="font-size: 14px; color: #E7DDD4; padding: 0 8px">Manager · signed in with 2-step login</span>
+<button onClick="{{openDevices}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #4A423A; background: transparent; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Devices</button>
 <button onClick="{{toggleEmergency}}" style="{{emButton}}">{{emButtonLabel}}</button>
 </div>
 </div>
@@ -52,7 +53,7 @@ button{font-family:inherit}
 <div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Rented</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600">{{stats.rented}}</span></div>
 <div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Vacant</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600">{{stats.vacant}}</span></div>
 <div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Access paused (unpaid)</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600; color: #8A4B0F">{{stats.overdue}}</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Lock alerts</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600; color: #8E1F1F">{{stats.alert}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Door alerts</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600; color: #8E1F1F">{{stats.alert}}</span></div>
 <div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Open right now</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600; color: #0B5E4D">{{stats.open}}</span></div>
 </div>
 
@@ -69,13 +70,13 @@ button{font-family:inherit}
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FFFFFF; border: 1px dashed #9AA5B4"></span>Vacant</span>
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FDF1E3; border: 1px solid #D9822B"></span>Access paused</span>
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E3F4EE; border: 1px solid #2E9E6B"></span>Open now</span>
-<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FBE9E9; border: 1px solid #C0392B"></span>Lock alert</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FBE9E9; border: 1px solid #C0392B"></span>Door alert</span>
 </div>
 </div>
 
 <sc-if value="{{isFirst}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: #FCF8F5; border-radius: 12px; padding: 12px 14px">
-<span style="font-size: 14px; color: #3A4555">Units on this floor are built to the customer's size. Staff add, resize or merge units here and pair a padlock to each.</span>
+<span style="font-size: 14px; color: #3A4555">Units on this floor are built to the customer's size. Staff add, resize or merge units here, then fit each door with a smart lock, keypad reader and door sensor.</span>
 <button onClick="{{openWiz}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: none; background: #F48922; color: #1C1A18; font-size: 14px; font-weight: 700; cursor: pointer">Set up a new unit</button>
 </div>
 </sc-if>
@@ -126,8 +127,8 @@ button{font-family:inherit}
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; font-size: 14px">
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Customer</span><span style="font-weight: 600">{{sel.tenant}}</span></div>
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Plan</span><span style="font-weight: 600">{{sel.plan}}</span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Padlock battery</span><span style="font-weight: 600">{{sel.battery}}</span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Gateway</span><span style="font-weight: 600">{{sel.gateway}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Door sensor</span><span style="font-weight: 600">{{sel.battery}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Door controller</span><span style="font-weight: 600">{{sel.gateway}}</span></div>
 </div>
 
 <sc-if value="{{panelDetail}}" hint-placeholder-val="{{true}}">
@@ -202,7 +203,7 @@ button{font-family:inherit}
 
 <sc-if value="{{w1}}" hint-placeholder-val="{{true}}">
 <div style="display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; gap: 12px; align-items: center; background: #FEF1E4; border-radius: 12px; padding: 12px 14px"><span style="font-size: 14px; line-height: 1.45"><b>Built for:</b> J. Thomas, custom unit booking, paid in full. Build the mesh walls to these measurements, then fit and register the padlock.</span></div>
+<div style="display: flex; gap: 12px; align-items: center; background: #FEF1E4; border-radius: 12px; padding: 12px 14px"><span style="font-size: 14px; line-height: 1.45"><b>Built for:</b> J. Thomas, custom unit booking, paid in full. Build the mesh walls to these measurements, then fit the door hardware and add the door to the system.</span></div>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
 <sc-for list="{{dims}}" as="d" hint-placeholder-count="3">
 <div style="border: 1px solid #E3E7EC; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; align-items: center">
@@ -220,53 +221,44 @@ button{font-family:inherit}
 </sc-if>
 
 <sc-if value="{{w2}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; gap: 14px; align-items: flex-start">
-<img src="/demo/img/sk/unit-mesh.jpg" alt="Mesh unit door where the padlock is fitted" width="120" height="90" style="border-radius: 12px; object-fit: cover; flex: none">
-<ol style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.55; color: #3A4555">
-<li>Take a new padlock out of its box and touch the keypad to wake it.</li>
-<li>Stand next to the unit with the <b>admin phone app</b>: pairing uses Bluetooth, so it cannot be done from this computer.</li>
-<li>In the app open <b>New unit {{wizUnitId}}</b> and scan the QR code on the back of the padlock.</li>
-</ol>
+<img src="/demo/img/sk/unit-mesh.jpg" alt="Mesh unit door where the lock is fitted" width="120" height="90" style="border-radius: 12px; object-fit: cover; flex: none">
+<span style="font-size: 14px; color: #3A4555; line-height: 1.5">The installer fits these on the new door and runs the cables to the door controller in the corridor E cabinet. Tick each one when it is done.</span>
 </div>
+<sc-for list="{{hwItems}}" as="h" hint-placeholder-count="4">
+<button onClick="{{h.toggle}}" aria-pressed="{{h.pressed}}" style="{{h.style}}"><span style="{{h.box}}">{{h.mark}}</span><span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 14px; font-weight: 700">{{h.label}}</span><span style="font-size: 12px; color: #556070">{{h.text}}</span></span></button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{w3}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 14px; color: #3A4555; line-height: 1.5">Each Hikvision DS-K2604T controller runs 4 doors. Pick the controller the door is wired to, then add the door. The system names it, syncs customer access and turns on live events.</span>
+<sc-for list="{{ctrls}}" as="b" hint-placeholder-count="3">
+<button onClick="{{b.pick}}" style="{{b.style}}">
+<span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15px; font-weight: 700">{{b.name}}</span><span style="font-size: 13px; color: #556070">{{b.where}} · {{b.used}}</span></span>
+<span style="font-size: 13px; font-weight: 700; color: {{b.sigColor}}">{{b.note}}</span>
+</button>
+</sc-for>
 <button onClick="{{scanLock}}" style="{{scanStyle}}">{{scanLabel}}</button>
 <div style="border: 1px solid #E3E7EC; border-radius: 12px; padding: 6px 14px">
 <sc-for list="{{lockChecks}}" as="c" hint-placeholder-count="4">
 <div style="display: flex; gap: 10px; align-items: center; padding: 8px 0; font-size: 14px"><span style="{{c.dot}}">{{c.mark}}</span><span style="{{c.text}}">{{c.label}}</span></div>
 </sc-for>
 </div>
-<sc-if value="{{lockFound}}" hint-placeholder-val="{{false}}">
-<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; font-size: 13px">
-<div style="background: #FCF8F5; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Model</span><b>Padlock 2E</b></div>
-<div style="background: #FCF8F5; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Serial</span><b>SP2E-4K7Q-19A3</b></div>
-<div style="background: #FCF8F5; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Battery</span><b>100%</b></div>
-<div style="background: #FCF8F5; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Firmware</span><b>Up to date</b></div>
-</div>
-</sc-if>
-</div>
-</sc-if>
-
-<sc-if value="{{w3}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; flex-direction: column; gap: 12px">
-<span style="font-size: 14px; color: #3A4555; line-height: 1.5">The padlock talks to a bridge on the corridor wall, and the bridge connects to the internet. Pick the bridge with the strongest signal that still has room.</span>
-<sc-for list="{{bridges}}" as="b" hint-placeholder-count="3">
-<button onClick="{{b.pick}}" style="{{b.style}}">
-<span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15px; font-weight: 700">{{b.name}}</span><span style="font-size: 13px; color: #556070">{{b.where}} · {{b.used}}</span></span>
-<span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-size: 14px; font-weight: 700; color: {{b.sigColor}}">{{b.signal}}</span><span style="font-size: 12px; color: #556070">{{b.note}}</span></span>
-</button>
-</sc-for>
 </div>
 </sc-if>
 
 <sc-if value="{{w4}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
-<sc-for list="{{tests}}" as="t" hint-placeholder-count="3">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{tests}}" as="t" hint-placeholder-count="4">
 <button onClick="{{t.run}}" style="{{t.style}}"><span style="font-size: 15px; font-weight: 700">{{t.label}}</span><span style="font-size: 12px">{{t.result}}</span></button>
 </sc-for>
 </div>
-<sc-if value="{{photoDone}}" hint-placeholder-val="{{false}}"><div style="display: flex; gap: 12px; align-items: center; font-size: 13px; color: #3A4555"><img src="/demo/img/sk/unit-mesh-large.jpg" alt="Photo of the fitted padlock" width="96" height="64" style="border-radius: 10px; object-fit: cover">Install photo saved to the unit record.</div></sc-if>
-<span style="font-size: 13px; color: #556070; line-height: 1.5">When you mark it ready, {{wizUnitId}} appears on the map, J. Thomas gets the digital key in the customer app, and every step above is saved in the access log.</span>
+<sc-if value="{{photoDone}}" hint-placeholder-val="{{false}}"><div style="display: flex; gap: 12px; align-items: center; font-size: 13px; color: #3A4555"><img src="/demo/img/sk/unit-mesh-large.jpg" alt="Photo of the fitted lock and reader" width="96" height="64" style="border-radius: 10px; object-fit: cover">Install photo saved to the unit record.</div></sc-if>
+<span style="font-size: 13px; color: #556070; line-height: 1.5">When you mark it ready, {{wizUnitId}} appears on the map, J. Thomas gets access in the customer app (app, face at the gate, card and PIN at the door), and every step above is saved in the access log.</span>
 </div>
 </sc-if>
 
@@ -274,6 +266,94 @@ button{font-family:inherit}
 <button onClick="{{wizBack}}" style="min-height: 46px; padding: 0 18px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{wizBackLabel}}</button>
 <button onClick="{{wizNext}}" aria-disabled="{{wizNextDisabled}}" style="{{wizNextStyle}}">{{wizNextLabel}}</button>
 </div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{devOpen}}" hint-placeholder-val="{{false}}">
+<div style="position: fixed; inset: 0; z-index: 50; background: rgba(28,26,24,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div role="dialog" aria-modal="true" aria-label="Devices" style="width: 100%; max-width: 760px; max-height: 100%; overflow-y: auto; background: #FFFFFF; border-radius: 18px; padding: 22px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; color: #1C1A18">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 700; color: #A8520A; letter-spacing: 0.06em">SHARJAH · TECHNICAL SETTINGS</span><span style="font-size: 22px; font-weight: 800">{{devTitle}}</span></div>
+<button onClick="{{closeDevices}}" aria-label="Close" style="width: 40px; height: 40px; border-radius: 20px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 18px; cursor: pointer; flex: none">✕</button>
+</div>
+
+<sc-if value="{{devIsList}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button onClick="{{devAddLan}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: none; background: #F48922; color: #1C1A18; font-size: 14px; font-weight: 700; cursor: pointer">+ Add a device</button>
+<button onClick="{{devScan}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #D4D8DE; background: #FFFFFF; color: #1C1A18; font-size: 14px; font-weight: 600; cursor: pointer">{{scanBtnLabel}}</button>
+</div>
+<sc-if value="{{hasFound}}" hint-placeholder-val="{{false}}">
+<div style="background: #FEF1E4; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700">Found on this network, not added yet</span>
+<sc-for list="{{found}}" as="f" hint-placeholder-count="2">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 14px"><span><b>{{f.model}}</b> · {{f.ip}} · {{f.kind}}</span><button onClick="{{f.add}}" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #F48922; background: #FFFFFF; color: #A8520A; font-size: 13px; font-weight: 700; cursor: pointer">Add</button></div>
+</sc-for>
+</div>
+</sc-if>
+<sc-for list="{{devices}}" as="d" hint-placeholder-count="4">
+<div style="display: flex; gap: 14px; align-items: center; border: 1px solid #E3E7EC; border-radius: 14px; padding: 10px 14px 10px 10px">
+<img src="{{d.img}}" alt="{{d.model}}" width="64" height="64" referrerpolicy="no-referrer" loading="lazy" style="object-fit: contain; background: #F5F1EC; border-radius: 10px; flex: none">
+<div style="display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0"><span style="font-size: 15px; font-weight: 700">{{d.name}}</span><span style="font-size: 13px; color: #556070">{{d.model}} · {{d.addr}}</span><span style="font-size: 12px; color: #556070">{{d.caps}}</span></div>
+<span style="{{d.pill}}">{{d.status}}</span>
+</div>
+</sc-for>
+<span style="font-size: 12px; color: #6B7280">Product photos load from hikvision.com.</span>
+</div>
+</sc-if>
+
+<sc-if value="{{devIsAdd}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: #EFE7DF; border-radius: 12px; padding: 4px">
+<button onClick="{{modeLan}}" style="{{segLan}}">Same network</button>
+<button onClick="{{modeIsup}}" style="{{segIsup}}">Over the internet (ISUP)</button>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Device name<input value="{{devName}}" onInput="{{typeDevName}}" style="min-height: 44px; border-radius: 10px; border: 1px solid #C7CDD5; padding: 0 12px; font-size: 15px; font-family: inherit"></label>
+<sc-if value="{{isLan}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">IP address<input value="{{devIp}}" onInput="{{typeDevIp}}" style="min-height: 44px; border-radius: 10px; border: 1px solid #C7CDD5; padding: 0 12px; font-size: 15px; font-family: inherit"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Port<input value="443" style="min-height: 44px; border-radius: 10px; border: 1px solid #C7CDD5; padding: 0 12px; font-size: 15px; font-family: inherit"></label>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Device username<input value="storagekeys-app" style="min-height: 44px; border-radius: 10px; border: 1px solid #C7CDD5; padding: 0 12px; font-size: 15px; font-family: inherit"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Device password<input type="password" value="demopassword" style="min-height: 44px; border-radius: 10px; border: 1px solid #C7CDD5; padding: 0 12px; font-size: 15px; font-family: inherit"></label>
+</div>
+<span style="font-size: 12px; color: #556070; line-height: 1.45">Create a separate user on the device for the app, not the admin account. The password is stored encrypted and never shown again.</span>
+</div>
+</sc-if>
+<sc-if value="{{isIsup}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 10px; background: #FCF8F5; border-radius: 12px; padding: 14px">
+<span style="font-size: 14px; line-height: 1.5">On the device's own settings page, open <b>Network → Platform Access</b>, choose <b>ISUP 5.0</b> and enter these. The device then connects to the Storage Keys server by itself: no port forwarding and no PC on site.</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 13px">
+<div style="background: #FFFFFF; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Server address</span><b>access.storagekeys.com</b></div>
+<div style="background: #FFFFFF; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Device ID</span><b>SK-SHJ-0031</b></div>
+<div style="background: #FFFFFF; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Key</span><b>7Q4M-29XK</b></div>
+</div>
+</div>
+</sc-if>
+<button onClick="{{devTest}}" style="{{devTestStyle}}">{{devTestLabel}}</button>
+<sc-if value="{{devFound}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; gap: 14px; align-items: flex-start; border: 2px solid #2E9E6B; background: #F4FBF8; border-radius: 14px; padding: 14px">
+<img src="https://assets.hikvision.com/prd/normal/all/image/m000111055/K1T342-%E9%BB%91%E8%89%B2-%E6%8C%87%E7%BA%B9%E6%AC%BE-%E6%AD%A3%E8%A7%86%E5%9B%BE.png.thumb.1280.1280.png" alt="DS-K1T342MFWX-E1 face terminal" width="76" height="76" referrerpolicy="no-referrer" style="object-fit: contain; background: #FFFFFF; border-radius: 10px; flex: none">
+<div style="display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 15px; font-weight: 800">Found: Face recognition terminal DS-K1T342MFWX-E1</span>
+<span style="font-size: 13px; color: #556070">Serial ending 4471 · firmware up to date · ISAPI and ISUP 5.0</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{devCaps}}" as="c" hint-placeholder-count="6">
+<span style="font-size: 12px; font-weight: 700; padding: 4px 9px; border-radius: 999px; background: #E3F4EE; color: #0B5E4D">✓ {{c}}</span>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+<div style="display: flex; justify-content: space-between; gap: 10px; border-top: 1px solid #EEF1F4; padding-top: 14px">
+<button onClick="{{devBack}}" style="min-height: 46px; padding: 0 18px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">Back</button>
+<button onClick="{{devSave}}" aria-disabled="{{devSaveDisabled}}" style="{{devSaveStyle}}">Add device</button>
+</div>
+</div>
+</sc-if>
 </div>
 </div>
 </sc-if>
@@ -286,9 +366,10 @@ class Component extends DCLogic {
     this.state = {
       floor: 'G', selected: 'B-106', panel: 'detail', emergency: false, ending: false, emStarted: '',
       overrides: {}, pinFor: '', pin: '', extra: 0,
-      wiz: 0, wW: 3, wD: 4.5, wH: 2.4, lockStage: 0, bridge: 'E-2', tUnlock: false, tLock: false, photoDone: false,
+      devOpen: false, devView: 'list', devMode: 'lan', devStage: 0, devScanned: false, devName: 'Face terminal · Lift lobby, first floor', devIp: '192.168.10.35', devAdded: [],
+      wiz: 0, wW: 3, wD: 4.5, wH: 2.4, lockStage: 0, bridge: 'AC-E3', hw: {}, tUnlock: false, tLock: false, tCard: false, photoDone: false,
       log: [
-        { time: '10:42', unit: 'B-106', who: 'Customer M. Haddad', how: 'Bluetooth', result: 'Opened', kind: 'ok' },
+        { time: '10:42', unit: 'B-106', who: 'Customer M. Haddad', how: 'App (remote)', result: 'Opened', kind: 'ok' },
         { time: '10:40', unit: 'Main gate', who: 'Rahul (shared, B-106)', how: 'Face terminal', result: 'Entered', kind: 'ok' },
         { time: '10:31', unit: 'C-104', who: 'Customer J. Thomas', how: 'NFC card', result: 'Opened', kind: 'ok' },
         { time: '10:18', unit: 'A-105', who: 'Unknown', how: 'Keypad PIN', result: 'Denied, wrong PIN', kind: 'bad' },
@@ -317,7 +398,7 @@ class Component extends DCLogic {
       open: ['#E3F4EE', '1px solid #2E9E6B', '#0B5E4D'],
       alert: ['#FBE9E9', '1px solid #C0392B', '#8E1F1F']
     };
-    const words = { occupied: 'Rented, locked', vacant: 'Vacant, locked', overdue: 'Access paused, unpaid', open: 'Open now', alert: 'Low battery, check lock' };
+    const words = { occupied: 'Rented, locked', vacant: 'Vacant, locked', overdue: 'Access paused, unpaid', open: 'Open now', alert: 'Door held open, check unit' };
     const layout = s.floor === 'G'
       ? [['A', 16], ['B', 16], ['C', 16], ['D', 16]]
       : [['E', 8 + s.extra], ['F', 10]];
@@ -336,8 +417,8 @@ class Component extends DCLogic {
           id: id, status: status, statusText: words[status],
           tenant: status === 'vacant' ? 'No customer' : names[k % names.length],
           plan: status === 'vacant' ? 'None' : plans[k % plans.length],
-          battery: (status === 'alert' ? 14 : 55 + (k * 7) % 45) + '%',
-          gateway: 'G3-' + c + (i < n / 2 ? '1' : '2'),
+          battery: status === 'alert' ? 'Open 6 min, alert sent' : (status === 'open' ? 'Open now' : 'Closed'),
+          gateway: 'AC-' + c + (Math.floor(i / 4) + 1) + ', door ' + (i % 4 + 1),
           pill: 'font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 999px; background: ' + L[0] + '; color: ' + L[2] + '; border: ' + L[1]
         };
         counts.total++;
@@ -354,7 +435,7 @@ class Component extends DCLogic {
         });
         k++;
       }
-      return { name: 'Corridor ' + c, gateways: 'Gateways G3-' + c + '1, G3-' + c + '2 online', units: units };
+      return { name: 'Corridor ' + c, gateways: Math.ceil(n / 4) + ' door controllers online', units: units };
     });
     const sel = info[s.selected] || info[corridors[0].units[0].short];
     const tab = (on) => 'min-height: 44px; padding: 0 14px; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; border: 1px solid ' + (on ? '#1C1A18' : '#D4D8DE') + '; background: ' + (on ? '#1C1A18' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#0F172A');
@@ -394,11 +475,49 @@ class Component extends DCLogic {
       goFirst: () => this.setState({ floor: '1', selected: 'E-201', panel: 'detail' }),
       tabGround: tab(s.floor === 'G'), tabFirst: tab(s.floor === '1'),
 
-      openWiz: () => this.setState({ wiz: 1, wW: 3, wD: 4.5, wH: 2.4, lockStage: 0, bridge: 'E-2', tUnlock: false, tLock: false, photoDone: false }),
+
+      devOpen: s.devOpen,
+      openDevices: () => this.setState({ devOpen: true, devView: 'list', devStage: 0 }),
+      closeDevices: () => this.setState({ devOpen: false }),
+      devTitle: s.devView === 'list' ? 'Devices' : 'Add a device',
+      devIsList: s.devView === 'list', devIsAdd: s.devView === 'add',
+      devAddLan: () => this.setState({ devView: 'add', devMode: 'lan', devStage: 0 }),
+      scanBtnLabel: s.devScanned ? 'Search again' : 'Search this network',
+      devScan: () => this.setState({ devScanned: true }),
+      hasFound: s.devScanned && !s.devAdded.length,
+      found: [['DS-K1T342MFWX-E1', '192.168.10.35', 'Face terminal'], ['DS-K2604T', '192.168.10.48', 'Door controller']].map((f) => ({ model: f[0], ip: f[1], kind: f[2],
+        add: () => this.setState({ devView: 'add', devMode: 'lan', devStage: 0, devIp: f[1], devName: f[2] === 'Face terminal' ? 'Face terminal · Lift lobby, first floor' : 'Door controller AC-F2' }) })),
+      devices: [
+        { name: 'Face terminal · Main gate', model: 'DS-K1T342MFWX-E1', addr: '192.168.10.21 · ISAPI', caps: 'Face, card, fingerprint, PIN · opens the gate · live events', img: 'https://assets.hikvision.com/prd/normal/all/image/m000111055/K1T342-%E9%BB%91%E8%89%B2-%E6%8C%87%E7%BA%B9%E6%AC%BE-%E6%AD%A3%E8%A7%86%E5%9B%BE.png.thumb.1280.1280.png', status: 'Online' },
+        { name: 'Face terminal · Lift lobby, ground', model: 'DS-K1T342MFWX-E1', addr: '192.168.10.22 · ISAPI', caps: 'Face, card, PIN · calls the lift · live events', img: 'https://assets.hikvision.com/prd/normal/all/image/m000111055/K1T342-%E9%BB%91%E8%89%B2-%E6%8C%87%E7%BA%B9%E6%AC%BE-%E6%AD%A3%E8%A7%86%E5%9B%BE.png.thumb.1280.1280.png', status: 'Online' },
+        { name: 'Door controllers · 16 on ground floor', model: 'DS-K2604T', addr: '192.168.10.40 to .55 · ISAPI', caps: '4 unit doors each · door sensors · held-open alarms · works offline', img: 'https://assets.hikvision.com/prd/normal/all/image/m000044507/2600T.png.thumb.1280.1280.png', status: '16 online' },
+        { name: 'Unit door readers · 64', model: 'DS-K1105EMKB-QR', addr: 'Through the door controllers', caps: 'Card, PIN keypad, QR code, Bluetooth', img: 'https://assets.hikvision.com/prd/normal/all/image/m000164033/1105-%E4%BA%8C%E7%BB%B4%E7%A0%81-%E6%AD%A3%E8%A7%86%E5%9B%BE.png.thumb.1280.1280.png', status: '64 online' }
+      ].concat(s.devAdded).map((d) => Object.assign({}, d, { pill: 'font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap; background: #E3F4EE; color: #0B5E4D' })),
+      isLan: s.devMode === 'lan', isIsup: s.devMode === 'isup',
+      modeLan: () => this.setState({ devMode: 'lan', devStage: 0 }), modeIsup: () => this.setState({ devMode: 'isup', devStage: 0 }),
+      segLan: 'min-height: 40px; border-radius: 9px; border: none; cursor: pointer; font-size: 14px; font-weight: 700; color: #1C1A18; background: ' + (s.devMode === 'lan' ? '#FFFFFF' : 'transparent'),
+      segIsup: 'min-height: 40px; border-radius: 9px; border: none; cursor: pointer; font-size: 14px; font-weight: 700; color: #1C1A18; background: ' + (s.devMode === 'isup' ? '#FFFFFF' : 'transparent'),
+      devName: s.devName, devIp: s.devIp,
+      typeDevName: (e) => { this.state.devName = e.target.value; }, typeDevIp: (e) => { this.state.devIp = e.target.value; },
+      devTestLabel: s.devMode === 'lan' ? ['Test connection', 'Connecting to ' + s.devIp + '…', 'Connected · device details read'][s.devStage] : ['Check if the device has connected', 'Waiting for the device…', 'Device connected to the server'][s.devStage],
+      devTestStyle: 'min-height: 48px; border-radius: 12px; border: none; font-size: 15px; font-weight: 700; cursor: pointer; background: ' + (s.devStage === 2 ? '#E3F4EE' : '#1C1A18') + '; color: ' + (s.devStage === 2 ? '#0B5E4D' : '#FFFFFF'),
+      devTest: () => { if (s.devStage) return; this.setState({ devStage: 1 }); setTimeout(() => this.setState({ devStage: 2 }), 1300); },
+      devFound: s.devStage === 2,
+      devCaps: ['Open and lock doors', 'Add faces', 'Cards', 'PIN codes', 'Live access events', 'Door status'],
+      devBack: () => this.setState({ devView: 'list', devStage: 0 }),
+      devSaveDisabled: s.devStage === 2 ? 'false' : 'true',
+      devSaveStyle: 'min-height: 46px; padding: 0 22px; border-radius: 12px; border: none; font-size: 15px; font-weight: 700; cursor: ' + (s.devStage === 2 ? 'pointer' : 'not-allowed') + '; background: ' + (s.devStage === 2 ? '#F48922' : '#E3E7EC') + '; color: ' + (s.devStage === 2 ? '#1C1A18' : '#6B7280'),
+      devSave: () => {
+        if (s.devStage !== 2) return;
+        const name = s.devName || 'New device';
+        this.setState({ devView: 'list', devStage: 0, devAdded: s.devAdded.concat([{ name: name, model: 'DS-K1T342MFWX-E1', addr: (s.devMode === 'lan' ? s.devIp + ' · ISAPI' : 'Device ID SK-SHJ-0031 · ISUP 5.0'), caps: 'Face, card, fingerprint, PIN · live events', img: 'https://assets.hikvision.com/prd/normal/all/image/m000111055/K1T342-%E9%BB%91%E8%89%B2-%E6%8C%87%E7%BA%B9%E6%AC%BE-%E6%AD%A3%E8%A7%86%E5%9B%BE.png.thumb.1280.1280.png', status: 'Online' }]) });
+        this.addLog({ unit: name, who: 'Manager', how: 'Devices', result: 'Device added and synced: customers, faces and access rules', kind: 'info' });
+      },
+      openWiz: () => this.setState({ wiz: 1, wW: 3, wD: 4.5, wH: 2.4, lockStage: 0, bridge: 'AC-E3', hw: {}, tUnlock: false, tLock: false, tCard: false, photoDone: false }),
       closeWiz: () => this.setState({ wiz: 0 }),
       wizOpen: s.wiz > 0, w1: s.wiz === 1, w2: s.wiz === 2, w3: s.wiz === 3, w4: s.wiz === 4,
       wizUnitId: 'E-' + (209 + s.extra),
-      wizSteps: ['Unit size', 'Register padlock', 'Connect bridge', 'Test and go live'].map((l, i) => ({ label: (i + 1) + '. ' + l,
+      wizSteps: ['Unit size', 'Fit door hardware', 'Add door to system', 'Test and go live'].map((l, i) => ({ label: (i + 1) + '. ' + l,
         bar: 'display: block; height: 5px; border-radius: 3px; background: ' + (i + 1 <= s.wiz ? '#F48922' : '#E3E7EC'),
         text: 'font-size: 12px; font-weight: ' + (i + 1 === s.wiz ? '800' : '600') + '; color: ' + (i + 1 === s.wiz ? '#1C1A18' : '#556070') })),
       dims: [['wW', 'Width'], ['wD', 'Depth'], ['wH', 'Height']].map((d) => ({ label: d[1], value: s[d[0]].toFixed(1),
@@ -406,37 +525,43 @@ class Component extends DCLogic {
         minus: () => this.setState({ [d[0]]: Math.max(1, s[d[0]] - 0.5) }), plus: () => this.setState({ [d[0]]: Math.min(d[0] === 'wH' ? 3 : 8, s[d[0]] + 0.5) }) })),
       wSqft: Math.round(s.wW * s.wD * 10.764), wVol: (s.wW * s.wD * s.wH).toFixed(1),
       wPrice: Math.round(s.wW * s.wD * 10.764 * 7.4 / 10) * 10,
-      scanLabel: ['Scan the padlock with the admin phone', 'Searching over Bluetooth…', 'Registering…', 'Registered and linked'][s.lockStage],
+      scanLabel: ['Add the door and sync', 'Connecting to ' + s.bridge + '…', 'Syncing access…', 'Door added and live'][s.lockStage],
       scanStyle: 'min-height: 48px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; background: ' + (s.lockStage === 3 ? '#E3F4EE' : '#1C1A18') + '; color: ' + (s.lockStage === 3 ? '#0B5E4D' : '#FFFFFF'),
       scanLock: () => { if (s.lockStage) return; this.setState({ lockStage: 1 });
         setTimeout(() => this.setState({ lockStage: 2 }), 1100); setTimeout(() => this.setState({ lockStage: 3 }), 2300); },
       lockFound: s.lockStage >= 2,
-      lockChecks: ['Padlock found over Bluetooth', 'Registered to the Storage Keys account', 'Linked to unit E-' + (209 + s.extra), 'Clock set and factory codes removed'].map((l, i) => { const done = s.lockStage >= 3 || (s.lockStage === 2 && i === 0); return {
+      lockChecks: ['Door ' + (s.bridge === 'AC-F1' ? 4 : 3) + ' on ' + s.bridge + ' named E-' + (209 + s.extra), 'Lock, reader and door sensor detected', 'Customer access synced: app, face, card, PIN', 'Live events and door-open alerts on'].map((l, i) => { const done = s.lockStage >= 3 || (s.lockStage === 2 && i === 0); return {
         label: l, mark: done ? '✓' : (i + 1), text: 'color: ' + (done ? '#1C1A18' : '#556070') + '; font-weight: ' + (done ? '600' : '400'),
         dot: 'width: 24px; height: 24px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; background: ' + (done ? '#1E8E5A' : '#EEF1F4') + '; color: ' + (done ? '#FFFFFF' : '#556070') }; }),
-      bridges: [['E-1', 'Corridor E, near the lift', '5 of 5 locks', 'Weak', '#C0392B', 'Full'], ['E-2', 'Corridor E, middle', '3 of 5 locks', 'Strong', '#1E8E5A', 'Recommended'], ['F-1', 'Corridor F, entrance', '2 of 5 locks', 'Fair', '#8A4B0F', 'Further away']].map((b) => ({
-        name: 'Bridge ' + b[0], where: b[1], used: b[2], signal: b[3] + ' signal', sigColor: b[4], note: b[5],
-        pick: () => { if (b[5] === 'Full') return; this.setState({ bridge: b[0] }); },
-        style: 'display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; color: #1C1A18; cursor: ' + (b[5] === 'Full' ? 'not-allowed; opacity: 0.55' : 'pointer') + '; border: ' + (s.bridge === b[0] ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (s.bridge === b[0] ? '#FEF1E4' : '#FFFFFF') })),
-      tests: [['tUnlock', 'Test unlock', 'Opened in 0.8 s'], ['tLock', 'Test lock', 'Shackle closed, locked'], ['photoDone', 'Install photo', 'Photo saved']].map((t) => ({ label: t[1], result: s[t[0]] ? '✓ ' + t[2] : 'Tap to run',
+      ctrls: [['AC-E1', 'Corridor E, near the lift', '4 of 4 doors used', '#C0392B', 'Full'], ['AC-E3', 'Corridor E, middle', '2 of 4 doors used', '#1E8E5A', 'Door 3 free · wired here'], ['AC-F1', 'Corridor F, entrance', '3 of 4 doors used', '#8A4B0F', 'Door 4 free · longer cable']].map((b) => ({
+        name: 'Controller ' + b[0] + ' · DS-K2604T', where: b[1], used: b[2], sigColor: b[3], note: b[4],
+        pick: () => { if (b[4] === 'Full' || s.lockStage) return; this.setState({ bridge: b[0] }); },
+        style: 'display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; color: #1C1A18; cursor: ' + (b[4] === 'Full' ? 'not-allowed; opacity: 0.55' : 'pointer') + '; border: ' + (s.bridge === b[0] ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (s.bridge === b[0] ? '#FEF1E4' : '#FFFFFF') })),
+      hwItems: [['lock', 'Smart lock on the door frame', 'Fail-secure electric lock: stays locked in a power cut'], ['reader', 'Keypad and card reader', 'Hikvision DS-K1105EMKB-QR beside the door: card, PIN, QR code and phone'], ['sensor', 'Door sensor', 'Tells the system if the door is open or closed'], ['cable', 'Cables to the controller', 'Lock, reader and sensor wired to the corridor E cabinet']].map((h) => { const on = !!s.hw[h[0]]; return {
+        label: h[1], text: h[2], pressed: on ? 'true' : 'false', mark: on ? '✓' : '',
+        toggle: () => this.setState({ hw: Object.assign({}, s.hw, { [h[0]]: !on }) }),
+        box: 'width: 24px; height: 24px; border-radius: 6px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #1C1A18; border: 2px solid ' + (on ? '#F48922' : '#9AA5B4') + '; background: ' + (on ? '#F48922' : '#FFFFFF'),
+        style: 'display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 12px; cursor: pointer; color: #1C1A18; border: ' + (on ? '2px solid #F48922' : '1px solid #E3E7EC') + '; background: ' + (on ? '#FFF8F1' : '#FFFFFF') }; }),
+      tests: [['tUnlock', 'Open from the app', 'Opened in 0.6 s'], ['tLock', 'Door sensor', 'Open and closed detected'], ['tCard', 'Card and PIN', 'Test card and PIN accepted'], ['photoDone', 'Install photo', 'Photo saved']].map((t) => ({ label: t[1], result: s[t[0]] ? '✓ ' + t[2] : 'Tap to run',
         run: () => this.setState({ [t[0]]: true }),
         style: 'min-height: 72px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: ' + (s[t[0]] ? '#0B5E4D' : '#1C1A18') + '; border: ' + (s[t[0]] ? '2px solid #2E9E6B' : '1px solid #D4D8DE') + '; background: ' + (s[t[0]] ? '#E3F4EE' : '#FFFFFF') })),
       photoDone: s.photoDone,
       wizBackLabel: s.wiz === 1 ? 'Cancel' : 'Back',
       wizBack: () => this.setState({ wiz: s.wiz === 1 ? 0 : s.wiz - 1 }),
-      wizNextDisabled: (s.wiz === 2 && s.lockStage < 3) || (s.wiz === 4 && !(s.tUnlock && s.tLock && s.photoDone)) ? 'true' : 'false',
+      wizNextDisabled: (s.wiz === 2 && !(s.hw.lock && s.hw.reader && s.hw.sensor && s.hw.cable)) || (s.wiz === 3 && s.lockStage < 3) || (s.wiz === 4 && !(s.tUnlock && s.tLock && s.tCard && s.photoDone)) ? 'true' : 'false',
       wizNextLabel: s.wiz === 4 ? 'Mark ready to rent' : 'Next',
-      wizNextStyle: (() => { const off = (s.wiz === 2 && s.lockStage < 3) || (s.wiz === 4 && !(s.tUnlock && s.tLock && s.photoDone));
+      wizNextStyle: (() => { const off = (s.wiz === 2 && !(s.hw.lock && s.hw.reader && s.hw.sensor && s.hw.cable)) || (s.wiz === 3 && s.lockStage < 3) || (s.wiz === 4 && !(s.tUnlock && s.tLock && s.tCard && s.photoDone));
         return 'min-height: 46px; padding: 0 22px; border-radius: 12px; border: none; font-size: 15px; font-weight: 700; cursor: ' + (off ? 'not-allowed' : 'pointer') + '; background: ' + (off ? '#E3E7EC' : '#F48922') + '; color: ' + (off ? '#6B7280' : '#1C1A18'); })(),
       wizNext: () => {
-        if (s.wiz === 2 && s.lockStage < 3) return;
+        if (s.wiz === 2 && !(s.hw.lock && s.hw.reader && s.hw.sensor && s.hw.cable)) return;
+        if (s.wiz === 3 && s.lockStage < 3) return;
         if (s.wiz < 4) return this.setState({ wiz: s.wiz + 1 });
-        if (!(s.tUnlock && s.tLock && s.photoDone)) return;
+        if (!(s.tUnlock && s.tLock && s.tCard && s.photoDone)) return;
         const id = 'E-' + (209 + s.extra);
         this.setState({ wiz: 0, extra: s.extra + 1, selected: id });
-        this.addLog({ unit: id, who: 'Manager', how: 'Unit setup', result: 'Padlock SP2E-4K7Q-19A3 registered, Bridge ' + s.bridge + ', tests passed, ready to rent', kind: 'info' });
+        this.addLog({ unit: id, who: 'Manager', how: 'Unit setup', result: 'Door ' + (s.bridge === 'AC-F1' ? 4 : 3) + ' on ' + s.bridge + ': lock, reader and sensor tested, ready to rent', kind: 'info' });
       },
-      addUnit: () => { this.setState({ extra: s.extra + 1 }); this.addLog({ unit: 'E-' + (209 + s.extra), who: 'Manager', how: 'Unit editor', result: 'New unit created, padlock paired', kind: 'info' }); },
+      addUnit: () => { this.setState({ extra: s.extra + 1 }); this.addLog({ unit: 'E-' + (209 + s.extra), who: 'Manager', how: 'Unit editor', result: 'New unit created, door hardware fitted', kind: 'info' }); },
       corridors: corridors,
       sel: sel,
       panelDetail: s.panel === 'detail', panelReason: s.panel === 'reason', panelApproving: s.panel === 'approving', panelApproved: s.panel === 'approved',

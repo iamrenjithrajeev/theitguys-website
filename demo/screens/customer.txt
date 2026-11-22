@@ -169,7 +169,7 @@ button,input{font-family:inherit}
 </div>
 <div style="padding: 8px 20px 24px; display: flex; flex-direction: column; gap: 14px">
 <div style="height: 150px; border-radius: 18px; background: #2B2622 url('/demo/img/sk/custom.jpg') center / cover no-repeat" role="img" aria-label="Mesh-walled storage units on the first floor"></div>
-<span style="font-size: 15px; color: #3A4555; line-height: 1.5">Pick a size. We build your mesh-walled unit on the first floor, fit your smart padlock, and send you the key when it's ready.</span>
+<span style="font-size: 15px; color: #3A4555; line-height: 1.5">Pick a size. We build your mesh-walled unit on the first floor, fit the smart lock, keypad reader and door sensor, and send you the key when it's ready.</span>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
 <sc-for list="{{customSizes}}" as="c" hint-placeholder-count="3">
 <button onClick="{{c.pick}}" style="{{c.style}}"><span style="font-family: Figtree, sans-serif; font-size: 24px; font-weight: 700">{{c.sqft}}</span><span style="font-size: 12px; font-weight: 600">sq ft</span><span style="font-size: 13px; font-weight: 700; margin-top: 6px">AED {{c.price}}</span></button>
@@ -345,8 +345,8 @@ button,input{font-family:inherit}
 <span style="font-size: 13px; color: #E7DDD4; text-align: center; max-width: 260px">{{unlockHint}}</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; border-top: 1px solid #2B2622; padding-top: 14px; font-size: 12px; color: #E7DDD4">
-<div style="display: flex; flex-direction: column; gap: 2px; align-items: center"><span style="font-size: 15px; font-weight: 700; color: #FFFFFF">86%</span>Battery</div>
-<div style="display: flex; flex-direction: column; gap: 2px; align-items: center"><span style="font-size: 15px; font-weight: 700; color: #FFFFFF">Online</span>Gateway</div>
+<div style="display: flex; flex-direction: column; gap: 2px; align-items: center"><span style="font-size: 15px; font-weight: 700; color: #FFFFFF">Closed</span>Door sensor</div>
+<div style="display: flex; flex-direction: column; gap: 2px; align-items: center"><span style="font-size: 15px; font-weight: 700; color: #FFFFFF">Online</span>Door controller</div>
 <div style="display: flex; flex-direction: column; gap: 2px; align-items: center"><span style="font-size: 15px; font-weight: 700; color: #FFFFFF">{{peopleCount}}</span>With access</div>
 </div>
 </div>
@@ -599,9 +599,10 @@ class Component extends DCLogic {
         { what: 'Deposit and first month', when: '1 Sep', how: 'Visa ending 1234', amount: 'AED 922.50' }
       ],
       history: [
-        { what: 'Unlocked by you', when: 'Today 10:42', how: 'Bluetooth + Face ID', kind: 'open' },
+        { what: 'Unlocked by you', when: 'Today 10:42', how: 'App + Face ID', kind: 'open' },
         { what: 'Entered main gate', when: 'Today 10:40', how: 'Face, gate terminal', kind: 'gate' },
         { what: 'Unlocked by Rahul (guest)', when: 'Sat 09:12', how: 'Own app + Face ID', kind: 'open' },
+        { what: 'Door left open for 5 minutes', when: 'Sat 09:20', how: 'Alert sent to you and the front desk', kind: 'bad' },
         { what: 'Login from a new phone blocked', when: 'Mon 02:14', how: 'Wrong code, unknown device', kind: 'bad' },
         { what: 'Payment received', when: '1 Nov', how: 'Auto-pay', kind: 'pay' }
       ]
@@ -692,7 +693,7 @@ class Component extends DCLogic {
       features: [
         { icon: I.box, title: bk.sqft + ' sq ft · ' + (bk.type || 'Storage unit'), text: bk.fits },
         { icon: I.shield, title: 'Climate controlled, insurance included', text: 'Cool, dry air all year. Basic cover for your belongings is in the price.' },
-        { icon: I.lock, title: 'Smart padlock included', text: 'Open with your phone and Face ID, an NFC card or a one-time PIN' },
+        { icon: I.lock, title: 'Smart lock built into the door', text: 'Open with the app, your face at the gate, or your card or PIN on the keypad by the door. Nothing to cut or remove.' },
         { icon: I.cam, title: 'CCTV in every corridor', text: 'Every unlock is logged with a camera clip' },
         { icon: I.clock, title: 'Access hours', text: 'Set by your plan, shown before you pay' },
         { icon: I.eye, title: 'Your contents stay private', text: 'Only you know what is inside. Staff have no key.' }
@@ -708,7 +709,7 @@ class Component extends DCLogic {
       otpTitle: s.otpFor === 'device' ? 'Confirm it is you' : 'Verify your mobile and email',
       verifyOtp: () => this.setState(s.otpFor === 'device' ? { view: 'in', screen: 'home' } : { view: 'terms' }),
       terms: [
-        Object.assign({ icon: I.lock, title: 'How your access works', text: 'Open your unit with this app plus Face ID, an NFC card, or a one-time PIN. The padlock locks itself when you close the shackle. Every open is logged.', box: 'background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 14px; display: flex; gap: 12px' }, termIcon('#E3F4EE', '#0B5E4D')),
+        Object.assign({ icon: I.lock, title: 'How your access works', text: 'Open your unit with this app plus Face ID, an NFC card, or a one-time PIN. The door locks itself when it closes, and you get an alert if it is left open. Every open is logged.', box: 'background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 14px; display: flex; gap: 12px' }, termIcon('#E3F4EE', '#0B5E4D')),
         Object.assign({ icon: I.eye, title: 'Only you know what is inside', text: 'Storage Keys has no key to your unit and does not check or list what you store. Staff open a unit only in an emergency, for a legal order, or after unpaid rent with written notice. Each time is logged and you are told.', box: 'background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 14px; display: flex; gap: 12px' }, termIcon('#E8EEF7', '#1E3A5F')),
         Object.assign({ icon: I.alert, title: 'Never share your login, PIN or card', text: 'Anyone with your details can enter as you. To give someone access, add them in the app: they verify their own ID and get their own key, which you can remove any time.', box: 'background: #FDF7EF; border: 1px solid #F0D3AE; border-radius: 16px; padding: 14px; display: flex; gap: 12px' }, termIcon('#FDF1E3', '#8A4B0F')),
         Object.assign({ icon: I.users, title: 'You are responsible for your people', text: 'Co-renters and guests you add act under your account. What they bring in or take out is your responsibility.', box: 'background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 14px; display: flex; gap: 12px' }, termIcon('#E8EEF7', '#1E3A5F')),
@@ -795,13 +796,13 @@ class Component extends DCLogic {
       unlockIcon: lock === 'open' ? I.check : I.lock,
       unlockStyle: 'width: 170px; height: 170px; border-radius: 85px; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: ' + (s.blocked ? '#6B625A' : (lock === 'open' ? '#1E8E5A' : (lock === 'busy' ? '#3A332D' : '#2B2622'))) + '; box-shadow: 0 0 0 10px ' + (lock === 'open' ? 'rgba(127,216,190,0.35)' : 'rgba(127,216,190,0.12)') + ', 0 0 0 22px ' + (lock === 'open' ? 'rgba(127,216,190,0.15)' : 'rgba(127,216,190,0.05)'),
       unlockLabel: s.blocked ? 'Blocked' : (lock === 'open' ? 'Unlocked' : (lock === 'busy' ? 'Connecting…' : 'Tap to unlock')),
-      unlockHint: s.blocked ? 'You blocked all access in Account.' : (lock === 'open' ? 'Open. It locks again when you close the shackle.' : (lock === 'busy' ? 'Talking to your padlock over Bluetooth…' : 'Stand at your door. You will confirm with Face ID.')),
+      unlockHint: s.blocked ? 'You blocked all access in Account.' : (lock === 'open' ? 'Open. It locks again when you close the door.' : (lock === 'busy' ? 'Sending a secure unlock to your door…' : 'Stand at your door. You will confirm with Face ID.')),
       unlock: () => {
         if (s.lock !== 'idle' || s.blocked) return;
         this.face('Confirm it is you to open ' + bk.id, () => {
           this.setState({ lock: 'busy' });
-          setTimeout(() => { this.setState({ lock: 'open' }); this.addLog({ what: 'Unlocked by you', when: 'Just now', how: 'Bluetooth + Face ID', kind: 'open' }); }, 1200);
-          setTimeout(() => { this.setState({ lock: 'idle' }); this.addLog({ what: 'Locked', when: 'Just now', how: 'Shackle closed', kind: 'info' }); }, 7000);
+          setTimeout(() => { this.setState({ lock: 'open' }); this.addLog({ what: 'Unlocked by you', when: 'Just now', how: 'App + Face ID', kind: 'open' }); }, 1200);
+          setTimeout(() => { this.setState({ lock: 'idle' }); this.addLog({ what: 'Locked', when: 'Just now', how: 'Door closed, sensor confirmed', kind: 'info' }); }, 7000);
         });
       },
       pin: s.pin.slice(0, 3) + ' ' + s.pin.slice(3),
@@ -829,7 +830,7 @@ class Component extends DCLogic {
         pill: 'font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: ' + (p.step >= 4 ? '#E3F4EE' : '#FDF1E3') + '; color: ' + (p.step >= 4 ? '#0B5E4D' : '#8A4B0F'),
         steps: stepLabels.map((l, i) => ({ label: l, bar: 'height: 5px; border-radius: 3px; background: ' + (i < p.step ? '#F48922' : '#E3E7EC') }))
       })),
-      cardLabel: s.cardFrozen ? 'Frozen: it won\'t open anything' : 'Active · tap it on the padlock',
+      cardLabel: s.cardFrozen ? 'Frozen: it won\'t open anything' : 'Active · tap it on the reader by your door',
       cardAction: s.cardFrozen ? 'Unfreeze' : 'Freeze',
       toggleCard: () => { const f = !s.cardFrozen; this.setState({ cardFrozen: f }); this.addLog({ what: f ? 'NFC card frozen' : 'NFC card unfrozen', when: 'Just now', how: 'App', kind: f ? 'bad' : 'info' }); },
       shareNote: coCount ? 'Your 50% share incl. VAT · Aisha pays the other half' : 'Incl. VAT 5%',
