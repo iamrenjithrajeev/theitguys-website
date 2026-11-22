@@ -1,5 +1,5 @@
 // Vercel Routing Middleware: protects /demo/* on theitguys.online.
-// ---- Demo login check (same code in functions/_middleware.js and middleware.js) ----
+// ---- Demo login check (same code in netlify/edge-functions/demo-guard.js, functions/_middleware.js and middleware.js) ----
 // Logins live in the hosting dashboard, never in this repo:
 //   DEMO_USERS  = "storagekeys:LongPassword1,otherclient:LongPassword2"
 //   DEMO_SECRET = any long random string (signs the login cookie)
