@@ -1,0 +1,9 @@
+{
+  "name": "Storage Keys demo by The IT Guys",
+  "short_name": "Storage Keys",
+  "start_url": "/demo/app.html?screen=customer",
+  "scope": "/demo/",
+  "display": "standalone",
+  "background_color": "#0F1E35",
+  "theme_color": "#0F1E35"
+}

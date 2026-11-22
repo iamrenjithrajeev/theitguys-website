@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Client preview login | The IT Guys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;background:#030508;color:#e0e6f1;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;padding:24px;background-image:linear-gradient(rgba(0,230,118,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,230,118,.06) 1px,transparent 1px);background-size:60px 60px}
+.card{width:100%;max-width:400px;background:#0a0d12;border:1px solid rgba(0,230,118,.2);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;gap:18px}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#e0e6f1;text-decoration:none}
+.logo span{color:#00e676}
+h1{font-family:'Space Grotesk',sans-serif;font-size:28px;line-height:1.15}
+p{color:#8a93a6;font-size:15px}
+label{display:flex;flex-direction:column;gap:6px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#8a93a6}
+input{min-height:50px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#030508;color:#e0e6f1;padding:0 14px;font-size:16px;font-family:'Inter',sans-serif}
+input:focus{outline:2px solid #00e676;outline-offset:1px;border-color:transparent}
+button{min-height:52px;border-radius:999px;border:none;background:#00e676;color:#030508;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.err{display:none;background:rgba(255,82,82,.1);border:1px solid rgba(255,82,82,.4);color:#ff8a8a;border-radius:10px;padding:10px 12px;font-size:14px}
+.note{font-size:13px;color:#5a6375}
+</style>
+</head>
+<body>
+<form class="card" method="POST" action="/demo/auth">
+<a class="logo" href="/">THE IT <span>GUYS</span></a>
+<h1>Client preview</h1>
+<p>Log in with the username and password we sent you to see your project demo and updates.</p>
+<div class="err" id="err">That username or password is not right. Try again.</div>
+<label>Username<input name="username" autocomplete="username" required></label>
+<label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+<button type="submit">Log in</button>
+<span class="note">No login yet? Contact The IT Guys on WhatsApp.</span>
+</form>
+<script>if (/[?&]e=1/.test(location.search)) document.getElementById('err').style.display = 'block';</script>
+</body>
+</html>
