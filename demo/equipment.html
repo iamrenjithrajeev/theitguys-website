@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="robots" content="noindex, nofollow"/>
+<meta name="theme-color" content="#030508"/>
+<title>Equipment and locks | Storage Keys demo | The IT Guys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#030508;--bg2:#0a0d12;--text:#e0e6f1;--dim:#8a93a6;--green:#00e676;--amber:#ffb74d;--red:#ff6b6b;--line:rgba(255,255,255,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.55;-webkit-tap-highlight-color:transparent}
+a{color:var(--green)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:20;background:rgba(3,5,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--text);text-decoration:none}
+.logo span{color:var(--green)}
+.back{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:10px 16px}
+.back:hover{color:var(--text)}
+.hero{padding-top:48px;padding-bottom:24px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:12px 0 14px}
+.lead{font-size:18px;color:var(--dim);max-width:760px}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3vw,32px);letter-spacing:-.01em;margin-bottom:8px}
+h3{font-family:'Space Grotesk',sans-serif;font-size:20px;margin-bottom:6px}
+.sub{color:var(--dim);max-width:780px;margin-bottom:22px}
+.verdict{background:var(--bg2);border:1px solid rgba(0,230,118,.35);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.verdict p{color:var(--text)}
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:10px}
+ul.clean li{padding-left:22px;position:relative;color:var(--dim)}
+ul.clean li::before{content:"";position:absolute;left:4px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--green)}
+ul.clean li.warn::before{background:var(--amber)}
+ul.clean li.no::before{background:var(--red)}
+ul.clean b{color:var(--text);font-weight:600}
+.locks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.lock{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.lock.pick{border-color:var(--green);box-shadow:0 0 0 1px rgba(0,230,118,.3)}
+.lock.bad{border-color:rgba(255,107,107,.45)}
+.badge{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 10px;border:1px solid var(--line);color:var(--dim)}
+.pick .badge{color:var(--bg);background:var(--green);border-color:var(--green);font-weight:700}
+.bad .badge{color:var(--red);border-color:rgba(255,107,107,.5)}
+.price{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--dim)}
+.lock dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+.lock dt{color:var(--dim)}
+.lock dd{color:var(--text)}
+.table{width:100%;border-collapse:collapse;font-size:15px}
+.table th,.table td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.table th{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:500}
+.table td:first-child{font-weight:600;min-width:170px}
+.table td .n{display:block;font-weight:400;color:var(--dim);font-size:13px;margin-top:2px}
+.table .why{color:var(--dim)}
+.area{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);padding-top:26px!important}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--bg2)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.box{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px}
+.note{font-size:13px;color:var(--dim);margin-top:14px}
+footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+.wm{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><text x='20' y='120' transform='rotate(-24 150 100)' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23ffffff'>THE IT GUYS · DEMO</text></svg>");background-repeat:repeat}
+@media (max-width:700px){.wrap{padding:0 16px}.hero{padding-top:32px}section{padding:32px 0}.table{font-size:14px}.table th,.table td{padding:12px 10px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="/demo/">THE IT <span>GUYS</span></a>
+<a class="back" href="/demo/">← Back to demo</a>
+</div></header>
+
+<main>
+<div class="wrap hero">
+<div class="eyebrow">Storage Keys · Equipment plan</div>
+<h1>What we install, and which brands.</h1>
+<p class="lead">Everything the system needs to work like the demo: the smart padlocks, what connects them, the gate, cameras and the office. For each item we show the brand we recommend and where you can save money without lowering security.</p>
+</div>
+
+<section id="verdict"><div class="wrap">
+<h2>Will the plan work?</h2>
+<p class="sub">Yes, with three changes to what the demo shows today.</p>
+<div class="verdict">
+<ul class="clean">
+<li class="warn"><b>Unlock by card at the unit door needs the premium lock.</b> Only Nokē has a card reader on the unit lock. With the value lock (igloohome), customers open their unit with the app or a PIN, and the card works at the gate only.</li>
+<li class="warn"><b>Live logs and remote unlock need a connection box near every lock.</b> The padlocks work offline, but the admin panel only sees an unlock straight away, and can only open a lock remotely, if a gateway or bridge is in range. We plan these per corridor.</li>
+<li class="warn"><b>Fire mode must be wired, not only in the app.</b> When the fire alarm goes off, the gate and exit doors must open on their own, through a relay from the fire panel, even if the internet or the app is down. The app then shows and logs it. Unit padlocks stay locked, as in the demo.</li>
+</ul>
+</div>
+</div></section>
+
+<section id="locks"><div class="wrap">
+<h2>Smart padlock: which brand</h2>
+<p class="sub">This is the biggest cost, one lock per unit. Prices are a guide only; we confirm them in the quotation after testing sample locks on your mesh doors.</p>
+<div class="locks">
+
+<article class="lock pick">
+<span class="badge">Recommended · best value</span>
+<h3>igloohome Padlock 2E</h3>
+<span class="price">Mid price · sold in the UAE</span>
+<dl>
+<dt>Opens with</dt><dd>App (Bluetooth) and PIN code</dd>
+<dt>Strength</dt><dd>9 mm boron steel shackle, CEN grade 3, anti-tamper</dd>
+<dt>Weather</dt><dd>IPX8, −30 to 55 °C</dd>
+<dt>Offline</dt><dd>One-time and timed PINs work with no internet</dd>
+<dt>Battery</dt><dd>Rechargeable, about 12 months, USB-C emergency power</dd>
+<dt>Wrong PINs</dt><dd>Keypad locks after several wrong tries</dd>
+<dt>Needs</dt><dd>igloohome Bridge for remote unlock and live logs (each Bridge covers only a few locks)</dd>
+</dl>
+</article>
+
+<article class="lock">
+<span class="badge">Premium · storage industry standard</span>
+<h3>Nokē Infinitē by Janus</h3>
+<span class="price">Highest price · imported</span>
+<dl>
+<dt>Opens with</dt><dd>App (Bluetooth) and NFC card</dd>
+<dt>Strength</dt><dd>Boron hardened steel, 128-bit AES encryption, built for storage doors</dd>
+<dt>Battery</dt><dd>5-year guaranteed battery; the card still works after the battery runs out</dd>
+<dt>Extras</dt><dd>Gate keypads, overlocking and lock checks designed for self-storage</dd>
+<dt>Best for</dt><dd>If unit-door card access is a must, or the owner wants the most proven storage system</dd>
+</dl>
+</article>
+
+<article class="lock bad">
+<span class="badge">Not recommended</span>
+<h3>Cheap TTLock-based padlocks</h3>
+<span class="price">Lowest price · many brand names</span>
+<dl>
+<dt>Why not</dt><dd>Security researchers have published serious flaws in the TTLock system: a fixed encryption key built into the app and locks, expired PINs that can be made to work again by faking the lock's clock, and pairing keys that can be captured over Bluetooth.</dd>
+<dt>Watch for</dt><dd>These locks are sold under many different brand names. Before buying any cheap smart padlock, we check which app and platform it uses.</dd>
+</dl>
+</article>
+
+</div>
+<p class="note">How we decide: lock strength (shackle grade), how the electronics are protected, whether it still opens when the battery or internet fails, and whether every unlock is logged. Price comes after these.</p>
+</div></section>
+
+<section id="list"><div class="wrap">
+<h2>Full equipment list</h2>
+<p class="sub">Per site. Quantities depend on the survey: number of units, corridor lengths and where the network can reach.</p>
+<div class="scroll">
+<table class="table">
+<thead><tr><th>Item</th><th>Recommended</th><th>Cheaper option, same security</th><th>Why it matters</th></tr></thead>
+<tbody>
+<tr><td colspan="4" class="area">Unit doors</td></tr>
+<tr><td>Smart padlock<span class="n">1 per unit + 5% spares</span></td><td>igloohome Padlock 2E</td><td>None cheaper without losing security (see above)</td><td class="why">The lock is what customers trust. Spares cover a failed lock without waiting.</td></tr>
+<tr><td>Hardened hasp<span class="n">1 per unit</span></td><td>Shrouded steel hasp, welded or through-bolted to the door frame</td><td>Local fabrication to the same design</td><td class="why">On mesh doors, the hasp and door are easier to attack than the lock. A strong lock on a weak hasp is wasted money.</td></tr>
+<tr><td>Bridge / gateway<span class="n">Per corridor, by survey</span></td><td>igloohome Bridge (or Nokē gateway for Nokē)</td><td>Fewer bridges, with live logs only at the busiest corridors</td><td class="why">Needed for remote unlock from the admin panel and for logs that show straight away.</td></tr>
+
+<tr><td colspan="4" class="area">Site entrance and lifts</td></tr>
+<tr><td>Gate face and card terminal<span class="n">1 per entrance</span></td><td>Hikvision or ZKTeco face recognition terminal with card reader</td><td>Card and PIN terminal without face recognition</td><td class="why">First check at the door. Face match stops shared or stolen logins.</td></tr>
+<tr><td>Access controller<span class="n">1 per site</span></td><td>Same brand as the terminal</td><td>—</td><td class="why">Opens the gate and lifts only for active, paid customers.</td></tr>
+<tr><td>Fail-safe gate and exit locks<span class="n">Per door</span></td><td>Magnetic or electric strike locks, fail-safe</td><td>—</td><td class="why">Open automatically on power loss or fire alarm. Required for safety.</td></tr>
+<tr><td>Fire alarm interface relay<span class="n">1 per site</span></td><td>Approved relay module from the fire alarm contractor</td><td>—</td><td class="why">Fire mode must work even if the internet or app is down.</td></tr>
+<tr><td>Lift access control<span class="n">Per lift</span></td><td>Card or face reader in the lift, through the lift company</td><td>Floor access at the lift lobby door instead</td><td class="why">Stops visitors reaching floors they don't rent on.</td></tr>
+
+<tr><td colspan="4" class="area">CCTV</td></tr>
+<tr><td>Cameras<span class="n">Every corridor, entrance, lift lobby</span></td><td>Hikvision or Dahua 4 MP, night vision</td><td>2 MP in short corridors, 4 MP at entrances</td><td class="why">Each unlock is saved with a camera clip, as in the demo.</td></tr>
+<tr><td>Recorder (NVR) + hard drives<span class="n">1 per site</span></td><td>Same brand as cameras, 30+ days storage</td><td>Fewer days of storage, if the authorities allow it</td><td class="why">Evidence if anything goes wrong. Check how many days Sharjah requires.</td></tr>
+
+<tr><td colspan="4" class="area">Network and power</td></tr>
+<tr><td>Wi-Fi access points<span class="n">Corridors, by survey</span></td><td>Ubiquiti UniFi</td><td>TP-Link Omada</td><td class="why">Connects bridges and customers' phones inside the building.</td></tr>
+<tr><td>PoE switches + firewall<span class="n">1 set per site</span></td><td>Ubiquiti UniFi</td><td>TP-Link Omada</td><td class="why">Keeps cameras and locks on their own separate network, away from guest Wi-Fi.</td></tr>
+<tr><td>Internet<span class="n">2 lines</span></td><td>Fibre + 4G/5G backup</td><td>—</td><td class="why">The gate and live logs keep working if one line goes down.</td></tr>
+<tr><td>UPS battery backup<span class="n">Network cabinet + gate</span></td><td>APC or Eaton</td><td>Smaller UPS, network cabinet only</td><td class="why">Keeps the gate, cameras and network running in a power cut.</td></tr>
+
+<tr><td colspan="4" class="area">Office</td></tr>
+<tr><td>Touchscreen for the admin panel<span class="n">1 per site</span></td><td>All-in-one touchscreen PC</td><td>Wall-mounted Android tablet</td><td class="why">Live map, remote unlock and fire mode at the front desk.</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Brands are what we would normally quote. The final choice depends on availability and price in the UAE at the time of the quotation.</p>
+</div></section>
+
+<section id="save"><div class="wrap">
+<h2>Lower cost, same security</h2>
+<div class="two">
+<div class="box">
+<h3>Where you can save</h3>
+<ul class="clean">
+<li><b>igloohome instead of Nokē</b> for the unit locks, if card access at the unit door is not needed.</li>
+<li><b>TP-Link Omada instead of Ubiquiti</b> for the network.</li>
+<li><b>2 MP cameras in short corridors</b>, 4 MP only at entrances and lifts.</li>
+<li><b>Card and PIN terminal at the gate</b> instead of face recognition, if the owner accepts it.</li>
+<li><b>Fewer bridges</b>: live logs at the busiest corridors, offline PIN logs elsewhere.</li>
+</ul>
+</div>
+<div class="box">
+<h3>Where not to save</h3>
+<ul class="clean">
+<li class="no"><b>No cheap TTLock-based padlocks.</b> Known, published security flaws.</li>
+<li class="no"><b>No weak hasps.</b> The mesh door and hasp must be as strong as the lock.</li>
+<li class="no"><b>No fire mode through the app only.</b> It must be wired to the fire alarm panel.</li>
+<li class="no"><b>No cameras on the guest Wi-Fi</b> or open to the internet without protection.</li>
+<li class="no"><b>No single internet line</b> for the gate.</li>
+</ul>
+</div>
+</div>
+</div></section>
+
+<section id="next"><div class="wrap">
+<h2>What we confirm at the site survey</h2>
+<ul class="clean">
+<li>Number of units per floor, and the first-floor units built to order.</li>
+<li>Whether the owner needs card access at the unit door (decides igloohome or Nokē).</li>
+<li>Sample locks and hasps tested on a real mesh door.</li>
+<li>Signal checks along each corridor to decide where bridges and Wi-Fi go.</li>
+<li>Requirements from Sharjah Civil Defence for fire mode, and for CCTV approval and recording time.</li>
+</ul>
+</div></section>
+</main>
+
+<div class="wm" aria-hidden="true"></div>
+<footer><div class="wrap">Confidential client preview by The IT Guys. Brands and prices are a guide until the quotation.</div></footer>
+</body>
+</html>
