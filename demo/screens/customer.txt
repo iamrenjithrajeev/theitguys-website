@@ -9,33 +9,33 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:Inter,system-ui,sans-serif}
-a{color:#0E7C66}a:hover{color:#0B5E4D}
+body{margin:0;font-family:Figtree,system-ui,sans-serif}
+a{color:#A8520A}a:hover{color:#7A3B05}
 button,input{font-family:inherit}
 </style>
 </helmet>
-<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F3F5F8; color: #0F172A; display: flex; flex-direction: column; overflow: hidden; font-family: Inter, system-ui, sans-serif; position: relative">
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF8F5; color: #0F172A; display: flex; flex-direction: column; overflow: hidden; font-family: Figtree, system-ui, sans-serif; position: relative">
 
 <sc-if value="{{vWelcome}}" hint-placeholder-val="{{true}}">
-<div style="flex: 1; background: #0F1E35; color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; padding: 64px 26px 36px; position: relative; overflow: hidden">
-<svg width="420" height="420" viewBox="0 0 420 420" style="position: absolute; right: -150px; top: 120px" aria-hidden="true"><circle cx="210" cy="210" r="200" fill="none" stroke="#1E3556" stroke-width="2"/><circle cx="210" cy="210" r="140" fill="none" stroke="#1E3556" stroke-width="2"/><circle cx="210" cy="210" r="80" fill="none" stroke="#24456B" stroke-width="2"/></svg>
-<div style="display: flex; flex-direction: column; gap: 16px; position: relative">
-<div style="width: 64px; height: 64px; border-radius: 18px; background: #7FD8BE; display: flex; align-items: center; justify-content: center">
-<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0F1E35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.3"/></svg>
+<div style="flex: 1; background: #1C1A18 url('/demo/img/sk/welcome.jpg') center 30% / cover no-repeat; color: #FFFFFF; display: flex; flex-direction: column; position: relative; overflow: hidden">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,26,24,0.55) 0%, rgba(28,26,24,0.1) 22%, rgba(28,26,24,0.88) 44%, #1C1A18 64%)" aria-hidden="true"></div>
+<div style="position: relative; padding: 54px 24px 0; display: flex; justify-content: space-between; align-items: center">
+<img src="/demo/img/sk/logo.png" alt="Storage Keys" width="167" height="48" style="display: block; background: rgba(255,255,255,0.94); border-radius: 12px; padding: 6px 10px">
+<span style="font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 999px; background: rgba(28,26,24,0.7); color: #FFFFFF">★ 4.9 on Google</span>
 </div>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 600; line-height: 1.05">Storage Keys</span>
-<span style="font-size: 17px; color: #C9D3E3; line-height: 1.5; max-width: 300px">Find a unit, pay in a minute, and open it with your phone. No keys to lose.</span>
-<div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px">
-<span style="font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: #1D3557; color: #CFEFE4">Face ID unlock</span>
-<span style="font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: #1D3557; color: #CFEFE4">24/7 CCTV</span>
-<span style="font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: #1D3557; color: #CFEFE4">Only you know what's inside</span>
+<div style="position: relative; margin-top: auto; padding: 0 24px 34px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #F48922">SHARJAH · DUBAI · SINCE 2016</span>
+<span style="font-family: Figtree, sans-serif; font-size: 36px; font-weight: 800; line-height: 1.08">Your storage unit, opened by your phone.</span>
+<span style="font-size: 16px; color: #E7DDD4; line-height: 1.5">Find a unit, pay in a minute, and unlock it with Face ID. Climate controlled, CCTV and insurance included.</span>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<span style="font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: rgba(244,137,34,0.18); border: 1px solid rgba(244,137,34,0.5); color: #FDE7D1">24/7 access</span>
+<span style="font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: rgba(244,137,34,0.18); border: 1px solid rgba(244,137,34,0.5); color: #FDE7D1">Face ID unlock</span>
+<span style="font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: rgba(244,137,34,0.18); border: 1px solid rgba(244,137,34,0.5); color: #FDE7D1">Only you know what's inside</span>
 </div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 12px; position: relative">
-<button onClick="{{goBrowse}}" style="min-height: 54px; border-radius: 16px; border: none; background: #7FD8BE; color: #0B2A22; font-size: 16px; font-weight: 700; cursor: pointer">Find a storage unit</button>
-<button onClick="{{goLogin}}" style="min-height: 54px; border-radius: 16px; border: 1px solid #3B5377; background: transparent; color: #FFFFFF; font-size: 16px; font-weight: 600; cursor: pointer">I already rent a unit · Log in</button>
+<button onClick="{{goBrowse}}" style="margin-top: 8px; min-height: 54px; border-radius: 16px; border: none; background: #F48922; color: #1C1A18; font-size: 16px; font-weight: 700; cursor: pointer">Find a storage unit</button>
+<button onClick="{{goLogin}}" style="min-height: 54px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.35); background: rgba(28,26,24,0.4); color: #FFFFFF; font-size: 16px; font-weight: 600; cursor: pointer">I already rent a unit · Log in</button>
 </div>
 </div>
 </sc-if>
@@ -44,17 +44,18 @@ button,input{font-family:inherit}
 <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column">
 <div style="padding: 20px 20px 8px; display: flex; align-items: center; gap: 10px">
 <button onClick="{{goWelcome}}" aria-label="Back" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #D4D8DE; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">Choose your space</span>
+<span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600">Choose your space</span>
 </div>
 <div style="padding: 8px 20px 24px; display: flex; flex-direction: column; gap: 14px">
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; overflow: hidden">
-<svg width="350" height="120" viewBox="0 0 350 120" role="img" aria-label="Map showing the Storage Keys Sharjah site" style="display: block; background: #E9EEF3"><path d="M0 84 L350 64" stroke="#FFFFFF" stroke-width="14"/><path d="M120 0 L150 120" stroke="#FFFFFF" stroke-width="10"/><path d="M0 30 L350 18" stroke="#FFFFFF" stroke-width="6"/><path d="M260 0 L240 120" stroke="#FFFFFF" stroke-width="6"/><rect x="168" y="30" width="56" height="34" rx="4" fill="#CFE3DA"/><circle cx="196" cy="40" r="15" fill="#0E7C66"/><path d="M190 40 h12 M196 34 v12" stroke="#FFFFFF" stroke-width="0"/><rect x="189" y="37" width="14" height="10" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M192 37 v-3 a4 4 0 0 1 8 0 v3" fill="none" stroke="#FFFFFF" stroke-width="2"/></svg>
+<div style="position: relative; height: 150px; background: #2B2622 url('/demo/img/sk/site.jpg') center / cover no-repeat"><span style="position: absolute; left: 12px; top: 12px; font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: rgba(28,26,24,0.75); color: #FFFFFF">★ 4.9 on Google · Open 24/7</span></div>
 <div style="padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px">
 <div style="display: flex; flex-direction: column; gap: 3px">
-<span style="font-size: 16px; font-weight: 700">Storage Keys, Sharjah site</span>
-<span style="font-size: 13px; color: #556070">Gated site · CCTV · Wi-Fi in every corridor</span>
+<span style="font-size: 16px; font-weight: 700">Storage Keys Sharjah</span>
+<span style="font-size: 13px; color: #556070">Main facility &amp; office · Plot # 4202</span>
+<span style="font-size: 13px; color: #556070">Climate controlled · CCTV · Insurance included</span>
 </div>
-<button style="min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1px solid #0E7C66; background: #FFFFFF; color: #0B5E4D; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B5E4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>Directions</button>
+<button style="min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1px solid #F48922; background: #FFFFFF; color: #A8520A; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8520A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>Directions</button>
 </div>
 </div>
 
@@ -67,14 +68,12 @@ button,input{font-family:inherit}
 
 <sc-for list="{{units}}" as="u" hint-placeholder-count="4">
 <button onClick="{{u.pick}}" style="text-align: left; background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 14px; display: flex; gap: 14px; align-items: center; cursor: pointer; color: #0F172A">
-<div style="width: 64px; height: 64px; border-radius: 14px; background: #EEF4F1; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: none">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B5E4D">{{u.sqft}}</span>
-<span style="font-size: 11px; color: #0B5E4D; font-weight: 600">sq ft</span>
-</div>
+<div style="width: 84px; height: 84px; border-radius: 14px; flex: none; position: relative; overflow: hidden; background: #2B2622 url('{{u.img}}') center / cover no-repeat"><span style="position: absolute; left: 6px; bottom: 6px; font-size: 12px; font-weight: 800; padding: 3px 7px; border-radius: 8px; background: #F48922; color: #1C1A18">{{u.sqft}} sq ft</span></div>
 <div style="display: flex; flex-direction: column; gap: 3px; flex: 1">
 <span style="font-size: 16px; font-weight: 700">Unit {{u.id}}</span>
+<span style="font-size: 13px; font-weight: 600; color: #1C1A18">{{u.type}}</span>
 <span style="font-size: 13px; color: #556070">{{u.fits}}</span>
-<span style="font-size: 12px; font-weight: 600; color: #0B5E4D">Ready now · {{u.where}}</span>
+<span style="font-size: 12px; font-weight: 600; color: #A8520A">Ready now · {{u.where}}</span>
 </div>
 <div style="display: flex; flex-direction: column; align-items: flex-end">
 <span style="font-size: 17px; font-weight: 700">AED {{u.price}}</span>
@@ -83,15 +82,13 @@ button,input{font-family:inherit}
 </button>
 </sc-for>
 
-<button onClick="{{goCustom}}" style="text-align: left; background: #0F1E35; color: #FFFFFF; border-radius: 18px; border: none; padding: 16px; display: flex; gap: 14px; align-items: center; cursor: pointer">
-<div style="width: 64px; height: 64px; border-radius: 14px; background: #1D3557; display: flex; align-items: center; justify-content: center; flex: none">
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7FD8BE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3z"/><path d="M17.5 14v7M14 17.5h7"/></svg>
-</div>
+<button onClick="{{goCustom}}" style="text-align: left; background: #1C1A18; color: #FFFFFF; border-radius: 18px; border: none; padding: 16px; display: flex; gap: 14px; align-items: center; cursor: pointer">
+<div style="width: 84px; height: 84px; border-radius: 14px; flex: none; background: #2B2622 url('/demo/img/sk/mesh-corridor.jpg') center / cover no-repeat" aria-hidden="true"></div>
 <div style="display: flex; flex-direction: column; gap: 3px; flex: 1">
 <span style="font-size: 16px; font-weight: 700">Need a bigger or custom size?</span>
-<span style="font-size: 13px; color: #C9D3E3">We build it on the first floor to your size, ready in 3 days.</span>
+<span style="font-size: 13px; color: #E7DDD4">We build it on the first floor to your size, ready in 3 days.</span>
 </div>
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FD8BE" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F48922" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
 </button>
 <span style="font-size: 12px; color: #6B7280">Sample prices for the demo. VAT added at checkout.</span>
 </div>
@@ -102,9 +99,16 @@ button,input{font-family:inherit}
 <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column">
 <div style="padding: 20px 20px 8px; display: flex; align-items: center; gap: 10px">
 <button onClick="{{goBrowse}}" aria-label="Back" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #D4D8DE; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">Unit {{bk.id}}</span>
+<span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600">Unit {{bk.id}}</span>
 </div>
 <div style="padding: 8px 20px 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="height: 180px; border-radius: 18px; position: relative; overflow: hidden; background: #2B2622 url('{{bk.img}}') center / cover no-repeat">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,26,24,0) 40%, rgba(28,26,24,0.88) 100%)" aria-hidden="true"></div>
+<div style="position: absolute; left: 14px; right: 14px; bottom: 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; color: #FFFFFF">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 20px; font-weight: 800">{{bk.sqft}} sq ft · {{bk.type}}</span><span style="font-size: 13px; color: #E7DDD4">{{bk.fits}}</span></span>
+<span style="font-size: 12px; font-weight: 800; padding: 5px 9px; border-radius: 999px; background: #F48922; color: #1C1A18; flex: none">{{bk.badge}}</span>
+</div>
+</div>
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 16px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 13px; font-weight: 700; color: #556070; letter-spacing: 0.05em">WHERE IT IS · GROUND FLOOR</span>
 <sc-for list="{{miniMap}}" as="row" hint-placeholder-count="4">
@@ -118,8 +122,8 @@ button,input{font-family:inherit}
 </div>
 </sc-for>
 <div style="display: flex; gap: 14px; font-size: 12px; color: #3A4555; flex-wrap: wrap">
-<span style="display: flex; align-items: center; gap: 5px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #0E7C66"></span>Your unit</span>
-<span style="display: flex; align-items: center; gap: 5px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #CFEFE4"></span>Available</span>
+<span style="display: flex; align-items: center; gap: 5px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #F48922"></span>Your unit</span>
+<span style="display: flex; align-items: center; gap: 5px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #FDE7D1"></span>Available</span>
 <span style="display: flex; align-items: center; gap: 5px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #E3E7EC"></span>Rented</span>
 <span>Entrance on the left</span>
 </div>
@@ -127,15 +131,32 @@ button,input{font-family:inherit}
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 6px 16px">
 <sc-for list="{{features}}" as="ft" hint-placeholder-count="5">
 <div style="display: flex; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEF1F4">
-<div style="width: 36px; height: 36px; border-radius: 10px; background: #EEF4F1; display: flex; align-items: center; justify-content: center; flex: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ft.icon}}"/></svg></div>
+<div style="width: 36px; height: 36px; border-radius: 10px; background: #FEF1E4; display: flex; align-items: center; justify-content: center; flex: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8520A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ft.icon}}"/></svg></div>
 <div style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 600">{{ft.title}}</span><span style="font-size: 13px; color: #556070">{{ft.text}}</span></div>
 </div>
 </sc-for>
 </div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 17px; font-weight: 800">How long do you need it?</span>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{durations}}" as="d" hint-placeholder-count="4">
+<button onClick="{{d.pick}}" style="{{d.style}}"><span style="font-size: 15px; font-weight: 800">{{d.label}}</span><span style="font-size: 11px; font-weight: 700">{{d.save}}</span></button>
+</sc-for>
+</div>
+<span style="font-size: 17px; font-weight: 800; margin-top: 8px">Add extras</span>
+<sc-for list="{{extras}}" as="x" hint-placeholder-count="5">
+<button onClick="{{x.toggle}}" aria-pressed="{{x.pressed}}" style="{{x.style}}">
+<span style="{{x.thumb}}"><sc-if value="{{x.hasIcon}}" hint-placeholder-val="{{false}}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8520A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{x.icon}}"/></svg></sc-if></span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0"><span style="font-size: 15px; font-weight: 700">{{x.title}}</span><span style="font-size: 12px; color: #556070; line-height: 1.35">{{x.text}}</span><span style="font-size: 13px; font-weight: 800; color: #A8520A">{{x.priceLabel}}</span></span>
+<span style="{{x.mark}}">{{x.markText}}</span>
+</button>
+</sc-for>
+<span style="font-size: 12px; color: #6B7280">Sample prices for the demo. Packing kit priced from the Storage Keys shop.</span>
+</div>
 </div>
 <div style="margin-top: auto; background: #FFFFFF; border-top: 1px solid #E3E7EC; padding: 14px 20px 22px; display: flex; justify-content: space-between; align-items: center">
-<div style="display: flex; flex-direction: column"><span style="font-size: 20px; font-weight: 700">AED {{bk.price}}</span><span style="font-size: 12px; color: #556070">per month + VAT</span></div>
-<button onClick="{{goSignup}}" style="min-height: 52px; padding: 0 24px; border-radius: 16px; border: none; background: #0F1E35; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Reserve this unit</button>
+<div style="display: flex; flex-direction: column"><span style="font-size: 20px; font-weight: 700">AED {{priceNow}}</span><span style="font-size: 12px; color: #556070">per month + VAT · {{durLabel}}</span><span style="font-size: 12px; font-weight: 700; color: #A8520A">{{oneOffLabel}}</span></div>
+<button onClick="{{goSignup}}" style="min-height: 52px; padding: 0 24px; border-radius: 16px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Reserve this unit</button>
 </div>
 </div>
 </sc-if>
@@ -144,13 +165,14 @@ button,input{font-family:inherit}
 <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column">
 <div style="padding: 20px 20px 8px; display: flex; align-items: center; gap: 10px">
 <button onClick="{{goBrowse}}" aria-label="Back" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #D4D8DE; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">Build a custom unit</span>
+<span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600">Build a custom unit</span>
 </div>
 <div style="padding: 8px 20px 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="height: 150px; border-radius: 18px; background: #2B2622 url('/demo/img/sk/custom.jpg') center / cover no-repeat" role="img" aria-label="Mesh-walled storage units on the first floor"></div>
 <span style="font-size: 15px; color: #3A4555; line-height: 1.5">Pick a size. We build your mesh-walled unit on the first floor, fit your smart padlock, and send you the key when it's ready.</span>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
 <sc-for list="{{customSizes}}" as="c" hint-placeholder-count="3">
-<button onClick="{{c.pick}}" style="{{c.style}}"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700">{{c.sqft}}</span><span style="font-size: 12px; font-weight: 600">sq ft</span><span style="font-size: 13px; font-weight: 700; margin-top: 6px">AED {{c.price}}</span></button>
+<button onClick="{{c.pick}}" style="{{c.style}}"><span style="font-family: Figtree, sans-serif; font-size: 24px; font-weight: 700">{{c.sqft}}</span><span style="font-size: 12px; font-weight: 600">sq ft</span><span style="font-size: 13px; font-weight: 700; margin-top: 6px">AED {{c.price}}</span></button>
 </sc-for>
 </div>
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 16px; display: flex; flex-direction: column; gap: 10px">
@@ -159,10 +181,27 @@ button,input{font-family:inherit}
 <div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #556070">Access</span><span style="font-weight: 600">Phone, NFC card, PIN</span></div>
 <div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #556070">Good for</span><span style="font-weight: 600">{{bk.fits}}</span></div>
 </div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 17px; font-weight: 800">How long do you need it?</span>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{durations}}" as="d" hint-placeholder-count="4">
+<button onClick="{{d.pick}}" style="{{d.style}}"><span style="font-size: 15px; font-weight: 800">{{d.label}}</span><span style="font-size: 11px; font-weight: 700">{{d.save}}</span></button>
+</sc-for>
+</div>
+<span style="font-size: 17px; font-weight: 800; margin-top: 8px">Add extras</span>
+<sc-for list="{{extras}}" as="x" hint-placeholder-count="5">
+<button onClick="{{x.toggle}}" aria-pressed="{{x.pressed}}" style="{{x.style}}">
+<span style="{{x.thumb}}"><sc-if value="{{x.hasIcon}}" hint-placeholder-val="{{false}}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A8520A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{x.icon}}"/></svg></sc-if></span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0"><span style="font-size: 15px; font-weight: 700">{{x.title}}</span><span style="font-size: 12px; color: #556070; line-height: 1.35">{{x.text}}</span><span style="font-size: 13px; font-weight: 800; color: #A8520A">{{x.priceLabel}}</span></span>
+<span style="{{x.mark}}">{{x.markText}}</span>
+</button>
+</sc-for>
+<span style="font-size: 12px; color: #6B7280">Sample prices for the demo. Packing kit priced from the Storage Keys shop.</span>
+</div>
 </div>
 <div style="margin-top: auto; background: #FFFFFF; border-top: 1px solid #E3E7EC; padding: 14px 20px 22px; display: flex; justify-content: space-between; align-items: center">
-<div style="display: flex; flex-direction: column"><span style="font-size: 20px; font-weight: 700">AED {{bk.price}}</span><span style="font-size: 12px; color: #556070">per month + VAT</span></div>
-<button onClick="{{goSignup}}" style="min-height: 52px; padding: 0 24px; border-radius: 16px; border: none; background: #0F1E35; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Request this size</button>
+<div style="display: flex; flex-direction: column"><span style="font-size: 20px; font-weight: 700">AED {{priceNow}}</span><span style="font-size: 12px; color: #556070">per month + VAT · {{durLabel}}</span><span style="font-size: 12px; font-weight: 700; color: #A8520A">{{oneOffLabel}}</span></div>
+<button onClick="{{goSignup}}" style="min-height: 52px; padding: 0 24px; border-radius: 16px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Request this size</button>
 </div>
 </div>
 </sc-if>
@@ -173,21 +212,21 @@ button,input{font-family:inherit}
 <button onClick="{{goBack}}" aria-label="Back" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #D4D8DE; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
 <span style="font-size: 13px; font-weight: 600; color: #556070">STEP 1 OF 3 · YOUR DETAILS</span>
 </div>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600">Create your account</span>
+<span style="font-family: Figtree, sans-serif; font-size: 26px; font-weight: 600">Create your account</span>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Full name (as on Emirates ID)<input value="Mariam Haddad" style="min-height: 48px; border-radius: 12px; border: 1px solid #C7CDD5; padding: 0 14px; font-size: 16px; background: #FFFFFF"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Email<input value="mariam.h@example.com" style="min-height: 48px; border-radius: 12px; border: 1px solid #C7CDD5; padding: 0 14px; font-size: 16px; background: #FFFFFF"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Mobile number<input value="+971 50 123 4821" style="min-height: 48px; border-radius: 12px; border: 1px solid #C7CDD5; padding: 0 14px; font-size: 16px; background: #FFFFFF"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Password<input type="password" value="demopassword" style="min-height: 48px; border-radius: 12px; border: 1px solid #C7CDD5; padding: 0 14px; font-size: 16px; background: #FFFFFF"></label>
 <button onClick="{{scanId}}" style="{{idButton}}">{{idLabel}}</button>
 <button onClick="{{uaePass}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">Or verify with UAE Pass</button>
-<button onClick="{{goOtp}}" style="min-height: 54px; border-radius: 16px; border: none; background: #0F1E35; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 4px">Continue</button>
+<button onClick="{{goOtp}}" style="min-height: 54px; border-radius: 16px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 4px">Continue</button>
 </div>
 </sc-if>
 
 <sc-if value="{{vOtp}}" hint-placeholder-val="{{false}}">
 <div style="flex: 1; padding: 28px 22px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 13px; font-weight: 600; color: #556070">{{otpStep}}</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600">{{otpTitle}}</span>
+<span style="font-family: Figtree, sans-serif; font-size: 26px; font-weight: 600">{{otpTitle}}</span>
 <span style="font-size: 15px; color: #556070; line-height: 1.5">Enter the 6-digit code sent to +971 50 ••• 4821 and mariam.h@•••.com</span>
 <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px">
 <span style="height: 58px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700">3</span>
@@ -195,9 +234,9 @@ button,input{font-family:inherit}
 <span style="height: 58px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700">0</span>
 <span style="height: 58px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700">1</span>
 <span style="height: 58px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700">5</span>
-<span style="height: 58px; border-radius: 12px; border: 2px solid #0E7C66; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700">7</span>
+<span style="height: 58px; border-radius: 12px; border: 2px solid #F48922; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700">7</span>
 </div>
-<button onClick="{{verifyOtp}}" style="min-height: 54px; border-radius: 16px; border: none; background: #0F1E35; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Verify</button>
+<button onClick="{{verifyOtp}}" style="min-height: 54px; border-radius: 16px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Verify</button>
 <span style="font-size: 13px; color: #556070">Code expires in 5 minutes. 5 wrong tries locks the account for 30 minutes.</span>
 </div>
 </sc-if>
@@ -206,7 +245,7 @@ button,input{font-family:inherit}
 <div style="flex: 1; display: flex; flex-direction: column; min-height: 0">
 <div style="padding: 22px 22px 10px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; font-weight: 600; color: #556070">STEP 2 OF 3 · BEFORE YOU PAY</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">How it works and your terms</span>
+<span style="font-family: Figtree, sans-serif; font-size: 24px; font-weight: 600">How it works and your terms</span>
 </div>
 <div style="flex: 1; overflow-y: auto; padding: 4px 22px 16px; display: flex; flex-direction: column; gap: 10px">
 <sc-for list="{{terms}}" as="tm" hint-placeholder-count="6">
@@ -228,12 +267,12 @@ button,input{font-family:inherit}
 <sc-if value="{{vCheckout}}" hint-placeholder-val="{{false}}">
 <div style="flex: 1; overflow-y: auto; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 13px; font-weight: 600; color: #556070">STEP 3 OF 3 · PAYMENT</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Pay and get your key</span>
+<span style="font-family: Figtree, sans-serif; font-size: 24px; font-weight: 600">Pay and get your key</span>
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 16px; display: flex; flex-direction: column; gap: 9px">
 <span style="font-size: 15px; font-weight: 700">{{bk.title}}</span>
-<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #556070">First month</span><span>AED {{sum.rent}}</span></div>
-<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #556070">Refundable deposit</span><span>AED {{sum.deposit}}</span></div>
-<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #556070">VAT 5% on rent</span><span>AED {{sum.vat}}</span></div>
+<sc-for list="{{sumRows}}" as="row" hint-placeholder-count="4">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><span style="color: #556070">{{row.label}}</span><span style="white-space: nowrap">AED {{row.amount}}</span></div>
+</sc-for>
 <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 700; border-top: 1px solid #EEF1F4; padding-top: 9px"><span>Total today</span><span>AED {{sum.total}}</span></div>
 </div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
@@ -241,35 +280,35 @@ button,input{font-family:inherit}
 <button onClick="{{pm.pick}}" style="{{pm.style}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{pm.icon}}"/></svg>{{pm.label}}</button>
 </sc-for>
 </div>
-<div style="display: flex; gap: 10px; align-items: flex-start; background: #EEF4F1; border-radius: 14px; padding: 12px 14px">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B5E4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-<span style="font-size: 13px; color: #0B3D33; line-height: 1.45">Your card goes straight to the bank's secure payment page. Storage Keys never sees or stores your card number. Monthly auto-pay uses a secure token you can switch off any time.</span>
+<div style="display: flex; gap: 10px; align-items: flex-start; background: #FEF1E4; border-radius: 14px; padding: 12px 14px">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8520A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+<span style="font-size: 13px; color: #5C2E06; line-height: 1.45">Your card goes straight to the bank's secure payment page. Storage Keys never sees or stores your card number. Monthly auto-pay uses a secure token you can switch off any time.</span>
 </div>
-<button onClick="{{payBooking}}" style="min-height: 56px; border-radius: 16px; border: none; background: #0F1E35; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">{{payLabel}}</button>
+<button onClick="{{payBooking}}" style="min-height: 56px; border-radius: 16px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">{{payLabel}}</button>
 </div>
 </sc-if>
 
 <sc-if value="{{vSuccess}}" hint-placeholder-val="{{false}}">
 <div style="flex: 1; overflow-y: auto; padding: 48px 24px 28px; display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center">
-<div style="width: 88px; height: 88px; border-radius: 44px; background: #0E7C66; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 12px #D7F0E7"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600; margin-top: 8px">{{successTitle}}</span>
+<div style="width: 88px; height: 88px; border-radius: 44px; background: #1E8E5A; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 12px #D7F0E7"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div>
+<span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600; margin-top: 8px">{{successTitle}}</span>
 <span style="font-size: 15px; color: #556070; line-height: 1.5; max-width: 300px">{{successText}}</span>
 <div style="width: 100%; background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 6px 16px; text-align: left">
-<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF1F4; align-items: center"><span style="width: 26px; height: 26px; border-radius: 13px; background: #CFEFE4; color: #0B5E4D; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 14px">Your digital key is saved on this phone only</span></div>
-<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF1F4; align-items: center"><span style="width: 26px; height: 26px; border-radius: 13px; background: #CFEFE4; color: #0B5E4D; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 14px">First visit: register your face at the gate terminal</span></div>
-<div style="display: flex; gap: 12px; padding: 12px 0; align-items: center"><span style="width: 26px; height: 26px; border-radius: 13px; background: #CFEFE4; color: #0B5E4D; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 14px">Optional: collect your NFC card at the front desk</span></div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF1F4; align-items: center"><span style="width: 26px; height: 26px; border-radius: 13px; background: #FDE7D1; color: #A8520A; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 14px">Your digital key is saved on this phone only</span></div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF1F4; align-items: center"><span style="width: 26px; height: 26px; border-radius: 13px; background: #FDE7D1; color: #A8520A; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 14px">First visit: register your face at the gate terminal</span></div>
+<div style="display: flex; gap: 12px; padding: 12px 0; align-items: center"><span style="width: 26px; height: 26px; border-radius: 13px; background: #FDE7D1; color: #A8520A; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 14px">Optional: collect your NFC card at the front desk</span></div>
 </div>
-<button onClick="{{finishSetup}}" style="width: 100%; min-height: 56px; border-radius: 16px; border: none; background: #0E7C66; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Turn on Face ID and go to my unit</button>
+<button onClick="{{finishSetup}}" style="width: 100%; min-height: 56px; border-radius: 16px; border: none; background: #F48922; color: #1C1A18; font-size: 16px; font-weight: 700; cursor: pointer">Turn on Face ID and go to my unit</button>
 </div>
 </sc-if>
 
 <sc-if value="{{vLogin}}" hint-placeholder-val="{{false}}">
 <div style="flex: 1; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px">
 <button onClick="{{goWelcome}}" aria-label="Back" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #D4D8DE; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600">Welcome back</span>
+<span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600">Welcome back</span>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Email or mobile<input value="mariam.h@example.com" style="min-height: 48px; border-radius: 12px; border: 1px solid #C7CDD5; padding: 0 14px; font-size: 16px; background: #FFFFFF"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Password<input type="password" value="demopassword" style="min-height: 48px; border-radius: 12px; border: 1px solid #C7CDD5; padding: 0 14px; font-size: 16px; background: #FFFFFF"></label>
-<button onClick="{{loginNewDevice}}" style="min-height: 54px; border-radius: 16px; border: none; background: #0F1E35; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Log in</button>
+<button onClick="{{loginNewDevice}}" style="min-height: 54px; border-radius: 16px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Log in</button>
 <button onClick="{{loginFace}}" style="min-height: 50px; border-radius: 16px; border: 1px solid #C7CDD5; background: #FFFFFF; color: #0F172A; font-size: 15px; font-weight: 600; cursor: pointer">Log in with Face ID</button>
 <span style="font-size: 13px; color: #556070; line-height: 1.45">New phone? We send a code to your mobile and email, and your old phone's keys stop working.</span>
 </div>
@@ -280,21 +319,21 @@ button,input{font-family:inherit}
 <div style="padding: 22px 20px 10px; display: flex; justify-content: space-between; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 13px; color: #556070">Hi Mariam</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">{{screenTitle}}</span>
+<span style="font-family: Figtree, sans-serif; font-size: 24px; font-weight: 600">{{screenTitle}}</span>
 </div>
-<button onClick="{{goAccount}}" aria-label="Account and security" style="width: 46px; height: 46px; border-radius: 23px; border: none; background: #0F1E35; color: #7FD8BE; font-size: 15px; font-weight: 700; cursor: pointer">MH</button>
+<button onClick="{{goAccount}}" aria-label="Account and security" style="width: 46px; height: 46px; border-radius: 23px; border: none; background: #1C1A18; color: #F48922; font-size: 15px; font-weight: 700; cursor: pointer">MH</button>
 </div>
 
 <div style="flex: 1; overflow-y: auto; padding: 4px 20px 20px; display: flex; flex-direction: column; gap: 14px">
 
 <sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
 <div style="display: flex; flex-direction: column; gap: 14px">
-<div style="background: #0F1E35; color: #FFFFFF; border-radius: 22px; padding: 20px; display: flex; flex-direction: column; gap: 18px">
+<div style="background: linear-gradient(180deg, rgba(28,26,24,0.80), rgba(28,26,24,0.95)), url('/demo/img/sk/corridor.jpg') center / cover no-repeat, #1C1A18; color: #FFFFFF; border-radius: 22px; padding: 20px; display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start">
 <div style="display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 13px; color: #9FB3D1">My unit</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 600">{{bk.id}}</span>
-<span style="font-size: 13px; color: #C9D3E3">{{bk.where}} · {{bk.sqft}} sq ft</span>
+<span style="font-size: 13px; color: #BFB3A8">My unit</span>
+<span style="font-family: Figtree, sans-serif; font-size: 30px; font-weight: 600">{{bk.id}}</span>
+<span style="font-size: 13px; color: #E7DDD4">{{bk.where}} · {{bk.sqft}} sq ft</span>
 </div>
 <span style="{{pillStyle}}">{{lockLabel}}</span>
 </div>
@@ -303,9 +342,9 @@ button,input{font-family:inherit}
 <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{unlockIcon}}"/></svg>
 <span style="font-size: 16px; font-weight: 700; color: #FFFFFF">{{unlockLabel}}</span>
 </button>
-<span style="font-size: 13px; color: #C9D3E3; text-align: center; max-width: 260px">{{unlockHint}}</span>
+<span style="font-size: 13px; color: #E7DDD4; text-align: center; max-width: 260px">{{unlockHint}}</span>
 </div>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; border-top: 1px solid #22385A; padding-top: 14px; font-size: 12px; color: #C9D3E3">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; border-top: 1px solid #2B2622; padding-top: 14px; font-size: 12px; color: #E7DDD4">
 <div style="display: flex; flex-direction: column; gap: 2px; align-items: center"><span style="font-size: 15px; font-weight: 700; color: #FFFFFF">86%</span>Battery</div>
 <div style="display: flex; flex-direction: column; gap: 2px; align-items: center"><span style="font-size: 15px; font-weight: 700; color: #FFFFFF">Online</span>Gateway</div>
 <div style="display: flex; flex-direction: column; gap: 2px; align-items: center"><span style="font-size: 15px; font-weight: 700; color: #FFFFFF">{{peopleCount}}</span>With access</div>
@@ -313,13 +352,87 @@ button,input{font-family:inherit}
 </div>
 <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
 <sc-for list="{{quick}}" as="q" hint-placeholder-count="4">
-<button onClick="{{q.go}}" style="min-height: 78px; border-radius: 16px; border: 1px solid #E3E7EC; background: #FFFFFF; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; font-size: 12px; font-weight: 600; color: #0F172A"><span style="width: 34px; height: 34px; border-radius: 10px; background: #EEF4F1; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{q.icon}}"/></svg></span>{{q.label}}</button>
+<button onClick="{{q.go}}" style="min-height: 78px; border-radius: 16px; border: 1px solid #E3E7EC; background: #FFFFFF; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; font-size: 12px; font-weight: 600; color: #0F172A"><span style="width: 34px; height: 34px; border-radius: 10px; background: #FEF1E4; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8520A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{q.icon}}"/></svg></span>{{q.label}}</button>
 </sc-for>
 </div>
 <div style="background: #FFFFFF; border-radius: 16px; border: 1px solid #E3E7EC; padding: 14px 16px; display: flex; gap: 12px; align-items: center">
 <span style="width: 38px; height: 38px; border-radius: 11px; background: #E8EEF7; display: flex; align-items: center; justify-content: center; flex: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 700">Next payment on 1 Dec</span><span style="font-size: 13px; color: #556070">AED {{bk.price}} + VAT · auto-pay on</span></div>
 </div>
+<button onClick="{{goHelp}}" style="text-align: left; padding: 0; border-radius: 16px; border: 1px solid #E3E7EC; background: #FFFFFF; overflow: hidden; display: flex; cursor: pointer; color: #1C1A18">
+<span style="width: 96px; flex: none; background: #2B2622 url('/demo/img/sk/unit-open.jpg') center / cover no-repeat" aria-hidden="true"></span>
+<span style="padding: 14px; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Something not right?</span><span style="font-size: 13px; color: #556070; line-height: 1.4">Report a problem or leave a note for the front desk.</span><span style="font-size: 13px; font-weight: 700; color: #A8520A">{{openReqText}}</span></span>
+</button>
+<div style="position: relative; height: 130px; border-radius: 16px; overflow: hidden; background: #2B2622 url('/demo/img/sk/moving.jpg') center 30% / cover no-repeat">
+<div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(28,26,24,0.92) 0%, rgba(28,26,24,0.55) 70%, rgba(28,26,24,0.2) 100%)" aria-hidden="true"></div>
+<div style="position: absolute; left: 16px; top: 14px; right: 110px; display: flex; flex-direction: column; gap: 6px; color: #FFFFFF">
+<span style="font-size: 15px; font-weight: 700">Moving more in?</span>
+<span style="font-size: 13px; color: #E7DDD4; line-height: 1.4">Our team collects from your door across Sharjah, Ajman and Dubai.</span>
+<button onClick="{{bookCollection}}" style="align-self: flex-start; min-height: 36px; padding: 0 12px; border-radius: 10px; border: none; background: #F48922; color: #1C1A18; font-size: 13px; font-weight: 700; cursor: pointer">{{collectLabel}}</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isHelp}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: #EFE7DF; border-radius: 14px; padding: 4px">
+<button onClick="{{helpIssue}}" style="{{segIssue}}">Report a problem</button>
+<button onClick="{{helpNote}}" style="{{segNote}}">Notes</button>
+</div>
+<sc-if value="{{helpIsIssue}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 14px; font-weight: 700">What needs fixing?</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{issueCats}}" as="c" hint-placeholder-count="6">
+<button onClick="{{c.pick}}" style="{{c.style}}">{{c.label}}</button>
+</sc-for>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #3A4555">Tell us more
+<textarea onInput="{{typeIssue}}" rows="3" placeholder="For example: the keypad does not light up when I touch it" style="border-radius: 12px; border: 1px solid #C7CDD5; padding: 10px 12px; font-size: 15px; font-family: inherit; resize: none; background: #FFFFFF; color: #1C1A18">{{issueDraft}}</textarea></label>
+<div style="display: flex; gap: 10px; align-items: center">
+<button onClick="{{addPhoto}}" style="min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1px dashed #9AA5B4; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer; color: #1C1A18">{{photoLabel}}</button>
+<sc-if value="{{photoAdded}}" hint-placeholder-val="{{false}}"><img src="/demo/img/sk/unit-open.jpg" alt="Your photo of the problem" width="52" height="52" style="object-fit: cover; border-radius: 10px; display: block"></sc-if>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+<sc-for list="{{urgencies}}" as="u" hint-placeholder-count="2">
+<button onClick="{{u.pick}}" style="{{u.style}}"><span style="font-size: 14px; font-weight: 700">{{u.label}}</span><span style="font-size: 12px; color: #556070">{{u.text}}</span></button>
+</sc-for>
+</div>
+<button onClick="{{toggleStaffOk}}" style="display: flex; gap: 10px; align-items: flex-start; text-align: left; border: none; background: none; padding: 0; cursor: pointer; color: #1C1A18"><span style="{{staffBox}}">{{staffMark}}</span><span style="font-size: 13px; line-height: 1.45">Staff may open my unit for this repair. I get a notification and the camera clip.</span></button>
+<button onClick="{{sendIssue}}" style="min-height: 52px; border-radius: 14px; border: none; background: #F48922; color: #1C1A18; font-size: 16px; font-weight: 700; cursor: pointer">Send request</button>
+<sc-if value="{{issueSent}}" hint-placeholder-val="{{false}}"><div style="background: #E3F4EE; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-weight: 600; color: #0B5E4D">{{issueSentText}}</div></sc-if>
+</div>
+<span style="font-size: 15px; font-weight: 800">Your requests</span>
+<sc-for list="{{requests}}" as="r" hint-placeholder-count="2">
+<div style="background: #FFFFFF; border-radius: 16px; border: 1px solid #E3E7EC; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 10px; align-items: center"><span style="font-size: 15px; font-weight: 700">{{r.title}}</span><span style="{{r.pill}}">{{r.status}}</span></div>
+<span style="font-size: 13px; color: #3A4555; line-height: 1.45">{{r.text}}</span>
+<span style="font-size: 12px; color: #6B7280">{{r.meta}}</span>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{helpIsNote}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+<sc-for list="{{noteKinds}}" as="k" hint-placeholder-count="2">
+<button onClick="{{k.pick}}" style="{{k.style}}"><span style="font-size: 14px; font-weight: 700">{{k.label}}</span><span style="font-size: 12px; color: #556070">{{k.text}}</span></button>
+</sc-for>
+</div>
+<textarea onInput="{{typeNote}}" rows="3" aria-label="Your note" placeholder="{{notePlaceholder}}" style="border-radius: 12px; border: 1px solid #C7CDD5; padding: 10px 12px; font-size: 15px; font-family: inherit; resize: none; background: #FFFFFF; color: #1C1A18">{{noteDraft}}</textarea>
+<button onClick="{{saveNote}}" style="min-height: 50px; border-radius: 14px; border: none; background: #F48922; color: #1C1A18; font-size: 15px; font-weight: 700; cursor: pointer">{{saveNoteLabel}}</button>
+</div>
+<sc-for list="{{notes}}" as="n" hint-placeholder-count="2">
+<div style="background: #FFFFFF; border-radius: 16px; border: 1px solid #E3E7EC; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 10px; align-items: center"><span style="{{n.pill}}">{{n.kindLabel}}</span><span style="font-size: 12px; color: #6B7280">{{n.when}}</span></div>
+<span style="font-size: 14px; color: #1C1A18; line-height: 1.45">{{n.text}}</span>
+</div>
+</sc-for>
+</div>
+</sc-if>
 </div>
 </sc-if>
 
@@ -327,18 +440,18 @@ button,input{font-family:inherit}
 <div style="display: flex; flex-direction: column; gap: 14px">
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 16px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 12px; font-weight: 700; color: #556070; letter-spacing: 0.05em">ONE-TIME PIN · {{bk.id}}</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 600; letter-spacing: 0.18em">{{pin}}</span>
+<span style="font-family: Figtree, sans-serif; font-size: 38px; font-weight: 600; letter-spacing: 0.18em">{{pin}}</span>
 <span style="font-size: 13px; color: #556070">For you only. Valid 60 minutes, works with no internet. Never send it to anyone; add them below instead.</span>
-<button onClick="{{newPin}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #0E7C66; background: #FFFFFF; color: #0B5E4D; font-size: 14px; font-weight: 600; cursor: pointer">Generate a new PIN</button>
+<button onClick="{{newPin}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #F48922; background: #FFFFFF; color: #A8520A; font-size: 14px; font-weight: 600; cursor: pointer">Generate a new PIN</button>
 </div>
 
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 16px; display: flex; flex-direction: column; gap: 10px">
 <div style="display: flex; justify-content: space-between; align-items: center">
 <span style="font-size: 16px; font-weight: 700">People with access</span>
-<sc-if value="{{addClosed}}" hint-placeholder-val="{{true}}"><button onClick="{{openAdd}}" style="min-height: 40px; padding: 0 14px; border-radius: 10px; border: none; background: #0E7C66; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Add a person</button></sc-if>
+<sc-if value="{{addClosed}}" hint-placeholder-val="{{true}}"><button onClick="{{openAdd}}" style="min-height: 40px; padding: 0 14px; border-radius: 10px; border: none; background: #F48922; color: #1C1A18; font-size: 14px; font-weight: 600; cursor: pointer">Add a person</button></sc-if>
 </div>
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-top: 1px solid #EEF1F4">
-<div style="display: flex; gap: 10px; align-items: center"><span style="width: 36px; height: 36px; border-radius: 18px; background: #0F1E35; color: #7FD8BE; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">MH</span><div style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 700">You</span><span style="font-size: 12px; color: #556070">Account holder · full access</span></div></div>
+<div style="display: flex; gap: 10px; align-items: center"><span style="width: 36px; height: 36px; border-radius: 18px; background: #1C1A18; color: #F48922; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">MH</span><div style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 700">You</span><span style="font-size: 12px; color: #556070">Account holder · full access</span></div></div>
 </div>
 <sc-for list="{{people}}" as="p" hint-placeholder-count="2">
 <div style="display: flex; flex-direction: column; gap: 8px; padding: 10px 0; border-top: 1px solid #EEF1F4">
@@ -358,7 +471,7 @@ button,input{font-family:inherit}
 </div>
 
 <sc-if value="{{addOpen}}" hint-placeholder-val="{{false}}">
-<div style="background: #FFFFFF; border-radius: 18px; border: 2px solid #0E7C66; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="background: #FFFFFF; border-radius: 18px; border: 2px solid #F48922; padding: 16px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 16px; font-weight: 700">Add a person to {{bk.id}}</span>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
 <button onClick="{{roleCo}}" style="{{roleCoStyle}}"><span style="font-weight: 700">Co-renter</span><span style="font-size: 12px">Full access, shares the rent</span></button>
@@ -373,7 +486,7 @@ button,input{font-family:inherit}
 </div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
 <button onClick="{{closeAdd}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">Cancel</button>
-<button onClick="{{sendInvite}}" style="min-height: 48px; border-radius: 12px; border: none; background: #0F1E35; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer">Send request</button>
+<button onClick="{{sendInvite}}" style="min-height: 48px; border-radius: 12px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer">Send request</button>
 </div>
 </div>
 </sc-if>
@@ -389,7 +502,7 @@ button,input{font-family:inherit}
 <div style="display: flex; flex-direction: column; gap: 14px">
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 16px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 14px; color: #556070">December rent · {{bk.id}}</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 600">AED {{sum.monthly}}</span>
+<span style="font-family: Figtree, sans-serif; font-size: 34px; font-weight: 600">AED {{sum.monthly}}</span>
 <span style="font-size: 13px; color: #556070">{{shareNote}}</span>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
 <sc-for list="{{methods}}" as="pm" hint-placeholder-count="4">
@@ -397,7 +510,7 @@ button,input{font-family:inherit}
 </sc-for>
 </div>
 <sc-if value="{{rentPaid}}" hint-placeholder-val="{{false}}"><div style="background: #E3F4EE; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-weight: 600; color: #0B5E4D">Paid with {{methodName}}. Receipt sent to your email.</div></sc-if>
-<sc-if value="{{rentDue}}" hint-placeholder-val="{{true}}"><button onClick="{{payRent}}" style="min-height: 52px; border-radius: 14px; border: none; background: #0F1E35; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer">Pay now with {{methodName}}</button></sc-if>
+<sc-if value="{{rentDue}}" hint-placeholder-val="{{true}}"><button onClick="{{payRent}}" style="min-height: 52px; border-radius: 14px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer">Pay now with {{methodName}}</button></sc-if>
 <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px">Monthly auto-pay</span><button onClick="{{toggleAutopay}}" aria-label="Toggle auto-pay" style="{{autopayStyle}}"><span style="width: 26px; height: 26px; border-radius: 13px; background: #FFFFFF; display: block"></span></button></div>
 </div>
 <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E3E7EC; padding: 4px 16px">
@@ -444,7 +557,7 @@ button,input{font-family:inherit}
 </sc-if>
 </div>
 
-<nav style="height: 78px; background: #FFFFFF; border-top: 1px solid #E3E7EC; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))">
+<nav style="height: 78px; background: #FFFFFF; border-top: 1px solid #E3E7EC; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr))">
 <sc-for list="{{nav}}" as="n" hint-placeholder-count="4">
 <button onClick="{{n.go}}" style="{{n.style}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.icon}}"/></svg>{{n.label}}</button>
 </sc-for>
@@ -455,7 +568,7 @@ button,input{font-family:inherit}
 <sc-if value="{{faceCheck}}" hint-placeholder-val="{{false}}">
 <div style="position: absolute; inset: 0; background: rgba(15,23,42,0.55); display: flex; align-items: center; justify-content: center">
 <div style="width: 220px; background: #FFFFFF; border-radius: 24px; padding: 26px 18px; display: flex; flex-direction: column; align-items: center; gap: 10px">
-<svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#0E7C66" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M9 9v1M15 9v1M12 9v4h-1M9 16c1.5 1 4.5 1 6 0"/></svg>
+<svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#F48922" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M9 9v1M15 9v1M12 9v4h-1M9 16c1.5 1 4.5 1 6 0"/></svg>
 <span style="font-size: 16px; font-weight: 700">Face ID</span>
 <span style="font-size: 13px; color: #556070; text-align: center">{{faceText}}</span>
 </div>
@@ -470,7 +583,12 @@ class Component extends DCLogic {
     super(props);
     this.state = {
       view: 'welcome', prev: 'browse', otpFor: 'signup', idDone: false, filter: 'all',
-      bk: { kind: 'ready', id: 'B-214', sqft: 50, price: 450, where: 'Ground floor, corridor B', fits: 'Contents of a studio flat', corridor: 1, slot: 3 },
+      bk: { kind: 'ready', id: 'B-214', sqft: 50, price: 450, where: 'Ground floor, corridor B', fits: 'Contents of a studio flat', corridor: 1, slot: 3, type: 'Room, roller door', img: '/demo/img/sk/unit-room.jpg' },
+      dur: 1, extras: {}, collectAsked: false,
+      helpTab: 'issue', issueCat: 'lock', urgent: false, issueDraft: '', photoAdded: false, staffOk: false, issueSent: '', reqSeq: 1043,
+      noteKind: 'private', noteDraft: '', noteSaved: false,
+      requests: [{ id: 'SK-1038', title: 'Corridor light', text: 'The light outside my unit flickers in the evening.', status: 'Fixed', when: '12 Nov', urgent: false }],
+      notes: [{ kind: 'private', text: 'Winter clothes in the blue boxes at the back left. Documents on the top shelf.', when: '3 Nov' }],
       customPick: 120, t1: false, t2: false,
       screen: 'home', lock: 'idle', face: false, faceText: '', pin: '481729', cardFrozen: false, autopay: true,
       method: 'apple', rentPaid: false, blocked: false, addOpen: false, role: 'co',
@@ -518,14 +636,35 @@ class Component extends DCLogic {
     const go = (v) => () => this.setState({ view: v });
     const tab = (sc) => () => this.setState({ screen: sc, addOpen: false });
     const ready = [
-      { id: 'A-118', sqft: 25, price: 250, fits: 'About 10 boxes or a bicycle', where: 'Ground floor, corridor A', corridor: 0, slot: 5 },
-      { id: 'B-214', sqft: 50, price: 450, fits: 'Contents of a studio flat', where: 'Ground floor, corridor B', corridor: 1, slot: 3 },
-      { id: 'C-107', sqft: 75, price: 620, fits: 'A 1-bedroom flat', where: 'Ground floor, corridor C', corridor: 2, slot: 6 },
-      { id: 'D-103', sqft: 100, price: 790, fits: 'A 2-bedroom flat or business stock', where: 'Ground floor, corridor D', corridor: 3, slot: 2 }
+      { id: 'A-118', sqft: 25, price: 250, fits: 'About 10 boxes or a bicycle', where: 'Ground floor, corridor A', corridor: 0, slot: 5, type: 'Locker', img: '/demo/img/sk/unit-locker.jpg' },
+      { id: 'B-214', sqft: 50, price: 450, fits: 'Contents of a studio flat', where: 'Ground floor, corridor B', corridor: 1, slot: 3, type: 'Room, roller door', img: '/demo/img/sk/unit-room.jpg' },
+      { id: 'C-107', sqft: 75, price: 620, fits: 'A 1-bedroom flat', where: 'Ground floor, corridor C', corridor: 2, slot: 6, type: 'Mesh room', img: '/demo/img/sk/unit-mesh.jpg' },
+      { id: 'D-103', sqft: 100, price: 790, fits: 'A 2-bedroom flat or business stock', where: 'Ground floor, corridor D', corridor: 3, slot: 2, type: 'Mesh room', img: '/demo/img/sk/unit-mesh-large.jpg' }
     ];
     const shown = ready.filter((u) => s.filter === 'all' || (s.filter === 'small' ? u.sqft <= 50 : u.sqft > 50));
     const customs = [{ sqft: 120, price: 900, fits: 'A 2-bedroom flat' }, { sqft: 150, price: 1100, fits: 'A 3-bedroom flat' }, { sqft: 200, price: 1400, fits: 'A villa or shop stock' }];
-    const chip = (on) => 'min-height: 40px; padding: 0 16px; border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600; border: 1px solid ' + (on ? '#0F1E35' : '#D4D8DE') + '; background: ' + (on ? '#0F1E35' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#0F172A');
+    const chip = (on) => 'min-height: 40px; padding: 0 16px; border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600; border: 1px solid ' + (on ? '#1C1A18' : '#D4D8DE') + '; background: ' + (on ? '#1C1A18' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#0F172A');
+
+    const DUR = [{ k: 1, label: '1 mo', off: 0 }, { k: 3, label: '3 mo', off: 5 }, { k: 6, label: '6 mo', off: 10 }, { k: 8, label: '8+ mo', off: 15 }];
+    const dur = DUR.find((d) => d.k === s.dur) || DUR[0];
+    const EX = [
+      { k: 'collect', title: 'Collection from your door', text: 'Our moving team packs, loads and brings everything to your unit.', price: 350, per: 'one-time', img: '/demo/img/sk/moving.jpg' },
+      { k: 'pack', title: 'Packing kit', text: '10 boxes and 2 tape rolls, waiting in your unit.', price: 308.30, per: 'one-time', img: '/demo/img/sk/packing.jpg' },
+      { k: 'shelf', title: 'Shelving rack', text: 'Steel shelves fitted before you move in.', price: 40, per: 'month', icon: 'M4 4h16M4 12h16M4 20h16M6 4v16M18 4v16' },
+      { k: 'cam', title: 'Camera in your unit', text: 'Watch your own unit live in the app. Only you can see it.', price: 35, per: 'month', icon: 'M3 7h13v10H3zM16 10l5-3v10l-5-3' },
+      { k: 'cover', title: 'Extra insurance cover', text: 'Raise your cover to AED 50,000 for valuables.', price: 25, per: 'month', icon: 'M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6zM9 12l2 2 4-4' }
+    ];
+    const exOn = s.extras || {};
+    const money = (n) => n.toFixed(2).replace(/\.00$/, '');
+    const rentNow = s.bk.price * (1 - dur.off / 100);
+    const monthlyEx = EX.filter((x) => exOn[x.k] && x.per === 'month').reduce((a, x) => a + x.price, 0);
+    const oneOff = EX.filter((x) => exOn[x.k] && x.per === 'one-time').reduce((a, x) => a + x.price, 0);
+    const vatAll = (rentNow + monthlyEx + oneOff) * 0.05;
+    const totalNow = rentNow + monthlyEx + oneOff + s.bk.price + vatAll;
+    const pillOf = (bg, fg) => 'font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap; background: ' + bg + '; color: ' + fg;
+    const optStyle = (on) => 'min-height: 60px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 6px; color: #1C1A18; border: ' + (on ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (on ? '#FEF1E4' : '#FFFFFF');
+    const cats = [['lock', 'Lock or keypad'], ['door', 'Door or mesh'], ['light', 'Light or power'], ['ac', 'Cooling'], ['pest', 'Pests or cleaning'], ['other', 'Something else']];
+    const catName = (k) => (cats.find((c) => c[0] === k) || cats[5])[1];
     const bk = s.bk;
     const r2 = (n) => n.toFixed(2).replace(/\.00$/, '');
     const vat = bk.price * 0.05;
@@ -537,32 +676,33 @@ class Component extends DCLogic {
     const stepLabels = ['Request sent', 'ID and selfie checked', 'Approved by Storage Keys', 'Access active'];
     const histLook = { open: [I.open, '#0B5E4D', '#E3F4EE'], gate: [I.shield, '#1E3A5F', '#E8EEF7'], bad: [I.alert, '#8E1F1F', '#FBE9E9'], pay: [I.card, '#1E3A5F', '#E8EEF7'], info: [I.users, '#1E3A5F', '#E8EEF7'] };
     const termIcon = (bg, c) => ({ iconBg: bg, iconColor: c });
-    const tBox = (on) => 'width: 22px; height: 22px; border-radius: 6px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #FFFFFF; border: 2px solid ' + (on ? '#0E7C66' : '#9AA5B4') + '; background: ' + (on ? '#0E7C66' : '#FFFFFF');
+    const tBox = (on) => 'width: 22px; height: 22px; border-radius: 6px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #1C1A18; border: 2px solid ' + (on ? '#F48922' : '#9AA5B4') + '; background: ' + (on ? '#F48922' : '#FFFFFF');
     const tRow = 'min-height: 44px; border: none; background: none; padding: 0; display: flex; gap: 10px; align-items: center; text-align: left; font-size: 13.5px; font-weight: 600; color: #0F172A; cursor: pointer';
     const both = s.t1 && s.t2;
     return {
       vWelcome: s.view === 'welcome', vBrowse: s.view === 'browse', vUnit: s.view === 'unit', vCustom: s.view === 'custom', vSignup: s.view === 'signup', vOtp: s.view === 'otp', vTerms: s.view === 'terms', vCheckout: s.view === 'checkout', vSuccess: s.view === 'success', vLogin: s.view === 'login', vIn: s.view === 'in',
       goWelcome: go('welcome'), goBrowse: go('browse'), goLogin: go('login'),
-      goCustom: () => { const c = customs.find((x) => x.sqft === s.customPick) || customs[0]; this.setState({ view: 'custom', prev: 'custom', bk: { kind: 'custom', id: 'F-' + (200 + c.sqft / 10), sqft: c.sqft, price: c.price, where: 'First floor, corridor F', fits: c.fits } }); },
+      goCustom: () => { const c = customs.find((x) => x.sqft === s.customPick) || customs[0]; this.setState({ view: 'custom', prev: 'custom', bk: { kind: 'custom', id: 'F-' + (200 + c.sqft / 10), sqft: c.sqft, price: c.price, where: 'First floor, corridor F', fits: c.fits, type: 'Mesh room, built for you', img: '/demo/img/sk/custom.jpg' } }); },
       goSignup: () => this.setState({ view: 'signup', prev: s.view }),
       goBack: () => this.setState({ view: s.prev === 'custom' ? 'custom' : 'unit' }),
       filters: [['all', 'All sizes'], ['small', 'Small'], ['large', 'Large']].map((f) => ({ label: f[1], style: chip(s.filter === f[0]), pick: () => this.setState({ filter: f[0] }) })),
       availText: shown.length + ' units available now',
       units: shown.map((u) => Object.assign({}, u, { pick: () => this.setState({ view: 'unit', prev: 'unit', bk: Object.assign({ kind: 'ready' }, u) }) })),
-      miniMap: ['A', 'B', 'C', 'D'].map((L, ci) => ({ letter: L, tiles: [0, 1, 2, 3, 4, 5, 6, 7].map((ti) => { const mine = bk.corridor === ci && bk.slot === ti; const free = (ci * 3 + ti * 5) % 7 === 1; return { style: 'height: 22px; border-radius: 4px; background: ' + (mine ? '#0E7C66' : (free ? '#CFEFE4' : '#E3E7EC')) + (mine ? '; box-shadow: 0 0 0 2px #0F1E35' : '') }; }) })),
+      miniMap: ['A', 'B', 'C', 'D'].map((L, ci) => ({ letter: L, tiles: [0, 1, 2, 3, 4, 5, 6, 7].map((ti) => { const mine = bk.corridor === ci && bk.slot === ti; const free = (ci * 3 + ti * 5) % 7 === 1; return { style: 'height: 22px; border-radius: 4px; background: ' + (mine ? '#F48922' : (free ? '#FDE7D1' : '#E3E7EC')) + (mine ? '; box-shadow: 0 0 0 2px #1C1A18' : '') }; }) })),
       features: [
-        { icon: I.box, title: bk.sqft + ' sq ft, mesh walls, swing door', text: bk.fits },
+        { icon: I.box, title: bk.sqft + ' sq ft · ' + (bk.type || 'Storage unit'), text: bk.fits },
+        { icon: I.shield, title: 'Climate controlled, insurance included', text: 'Cool, dry air all year. Basic cover for your belongings is in the price.' },
         { icon: I.lock, title: 'Smart padlock included', text: 'Open with your phone and Face ID, an NFC card or a one-time PIN' },
         { icon: I.cam, title: 'CCTV in every corridor', text: 'Every unlock is logged with a camera clip' },
         { icon: I.clock, title: 'Access hours', text: 'Set by your plan, shown before you pay' },
         { icon: I.eye, title: 'Your contents stay private', text: 'Only you know what is inside. Staff have no key.' }
       ],
-      customSizes: customs.map((c) => ({ sqft: c.sqft, price: c.price, pick: () => this.setState({ customPick: c.sqft, bk: { kind: 'custom', id: 'F-' + (200 + c.sqft / 10), sqft: c.sqft, price: c.price, where: 'First floor, corridor F', fits: c.fits } }), style: 'min-height: 104px; border-radius: 16px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; color: #0F172A; border: ' + (s.customPick === c.sqft ? '2px solid #0E7C66' : '1px solid #D4D8DE') + '; background: ' + (s.customPick === c.sqft ? '#F0FAF6' : '#FFFFFF') })),
-      bk: Object.assign({}, bk, { title: bk.kind === 'custom' ? 'Custom unit, ' + bk.sqft + ' sq ft, first floor' : 'Unit ' + bk.id + ', ' + bk.sqft + ' sq ft' }),
+      customSizes: customs.map((c) => ({ sqft: c.sqft, price: c.price, pick: () => this.setState({ customPick: c.sqft, bk: { kind: 'custom', id: 'F-' + (200 + c.sqft / 10), sqft: c.sqft, price: c.price, where: 'First floor, corridor F', fits: c.fits } }), style: 'min-height: 104px; border-radius: 16px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; color: #0F172A; border: ' + (s.customPick === c.sqft ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (s.customPick === c.sqft ? '#FFF8F1' : '#FFFFFF') })),
+      bk: Object.assign({ type: 'Storage unit', img: '/demo/img/sk/unit-room.jpg' }, bk, { badge: bk.kind === 'custom' ? 'Ready in 3 days' : 'Ready now', title: bk.kind === 'custom' ? 'Custom unit, ' + bk.sqft + ' sq ft, first floor' : 'Unit ' + bk.id + ', ' + bk.sqft + ' sq ft' }),
       scanId: () => this.setState({ idDone: true }),
       uaePass: () => this.setState({ idDone: true }),
       idLabel: s.idDone ? 'Emirates ID scanned and matched to your selfie' : 'Scan Emirates ID and take a selfie',
-      idButton: 'min-height: 50px; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px ' + (s.idDone ? 'solid #0E7C66' : 'dashed #9AA5B4') + '; background: ' + (s.idDone ? '#E3F4EE' : '#FFFFFF') + '; color: ' + (s.idDone ? '#0B5E4D' : '#0F172A'),
+      idButton: 'min-height: 50px; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px ' + (s.idDone ? 'solid #2E9E6B' : 'dashed #9AA5B4') + '; background: ' + (s.idDone ? '#E3F4EE' : '#FFFFFF') + '; color: ' + (s.idDone ? '#0B5E4D' : '#0F172A'),
       goOtp: () => this.setState({ view: 'otp', otpFor: 'signup', idDone: true }),
       otpStep: s.otpFor === 'device' ? 'NEW PHONE CHECK' : 'STEP 1 OF 3 · VERIFY',
       otpTitle: s.otpFor === 'device' ? 'Confirm it is you' : 'Verify your mobile and email',
@@ -578,29 +718,82 @@ class Component extends DCLogic {
       ],
       toggleT1: () => this.setState({ t1: !s.t1 }), toggleT2: () => this.setState({ t2: !s.t2 }),
       t1Style: tRow, t2Style: tRow, t1Box: tBox(s.t1), t2Box: tBox(s.t2), t1Mark: s.t1 ? '✓' : '', t2Mark: s.t2 ? '✓' : '',
-      termsNext: 'min-height: 54px; border-radius: 16px; border: none; font-size: 16px; font-weight: 700; cursor: ' + (both ? 'pointer' : 'not-allowed') + '; background: ' + (both ? '#0F1E35' : '#C7CDD5') + '; color: ' + (both ? '#FFFFFF' : '#556070'),
+      termsNext: 'min-height: 54px; border-radius: 16px; border: none; font-size: 16px; font-weight: 700; cursor: ' + (both ? 'pointer' : 'not-allowed') + '; background: ' + (both ? '#1C1A18' : '#C7CDD5') + '; color: ' + (both ? '#FFFFFF' : '#556070'),
       goPayStep: () => { if (both) this.setState({ view: 'checkout' }); },
-      sum: { rent: r2(bk.price), deposit: r2(bk.price), vat: r2(vat), total: r2(bk.price * 2 + vat), monthly: r2(share + share * 0.05) },
-      methods: ['apple', 'samsung', 'google', 'card'].map((k) => ({ label: methodNames[k], icon: methodIcons[k], pick: () => this.setState({ method: k }), style: 'min-height: 50px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 700; color: #0F172A; border: ' + (s.method === k ? '2px solid #0E7C66' : '1px solid #D4D8DE') + '; background: ' + (s.method === k ? '#F0FAF6' : '#FFFFFF') })),
+      sum: { rent: r2(rentNow), deposit: r2(bk.price), vat: r2(vatAll), total: r2(totalNow), monthly: r2(((coCount ? rentNow / (coCount + 1) : rentNow) + monthlyEx) * 1.05) },
+      methods: ['apple', 'samsung', 'google', 'card'].map((k) => ({ label: methodNames[k], icon: methodIcons[k], pick: () => this.setState({ method: k }), style: 'min-height: 50px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 700; color: #0F172A; border: ' + (s.method === k ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (s.method === k ? '#FFF8F1' : '#FFFFFF') })),
       methodName: methodNames[s.method],
-      payLabel: 'Pay AED ' + r2(bk.price * 2 + vat) + ' with ' + methodNames[s.method],
+      payLabel: 'Pay AED ' + r2(totalNow) + ' with ' + methodNames[s.method],
       payBooking: () => this.face('Confirm payment with ' + methodNames[s.method], () => this.setState({ view: 'success' })),
       successTitle: bk.kind === 'custom' ? 'Your unit is booked' : 'Unit ' + bk.id + ' is yours',
-      successText: bk.kind === 'custom' ? 'We start building your ' + bk.sqft + ' sq ft unit today. Your key will appear here when it is ready, within 3 working days.' : 'Payment received. Your digital key is ready and the unit is already locked and waiting for you.',
+      successText: bk.kind === 'custom' ? 'We start building your ' + bk.sqft + ' sq ft unit today. Your key will appear here when it is ready, within 3 working days.' : 'Payment received. Your digital key is ready and the unit is already locked and waiting for you.' + (exOn.collect ? ' Our moving team will call you today to book your collection.' : '') + (exOn.pack ? ' Your packing kit will be waiting in the unit.' : ''),
       finishSetup: () => this.setState({ view: 'in', screen: 'home' }),
       loginNewDevice: () => this.setState({ view: 'otp', otpFor: 'device' }),
       loginFace: () => this.face('Logging you in', () => this.setState({ view: 'in', screen: 'home' })),
       faceCheck: s.face, faceText: s.faceText,
-      screenTitle: { home: 'My storage', access: 'Access', pay: 'Payments', history: 'Activity', account: 'Account' }[s.screen],
+      screenTitle: { home: 'My storage', access: 'Access', pay: 'Payments', help: 'Help and notes', history: 'Activity', account: 'Account' }[s.screen],
       isHome: s.screen === 'home', isAccess: s.screen === 'access', isPay: s.screen === 'pay', isHistory: s.screen === 'history', isAccount: s.screen === 'account',
       goAccount: tab('account'),
-      nav: [['home', 'Home', I.home], ['access', 'Access', I.key], ['pay', 'Pay', I.card], ['history', 'Activity', I.clock]].map((n) => ({ label: n[1], icon: n[2], go: tab(n[0]), style: 'min-height: 44px; border: none; background: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 600; color: ' + (s.screen === n[0] ? '#0E7C66' : '#6B7280') })),
+      durations: DUR.map((d) => ({ label: d.label, save: d.off ? 'Save ' + d.off + '%' : 'Monthly', pick: () => this.setState({ dur: d.k }), style: 'min-height: 58px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: ' + (s.dur === d.k ? '#1C1A18' : '#3A4555') + '; border: ' + (s.dur === d.k ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (s.dur === d.k ? '#FEF1E4' : '#FFFFFF') })),
+      extras: EX.map((x) => { const on = !!exOn[x.k]; return {
+        title: x.title, text: x.text, priceLabel: 'AED ' + money(x.price) + (x.per === 'month' ? ' / month' : ' once'), hasIcon: !x.img, icon: x.icon || '', pressed: on ? 'true' : 'false',
+        thumb: 'width: 60px; height: 60px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; background: ' + (x.img ? '#2B2622 url(' + x.img + ') center / cover no-repeat' : '#FEF1E4'),
+        style: 'text-align: left; display: flex; gap: 12px; align-items: center; padding: 10px 12px 10px 10px; border-radius: 16px; cursor: pointer; color: #1C1A18; border: ' + (on ? '2px solid #F48922' : '1px solid #E3E7EC') + '; background: ' + (on ? '#FFF8F1' : '#FFFFFF'),
+        mark: 'width: 26px; height: 26px; border-radius: 13px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: #1C1A18; border: 2px solid ' + (on ? '#F48922' : '#C7CDD5') + '; background: ' + (on ? '#F48922' : '#FFFFFF'),
+        markText: on ? '✓' : '+',
+        toggle: () => this.setState({ extras: Object.assign({}, exOn, { [x.k]: !on }) }) }; }),
+      priceNow: money(rentNow + monthlyEx), durLabel: dur.k === 1 ? 'monthly plan' : dur.label.replace('mo', 'months') + ' plan, ' + dur.off + '% off',
+      oneOffLabel: oneOff ? '+ AED ' + money(oneOff) + ' one-time services' : '',
+      sumRows: [{ label: 'First month' + (dur.off ? ' (' + dur.off + '% off)' : ''), amount: money(rentNow) }]
+        .concat(EX.filter((x) => exOn[x.k]).map((x) => ({ label: x.title + (x.per === 'month' ? ', first month' : ''), amount: money(x.price) })))
+        .concat([{ label: 'Refundable deposit', amount: money(s.bk.price) }, { label: 'VAT 5%', amount: money(vatAll) }]),
+      goHelp: tab('help'),
+      openReqText: (() => { const n = s.requests.filter((r) => r.status !== 'Fixed').length; return n ? n + ' open request' + (n > 1 ? 's' : '') : 'Report a problem or add a note'; })(),
+      collectLabel: s.collectAsked ? 'Request sent · we will call you' : 'Book a collection',
+      bookCollection: () => { if (s.collectAsked) return; this.setState({ collectAsked: true }); this.addLog({ what: 'Collection requested', when: 'Just now', how: 'Moving team will call to book a time', kind: 'info' }); },
+      isHelp: s.screen === 'help', helpIsIssue: s.helpTab === 'issue', helpIsNote: s.helpTab === 'note',
+      helpIssue: () => this.setState({ helpTab: 'issue' }), helpNote: () => this.setState({ helpTab: 'note' }),
+      segIssue: 'min-height: 42px; border-radius: 10px; border: none; cursor: pointer; font-size: 14px; font-weight: 700; color: #1C1A18; background: ' + (s.helpTab === 'issue' ? '#FFFFFF' : 'transparent') + (s.helpTab === 'issue' ? '; box-shadow: 0 1px 3px rgba(28,26,24,0.15)' : ''),
+      segNote: 'min-height: 42px; border-radius: 10px; border: none; cursor: pointer; font-size: 14px; font-weight: 700; color: #1C1A18; background: ' + (s.helpTab === 'note' ? '#FFFFFF' : 'transparent') + (s.helpTab === 'note' ? '; box-shadow: 0 1px 3px rgba(28,26,24,0.15)' : ''),
+      issueCats: cats.map((c) => ({ label: c[1], pick: () => this.setState({ issueCat: c[0] }), style: 'min-height: 38px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; border: 1px solid ' + (s.issueCat === c[0] ? '#1C1A18' : '#D4D8DE') + '; background: ' + (s.issueCat === c[0] ? '#1C1A18' : '#FFFFFF') + '; color: ' + (s.issueCat === c[0] ? '#FFFFFF' : '#1C1A18') })),
+      issueDraft: s.issueDraft,
+      typeIssue: (e) => { this.state.issueDraft = e.target.value; },
+      photoAdded: s.photoAdded, photoLabel: s.photoAdded ? 'Photo added · change' : '+ Add a photo',
+      addPhoto: () => this.setState({ photoAdded: true }),
+      urgencies: [[false, 'Normal', 'Within 2 working days'], [true, 'Urgent', 'Today, team on site']].map((u) => ({ label: u[1], text: u[2], pick: () => this.setState({ urgent: u[0] }), style: optStyle(s.urgent === u[0]) })),
+      staffBox: 'width: 22px; height: 22px; border-radius: 6px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #1C1A18; border: 2px solid ' + (s.staffOk ? '#F48922' : '#9AA5B4') + '; background: ' + (s.staffOk ? '#F48922' : '#FFFFFF'),
+      staffMark: s.staffOk ? '✓' : '',
+      toggleStaffOk: () => this.setState({ staffOk: !s.staffOk }),
+      issueSent: !!s.issueSent, issueSentText: s.issueSent,
+      sendIssue: () => {
+        const text = (s.issueDraft || '').trim() || 'No details added.';
+        const id = 'SK-' + s.reqSeq;
+        const req = { id: id, title: catName(s.issueCat), text: text, status: 'Received', when: 'Just now', urgent: s.urgent, photo: s.photoAdded, staffOk: s.staffOk };
+        this.setState({ requests: [req].concat(s.requests), reqSeq: s.reqSeq + 1, issueDraft: '', photoAdded: false, staffOk: false, urgent: false, issueSent: 'Request ' + id + ' sent. ' + (s.urgent ? 'Our on-site team will contact you today.' : 'We will update you here within 2 working days.') });
+        this.addLog({ what: 'Maintenance request ' + id, when: 'Just now', how: catName(s.issueCat) + (s.staffOk ? ', staff may enter' : ''), kind: 'info' });
+        setTimeout(() => this.setState({ requests: this.state.requests.map((r) => r.id === id ? Object.assign({}, r, { status: 'In progress' }) : r) }), 4000);
+      },
+      requests: s.requests.map((r) => ({ title: r.title + ' · ' + r.id, text: r.text, status: r.status,
+        pill: r.status === 'Fixed' ? pillOf('#E3F4EE', '#0B5E4D') : (r.status === 'In progress' ? pillOf('#FDF1E3', '#8A4B0F') : pillOf('#E8EEF7', '#1E3A5F')),
+        meta: r.when + (r.urgent ? ' · Urgent' : '') + (r.photo ? ' · 1 photo' : '') + (r.staffOk ? ' · Staff may enter, you get the camera clip' : '') })),
+      noteKinds: [['private', 'Private note', 'Only you can see it'], ['desk', 'For the front desk', 'Our team reads it']].map((k) => ({ label: k[1], text: k[2], pick: () => this.setState({ noteKind: k[0] }), style: optStyle(s.noteKind === k[0]) })),
+      notePlaceholder: s.noteKind === 'desk' ? 'For example: my brother Ahmed will collect two boxes on Friday' : 'For example: kitchen items in the boxes by the door',
+      noteDraft: s.noteDraft,
+      typeNote: (e) => { this.state.noteDraft = e.target.value; },
+      saveNoteLabel: s.noteSaved ? 'Saved · add another' : (s.noteKind === 'desk' ? 'Send to the front desk' : 'Save note'),
+      saveNote: () => {
+        const text = (s.noteDraft || '').trim(); if (!text) return;
+        this.setState({ notes: [{ kind: s.noteKind, text: text, when: 'Just now' }].concat(s.notes), noteDraft: '', noteSaved: true });
+        if (s.noteKind === 'desk') this.addLog({ what: 'Note sent to the front desk', when: 'Just now', how: 'App', kind: 'info' });
+      },
+      notes: s.notes.map((n) => ({ text: n.text, when: n.when, kindLabel: n.kind === 'desk' ? 'Sent to the front desk' : 'Private note', pill: n.kind === 'desk' ? pillOf('#E8EEF7', '#1E3A5F') : pillOf('#FEF1E4', '#A8520A') })),
+      nav: [['home', 'Home', I.home], ['access', 'Access', I.key], ['pay', 'Pay', I.card], ['help', 'Help', 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z'], ['history', 'Activity', I.clock]].map((n) => ({ label: n[1], icon: n[2], go: tab(n[0]), style: 'min-height: 44px; border: none; background: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 600; color: ' + (s.screen === n[0] ? '#F48922' : '#6B7280') })),
       quick: [['PIN', I.pin, 'access'], ['Add person', I.users, 'access'], ['Pay rent', I.card, 'pay'], ['Activity', I.clock, 'history']].map((q) => ({ label: q[0], icon: q[1], go: tab(q[2]) })),
       peopleCount: 1 + s.people.filter((p) => p.step >= 4).length,
       lockLabel: s.blocked ? 'Blocked' : (lock === 'open' ? 'Open' : 'Locked'),
-      pillStyle: 'font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: ' + (lock === 'open' ? '#7FD8BE' : '#22385A') + '; color: ' + (lock === 'open' ? '#0B2A22' : '#CFEFE4'),
+      pillStyle: 'font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: ' + (lock === 'open' ? '#F48922' : '#2B2622') + '; color: ' + (lock === 'open' ? '#1C1A18' : '#FDE7D1'),
       unlockIcon: lock === 'open' ? I.check : I.lock,
-      unlockStyle: 'width: 170px; height: 170px; border-radius: 85px; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: ' + (s.blocked ? '#5B6B82' : (lock === 'open' ? '#0E7C66' : (lock === 'busy' ? '#2E4A70' : '#1D3557'))) + '; box-shadow: 0 0 0 10px ' + (lock === 'open' ? 'rgba(127,216,190,0.35)' : 'rgba(127,216,190,0.12)') + ', 0 0 0 22px ' + (lock === 'open' ? 'rgba(127,216,190,0.15)' : 'rgba(127,216,190,0.05)'),
+      unlockStyle: 'width: 170px; height: 170px; border-radius: 85px; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: ' + (s.blocked ? '#6B625A' : (lock === 'open' ? '#1E8E5A' : (lock === 'busy' ? '#3A332D' : '#2B2622'))) + '; box-shadow: 0 0 0 10px ' + (lock === 'open' ? 'rgba(127,216,190,0.35)' : 'rgba(127,216,190,0.12)') + ', 0 0 0 22px ' + (lock === 'open' ? 'rgba(127,216,190,0.15)' : 'rgba(127,216,190,0.05)'),
       unlockLabel: s.blocked ? 'Blocked' : (lock === 'open' ? 'Unlocked' : (lock === 'busy' ? 'Connecting…' : 'Tap to unlock')),
       unlockHint: s.blocked ? 'You blocked all access in Account.' : (lock === 'open' ? 'Open. It locks again when you close the shackle.' : (lock === 'busy' ? 'Talking to your padlock over Bluetooth…' : 'Stand at your door. You will confirm with Face ID.')),
       unlock: () => {
@@ -616,8 +809,8 @@ class Component extends DCLogic {
       addOpen: s.addOpen, addClosed: !s.addOpen,
       openAdd: () => this.setState({ addOpen: true }), closeAdd: () => this.setState({ addOpen: false }),
       roleCo: () => this.setState({ role: 'co' }), roleGuest: () => this.setState({ role: 'guest' }),
-      roleCoStyle: 'min-height: 64px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; padding: 0 12px; font-size: 14px; color: #0F172A; text-align: left; border: ' + (s.role === 'co' ? '2px solid #0E7C66' : '1px solid #D4D8DE') + '; background: ' + (s.role === 'co' ? '#F0FAF6' : '#FFFFFF'),
-      roleGuestStyle: 'min-height: 64px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; padding: 0 12px; font-size: 14px; color: #0F172A; text-align: left; border: ' + (s.role === 'guest' ? '2px solid #0E7C66' : '1px solid #D4D8DE') + '; background: ' + (s.role === 'guest' ? '#F0FAF6' : '#FFFFFF'),
+      roleCoStyle: 'min-height: 64px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; padding: 0 12px; font-size: 14px; color: #0F172A; text-align: left; border: ' + (s.role === 'co' ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (s.role === 'co' ? '#FFF8F1' : '#FFFFFF'),
+      roleGuestStyle: 'min-height: 64px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; padding: 0 12px; font-size: 14px; color: #0F172A; text-align: left; border: ' + (s.role === 'guest' ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (s.role === 'guest' ? '#FFF8F1' : '#FFFFFF'),
       roleNote: s.role === 'co' ? 'Rent splits 50/50. They pay their share with their own card and get full access any time.' : 'Choose when they can enter after they accept, for example weekends only or one day.',
       sendInvite: () => this.face('Confirm you are adding this person', () => {
         const id = Date.now();
@@ -634,7 +827,7 @@ class Component extends DCLogic {
         name: p.name, initials: p.initials, rule: p.rule, pending: p.step < 4,
         status: p.step >= 4 ? 'Active' : 'Pending',
         pill: 'font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: ' + (p.step >= 4 ? '#E3F4EE' : '#FDF1E3') + '; color: ' + (p.step >= 4 ? '#0B5E4D' : '#8A4B0F'),
-        steps: stepLabels.map((l, i) => ({ label: l, bar: 'height: 5px; border-radius: 3px; background: ' + (i < p.step ? '#0E7C66' : '#E3E7EC') }))
+        steps: stepLabels.map((l, i) => ({ label: l, bar: 'height: 5px; border-radius: 3px; background: ' + (i < p.step ? '#F48922' : '#E3E7EC') }))
       })),
       cardLabel: s.cardFrozen ? 'Frozen: it won\'t open anything' : 'Active · tap it on the padlock',
       cardAction: s.cardFrozen ? 'Unfreeze' : 'Freeze',
@@ -643,7 +836,7 @@ class Component extends DCLogic {
       rentPaid: s.rentPaid, rentDue: !s.rentPaid,
       payRent: () => this.face('Confirm payment with ' + methodNames[s.method], () => this.setState({ rentPaid: true, payments: [{ what: 'December rent', when: 'Today', how: methodNames[s.method], amount: 'AED ' + r2(share + share * 0.05) }].concat(s.payments) })),
       toggleAutopay: () => this.setState({ autopay: !s.autopay }),
-      autopayStyle: 'width: 56px; height: 32px; border-radius: 16px; border: none; padding: 3px; cursor: pointer; display: flex; justify-content: ' + (s.autopay ? 'flex-end' : 'flex-start') + '; background: ' + (s.autopay ? '#0E7C66' : '#C7CDD5'),
+      autopayStyle: 'width: 56px; height: 32px; border-radius: 16px; border: none; padding: 3px; cursor: pointer; display: flex; justify-content: ' + (s.autopay ? 'flex-end' : 'flex-start') + '; background: ' + (s.autopay ? '#F48922' : '#C7CDD5'),
       payments: s.payments,
       history: s.history.map((h) => { const L = histLook[h.kind] || histLook.info; return Object.assign({}, h, { icon: L[0], color: L[1], badge: 'width: 34px; height: 34px; border-radius: 10px; flex: none; display: flex; align-items: center; justify-content: center; background: ' + L[2] }); }),
       blocked: s.blocked,

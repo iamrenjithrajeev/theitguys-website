@@ -9,25 +9,25 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:Inter,system-ui,sans-serif}
-a{color:#0E7C66}a:hover{color:#0B5E4D}
+body{margin:0;font-family:Figtree,system-ui,sans-serif}
+a{color:#A8520A}a:hover{color:#7A3B05}
 button{font-family:inherit}
 </style>
 </helmet>
-<div style="width: 100%; min-height: 100vh; box-sizing: border-box; background: #F4F6F8; color: #0F172A; font-family: Inter, system-ui, sans-serif">
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; background: #FCF8F5; color: #0F172A; font-family: Figtree, system-ui, sans-serif">
 
-<header style="background: #12233D; color: #FFFFFF">
+<header style="background: #1C1A18; color: #FFFFFF">
 <div style="max-width: 1440px; margin: 0 auto; padding: 14px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
 <div style="display: flex; align-items: center; gap: 12px">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7FD8BE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600">Storage Keys Control</span>
+<img src="/demo/img/sk/logo.png" alt="Storage Keys" width="139" height="40" style="display: block; background: #FFFFFF; border-radius: 10px; padding: 4px 8px">
+<span style="font-family: Figtree, sans-serif; font-size: 20px; font-weight: 600">Control</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
-<button style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #7FD8BE; background: #1D3557; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Sharjah</button>
-<button style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #3B5377; background: transparent; color: #C9D3E3; font-size: 14px; cursor: pointer">Second site</button>
-<span style="font-size: 14px; color: #C9D3E3; padding: 0 8px">Manager · signed in with 2-step login</span>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #F48922; background: #2B2622; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Sharjah</button>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #4A423A; background: transparent; color: #E7DDD4; font-size: 14px; cursor: pointer">Second site</button>
+<span style="font-size: 14px; color: #E7DDD4; padding: 0 8px">Manager · signed in with 2-step login</span>
 <button onClick="{{toggleEmergency}}" style="{{emButton}}">{{emButtonLabel}}</button>
 </div>
 </div>
@@ -48,12 +48,12 @@ button{font-family:inherit}
 <main style="max-width: 1440px; margin: 0 auto; padding: 20px 24px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Units on this floor</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600">{{stats.total}}</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Rented</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600">{{stats.rented}}</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Vacant</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600">{{stats.vacant}}</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Access paused (unpaid)</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600; color: #8A4B0F">{{stats.overdue}}</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Lock alerts</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600; color: #8E1F1F">{{stats.alert}}</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Open right now</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600; color: #0B5E4D">{{stats.open}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Units on this floor</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600">{{stats.total}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Rented</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600">{{stats.rented}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Vacant</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600">{{stats.vacant}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Access paused (unpaid)</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600; color: #8A4B0F">{{stats.overdue}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Lock alerts</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600; color: #8E1F1F">{{stats.alert}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Open right now</span><span style="font-family: Figtree, sans-serif; font-size: 28px; font-weight: 600; color: #0B5E4D">{{stats.open}}</span></div>
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
@@ -65,18 +65,18 @@ button{font-family:inherit}
 <button onClick="{{goFirst}}" style="{{tabFirst}}">First floor (built to order)</button>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: #3A4555">
-<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E8EEF7; border: 1px solid #9FB3D1"></span>Rented</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E8EEF7; border: 1px solid #BFB3A8"></span>Rented</span>
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FFFFFF; border: 1px dashed #9AA5B4"></span>Vacant</span>
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FDF1E3; border: 1px solid #D9822B"></span>Access paused</span>
-<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E3F4EE; border: 1px solid #0E7C66"></span>Open now</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E3F4EE; border: 1px solid #2E9E6B"></span>Open now</span>
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FBE9E9; border: 1px solid #C0392B"></span>Lock alert</span>
 </div>
 </div>
 
 <sc-if value="{{isFirst}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: #F4F6F8; border-radius: 12px; padding: 12px 14px">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: #FCF8F5; border-radius: 12px; padding: 12px 14px">
 <span style="font-size: 14px; color: #3A4555">Units on this floor are built to the customer's size. Staff add, resize or merge units here and pair a padlock to each.</span>
-<button onClick="{{addUnit}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #0E7C66; background: #FFFFFF; color: #0B5E4D; font-size: 14px; font-weight: 600; cursor: pointer">Add a unit</button>
+<button onClick="{{openWiz}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: none; background: #F48922; color: #1C1A18; font-size: 14px; font-weight: 700; cursor: pointer">Set up a new unit</button>
 </div>
 </sc-if>
 
@@ -99,7 +99,7 @@ button{font-family:inherit}
 
 <sc-if value="{{emergency}}" hint-placeholder-val="{{false}}">
 <div style="background: #FFFFFF; border: 2px solid #B91C1C; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: #8E1F1F">Emergency status</span>
+<span style="font-family: Figtree, sans-serif; font-size: 20px; font-weight: 600; color: #8E1F1F">Emergency status</span>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Main gate</span><span style="font-weight: 600; color: #0B5E4D">Released</span></div>
 <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Exit doors (3)</span><span style="font-weight: 600; color: #0B5E4D">Released</span></div>
@@ -114,13 +114,13 @@ button{font-family:inherit}
 <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Staff: front desk, security</span><span style="color: #556070">on duty</span></div>
 </div>
 <span style="font-size: 13px; color: #556070">A unit can only be opened now by the Emergency override role, one at a time, and every open is logged.</span>
-<button onClick="{{endEmergency}}" style="min-height: 48px; border-radius: 12px; border: none; background: #12233D; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{endLabel}}</button>
+<button onClick="{{endEmergency}}" style="min-height: 48px; border-radius: 12px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{endLabel}}</button>
 </div>
 </sc-if>
 
 <div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: center">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">Unit {{sel.id}}</span>
+<span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600">Unit {{sel.id}}</span>
 <span style="{{sel.pill}}">{{sel.statusText}}</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; font-size: 14px">
@@ -132,13 +132,13 @@ button{font-family:inherit}
 
 <sc-if value="{{panelDetail}}" hint-placeholder-val="{{true}}">
 <div style="display: flex; flex-direction: column; gap: 8px">
-<button onClick="{{startUnlock}}" style="min-height: 48px; border-radius: 12px; border: none; background: #0E7C66; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">Remote unlock</button>
+<button onClick="{{startUnlock}}" style="min-height: 48px; border-radius: 12px; border: none; background: #F48922; color: #1C1A18; font-size: 15px; font-weight: 600; cursor: pointer">Remote unlock</button>
 <button onClick="{{issuePin}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; color: #0F172A; font-size: 15px; font-weight: 600; cursor: pointer">Issue a one-time PIN</button>
 <button onClick="{{togglePause}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #D9822B; background: #FFFFFF; color: #8A4B0F; font-size: 15px; font-weight: 600; cursor: pointer">{{pauseLabel}}</button>
 <sc-if value="{{hasPin}}" hint-placeholder-val="{{false}}">
-<div style="background: #F4F6F8; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 2px">
+<div style="background: #FCF8F5; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 13px; color: #556070">One-time PIN, valid 30 minutes</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: 0.16em">{{pinShown}}</span>
+<span style="font-family: Figtree, sans-serif; font-size: 26px; font-weight: 600; letter-spacing: 0.16em">{{pinShown}}</span>
 </div>
 </sc-if>
 </div>
@@ -162,7 +162,7 @@ button{font-family:inherit}
 <div style="background: #E3F4EE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 15px; font-weight: 600; color: #0B5E4D">Approved by the owner. Unit {{sel.id}} unlocked.</span>
 <span style="font-size: 13px; color: #3A4555">Reason, both names and the camera clip are saved in the log. The customer was notified.</span>
-<button onClick="{{backToDetail}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #0E7C66; background: #FFFFFF; color: #0B5E4D; font-size: 14px; font-weight: 600; cursor: pointer">Done</button>
+<button onClick="{{backToDetail}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #F48922; background: #FFFFFF; color: #A8520A; font-size: 14px; font-weight: 600; cursor: pointer">Done</button>
 </div>
 </sc-if>
 </div>
@@ -171,7 +171,7 @@ button{font-family:inherit}
 
 <section style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600">Live access log</span>
+<span style="font-family: Figtree, sans-serif; font-size: 20px; font-weight: 600">Live access log</span>
 <span style="font-size: 13px; color: #556070">Append-only: entries can't be edited or deleted. Export to PDF or Excel.</span>
 </div>
 <div style="overflow-x: auto">
@@ -186,6 +186,97 @@ button{font-family:inherit}
 
 <span style="font-size: 13px; color: #556070">Demo with sample data. The same screen runs full-screen on the office touchscreen.</span>
 </main>
+
+<sc-if value="{{wizOpen}}" hint-placeholder-val="{{false}}">
+<div style="position: fixed; inset: 0; z-index: 50; background: rgba(28,26,24,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div role="dialog" aria-modal="true" aria-label="Set up a new unit" style="width: 100%; max-width: 660px; max-height: 100%; overflow-y: auto; background: #FFFFFF; border-radius: 18px; padding: 22px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; color: #1C1A18">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 700; color: #A8520A; letter-spacing: 0.06em">FIRST FLOOR · CORRIDOR E · {{wizUnitId}}</span><span style="font-size: 22px; font-weight: 800">Set up a new unit</span></div>
+<button onClick="{{closeWiz}}" aria-label="Close" style="width: 40px; height: 40px; border-radius: 20px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 18px; cursor: pointer; flex: none">✕</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{wizSteps}}" as="st" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="{{st.bar}}"></span><span style="{{st.text}}">{{st.label}}</span></div>
+</sc-for>
+</div>
+
+<sc-if value="{{w1}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; gap: 12px; align-items: center; background: #FEF1E4; border-radius: 12px; padding: 12px 14px"><span style="font-size: 14px; line-height: 1.45"><b>Built for:</b> J. Thomas, custom unit booking, paid in full. Build the mesh walls to these measurements, then fit and register the padlock.</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{dims}}" as="d" hint-placeholder-count="3">
+<div style="border: 1px solid #E3E7EC; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; align-items: center">
+<span style="font-size: 13px; font-weight: 600; color: #556070">{{d.label}}</span>
+<div style="display: flex; align-items: center; gap: 10px"><button onClick="{{d.minus}}" aria-label="{{d.minusLabel}}" style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 20px; cursor: pointer">−</button><span style="font-size: 20px; font-weight: 800; min-width: 54px; text-align: center">{{d.value}} m</span><button onClick="{{d.plus}}" aria-label="{{d.plusLabel}}" style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 20px; cursor: pointer">+</button></div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; font-size: 14px">
+<div style="background: #FCF8F5; border-radius: 12px; padding: 12px"><span style="display: block; color: #556070; font-size: 12px">Floor area</span><b style="font-size: 18px">{{wSqft}} sq ft</b></div>
+<div style="background: #FCF8F5; border-radius: 12px; padding: 12px"><span style="display: block; color: #556070; font-size: 12px">Volume</span><b style="font-size: 18px">{{wVol}} m³</b></div>
+<div style="background: #FCF8F5; border-radius: 12px; padding: 12px"><span style="display: block; color: #556070; font-size: 12px">Suggested rent</span><b style="font-size: 18px">AED {{wPrice}}</b></div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{w2}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; gap: 14px; align-items: flex-start">
+<img src="/demo/img/sk/unit-mesh.jpg" alt="Mesh unit door where the padlock is fitted" width="120" height="90" style="border-radius: 12px; object-fit: cover; flex: none">
+<ol style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.55; color: #3A4555">
+<li>Take a new padlock out of its box and touch the keypad to wake it.</li>
+<li>Stand next to the unit with the <b>admin phone app</b>: pairing uses Bluetooth, so it cannot be done from this computer.</li>
+<li>In the app open <b>New unit {{wizUnitId}}</b> and scan the QR code on the back of the padlock.</li>
+</ol>
+</div>
+<button onClick="{{scanLock}}" style="{{scanStyle}}">{{scanLabel}}</button>
+<div style="border: 1px solid #E3E7EC; border-radius: 12px; padding: 6px 14px">
+<sc-for list="{{lockChecks}}" as="c" hint-placeholder-count="4">
+<div style="display: flex; gap: 10px; align-items: center; padding: 8px 0; font-size: 14px"><span style="{{c.dot}}">{{c.mark}}</span><span style="{{c.text}}">{{c.label}}</span></div>
+</sc-for>
+</div>
+<sc-if value="{{lockFound}}" hint-placeholder-val="{{false}}">
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; font-size: 13px">
+<div style="background: #FCF8F5; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Model</span><b>Padlock 2E</b></div>
+<div style="background: #FCF8F5; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Serial</span><b>SP2E-4K7Q-19A3</b></div>
+<div style="background: #FCF8F5; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Battery</span><b>100%</b></div>
+<div style="background: #FCF8F5; border-radius: 10px; padding: 10px"><span style="display: block; color: #556070">Firmware</span><b>Up to date</b></div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{w3}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 14px; color: #3A4555; line-height: 1.5">The padlock talks to a bridge on the corridor wall, and the bridge connects to the internet. Pick the bridge with the strongest signal that still has room.</span>
+<sc-for list="{{bridges}}" as="b" hint-placeholder-count="3">
+<button onClick="{{b.pick}}" style="{{b.style}}">
+<span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 15px; font-weight: 700">{{b.name}}</span><span style="font-size: 13px; color: #556070">{{b.where}} · {{b.used}}</span></span>
+<span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-size: 14px; font-weight: 700; color: {{b.sigColor}}">{{b.signal}}</span><span style="font-size: 12px; color: #556070">{{b.note}}</span></span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{w4}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{tests}}" as="t" hint-placeholder-count="3">
+<button onClick="{{t.run}}" style="{{t.style}}"><span style="font-size: 15px; font-weight: 700">{{t.label}}</span><span style="font-size: 12px">{{t.result}}</span></button>
+</sc-for>
+</div>
+<sc-if value="{{photoDone}}" hint-placeholder-val="{{false}}"><div style="display: flex; gap: 12px; align-items: center; font-size: 13px; color: #3A4555"><img src="/demo/img/sk/unit-mesh-large.jpg" alt="Photo of the fitted padlock" width="96" height="64" style="border-radius: 10px; object-fit: cover">Install photo saved to the unit record.</div></sc-if>
+<span style="font-size: 13px; color: #556070; line-height: 1.5">When you mark it ready, {{wizUnitId}} appears on the map, J. Thomas gets the digital key in the customer app, and every step above is saved in the access log.</span>
+</div>
+</sc-if>
+
+<div style="display: flex; justify-content: space-between; gap: 10px; border-top: 1px solid #EEF1F4; padding-top: 14px">
+<button onClick="{{wizBack}}" style="min-height: 46px; padding: 0 18px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{wizBackLabel}}</button>
+<button onClick="{{wizNext}}" aria-disabled="{{wizNextDisabled}}" style="{{wizNextStyle}}">{{wizNextLabel}}</button>
+</div>
+</div>
+</div>
+</sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
@@ -195,6 +286,7 @@ class Component extends DCLogic {
     this.state = {
       floor: 'G', selected: 'B-106', panel: 'detail', emergency: false, ending: false, emStarted: '',
       overrides: {}, pinFor: '', pin: '', extra: 0,
+      wiz: 0, wW: 3, wD: 4.5, wH: 2.4, lockStage: 0, bridge: 'E-2', tUnlock: false, tLock: false, photoDone: false,
       log: [
         { time: '10:42', unit: 'B-106', who: 'Customer M. Haddad', how: 'Bluetooth', result: 'Opened', kind: 'ok' },
         { time: '10:40', unit: 'Main gate', who: 'Rahul (shared, B-106)', how: 'Face terminal', result: 'Entered', kind: 'ok' },
@@ -219,10 +311,10 @@ class Component extends DCLogic {
     const names = ['M. Haddad', 'S. Nair', 'J. Thomas', 'F. Al Ali', 'R. Menon', 'L. Costa', 'A. Khan', 'D. Pereira'];
     const plans = ['Smart', 'Smart', 'Premium', 'Basic'];
     const look = {
-      occupied: ['#E8EEF7', '1px solid #9FB3D1', '#1E3A5F'],
+      occupied: ['#E8EEF7', '1px solid #BFB3A8', '#1E3A5F'],
       vacant: ['#FFFFFF', '1px dashed #9AA5B4', '#556070'],
       overdue: ['#FDF1E3', '1px solid #D9822B', '#8A4B0F'],
-      open: ['#E3F4EE', '1px solid #0E7C66', '#0B5E4D'],
+      open: ['#E3F4EE', '1px solid #2E9E6B', '#0B5E4D'],
       alert: ['#FBE9E9', '1px solid #C0392B', '#8E1F1F']
     };
     const words = { occupied: 'Rented, locked', vacant: 'Vacant, locked', overdue: 'Access paused, unpaid', open: 'Open now', alert: 'Low battery, check lock' };
@@ -257,7 +349,7 @@ class Component extends DCLogic {
         units.push({
           short: id,
           aria: 'Unit ' + id + ', ' + words[status],
-          style: 'min-height: 44px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; background: ' + L[0] + '; border: ' + L[1] + '; color: ' + L[2] + '; outline: ' + (sel ? '3px solid #12233D' : 'none') + '; outline-offset: 1px; opacity: ' + (s.emergency && status !== 'open' && !sel ? '0.55' : '1'),
+          style: 'min-height: 44px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; background: ' + L[0] + '; border: ' + L[1] + '; color: ' + L[2] + '; outline: ' + (sel ? '3px solid #1C1A18' : 'none') + '; outline-offset: 1px; opacity: ' + (s.emergency && status !== 'open' && !sel ? '0.55' : '1'),
           pick: () => this.setState({ selected: id, panel: 'detail' })
         });
         k++;
@@ -265,7 +357,7 @@ class Component extends DCLogic {
       return { name: 'Corridor ' + c, gateways: 'Gateways G3-' + c + '1, G3-' + c + '2 online', units: units };
     });
     const sel = info[s.selected] || info[corridors[0].units[0].short];
-    const tab = (on) => 'min-height: 44px; padding: 0 14px; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; border: 1px solid ' + (on ? '#12233D' : '#D4D8DE') + '; background: ' + (on ? '#12233D' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#0F172A');
+    const tab = (on) => 'min-height: 44px; padding: 0 14px; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; border: 1px solid ' + (on ? '#1C1A18' : '#D4D8DE') + '; background: ' + (on ? '#1C1A18' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#0F172A');
     const pills = { ok: ['#E3F4EE', '#0B5E4D'], bad: ['#FBE9E9', '#8E1F1F'], warn: ['#FDF1E3', '#8A4B0F'], info: ['#E8EEF7', '#1E3A5F'] };
     const approve = (reason) => () => {
       this.setState({ panel: 'approving' });
@@ -301,6 +393,49 @@ class Component extends DCLogic {
       goGround: () => this.setState({ floor: 'G', selected: 'B-106', panel: 'detail' }),
       goFirst: () => this.setState({ floor: '1', selected: 'E-201', panel: 'detail' }),
       tabGround: tab(s.floor === 'G'), tabFirst: tab(s.floor === '1'),
+
+      openWiz: () => this.setState({ wiz: 1, wW: 3, wD: 4.5, wH: 2.4, lockStage: 0, bridge: 'E-2', tUnlock: false, tLock: false, photoDone: false }),
+      closeWiz: () => this.setState({ wiz: 0 }),
+      wizOpen: s.wiz > 0, w1: s.wiz === 1, w2: s.wiz === 2, w3: s.wiz === 3, w4: s.wiz === 4,
+      wizUnitId: 'E-' + (209 + s.extra),
+      wizSteps: ['Unit size', 'Register padlock', 'Connect bridge', 'Test and go live'].map((l, i) => ({ label: (i + 1) + '. ' + l,
+        bar: 'display: block; height: 5px; border-radius: 3px; background: ' + (i + 1 <= s.wiz ? '#F48922' : '#E3E7EC'),
+        text: 'font-size: 12px; font-weight: ' + (i + 1 === s.wiz ? '800' : '600') + '; color: ' + (i + 1 === s.wiz ? '#1C1A18' : '#556070') })),
+      dims: [['wW', 'Width'], ['wD', 'Depth'], ['wH', 'Height']].map((d) => ({ label: d[1], value: s[d[0]].toFixed(1),
+        minusLabel: 'Less ' + d[1].toLowerCase(), plusLabel: 'More ' + d[1].toLowerCase(),
+        minus: () => this.setState({ [d[0]]: Math.max(1, s[d[0]] - 0.5) }), plus: () => this.setState({ [d[0]]: Math.min(d[0] === 'wH' ? 3 : 8, s[d[0]] + 0.5) }) })),
+      wSqft: Math.round(s.wW * s.wD * 10.764), wVol: (s.wW * s.wD * s.wH).toFixed(1),
+      wPrice: Math.round(s.wW * s.wD * 10.764 * 7.4 / 10) * 10,
+      scanLabel: ['Scan the padlock with the admin phone', 'Searching over Bluetooth…', 'Registering…', 'Registered and linked'][s.lockStage],
+      scanStyle: 'min-height: 48px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; background: ' + (s.lockStage === 3 ? '#E3F4EE' : '#1C1A18') + '; color: ' + (s.lockStage === 3 ? '#0B5E4D' : '#FFFFFF'),
+      scanLock: () => { if (s.lockStage) return; this.setState({ lockStage: 1 });
+        setTimeout(() => this.setState({ lockStage: 2 }), 1100); setTimeout(() => this.setState({ lockStage: 3 }), 2300); },
+      lockFound: s.lockStage >= 2,
+      lockChecks: ['Padlock found over Bluetooth', 'Registered to the Storage Keys account', 'Linked to unit E-' + (209 + s.extra), 'Clock set and factory codes removed'].map((l, i) => { const done = s.lockStage >= 3 || (s.lockStage === 2 && i === 0); return {
+        label: l, mark: done ? '✓' : (i + 1), text: 'color: ' + (done ? '#1C1A18' : '#556070') + '; font-weight: ' + (done ? '600' : '400'),
+        dot: 'width: 24px; height: 24px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; background: ' + (done ? '#1E8E5A' : '#EEF1F4') + '; color: ' + (done ? '#FFFFFF' : '#556070') }; }),
+      bridges: [['E-1', 'Corridor E, near the lift', '5 of 5 locks', 'Weak', '#C0392B', 'Full'], ['E-2', 'Corridor E, middle', '3 of 5 locks', 'Strong', '#1E8E5A', 'Recommended'], ['F-1', 'Corridor F, entrance', '2 of 5 locks', 'Fair', '#8A4B0F', 'Further away']].map((b) => ({
+        name: 'Bridge ' + b[0], where: b[1], used: b[2], signal: b[3] + ' signal', sigColor: b[4], note: b[5],
+        pick: () => { if (b[5] === 'Full') return; this.setState({ bridge: b[0] }); },
+        style: 'display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; color: #1C1A18; cursor: ' + (b[5] === 'Full' ? 'not-allowed; opacity: 0.55' : 'pointer') + '; border: ' + (s.bridge === b[0] ? '2px solid #F48922' : '1px solid #D4D8DE') + '; background: ' + (s.bridge === b[0] ? '#FEF1E4' : '#FFFFFF') })),
+      tests: [['tUnlock', 'Test unlock', 'Opened in 0.8 s'], ['tLock', 'Test lock', 'Shackle closed, locked'], ['photoDone', 'Install photo', 'Photo saved']].map((t) => ({ label: t[1], result: s[t[0]] ? '✓ ' + t[2] : 'Tap to run',
+        run: () => this.setState({ [t[0]]: true }),
+        style: 'min-height: 72px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: ' + (s[t[0]] ? '#0B5E4D' : '#1C1A18') + '; border: ' + (s[t[0]] ? '2px solid #2E9E6B' : '1px solid #D4D8DE') + '; background: ' + (s[t[0]] ? '#E3F4EE' : '#FFFFFF') })),
+      photoDone: s.photoDone,
+      wizBackLabel: s.wiz === 1 ? 'Cancel' : 'Back',
+      wizBack: () => this.setState({ wiz: s.wiz === 1 ? 0 : s.wiz - 1 }),
+      wizNextDisabled: (s.wiz === 2 && s.lockStage < 3) || (s.wiz === 4 && !(s.tUnlock && s.tLock && s.photoDone)) ? 'true' : 'false',
+      wizNextLabel: s.wiz === 4 ? 'Mark ready to rent' : 'Next',
+      wizNextStyle: (() => { const off = (s.wiz === 2 && s.lockStage < 3) || (s.wiz === 4 && !(s.tUnlock && s.tLock && s.photoDone));
+        return 'min-height: 46px; padding: 0 22px; border-radius: 12px; border: none; font-size: 15px; font-weight: 700; cursor: ' + (off ? 'not-allowed' : 'pointer') + '; background: ' + (off ? '#E3E7EC' : '#F48922') + '; color: ' + (off ? '#6B7280' : '#1C1A18'); })(),
+      wizNext: () => {
+        if (s.wiz === 2 && s.lockStage < 3) return;
+        if (s.wiz < 4) return this.setState({ wiz: s.wiz + 1 });
+        if (!(s.tUnlock && s.tLock && s.photoDone)) return;
+        const id = 'E-' + (209 + s.extra);
+        this.setState({ wiz: 0, extra: s.extra + 1, selected: id });
+        this.addLog({ unit: id, who: 'Manager', how: 'Unit setup', result: 'Padlock SP2E-4K7Q-19A3 registered, Bridge ' + s.bridge + ', tests passed, ready to rent', kind: 'info' });
+      },
       addUnit: () => { this.setState({ extra: s.extra + 1 }); this.addLog({ unit: 'E-' + (209 + s.extra), who: 'Manager', how: 'Unit editor', result: 'New unit created, padlock paired', kind: 'info' }); },
       corridors: corridors,
       sel: sel,

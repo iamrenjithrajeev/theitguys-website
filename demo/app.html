@@ -27,10 +27,10 @@ body{font-family:system-ui,sans-serif;color:#e0e6f1;-webkit-tap-highlight-color:
 /* Full-screen app on phones */
 .stage{position:relative;height:calc(100% - 41px - env(safe-area-inset-top))}
 .stage.phone #app{width:100%;height:100%;overflow:hidden}
-.stage.page{overflow-y:auto;background:#F4F6F8}
+.stage.page{overflow-y:auto;background:#FCF8F5}
 /* Device frame on bigger screens */
 @media (min-width:600px){
-  .stage.phone{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#0c1a14 0,#030508 60%)}
+  .stage.phone{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#2a1a0c 0,#030508 60%)}
   .stage.phone .device{width:410px;height:864px;border-radius:54px;background:#000;padding:10px;box-shadow:0 0 0 2px #222,0 40px 90px rgba(0,230,118,.10);transform-origin:center;flex:none}
   .stage.phone #app{width:390px;height:844px;border-radius:44px}
 }
@@ -40,7 +40,7 @@ body{font-family:system-ui,sans-serif;color:#e0e6f1;-webkit-tap-highlight-color:
 }
 #app button{transition:transform .08s ease,filter .12s ease}
 #app button:active{transform:scale(.97);filter:brightness(.95)}
-.loading{padding:60px 20px;text-align:center;color:#556070;font-family:'JetBrains Mono',monospace;font-size:13px;background:#F3F5F8;height:100%}
+.loading{padding:60px 20px;text-align:center;color:#556070;font-family:'JetBrains Mono',monospace;font-size:13px;background:#FCF8F5;height:100%}
 /* Watermark */
 .wm{position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><text x='20' y='120' transform='rotate(-24 150 100)' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23000000'>THE IT GUYS · DEMO</text></svg>");background-repeat:repeat}
 .wm.dark{opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><text x='20' y='120' transform='rotate(-24 150 100)' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23ffffff'>THE IT GUYS · DEMO</text></svg>")}
