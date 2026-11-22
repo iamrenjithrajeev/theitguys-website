@@ -9,29 +9,30 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:Inter,system-ui,sans-serif}
-a{color:#0E7C66}a:hover{color:#0B5E4D}
+body{margin:0;font-family:Figtree,system-ui,sans-serif}
+a{color:#A8520A}a:hover{color:#7A3B05}
 button,input{font-family:inherit}
 </style>
 </helmet>
-<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F4F6F8; color: #0F172A; display: flex; flex-direction: column; overflow: hidden; font-family: Inter, system-ui, sans-serif">
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FCF8F5; color: #0F172A; display: flex; flex-direction: column; overflow: hidden; font-family: Figtree, system-ui, sans-serif">
 
 <sc-if value="{{authLogin}}" hint-placeholder-val="{{true}}">
-<div style="flex: 1; background: #12233D; color: #FFFFFF; padding: 64px 24px 32px; display: flex; flex-direction: column; gap: 16px">
-<span style="font-size: 14px; color: #7FD8BE; font-weight: 600">STAFF ONLY</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 600">Storage Keys Control</span>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #C9D3E3">Work email<input value="owner@storagekeys.ae" style="min-height: 48px; border-radius: 12px; border: 1px solid #3B5377; padding: 0 14px; font-size: 16px; background: #1D3557; color: #FFFFFF"></label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #C9D3E3">Password<input type="password" value="demopassword" style="min-height: 48px; border-radius: 12px; border: 1px solid #3B5377; padding: 0 14px; font-size: 16px; background: #1D3557; color: #FFFFFF"></label>
-<button onClick="{{toTwoStep}}" style="min-height: 52px; border-radius: 14px; border: none; background: #7FD8BE; color: #0B2A22; font-size: 16px; font-weight: 700; cursor: pointer">Log in</button>
-<span style="font-size: 13px; color: #C9D3E3">Staff accounts always need a second step. Sessions end after 15 minutes idle.</span>
+<div style="flex: 1; background: linear-gradient(180deg, rgba(28,26,24,0.55) 0%, #1C1A18 45%), url('/demo/img/sk/corridor.jpg') center top / 100% auto no-repeat, #1C1A18; color: #FFFFFF; padding: 54px 24px 32px; display: flex; flex-direction: column; gap: 16px">
+<img src="/demo/img/sk/logo.png" alt="Storage Keys" width="167" height="48" style="display: block; align-self: flex-start; background: rgba(255,255,255,0.94); border-radius: 12px; padding: 6px 10px; margin-bottom: 60px">
+<span style="font-size: 14px; color: #F48922; font-weight: 600">STAFF ONLY</span>
+<span style="font-family: Figtree, sans-serif; font-size: 30px; font-weight: 600">Storage Keys Control</span>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #E7DDD4">Work email<input value="owner@storagekeys.com" style="min-height: 48px; border-radius: 12px; border: 1px solid #4A423A; padding: 0 14px; font-size: 16px; background: #2B2622; color: #FFFFFF"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #E7DDD4">Password<input type="password" value="demopassword" style="min-height: 48px; border-radius: 12px; border: 1px solid #4A423A; padding: 0 14px; font-size: 16px; background: #2B2622; color: #FFFFFF"></label>
+<button onClick="{{toTwoStep}}" style="min-height: 52px; border-radius: 14px; border: none; background: #F48922; color: #1C1A18; font-size: 16px; font-weight: 700; cursor: pointer">Log in</button>
+<span style="font-size: 13px; color: #E7DDD4">Staff accounts always need a second step. Sessions end after 15 minutes idle.</span>
 </div>
 </sc-if>
 
 <sc-if value="{{authTwo}}" hint-placeholder-val="{{false}}">
 <div style="flex: 1; padding: 64px 24px 32px; display: flex; flex-direction: column; gap: 16px">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600">Second step</span>
+<span style="font-family: Figtree, sans-serif; font-size: 26px; font-weight: 600">Second step</span>
 <span style="font-size: 15px; color: #556070; line-height: 1.5">Enter the code from your authenticator app, then confirm with Face ID.</span>
 <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px">
 <span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">2</span>
@@ -39,20 +40,20 @@ button,input{font-family:inherit}
 <span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">4</span>
 <span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">0</span>
 <span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">8</span>
-<span style="height: 56px; border-radius: 12px; border: 2px solid #0E7C66; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">1</span>
+<span style="height: 56px; border-radius: 12px; border: 2px solid #F48922; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">1</span>
 </div>
-<button onClick="{{toIn}}" style="min-height: 52px; border-radius: 14px; border: none; background: #12233D; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Verify and continue</button>
+<button onClick="{{toIn}}" style="min-height: 52px; border-radius: 14px; border: none; background: #1C1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Verify and continue</button>
 </div>
 </sc-if>
 
 <sc-if value="{{authIn}}" hint-placeholder-val="{{false}}">
 <div style="flex: 1; display: flex; flex-direction: column; min-height: 0">
-<div style="background: #12233D; color: #FFFFFF; padding: 22px 20px 16px; display: flex; justify-content: space-between; align-items: center">
+<div style="background: #1C1A18; color: #FFFFFF; padding: 22px 20px 16px; display: flex; justify-content: space-between; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 2px">
-<span style="font-size: 13px; color: #C9D3E3">Owner · Sharjah</span>
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">{{title}}</span>
+<span style="font-size: 13px; color: #E7DDD4">Owner · Sharjah</span>
+<span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600">{{title}}</span>
 </div>
-<button onClick="{{logout}}" style="min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #3B5377; background: transparent; color: #FFFFFF; font-size: 13px; cursor: pointer">Log out</button>
+<button onClick="{{logout}}" style="min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #4A423A; background: transparent; color: #FFFFFF; font-size: 13px; cursor: pointer">Log out</button>
 </div>
 
 <div style="flex: 1; overflow-y: auto; padding: 16px 16px 20px; display: flex; flex-direction: column; gap: 14px">
@@ -60,10 +61,10 @@ button,input{font-family:inherit}
 <sc-if value="{{isOverview}}" hint-placeholder-val="{{true}}">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Collected in Nov</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">AED 186,300</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Overdue</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #8A4B0F">AED 9,450</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Units rented</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">498 of 570</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Lock alerts</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #8E1F1F">3</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Collected in Nov</span><span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600">AED 186,300</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Overdue</span><span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600; color: #8A4B0F">AED 9,450</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Units rented</span><span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600">498 of 570</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Lock alerts</span><span style="font-family: Figtree, sans-serif; font-size: 22px; font-weight: 600; color: #8E1F1F">3</span></div>
 </div>
 <button onClick="{{goApprovals}}" style="{{approvalBanner}}">{{approvalText}}</button>
 <div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
@@ -89,7 +90,7 @@ button,input{font-family:inherit}
 <sc-if value="{{isPayments}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; gap: 8px">
-<button style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #12233D; background: #12233D; color: #FFFFFF; font-size: 13px; font-weight: 600">November</button>
+<button style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #1C1A18; background: #1C1A18; color: #FFFFFF; font-size: 13px; font-weight: 600">November</button>
 <button style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 13px">October</button>
 <button style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 13px">Custom range</button>
 </div>
@@ -108,8 +109,8 @@ button,input{font-family:inherit}
 </sc-for>
 </div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
-<button onClick="{{makeReport}}" style="min-height: 48px; border-radius: 12px; border: none; background: #0E7C66; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Report (PDF)</button>
-<button onClick="{{makeReport}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #0E7C66; background: #FFFFFF; color: #0B5E4D; font-size: 14px; font-weight: 600; cursor: pointer">Export (Excel)</button>
+<button onClick="{{makeReport}}" style="min-height: 48px; border-radius: 12px; border: none; background: #F48922; color: #1C1A18; font-size: 14px; font-weight: 600; cursor: pointer">Report (PDF)</button>
+<button onClick="{{makeReport}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #F48922; background: #FFFFFF; color: #A8520A; font-size: 14px; font-weight: 600; cursor: pointer">Export (Excel)</button>
 </div>
 <sc-if value="{{reportReady}}" hint-placeholder-val="{{false}}">
 <span style="font-size: 14px; font-weight: 600; color: #0B5E4D">November payment report ready: 512 payments, refunds and split shares included.</span>
@@ -124,7 +125,7 @@ button,input{font-family:inherit}
 <span style="{{r.tagStyle}}">{{r.tag}}</span>
 <span style="font-size: 17px; font-weight: 700">{{r.title}}</span>
 <span style="font-size: 14px; color: #3A4555; line-height: 1.45">{{r.text}}</span>
-<div style="display: flex; flex-direction: column; gap: 6px; background: #F4F6F8; border-radius: 12px; padding: 10px 12px">
+<div style="display: flex; flex-direction: column; gap: 6px; background: #FCF8F5; border-radius: 12px; padding: 10px 12px">
 <sc-for list="{{r.checks}}" as="c" hint-placeholder-count="4">
 <div style="display: flex; gap: 8px; align-items: center; font-size: 13px"><span style="{{c.dot}}">{{c.mark}}</span><span>{{c.label}}</span></div>
 </sc-for>
@@ -132,7 +133,7 @@ button,input{font-family:inherit}
 <sc-if value="{{r.open}}" hint-placeholder-val="{{true}}">
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
 <button onClick="{{r.reject}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #C0392B; background: #FFFFFF; color: #8E1F1F; font-size: 15px; font-weight: 600; cursor: pointer">Reject</button>
-<button onClick="{{r.approve}}" style="min-height: 48px; border-radius: 12px; border: none; background: #0E7C66; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{r.approveLabel}}</button>
+<button onClick="{{r.approve}}" style="min-height: 48px; border-radius: 12px; border: none; background: #F48922; color: #1C1A18; font-size: 15px; font-weight: 600; cursor: pointer">{{r.approveLabel}}</button>
 </div>
 </sc-if>
 <sc-if value="{{r.done}}" hint-placeholder-val="{{false}}">
@@ -176,7 +177,7 @@ class Component extends DCLogic {
         yes: 'Approved. A-118 unlocked by front desk, logged with both names and the camera clip.' }
     ];
     const openCount = reqs.filter((r) => !s.decisions[r.key]).length;
-    const nav = (on) => 'min-height: 44px; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: ' + (on ? '#0E7C66' : '#6B7280') + '; border-top: 3px solid ' + (on ? '#0E7C66' : 'transparent');
+    const nav = (on) => 'min-height: 44px; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: ' + (on ? '#F48922' : '#6B7280') + '; border-top: 3px solid ' + (on ? '#F48922' : 'transparent');
     const pill = (kind) => {
       const c = { ok: ['#E3F4EE', '#0B5E4D'], warn: ['#FDF1E3', '#8A4B0F'], bad: ['#FBE9E9', '#8E1F1F'], info: ['#E8EEF7', '#1E3A5F'] }[kind];
       return 'font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; background: ' + c[0] + '; color: ' + c[1];
@@ -212,7 +213,7 @@ class Component extends DCLogic {
       approvalBanner: 'min-height: 52px; border-radius: 14px; cursor: pointer; font-size: 15px; font-weight: 600; text-align: left; padding: 0 16px; border: ' + (openCount ? '2px solid #D9822B' : '1px solid #E3E7EC') + '; background: ' + (openCount ? '#FDF1E3' : '#FFFFFF') + '; color: ' + (openCount ? '#8A4B0F' : '#556070'),
       requests: reqs.map((r) => {
         const d = s.decisions[r.key];
-        const ok = (on) => ({ dot: 'width: 20px; height: 20px; border-radius: 10px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #FFFFFF; background: ' + (on ? '#0E7C66' : '#D9822B'), mark: on ? '✓' : '!' });
+        const ok = (on) => ({ dot: 'width: 20px; height: 20px; border-radius: 10px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #FFFFFF; background: ' + (on ? '#1E8E5A' : '#D9822B'), mark: on ? '✓' : '!' });
         return {
           tag: r.tag, title: r.title, text: r.text, approveLabel: r.approveLabel,
           tagStyle: 'font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: ' + r.color,
