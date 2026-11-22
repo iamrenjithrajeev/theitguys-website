@@ -1,4 +1,4 @@
-// Cloudflare Pages: protects /demo/* on theitguys.online.
+// Netlify Edge Function: protects /demo/* on theitguys.online.
 // ---- Demo login check (same code in functions/_middleware.js and middleware.js) ----
 // Logins live in the hosting dashboard, never in this repo:
 //   DEMO_USERS  = "storagekeys:LongPassword1,otherclient:LongPassword2"
@@ -84,8 +84,9 @@ async function guardDemo(request, env, pass) {
 }
 // ---- end of shared login check ----
 
-export async function onRequest(context) {
-  return guardDemo(context.request, context.env, async (isPrivate) => {
+export default async (request, context) => {
+  const env = { DEMO_USERS: Netlify.env.get('DEMO_USERS'), DEMO_SECRET: Netlify.env.get('DEMO_SECRET') };
+  return guardDemo(request, env, async (isPrivate) => {
     const res = await context.next();
     if (!isPrivate) return res;
     const out = new Response(res.body, res);
@@ -93,4 +94,6 @@ export async function onRequest(context) {
     out.headers.set('X-Robots-Tag', 'noindex, nofollow');
     return out;
   });
-}
+};
+
+export const config = { path: ['/demo', '/demo/*'] };

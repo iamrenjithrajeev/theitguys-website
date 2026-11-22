@@ -41,12 +41,9 @@ body{font-family:system-ui,sans-serif;color:#e0e6f1;-webkit-tap-highlight-color:
 #app button{transition:transform .08s ease,filter .12s ease}
 #app button:active{transform:scale(.97);filter:brightness(.95)}
 .loading{padding:60px 20px;text-align:center;color:#556070;font-family:'JetBrains Mono',monospace;font-size:13px;background:#F3F5F8;height:100%}
-/* Watermark */
-.wm{position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><text x='20' y='120' transform='rotate(-24 150 100)' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23000000'>THE IT GUYS · DEMO</text></svg>");background-repeat:repeat}
-.wm.dark{opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><text x='20' y='120' transform='rotate(-24 150 100)' font-family='Arial, sans-serif' font-size='22' font-weight='700' fill='%23ffffff'>THE IT GUYS · DEMO</text></svg>")}
-.badge{position:fixed;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:1001;pointer-events:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;color:#fff;background:rgba(3,5,8,.72);border:1px solid rgba(0,230,118,.5);border-radius:999px;padding:5px 10px}
+.badge{position:fixed;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:1001;pointer-events:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.06em;color:rgba(255,255,255,.9);background:rgba(3,5,8,.55);border-radius:999px;padding:3px 8px}
 .badge span{color:#00e676}
-.stage.phone ~ .badge{bottom:calc(96px + env(safe-area-inset-bottom))}
+.stage.phone ~ .badge{bottom:calc(84px + env(safe-area-inset-bottom))}
 @media (min-width:600px){.stage.phone ~ .badge{bottom:16px}}
 </style>
 </head>
@@ -60,8 +57,7 @@ body{font-family:system-ui,sans-serif;color:#e0e6f1;-webkit-tap-highlight-color:
 </nav>
 </div>
 <div class="stage" id="stage"><div class="device"><div id="app"><div class="loading">Loading…</div></div></div></div>
-<div class="wm" id="wm"></div>
-<div class="badge">THE IT <span>GUYS</span> · DEMO</div>
+<div class="badge">THE IT <span>GUYS</span> DEMO</div>
 
 <script src="/demo/runtime.js"></script>
 <script>

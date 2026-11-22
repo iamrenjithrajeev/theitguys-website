@@ -59,17 +59,85 @@ button,input{font-family:inherit}
 
 <sc-if value="{{isOverview}}" hint-placeholder-val="{{true}}">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Collected in Nov</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">AED 186,300</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Overdue</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #8A4B0F">AED 9,450</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Units rented</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">498 of 570</span></div>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Lock alerts</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #8E1F1F">3</span></div>
-</div>
 <button onClick="{{goApprovals}}" style="{{approvalBanner}}">{{approvalText}}</button>
-<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 15px; font-weight: 600">Security alerts</span>
-<span style="font-size: 14px">Mon 02:14 · Login from an unknown phone blocked for M. Haddad</span>
-<span style="font-size: 14px">Today 10:18 · 3 wrong PINs on A-105, keypad locked 10 min</span>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="background: #0F1E35; color: #FFFFFF; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; color: #9FB3D1">Revenue · Nov</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700">AED 186.3k</span><span style="font-size: 12px; font-weight: 700; color: #7FD8BE">▲ 6% vs Oct</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; color: #556070">Active customers</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700">452</span><span style="font-size: 12px; font-weight: 700; color: #0B5E4D">+14 this month</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; color: #556070">Unlocks today</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700">243</span><span style="font-size: 12px; font-weight: 700; color: #8E1F1F">4 denied</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; color: #556070">Open issues</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #8A4B0F">5</span><span style="font-size: 12px; font-weight: 700; color: #556070">2 need action today</span></div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 15px; font-weight: 700">Units at Sharjah</span>
+<div style="display: flex; gap: 16px; align-items: center">
+<div style="position: relative; width: 120px; height: 120px; flex: none">
+<svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Occupancy 87 percent">
+<circle cx="60" cy="60" r="44" fill="none" stroke="#E3E7EC" stroke-width="16"/>
+<circle cx="60" cy="60" r="44" fill="none" stroke="#0E7C66" stroke-width="16" stroke-dasharray="{{donut.rented}}" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+<circle cx="60" cy="60" r="44" fill="none" stroke="#D9822B" stroke-width="16" stroke-dasharray="{{donut.paused}}" stroke-dashoffset="{{donut.pausedOff}}" transform="rotate(-90 60 60)"/>
+</svg>
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700">87%</span><span style="font-size: 11px; color: #556070">occupied</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; flex: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0E7C66"></span>Rented, paid</span><span style="font-weight: 700">486</span></div>
+<div style="display: flex; justify-content: space-between; gap: 8px"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #D9822B"></span>Access paused</span><span style="font-weight: 700">12</span></div>
+<div style="display: flex; justify-content: space-between; gap: 8px"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #E3E7EC"></span>Vacant</span><span style="font-weight: 700">72</span></div>
+<div style="display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid #EEF1F4; padding-top: 6px; color: #556070"><span>Total units</span><span style="font-weight: 700; color: #0F172A">570</span></div>
+</div>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 700">Revenue, last 6 months</span><span style="font-size: 12px; color: #556070">AED thousands</span></div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; align-items: end; height: 140px">
+<sc-for list="{{revenue}}" as="r" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%"><span style="font-size: 11px; font-weight: 700; color: #3A4555">{{r.label}}</span><span style="{{r.bar}}"></span><span style="font-size: 11px; color: #556070">{{r.month}}</span></div>
+</sc-for>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 700">November payments</span><span style="font-size: 12px; color: #556070">of AED 198k billed</span></div>
+<div style="display: flex; height: 14px; border-radius: 7px; overflow: hidden; gap: 2px">
+<span style="width: 94%; background: #0E7C66"></span><span style="width: 4%; background: #9FB3D1"></span><span style="width: 2%; background: #C0392B"></span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px">
+<div style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 14px; color: #0B5E4D">AED 186.3k</span><span style="color: #556070">Paid (94%)</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 14px; color: #1E3A5F">AED 8.3k</span><span style="color: #556070">Due this week</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 14px; color: #8E1F1F">AED 3.8k</span><span style="color: #556070">Overdue, 12 units</span></div>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 700">Access activity today</span><span style="font-size: 12px; color: #556070">unlocks per 2 hours</span></div>
+<div style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; align-items: end; height: 96px">
+<sc-for list="{{activity}}" as="a" hint-placeholder-count="8">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%"><span style="{{a.bar}}"></span><span style="font-size: 10.5px; color: #556070">{{a.hour}}</span></div>
+</sc-for>
+</div>
+<div style="display: flex; gap: 14px; font-size: 12px; color: #3A4555; flex-wrap: wrap"><span>Phone 61%</span><span>NFC card 24%</span><span>PIN 13%</span><span>Staff override 2%</span></div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 15px; font-weight: 700">System health</span>
+<sc-for list="{{health}}" as="h" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 5px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span>{{h.name}}</span><span style="font-weight: 700">{{h.value}}</span></div>
+<div style="height: 8px; border-radius: 4px; background: #EEF1F4; overflow: hidden"><span style="{{h.bar}}"></span></div>
+</div>
+</sc-for>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 6px 16px">
+<span style="display: block; font-size: 15px; font-weight: 700; padding: 10px 0 4px">Issues to look at</span>
+<sc-for list="{{issues}}" as="i" hint-placeholder-count="5">
+<div style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #EEF1F4">
+<span style="{{i.dot}}"></span>
+<div style="display: flex; flex-direction: column; gap: 1px; flex: 1"><span style="font-size: 14px; font-weight: 600">{{i.title}}</span><span style="font-size: 12px; color: #556070">{{i.detail}}</span></div>
+<span style="{{i.pill}}">{{i.level}}</span>
+</div>
+</sc-for>
 </div>
 </div>
 </sc-if>
@@ -181,7 +249,7 @@ class Component extends DCLogic {
       const c = { ok: ['#E3F4EE', '#0B5E4D'], warn: ['#FDF1E3', '#8A4B0F'], bad: ['#FBE9E9', '#8E1F1F'], info: ['#E8EEF7', '#1E3A5F'] }[kind];
       return 'font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; background: ' + c[0] + '; color: ' + c[1];
     };
-    const titles = { overview: 'Today', customers: 'Customers', payments: 'Payments', approvals: 'Approvals' };
+    const titles = { overview: 'Dashboard', customers: 'Customers', payments: 'Payments', approvals: 'Approvals' };
     const go = (t) => () => this.setState({ tab: t });
     const customers = [
       ['M. Haddad + A. Haddad', 'B-214 · Smart · split 50/50', 'Paid', 'ok'],
@@ -224,6 +292,17 @@ class Component extends DCLogic {
           reject: () => this.setState({ decisions: Object.assign({}, s.decisions, { [r.key]: 'no' }) })
         };
       }),
+      donut: (function () { const C = 2 * Math.PI * 44; const r = C * 486 / 570, p = C * 12 / 570; return { rented: r + ' ' + C, paused: p + ' ' + C, pausedOff: -r }; })(),
+      revenue: [['Jun', 162], ['Jul', 168], ['Aug', 171], ['Sep', 175], ['Oct', 176], ['Nov', 186]].map((m, i) => ({ month: m[0], label: m[1], bar: 'width: 100%; border-radius: 6px 6px 2px 2px; height: ' + Math.round(m[1] / 186 * 96) + 'px; background: ' + (i === 5 ? '#0E7C66' : '#9FD9C6') })),
+      activity: [['6a', 12], ['8a', 34], ['10a', 41], ['12p', 28], ['2p', 37], ['4p', 52], ['6p', 30], ['8p', 9]].map((h) => ({ hour: h[0], bar: 'width: 100%; border-radius: 4px; height: ' + Math.round(h[1] / 52 * 70) + 'px; background: ' + (h[1] === 52 ? '#0F1E35' : '#9FB3D1') })),
+      health: [['Padlocks online', '566 of 570', 99.3, '#0E7C66'], ['Gateways online', '24 of 24', 100, '#0E7C66'], ['Cameras recording', '31 of 32', 96.9, '#0E7C66'], ['Padlock batteries above 20%', '567 of 570', 99.5, '#0E7C66']].map((h) => ({ name: h[0], value: h[1], bar: 'display: block; height: 100%; border-radius: 4px; width: ' + h[2] + '%; background: ' + h[3] })),
+      issues: [
+        ['Low padlock battery', 'A-108, B-111, C-114 · replace this week', 'Medium', 'warn'],
+        ['Camera offline', 'Corridor C, camera 3 · since 06:40', 'High', 'bad'],
+        ['Unpaid accounts', '12 units paused · AED 3.8k overdue', 'Medium', 'warn'],
+        ['Wrong PIN attempts', 'A-105 · 3 tries at 10:18, keypad locked', 'Low', 'info'],
+        ['Padlock offline', 'D-109 · out of gateway range', 'High', 'bad']
+      ].map((r) => { const c = { bad: ['#C0392B', '#FBE9E9', '#8E1F1F'], warn: ['#D9822B', '#FDF1E3', '#8A4B0F'], info: ['#9FB3D1', '#E8EEF7', '#1E3A5F'] }[r[3]]; return { title: r[0], detail: r[1], level: r[2], dot: 'width: 10px; height: 10px; border-radius: 5px; flex: none; background: ' + c[0], pill: 'font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: ' + c[1] + '; color: ' + c[2] }; }),
       customers: customers,
       txns: txns,
       reportReady: s.report,
