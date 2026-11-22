@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Storage Keys admin panel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif}
+a{color:#0E7C66}a:hover{color:#0B5E4D}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; background: #F4F6F8; color: #0F172A; font-family: Inter, system-ui, sans-serif">
+
+<header style="background: #12233D; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: 14px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7FD8BE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600">Storage Keys Control</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<button style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #7FD8BE; background: #1D3557; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Sharjah</button>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #3B5377; background: transparent; color: #C9D3E3; font-size: 14px; cursor: pointer">Second site</button>
+<span style="font-size: 14px; color: #C9D3E3; padding: 0 8px">Manager · signed in with 2-step login</span>
+<button onClick="{{toggleEmergency}}" style="{{emButton}}">{{emButtonLabel}}</button>
+</div>
+</div>
+</header>
+
+<sc-if value="{{emergency}}" hint-placeholder-val="{{false}}">
+<div style="background: #B91C1C; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: 14px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 18px; font-weight: 700">Fire alarm: emergency mode active</span>
+<span style="font-size: 14px">Gates and exit doors released. Lifts sent to ground. All units stay locked. Staff and customers on site have been alerted.</span>
+</div>
+<span style="font-size: 14px; font-weight: 600; background: #7F1414; padding: 8px 12px; border-radius: 8px">Started {{emStarted}}</span>
+</div>
+</div>
+</sc-if>
+
+<main style="max-width: 1440px; margin: 0 auto; padding: 20px 24px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Units on this floor</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600">{{stats.total}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Rented</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600">{{stats.rented}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Vacant</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600">{{stats.vacant}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Access paused (unpaid)</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600; color: #8A4B0F">{{stats.overdue}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Lock alerts</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600; color: #8E1F1F">{{stats.alert}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Open right now</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600; color: #0B5E4D">{{stats.open}}</span></div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+
+<section style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+<div style="display: flex; gap: 8px">
+<button onClick="{{goGround}}" style="{{tabGround}}">Ground floor</button>
+<button onClick="{{goFirst}}" style="{{tabFirst}}">First floor (built to order)</button>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: #3A4555">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E8EEF7; border: 1px solid #9FB3D1"></span>Rented</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FFFFFF; border: 1px dashed #9AA5B4"></span>Vacant</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FDF1E3; border: 1px solid #D9822B"></span>Access paused</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E3F4EE; border: 1px solid #0E7C66"></span>Open now</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #FBE9E9; border: 1px solid #C0392B"></span>Lock alert</span>
+</div>
+</div>
+
+<sc-if value="{{isFirst}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: #F4F6F8; border-radius: 12px; padding: 12px 14px">
+<span style="font-size: 14px; color: #3A4555">Units on this floor are built to the customer's size. Staff add, resize or merge units here and pair a padlock to each.</span>
+<button onClick="{{addUnit}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #0E7C66; background: #FFFFFF; color: #0B5E4D; font-size: 14px; font-weight: 600; cursor: pointer">Add a unit</button>
+</div>
+</sc-if>
+
+<sc-for list="{{corridors}}" as="c" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 15px; font-weight: 600">{{c.name}}</span>
+<span style="font-size: 13px; color: #556070">{{c.gateways}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 6px">
+<sc-for list="{{c.units}}" as="u" hint-placeholder-count="16">
+<button onClick="{{u.pick}}" aria-label="{{u.aria}}" style="{{u.style}}">{{u.short}}</button>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</section>
+
+<aside style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+
+<sc-if value="{{emergency}}" hint-placeholder-val="{{false}}">
+<div style="background: #FFFFFF; border: 2px solid #B91C1C; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: #8E1F1F">Emergency status</span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>Main gate</span><span style="font-weight: 600; color: #0B5E4D">Released</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>Exit doors (3)</span><span style="font-weight: 600; color: #0B5E4D">Released</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>Lifts</span><span style="font-weight: 600">Sent to ground, locked</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>Storage units</span><span style="font-weight: 600; color: #8E1F1F">All locked</span></div>
+</div>
+<div style="border-top: 1px solid #EEF1F4; padding-top: 12px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 15px; font-weight: 600">People on site now (from today's gate log)</span>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>S. Nair, unit B-108</span><span style="color: #556070">in at 10:12</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>J. Thomas, unit C-104</span><span style="color: #556070">in at 10:31</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>Rahul (shared), unit B-106</span><span style="color: #556070">in at 10:40</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>Staff: front desk, security</span><span style="color: #556070">on duty</span></div>
+</div>
+<span style="font-size: 13px; color: #556070">A unit can only be opened now by the Emergency override role, one at a time, and every open is logged.</span>
+<button onClick="{{endEmergency}}" style="min-height: 48px; border-radius: 12px; border: none; background: #12233D; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{endLabel}}</button>
+</div>
+</sc-if>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">Unit {{sel.id}}</span>
+<span style="{{sel.pill}}">{{sel.statusText}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; font-size: 14px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Customer</span><span style="font-weight: 600">{{sel.tenant}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Plan</span><span style="font-weight: 600">{{sel.plan}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Padlock battery</span><span style="font-weight: 600">{{sel.battery}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #556070; font-size: 13px">Gateway</span><span style="font-weight: 600">{{sel.gateway}}</span></div>
+</div>
+
+<sc-if value="{{panelDetail}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<button onClick="{{startUnlock}}" style="min-height: 48px; border-radius: 12px; border: none; background: #0E7C66; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">Remote unlock</button>
+<button onClick="{{issuePin}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; color: #0F172A; font-size: 15px; font-weight: 600; cursor: pointer">Issue a one-time PIN</button>
+<button onClick="{{togglePause}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #D9822B; background: #FFFFFF; color: #8A4B0F; font-size: 15px; font-weight: 600; cursor: pointer">{{pauseLabel}}</button>
+<sc-if value="{{hasPin}}" hint-placeholder-val="{{false}}">
+<div style="background: #F4F6F8; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; color: #556070">One-time PIN, valid 30 minutes</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: 0.16em">{{pinShown}}</span>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{panelReason}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; font-weight: 600">Why are you opening this unit? A second person must approve.</span>
+<button onClick="{{reasonLost}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; text-align: left; padding: 0 14px; font-size: 14px; cursor: pointer">Customer at desk, phone lost (ID checked)</button>
+<button onClick="{{reasonMaint}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; text-align: left; padding: 0 14px; font-size: 14px; cursor: pointer">Maintenance or pest control</button>
+<button onClick="{{reasonPolice}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #D4D8DE; background: #FFFFFF; text-align: left; padding: 0 14px; font-size: 14px; cursor: pointer">Police or court request</button>
+<button onClick="{{cancelUnlock}}" style="min-height: 44px; border-radius: 12px; border: none; background: none; color: #556070; font-size: 14px; cursor: pointer">Cancel</button>
+</div>
+</sc-if>
+
+<sc-if value="{{panelApproving}}" hint-placeholder-val="{{false}}">
+<div style="background: #FDF1E3; border-radius: 12px; padding: 14px; font-size: 14px; color: #8A4B0F; font-weight: 600">Waiting for the owner to approve on their phone…</div>
+</sc-if>
+
+<sc-if value="{{panelApproved}}" hint-placeholder-val="{{false}}">
+<div style="background: #E3F4EE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 15px; font-weight: 600; color: #0B5E4D">Approved by the owner. Unit {{sel.id}} unlocked.</span>
+<span style="font-size: 13px; color: #3A4555">Reason, both names and the camera clip are saved in the log. The customer was notified.</span>
+<button onClick="{{backToDetail}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #0E7C66; background: #FFFFFF; color: #0B5E4D; font-size: 14px; font-weight: 600; cursor: pointer">Done</button>
+</div>
+</sc-if>
+</div>
+</aside>
+</div>
+
+<section style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600">Live access log</span>
+<span style="font-size: 13px; color: #556070">Append-only: entries can't be edited or deleted. Export to PDF or Excel.</span>
+</div>
+<div style="overflow-x: auto">
+<div style="min-width: 640px; display: flex; flex-direction: column; font-size: 14px">
+<div style="display: grid; grid-template-columns: 70px 110px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr); gap: 8px; padding: 8px; border-bottom: 1px solid #E3E7EC; color: #556070; font-size: 13px; font-weight: 600"><span>Time</span><span>Unit</span><span>Who</span><span>Method</span><span>Result</span></div>
+<sc-for list="{{log}}" as="l" hint-placeholder-count="6">
+<div style="display: grid; grid-template-columns: 70px 110px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr); gap: 8px; padding: 10px 8px; border-bottom: 1px solid #EEF1F4; align-items: center"><span>{{l.time}}</span><span style="font-weight: 600">{{l.unit}}</span><span>{{l.who}}</span><span>{{l.how}}</span><span><span style="{{l.pill}}">{{l.result}}</span></span></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<span style="font-size: 13px; color: #556070">Demo with sample data. The same screen runs full-screen on the office touchscreen.</span>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      floor: 'G', selected: 'B-106', panel: 'detail', emergency: false, ending: false, emStarted: '',
+      overrides: {}, pinFor: '', pin: '', extra: 0,
+      log: [
+        { time: '10:42', unit: 'B-106', who: 'Customer M. Haddad', how: 'Bluetooth', result: 'Opened', kind: 'ok' },
+        { time: '10:40', unit: 'Main gate', who: 'Rahul (shared, B-106)', how: 'Face terminal', result: 'Entered', kind: 'ok' },
+        { time: '10:31', unit: 'C-104', who: 'Customer J. Thomas', how: 'NFC card', result: 'Opened', kind: 'ok' },
+        { time: '10:18', unit: 'A-105', who: 'Unknown', how: 'Keypad PIN', result: 'Denied, wrong PIN', kind: 'bad' },
+        { time: '10:12', unit: 'B-108', who: 'Customer S. Nair', how: 'One-time PIN', result: 'Opened', kind: 'ok' },
+        { time: '09:00', unit: 'A-105', who: 'System', how: 'Auto-lockout', result: 'Access paused, payment failed', kind: 'warn' }
+      ]
+    };
+  }
+  now() { const d = new Date(); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
+  addLog(e) { this.setState({ log: [Object.assign({ time: this.now() }, e)].concat(this.state.log) }); }
+  baseStatus(id, k) {
+    if (id === 'B-108') return 'open';
+    if (k % 13 === 4) return 'overdue';
+    if (k % 19 === 7) return 'alert';
+    if (k % 6 === 2) return 'vacant';
+    return 'occupied';
+  }
+  renderVals() {
+    const s = this.state;
+    const names = ['M. Haddad', 'S. Nair', 'J. Thomas', 'F. Al Ali', 'R. Menon', 'L. Costa', 'A. Khan', 'D. Pereira'];
+    const plans = ['Smart', 'Smart', 'Premium', 'Basic'];
+    const look = {
+      occupied: ['#E8EEF7', '1px solid #9FB3D1', '#1E3A5F'],
+      vacant: ['#FFFFFF', '1px dashed #9AA5B4', '#556070'],
+      overdue: ['#FDF1E3', '1px solid #D9822B', '#8A4B0F'],
+      open: ['#E3F4EE', '1px solid #0E7C66', '#0B5E4D'],
+      alert: ['#FBE9E9', '1px solid #C0392B', '#8E1F1F']
+    };
+    const words = { occupied: 'Rented, locked', vacant: 'Vacant, locked', overdue: 'Access paused, unpaid', open: 'Open now', alert: 'Low battery, check lock' };
+    const layout = s.floor === 'G'
+      ? [['A', 16], ['B', 16], ['C', 16], ['D', 16]]
+      : [['E', 8 + s.extra], ['F', 10]];
+    const info = {};
+    let k = s.floor === 'G' ? 0 : 64;
+    const counts = { total: 0, rented: 0, vacant: 0, overdue: 0, alert: 0, open: 0 };
+    const corridors = layout.map((row) => {
+      const c = row[0], n = row[1];
+      const units = [];
+      for (let i = 0; i < n; i++) {
+        const id = c + '-' + (s.floor === 'G' ? 101 + i : 201 + i);
+        const status = s.overrides[id] || this.baseStatus(id, k);
+        const sel = id === s.selected;
+        const L = look[status];
+        info[id] = {
+          id: id, status: status, statusText: words[status],
+          tenant: status === 'vacant' ? 'No customer' : names[k % names.length],
+          plan: status === 'vacant' ? 'None' : plans[k % plans.length],
+          battery: (status === 'alert' ? 14 : 55 + (k * 7) % 45) + '%',
+          gateway: 'G3-' + c + (i < n / 2 ? '1' : '2'),
+          pill: 'font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 999px; background: ' + L[0] + '; color: ' + L[2] + '; border: ' + L[1]
+        };
+        counts.total++;
+        if (status !== 'vacant') counts.rented++;
+        if (status === 'vacant') counts.vacant++;
+        if (status === 'overdue') counts.overdue++;
+        if (status === 'alert') counts.alert++;
+        if (status === 'open') counts.open++;
+        units.push({
+          short: id,
+          aria: 'Unit ' + id + ', ' + words[status],
+          style: 'min-height: 44px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; background: ' + L[0] + '; border: ' + L[1] + '; color: ' + L[2] + '; outline: ' + (sel ? '3px solid #12233D' : 'none') + '; outline-offset: 1px; opacity: ' + (s.emergency && status !== 'open' && !sel ? '0.55' : '1'),
+          pick: () => this.setState({ selected: id, panel: 'detail' })
+        });
+        k++;
+      }
+      return { name: 'Corridor ' + c, gateways: 'Gateways G3-' + c + '1, G3-' + c + '2 online', units: units };
+    });
+    const sel = info[s.selected] || info[corridors[0].units[0].short];
+    const tab = (on) => 'min-height: 44px; padding: 0 14px; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; border: 1px solid ' + (on ? '#12233D' : '#D4D8DE') + '; background: ' + (on ? '#12233D' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#0F172A');
+    const pills = { ok: ['#E3F4EE', '#0B5E4D'], bad: ['#FBE9E9', '#8E1F1F'], warn: ['#FDF1E3', '#8A4B0F'], info: ['#E8EEF7', '#1E3A5F'] };
+    const approve = (reason) => () => {
+      this.setState({ panel: 'approving' });
+      setTimeout(() => {
+        const o = Object.assign({}, this.state.overrides); o[sel.id] = 'open';
+        this.setState({ panel: 'approved', overrides: o });
+        this.addLog({ unit: sel.id, who: 'Manager, approved by Owner', how: 'Remote override: ' + reason, result: 'Opened, clip saved', kind: 'warn' });
+      }, 1600);
+    };
+    return {
+      emergency: s.emergency,
+      emStarted: s.emStarted,
+      emButton: s.emergency
+        ? 'min-height: 44px; padding: 0 16px; border-radius: 10px; border: none; background: #B91C1C; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer'
+        : 'min-height: 44px; padding: 0 16px; border-radius: 10px; border: 2px solid #F87171; background: transparent; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer',
+      emButtonLabel: s.emergency ? 'Emergency active' : 'Emergency',
+      toggleEmergency: () => {
+        if (s.emergency) return;
+        this.setState({ emergency: true, emStarted: this.now() });
+        this.addLog({ unit: 'Whole site', who: 'Fire alarm panel', how: 'Fire relay', result: 'Emergency mode on, gates released', kind: 'bad' });
+      },
+      endLabel: s.ending ? 'Waiting for second approval…' : 'End emergency (needs a second approval)',
+      endEmergency: () => {
+        if (s.ending) return;
+        this.setState({ ending: true });
+        setTimeout(() => {
+          this.setState({ emergency: false, ending: false });
+          this.addLog({ unit: 'Whole site', who: 'Manager, approved by Owner', how: 'Admin panel', result: 'Emergency ended, gates normal', kind: 'info' });
+        }, 1600);
+      },
+      stats: counts,
+      isFirst: s.floor === '1',
+      goGround: () => this.setState({ floor: 'G', selected: 'B-106', panel: 'detail' }),
+      goFirst: () => this.setState({ floor: '1', selected: 'E-201', panel: 'detail' }),
+      tabGround: tab(s.floor === 'G'), tabFirst: tab(s.floor === '1'),
+      addUnit: () => { this.setState({ extra: s.extra + 1 }); this.addLog({ unit: 'E-' + (209 + s.extra), who: 'Manager', how: 'Unit editor', result: 'New unit created, padlock paired', kind: 'info' }); },
+      corridors: corridors,
+      sel: sel,
+      panelDetail: s.panel === 'detail', panelReason: s.panel === 'reason', panelApproving: s.panel === 'approving', panelApproved: s.panel === 'approved',
+      startUnlock: () => this.setState({ panel: 'reason' }),
+      cancelUnlock: () => this.setState({ panel: 'detail' }),
+      backToDetail: () => this.setState({ panel: 'detail' }),
+      reasonLost: approve('customer lost phone'),
+      reasonMaint: approve('maintenance'),
+      reasonPolice: approve('police request'),
+      hasPin: s.pinFor === sel.id,
+      pinShown: s.pin,
+      issuePin: () => {
+        const p = String(Math.floor(100000 + Math.random() * 900000));
+        this.setState({ pinFor: sel.id, pin: p.slice(0, 3) + ' ' + p.slice(3) });
+        this.addLog({ unit: sel.id, who: 'Manager', how: 'Admin panel', result: 'One-time PIN issued, 30 min', kind: 'info' });
+      },
+      pauseLabel: sel.status === 'overdue' ? 'Restore access' : 'Pause access',
+      togglePause: () => {
+        const o = Object.assign({}, s.overrides);
+        const paused = sel.status === 'overdue';
+        o[sel.id] = paused ? 'occupied' : 'overdue';
+        this.setState({ overrides: o });
+        this.addLog({ unit: sel.id, who: 'Manager', how: 'Admin panel', result: paused ? 'Access restored' : 'Access paused', kind: paused ? 'ok' : 'warn' });
+      },
+      log: s.log.slice(0, 10).map((l) => Object.assign({}, l, { pill: 'font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: normal; background: ' + pills[l.kind][0] + '; color: ' + pills[l.kind][1] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

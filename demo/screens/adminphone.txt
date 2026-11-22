@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Storage Keys admin phone app</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif}
+a{color:#0E7C66}a:hover{color:#0B5E4D}
+button,input{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F4F6F8; color: #0F172A; display: flex; flex-direction: column; overflow: hidden; font-family: Inter, system-ui, sans-serif">
+
+<sc-if value="{{authLogin}}" hint-placeholder-val="{{true}}">
+<div style="flex: 1; background: #12233D; color: #FFFFFF; padding: 64px 24px 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 14px; color: #7FD8BE; font-weight: 600">STAFF ONLY</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 600">Storage Keys Control</span>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #C9D3E3">Work email<input value="owner@storagekeys.ae" style="min-height: 48px; border-radius: 12px; border: 1px solid #3B5377; padding: 0 14px; font-size: 16px; background: #1D3557; color: #FFFFFF"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #C9D3E3">Password<input type="password" value="demopassword" style="min-height: 48px; border-radius: 12px; border: 1px solid #3B5377; padding: 0 14px; font-size: 16px; background: #1D3557; color: #FFFFFF"></label>
+<button onClick="{{toTwoStep}}" style="min-height: 52px; border-radius: 14px; border: none; background: #7FD8BE; color: #0B2A22; font-size: 16px; font-weight: 700; cursor: pointer">Log in</button>
+<span style="font-size: 13px; color: #C9D3E3">Staff accounts always need a second step. Sessions end after 15 minutes idle.</span>
+</div>
+</sc-if>
+
+<sc-if value="{{authTwo}}" hint-placeholder-val="{{false}}">
+<div style="flex: 1; padding: 64px 24px 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600">Second step</span>
+<span style="font-size: 15px; color: #556070; line-height: 1.5">Enter the code from your authenticator app, then confirm with Face ID.</span>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px">
+<span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">2</span>
+<span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">6</span>
+<span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">4</span>
+<span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">0</span>
+<span style="height: 56px; border-radius: 12px; border: 1px solid #C7CDD5; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">8</span>
+<span style="height: 56px; border-radius: 12px; border: 2px solid #0E7C66; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600">1</span>
+</div>
+<button onClick="{{toIn}}" style="min-height: 52px; border-radius: 14px; border: none; background: #12233D; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer">Verify and continue</button>
+</div>
+</sc-if>
+
+<sc-if value="{{authIn}}" hint-placeholder-val="{{false}}">
+<div style="flex: 1; display: flex; flex-direction: column; min-height: 0">
+<div style="background: #12233D; color: #FFFFFF; padding: 22px 20px 16px; display: flex; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; color: #C9D3E3">Owner · Sharjah</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">{{title}}</span>
+</div>
+<button onClick="{{logout}}" style="min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #3B5377; background: transparent; color: #FFFFFF; font-size: 13px; cursor: pointer">Log out</button>
+</div>
+
+<div style="flex: 1; overflow-y: auto; padding: 16px 16px 20px; display: flex; flex-direction: column; gap: 14px">
+
+<sc-if value="{{isOverview}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Collected in Nov</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">AED 186,300</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Overdue</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #8A4B0F">AED 9,450</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Units rented</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">498 of 570</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #556070">Lock alerts</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #8E1F1F">3</span></div>
+</div>
+<button onClick="{{goApprovals}}" style="{{approvalBanner}}">{{approvalText}}</button>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 15px; font-weight: 600">Security alerts</span>
+<span style="font-size: 14px">Mon 02:14 · Login from an unknown phone blocked for M. Haddad</span>
+<span style="font-size: 14px">Today 10:18 · 3 wrong PINs on A-105, keypad locked 10 min</span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isCustomers}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #556070">Search customers<input placeholder="Name, unit or phone" style="min-height: 46px; border-radius: 12px; border: 1px solid #C7CDD5; padding: 0 14px; font-size: 15px; background: #FFFFFF"></label>
+<sc-for list="{{customers}}" as="c" hint-placeholder-count="6">
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">{{c.name}}</span><span style="font-size: 13px; color: #556070">{{c.detail}}</span></div>
+<span style="{{c.pill}}">{{c.status}}</span>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isPayments}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 8px">
+<button style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #12233D; background: #12233D; color: #FFFFFF; font-size: 13px; font-weight: 600">November</button>
+<button style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 13px">October</button>
+<button style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #D4D8DE; background: #FFFFFF; font-size: 13px">Custom range</button>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; font-size: 14px">
+<span>Card</span><span style="text-align: right; font-weight: 600">AED 71,200</span>
+<span>Apple Pay</span><span style="text-align: right; font-weight: 600">AED 64,800</span>
+<span>Samsung Pay</span><span style="text-align: right; font-weight: 600">AED 27,900</span>
+<span>Google Pay</span><span style="text-align: right; font-weight: 600">AED 22,400</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E3E7EC; border-radius: 14px; padding: 4px 14px">
+<sc-for list="{{txns}}" as="t" hint-placeholder-count="6">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #EEF1F4; gap: 8px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">{{t.who}}</span><span style="font-size: 12px; color: #556070">{{t.detail}}</span></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-size: 14px; font-weight: 600">{{t.amount}}</span><span style="{{t.pill}}">{{t.status}}</span></div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<button onClick="{{makeReport}}" style="min-height: 48px; border-radius: 12px; border: none; background: #0E7C66; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Report (PDF)</button>
+<button onClick="{{makeReport}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #0E7C66; background: #FFFFFF; color: #0B5E4D; font-size: 14px; font-weight: 600; cursor: pointer">Export (Excel)</button>
+</div>
+<sc-if value="{{reportReady}}" hint-placeholder-val="{{false}}">
+<span style="font-size: 14px; font-weight: 600; color: #0B5E4D">November payment report ready: 512 payments, refunds and split shares included.</span>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isApprovals}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{requests}}" as="r" hint-placeholder-count="3">
+<div style="{{r.box}}">
+<span style="{{r.tagStyle}}">{{r.tag}}</span>
+<span style="font-size: 17px; font-weight: 700">{{r.title}}</span>
+<span style="font-size: 14px; color: #3A4555; line-height: 1.45">{{r.text}}</span>
+<div style="display: flex; flex-direction: column; gap: 6px; background: #F4F6F8; border-radius: 12px; padding: 10px 12px">
+<sc-for list="{{r.checks}}" as="c" hint-placeholder-count="4">
+<div style="display: flex; gap: 8px; align-items: center; font-size: 13px"><span style="{{c.dot}}">{{c.mark}}</span><span>{{c.label}}</span></div>
+</sc-for>
+</div>
+<sc-if value="{{r.open}}" hint-placeholder-val="{{true}}">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<button onClick="{{r.reject}}" style="min-height: 48px; border-radius: 12px; border: 1px solid #C0392B; background: #FFFFFF; color: #8E1F1F; font-size: 15px; font-weight: 600; cursor: pointer">Reject</button>
+<button onClick="{{r.approve}}" style="min-height: 48px; border-radius: 12px; border: none; background: #0E7C66; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer">{{r.approveLabel}}</button>
+</div>
+</sc-if>
+<sc-if value="{{r.done}}" hint-placeholder-val="{{false}}">
+<span style="font-size: 14px; font-weight: 600; color: #0B5E4D">{{r.result}}</span>
+</sc-if>
+</div>
+</sc-for>
+<span style="font-size: 13px; color: #556070">New people, custom units, overrides, ending emergency mode and refunds over AED 1,000 all need approval here. Every decision is logged with your name.</span>
+</div>
+</sc-if>
+
+</div>
+
+<nav style="height: 76px; background: #FFFFFF; border-top: 1px solid #E3E7EC; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))">
+<button onClick="{{goOverview}}" style="{{navOverview}}">Overview</button>
+<button onClick="{{goCustomers}}" style="{{navCustomers}}">Customers</button>
+<button onClick="{{goPayments}}" style="{{navPayments}}">Payments</button>
+<button onClick="{{goApprovals}}" style="{{navApprovals}}">Approvals</button>
+</nav>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { auth: 'login', tab: 'overview', report: false, decisions: {} };
+  }
+  renderVals() {
+    const s = this.state;
+    const reqs = [
+      { key: 'person', tag: 'NEW PERSON · CO-RENTER · 4 min ago', color: '#1E3A5F', title: 'Aisha Haddad → unit B-214', text: 'Added by account holder Mariam Haddad. Will pay 50% of the rent with her own card and get full access.', approveLabel: 'Approve access',
+        checks: [['Account holder confirmed the request with Face ID', true], ['Emirates ID scanned, valid, name matches', true], ['Selfie matches ID photo (live check passed)', true], ['Mobile number verified by code', true], ['Not on the blocked list', true], ['Her card saved for her 50% share', true]],
+        yes: 'Approved. Her key is now on her phone. Both customers were notified. Logged.' },
+      { key: 'custom', tag: 'NEW BOOKING · CUSTOM UNIT · 18 min ago', color: '#0B5E4D', title: '150 sq ft, first floor · J. Thomas', text: 'Paid in full: first month, deposit and VAT. Needs a unit built in corridor F and a padlock paired.', approveLabel: 'Approve and assign F-215',
+        checks: [['Payment confirmed by the bank (not just the app)', true], ['Emirates ID verified', true], ['Space free in corridor F', true], ['Build team available by Thursday', false]],
+        yes: 'Approved. F-215 added to the map, build job sent, customer told the ready date.' },
+      { key: 'unlock', tag: 'REMOTE UNLOCK · 2 min ago', color: '#8A4B0F', title: 'Unit A-118 · F. Al Ali', text: 'Front desk (Sameer): customer at the desk, phone lost.', approveLabel: 'Approve unlock',
+        checks: [['Emirates ID checked at the desk', true], ['Face matched at the gate terminal today', true], ['Account not blocked or overdue', true], ['Old phone\'s keys cancelled', true]],
+        yes: 'Approved. A-118 unlocked by front desk, logged with both names and the camera clip.' }
+    ];
+    const openCount = reqs.filter((r) => !s.decisions[r.key]).length;
+    const nav = (on) => 'min-height: 44px; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: ' + (on ? '#0E7C66' : '#6B7280') + '; border-top: 3px solid ' + (on ? '#0E7C66' : 'transparent');
+    const pill = (kind) => {
+      const c = { ok: ['#E3F4EE', '#0B5E4D'], warn: ['#FDF1E3', '#8A4B0F'], bad: ['#FBE9E9', '#8E1F1F'], info: ['#E8EEF7', '#1E3A5F'] }[kind];
+      return 'font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; background: ' + c[0] + '; color: ' + c[1];
+    };
+    const titles = { overview: 'Today', customers: 'Customers', payments: 'Payments', approvals: 'Approvals' };
+    const go = (t) => () => this.setState({ tab: t });
+    const customers = [
+      ['M. Haddad + A. Haddad', 'B-214 · Smart · split 50/50', 'Paid', 'ok'],
+      ['S. Nair', 'B-108 · Premium · auto-pay', 'Paid', 'ok'],
+      ['J. Thomas', 'C-104 · Smart · card', 'Paid', 'ok'],
+      ['F. Al Ali', 'A-105 · Smart · payment failed 2x', 'Paused', 'warn'],
+      ['Gulf Trading LLC', 'D-110, D-111 · Business · 3 users', 'Paid', 'ok'],
+      ['R. Menon', 'C-112 · Basic · key', 'Due in 3 days', 'info']
+    ].map((r) => ({ name: r[0], detail: r[1], status: r[2], pill: pill(r[3]) }));
+    const txns = [
+      ['M. Haddad', 'B-214 · 50% share · Apple Pay · 1 Nov', 'AED 225', 'Paid', 'ok'],
+      ['A. Haddad', 'B-214 · 50% share · Samsung Pay · 1 Nov', 'AED 225', 'Paid', 'ok'],
+      ['S. Nair', 'B-108 · Card · 1 Nov', 'AED 620', 'Paid', 'ok'],
+      ['F. Al Ali', 'A-105 · Card · retried 3 Nov', 'AED 450', 'Failed', 'bad'],
+      ['Gulf Trading LLC', 'D-110, D-111 · Google Pay · 2 Nov', 'AED 1,380', 'Paid', 'ok'],
+      ['J. Thomas', 'C-104 · Refund of deposit', 'AED -225', 'Refunded', 'info']
+    ].map((r) => ({ who: r[0], detail: r[1], amount: r[2], status: r[3], pill: pill(r[4]) }));
+    return {
+      authLogin: s.auth === 'login', authTwo: s.auth === 'two', authIn: s.auth === 'in',
+      toTwoStep: () => this.setState({ auth: 'two' }),
+      toIn: () => this.setState({ auth: 'in', tab: 'overview' }),
+      logout: () => this.setState({ auth: 'login' }),
+      title: titles[s.tab],
+      isOverview: s.tab === 'overview', isCustomers: s.tab === 'customers', isPayments: s.tab === 'payments', isApprovals: s.tab === 'approvals',
+      goOverview: go('overview'), goCustomers: go('customers'), goPayments: go('payments'), goApprovals: go('approvals'),
+      navOverview: nav(s.tab === 'overview'), navCustomers: nav(s.tab === 'customers'), navPayments: nav(s.tab === 'payments'), navApprovals: nav(s.tab === 'approvals'),
+      approvalText: openCount ? openCount + ' requests waiting for you' : 'No requests waiting',
+      approvalBanner: 'min-height: 52px; border-radius: 14px; cursor: pointer; font-size: 15px; font-weight: 600; text-align: left; padding: 0 16px; border: ' + (openCount ? '2px solid #D9822B' : '1px solid #E3E7EC') + '; background: ' + (openCount ? '#FDF1E3' : '#FFFFFF') + '; color: ' + (openCount ? '#8A4B0F' : '#556070'),
+      requests: reqs.map((r) => {
+        const d = s.decisions[r.key];
+        const ok = (on) => ({ dot: 'width: 20px; height: 20px; border-radius: 10px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #FFFFFF; background: ' + (on ? '#0E7C66' : '#D9822B'), mark: on ? '✓' : '!' });
+        return {
+          tag: r.tag, title: r.title, text: r.text, approveLabel: r.approveLabel,
+          tagStyle: 'font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: ' + r.color,
+          box: 'background: #FFFFFF; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px; border: ' + (d ? '1px solid #E3E7EC' : '2px solid ' + r.color),
+          checks: r.checks.map((c) => Object.assign({ label: c[0] }, ok(c[1]))),
+          open: !d, done: !!d,
+          result: d === 'yes' ? r.yes : 'Rejected. The customer was told why. Logged.',
+          approve: () => this.setState({ decisions: Object.assign({}, s.decisions, { [r.key]: 'yes' }) }),
+          reject: () => this.setState({ decisions: Object.assign({}, s.decisions, { [r.key]: 'no' }) })
+        };
+      }),
+      customers: customers,
+      txns: txns,
+      reportReady: s.report,
+      makeReport: () => this.setState({ report: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>
