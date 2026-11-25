@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>And Then… your life, in chapters</title>
 <meta name="description" content="Write your life story in chapters, in English or Malayalam. Friends add their side of what happened and imagine how it ends.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo:wght@400;600;800&family=Caveat:wght@700&family=Noto+Sans+Malayalam:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo:wght@400;600;800&family=Caveat:wght@700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Noto+Sans+Malayalam:wght@400;600&display=swap">
 <style>
 /* VOICE: theatrical, playful, warm — a story nobody finishes alone
    IDEA: a radio-drama stage: step up to the mic, say what happens next, pick the scene, pass it on
@@ -188,37 +188,75 @@ select{width:100%;font:16px Archivo,sans-serif;border:2px solid var(--rule);bord
 .form-mini{background:var(--bg);border:1px solid var(--rule);border-radius:12px;padding:4px 14px 14px;margin-top:10px}
 .cont[hidden]{display:none}
 @media(max-width:560px){.two{grid-template-columns:minmax(0,1fr)}.sidebox{margin-left:0}}
+/* ---- landing: an open book ---- */
+:root{--page:light-dark(#fbf6ec,#221915);--page2:light-dark(#f4ecdc,#1c1411)}
+.bookhero{background:var(--bg);padding:0 0 34px}
+.bookhero .top{padding-block:18px}
+.bookhero .logo{color:var(--accent)}
+.bookhero .me b{color:var(--accent)}
+.spread{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:linear-gradient(90deg,var(--page) 0,var(--page) 49%,var(--page2) 50%,var(--page) 51%,var(--page) 100%);border:1px solid var(--rule);border-radius:10px;box-shadow:0 1px 0 var(--rule),0 3px 0 -1px var(--page2),0 5px 0 -1px var(--rule),0 30px 60px -34px rgba(60,20,20,.45)}
+.spread::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:56px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(60,30,20,.10) 45%,rgba(60,30,20,.16) 50%,rgba(60,30,20,.10) 55%,transparent);pointer-events:none}
+.page{padding:clamp(24px,4vw,54px) clamp(22px,4vw,56px)}
+.kicker{font:600 13px Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:0 0 12px}
+.bookhero h1{color:var(--accent);font-size:clamp(42px,5.4vw,68px);margin:0 0 18px}
+.lede{font:400 clamp(18px,1.7vw,20px)/1.7 Literata,Georgia,serif;margin:0 0 24px;max-width:36ch}
+.bookhero .also{font-size:15px;color:var(--soft)}.bookhero .also .link{color:var(--accent)}
+.strip{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.strip figure{margin:0;display:grid;grid-template-columns:minmax(0,46%) minmax(0,1fr);gap:16px;align-items:center}
+.strip svg{display:block;width:100%;height:auto;border:3px solid #1b1215;border-radius:6px;background:#fff}
+.strip figcaption{font:400 16px/1.5 Literata,Georgia,serif}.strip figcaption b{font-family:Archivo,sans-serif;display:block;font-size:16px}
+.txt,.oside .txt,.ending .txt{font-family:Literata,Georgia,serif;line-height:1.75}
+@media(max-width:880px){.spread{grid-template-columns:minmax(0,1fr);background:var(--page)}.spread::after{display:none}.rpage{border-top:1px dashed var(--rule)}}
+@media(max-width:480px){.strip figure{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
-<section class="stage" id="stageBand">
-<canvas id="sky" aria-hidden="true"></canvas>
-<div class="wrap" style="position:relative;z-index:2">
+<header class="bookhero" id="stageBand">
+<div class="wrap">
 <div class="top"><a class="logo" href="#">And Then…</a><div class="acct" id="acct"></div></div>
-<div class="hero">
-<div>
-<p class="skychip" id="skychip">Looking at your sky…</p>
+<div class="spread">
+<div class="page lpage">
+<p class="kicker">True stories, told in chapters</p>
 <h1>Your life, in chapters.</h1>
-<p>Write your story one chapter at a time: the people who shaped you, the thank-yous you never said, the apologies you still owe. Friends read it, tell their side of what happened, and imagine how it ends.</p>
-<ol class="steps3"><li>Write a chapter. Speak it or type it, in English or Malayalam.</li><li>The people you mention become the characters of your story.</li><li>Readers add their side of a chapter, or write a different ending.</li></ol>
-<div class="cta"><button class="btn fill" id="heroStart">Start my story</button><button class="btn" id="heroRead">Read stories</button></div>
+<p class="lede">Write your story one chapter at a time: the people who shaped you, the thank-yous you never said, the apologies you still owe. Friends read it, add their side of what happened, and imagine how it ends.</p>
+<div class="cta"><button class="btn fill" id="heroStart">Start my story</button><button class="btn" id="heroRead">Read the stories</button></div>
 <p class="also">Just want to play? Try <button class="link" id="heroRelay">Pass it on</button>, where strangers build one story together, one part each.</p>
 </div>
-<div class="example" role="img" aria-label="An example chapter: a thank-you to a teacher, with another side from a friend">
-<span class="tagline">An example</span>
-<p class="k">Chapter 3 · A thank-you to Mr. Thomas</p>
-<h3>The teacher who stayed late</h3>
-<p>Every evening after class, <mark class="who">Mr. Thomas</mark> stayed back to teach me maths for free. <mark class="who">Anu</mark> and I were the only two who came. I never said thank you.</p>
-<p class="other"><b>Another side</b>, from Anu: "He stayed for you. I only came for the biscuits."</p>
+<div class="page rpage">
+<p class="kicker">How it works</p>
+<ol class="strip">
+<li><figure><svg viewBox="0 0 400 260" role="img" aria-label="Someone writing a chapter of their life at a desk under a lamp"><defs><pattern id="ht1" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.6" fill="#c98a2a" opacity=".35"/></pattern></defs><rect width="400" height="260" fill="#f6d98a"/><rect width="400" height="260" fill="url(#ht1)"/>
+<polygon points="250,70 330,230 120,230" fill="#fff6cf" opacity=".75"/>
+<path d="M330 30 L300 52 L250 70" fill="none" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><polygon points="232,62 270,52 282,84 244,92" fill="#6b1023" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="330" cy="30" r="7" fill="#1b1215"/>
+<rect x="20" y="222" width="360" height="38" fill="#8a5a33" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M118 228 l44-20 l44 20 l-44 8z" fill="#fff" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M162 208 v28" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M130 222 h22 M134 216 h20 M172 216 h22 M174 222 h20" stroke="#8a7a70" stroke-width="2.5"/>
+<path d="M60 230 C60 160 80 130 112 128 C150 126 168 160 172 190 L150 214 C140 196 120 186 100 188 L96 230z" fill="#2a6fb5" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="112" cy="102" r="30" fill="#b9805a" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M82 98 C84 70 128 64 140 92 C126 86 102 84 82 98z" fill="#1b1215"/>
+<path d="M150 214 L196 220" stroke="#1b1215" stroke-width="5"/><path d="M190 214 l18 4" stroke="#c8273e" stroke-width="5"/>
+<text x="262" y="132" font-family="Caveat,cursive" font-size="30" font-weight="700" fill="#6b1023" transform="rotate(-6 262 132)">Chapter 1…</text></svg><figcaption><b>Write a chapter.</b> Speak it or type it, in English or Malayalam.</figcaption></figure></li>
+<li><figure><svg viewBox="0 0 400 260" role="img" aria-label="The people in the chapter appear as characters: Amma, Achan and a teacher"><defs><pattern id="ht2" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.6" fill="#2a6fb5" opacity=".35"/></pattern></defs><rect width="400" height="260" fill="#bfe0f5"/><rect width="400" height="260" fill="url(#ht2)"/>
+<path d="M40 250 L60 180 L200 196 L340 180 L360 250 z" fill="#fff" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M200 196 V250" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M80 212 h90 M78 226 h96 M226 212 h90 M224 226 h96" stroke="#8a7a70" stroke-width="2.5"/>
+<path d="M200 190 L90 120 M200 190 L200 110 M200 190 L310 120" stroke="#1b1215" stroke-width="2.5" stroke-dasharray="5 6"/>
+<g><circle cx="90" cy="74" r="40" fill="#f7b7a3" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="90" cy="78" r="24" fill="#b9805a" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M66 72 C66 44 114 44 114 72 C104 60 76 60 66 72z" fill="#1b1215"/><circle cx="90" cy="38" r="10" fill="#1b1215"/><circle cx="90" cy="68" r="3" fill="#c8273e"/><rect x="54" y="118" width="72" height="24" rx="12" fill="#fff" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><text x="90" y="135" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="14" fill="#1b1215">Amma</text></g>
+<g><circle cx="200" cy="64" r="40" fill="#ffe14d" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="200" cy="68" r="24" fill="#a8714c" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M176 60 C178 38 222 38 224 60 C212 52 188 52 176 60z" fill="#1b1215"/><path d="M188 76 q12 -6 24 0" stroke="#1b1215" stroke-width="5" fill="none"/><rect x="164" y="108" width="72" height="24" rx="12" fill="#fff" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><text x="200" y="125" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="14" fill="#1b1215">Achan</text></g>
+<g><circle cx="310" cy="74" r="40" fill="#bde8b0" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="310" cy="78" r="24" fill="#c08a62" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M286 70 C288 46 332 46 334 70 C322 62 298 62 286 70z" fill="#8a8a8a"/><circle cx="300" cy="76" r="7" fill="none" stroke="#1b1215" stroke-width="2.5"/><circle cx="320" cy="76" r="7" fill="none" stroke="#1b1215" stroke-width="2.5"/><rect x="274" y="118" width="72" height="24" rx="12" fill="#fff" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><text x="310" y="135" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="14" fill="#1b1215">Teacher</text></g>
+</svg><figcaption><b>The people in it become characters.</b> Use nicknames if you like.</figcaption></figure></li>
+<li><figure><svg viewBox="0 0 400 260" role="img" aria-label="Two friends read the story on their phones and add their own side"><defs><pattern id="ht3" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.6" fill="#c8273e" opacity=".35"/></pattern></defs><rect width="400" height="260" fill="#f7b7a3"/><rect width="400" height="260" fill="url(#ht3)"/>
+<g><path d="M18 18 h170 a14 14 0 0 1 14 14 v26 a14 14 0 0 1 -14 14 h-140 l-20 18 l-4 -18 h-26 a14 14 0 0 1 -14 -14 v-26 a14 14 0 0 1 14 -14z" fill="#fff" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><text x="103.0" y="51" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="22" fill="#1b1215">I was there too!</text></g><g><path d="M212 40 h170 a14 14 0 0 1 14 14 v26 a14 14 0 0 1 -14 14 h-140 l-18 18 l-4 -18 h-26 a14 14 0 0 1 -14 -14 v-26 a14 14 0 0 1 14 -14z" fill="#fff" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><text x="297.0" y="73" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="22" fill="#1b1215">What if it ends…</text></g>
+<path d="M40 260 C40 200 60 170 100 168 C140 166 160 200 160 260z" fill="#6b1023" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="100" cy="136" r="30" fill="#a8714c" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M70 132 C72 104 128 104 130 132 C118 120 84 120 70 132z" fill="#1b1215"/>
+<rect x="112" y="176" width="34" height="56" rx="6" fill="#1b1215" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><rect x="117" y="182" width="24" height="40" fill="#9fe8ff"/>
+<path d="M240 260 C240 206 262 180 300 178 C338 176 360 206 360 260z" fill="#2fa36b" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="300" cy="146" r="30" fill="#c08a62" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M268 150 C262 104 338 100 332 150 C326 128 276 128 268 150z" fill="#1b1215"/><path d="M270 150 C266 176 262 196 268 210" stroke="#1b1215" stroke-width="7" fill="none"/>
+<rect x="254" y="184" width="34" height="56" rx="6" fill="#1b1215" stroke="#1b1215" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><rect x="259" y="190" width="24" height="40" fill="#9fe8ff"/></svg><figcaption><b>Friends add their side,</b> and imagine how it ends.</figcaption></figure></li>
+</ol>
 </div>
 </div>
 </div>
-</section>
+</header>
 
 <main class="wrap" id="main">
 <div class="cols">
 <section>
-<div class="titlebar"><h2 id="stitle">Loading the stories…</h2><div class="row" style="margin:0"><button class="btn fill" id="filmBtn" hidden>Read it like a film</button><button class="btn" id="playall" hidden>🎧 Listen like a podcast</button><button class="btn" id="resumeBtn" hidden>⏯ Continue where I stopped</button></div></div>
+<div class="titlebar"><h2 id="stitle">Loading the stories…</h2><div class="row" style="margin:0"><button class="btn fill" id="filmBtn" hidden>Read it like a film</button><button class="btn" id="playall" hidden>Listen like a podcast</button><button class="btn" id="resumeBtn" hidden>Continue where I stopped</button></div></div>
 <p class="meta" id="smeta"></p>
 <p class="about" id="sabout" hidden></p>
 <div id="ownerBar"></div>
@@ -240,7 +278,7 @@ select{width:100%;font:16px Archivo,sans-serif;border:2px solid var(--rule);bord
 <div class="film" id="film" hidden role="dialog" aria-modal="true" aria-label="Film reader">
 <img class="bg" id="bgA" alt=""><img class="bg" id="bgB" alt="">
 <canvas class="fx" id="fx" aria-hidden="true"></canvas><div class="vig"></div><div class="grain"></div><div class="flash" id="flash"></div>
-<div class="bar"><div class="row" style="margin:0;gap:8px"><button class="btn" id="narr" aria-pressed="false">▶ Listen</button><button class="btn" id="spotBtn">🔖 Stop here</button><button class="btn" id="sound" aria-pressed="false">Sound: off</button></div><span class="fmsg" id="filmMsg" role="status" aria-live="polite"></span><button class="btn" id="filmX">Close</button></div>
+<div class="bar"><div class="row" style="margin:0;gap:8px"><button class="btn" id="narr" aria-pressed="false">▶ Listen</button><button class="btn" id="spotBtn">Stop here</button><button class="btn" id="sound" aria-pressed="false">Sound: off</button></div><span class="fmsg" id="filmMsg" role="status" aria-live="polite"></span><button class="btn" id="filmX">Close</button></div>
 <div id="frames"></div>
 </div>
 
@@ -482,7 +520,7 @@ box.appendChild(mk('p','note',isOwner()?'Your story is still being written. Read
 const cnt=id=>evotes.filter(v=>v.ending_id===id).length;
 [...endings].sort((a,b)=>cnt(b.id)-cnt(a.id)||new Date(a.created_at)-new Date(b.created_at)).forEach(e=>box.appendChild(endingEl(e,cnt(e.id))));
 const r=mk('div','row');if(!me){const b=mk('button','btn','Log in to write an ending');b.type='button';b.onclick=()=>openAuth('in');r.appendChild(b);}
-else{const b=mk('button','btn','✍ Write a different ending');b.type='button';b.onclick=()=>{r.hidden=true;endingForm(box,()=>{r.hidden=false;});};r.appendChild(b);}box.appendChild(r);}
+else{const b=mk('button','btn','Write a different ending');b.type='button';b.onclick=()=>{r.hidden=true;endingForm(box,()=>{r.hidden=false;});};r.appendChild(b);}box.appendChild(r);}
 function endingEl(e,n){const d=mk('article','ending'+(e.hidden?' hid':''));d.appendChild(mk('h4',null,e.title));d.appendChild(byLine('imagined by ',e));
 const nc=chars.filter(c=>c.ending_id===e.id);d.appendChild(hl(mk('p','txt'+(e.lang==='ml'?' ml':'')),e.body,nameRe(chars.map(c=>c.name))));
 if(nc.length){d.appendChild(mk('p','note','New people in this ending:'));const g=mk('div','cast');nc.forEach(c=>g.appendChild(charCard(c)));d.appendChild(g);}
@@ -555,7 +593,7 @@ const ta=$('raw');if(ta&&fin){ta.value=(ta.value?ta.value.trimEnd()+' ':'')+fin.
 rec.onstart=()=>{listening=true;micUi();};rec.onend=()=>{listening=false;micUi();};
 rec.onerror=e=>{listening=false;micUi();const n=$('contNote');if(n)n.textContent=e.error==='not-allowed'?'Microphone permission was blocked. You can type instead.':'The mic stopped. Tap it again, or type.';};
 try{rec.start();}catch(e){}focusRaw(true);}
-function micUi(){const m=$('mic2');if(m)m.textContent=listening?'■ Stop':'🎙 Speak';if(!listening&&$('partial'))$('partial').textContent='';}
+function micUi(){const m=$('mic2');if(m)m.textContent=listening?'Stop listening':'Speak instead of typing';if(!listening&&$('partial'))$('partial').textContent='';}
 function focusRaw(noFocus){$('cont').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});if(!noFocus&&$('raw'))$('raw').focus();}
 
 /* ---------- the writing panel ---------- */
@@ -593,14 +631,14 @@ const lab=mk('label',null,life?'Say it or type it, the way you would tell a frie
 const ta=mk('textarea',speakLang==='ml'?'ml':'');ta.id='raw';ta.maxLength=2500;ta.addEventListener('input',()=>{if(draft){draft=null;const pb=$('prevBox');if(pb)pb.innerHTML='';}clearTimeout(spotT);spotT=setTimeout(renderSpot,500);});
 ta.placeholder=speakLang==='ml'?'എന്നിട്ട്…':life?'I was six when we left my grandmother\'s house…':'And then my uncle walked in holding a goat…';box.appendChild(ta);
 box.appendChild(Object.assign(mk('p','partial'),{id:'partial'}));
-const mr=mk('div','row');mr.style.marginTop='4px';if(SR){const m=mk('button','btn',listening?'■ Stop':'🎙 Speak');m.id='mic2';m.type='button';m.onclick=toggleMic;mr.appendChild(m);}box.appendChild(mr);
+const mr=mk('div','row');mr.style.marginTop='4px';if(SR){const m=mk('button','btn',listening?'Stop listening':'Speak instead of typing');m.id='mic2';m.type='button';m.onclick=toggleMic;mr.appendChild(m);}box.appendChild(mr);
 if(life)box.appendChild(Object.assign(mk('div','spot'),{id:'spot'}));
 box.appendChild(mk('label',null,'Pick the scene'));const g=mk('div','scenes');
 Object.keys(SCENES).forEach(k=>{const b=mk('button','sc');b.type='button';b.setAttribute('aria-pressed',scene===k);const im=mk('img');im.src=sceneUrl(k);im.alt='';b.append(im,mk('span',null,SCENES[k][0]));b.onclick=()=>{scene=k;[...g.children].forEach(c=>c.setAttribute('aria-pressed',c===b));};g.appendChild(b);});box.appendChild(g);
 box.appendChild(mk('label',null,'Make it dramatic? Pick a style'));const ch=mk('div','chips');ch.setAttribute('role','group');ch.setAttribute('aria-label','Drama style');
 STYLES.forEach(([k,l])=>{const b=mk('button','chip',l);b.type='button';b.setAttribute('aria-pressed',style===k);b.onclick=()=>{style=k;[...ch.children].forEach(c=>c.setAttribute('aria-pressed',c===b));};ch.appendChild(b);});box.appendChild(ch);
 box.appendChild(mk('p','note',life?'The dramatic version keeps every name, place and thing you said. Readers can always see your original words too.':'Tip: listeners give the most points for a sacrifice, a heartbreak or a real twist. The dramatic version keeps every name, place and thing you said.'));
-const ar=mk('div','row');const dr=mk('button','btn fill','✨ Make it dramatic');dr.id='goDrama';dr.type='button';dr.onclick=()=>dramatize();
+const ar=mk('div','row');const dr=mk('button','btn fill','Make it dramatic');dr.id='goDrama';dr.type='button';dr.onclick=()=>dramatize();
 const go=mk('button','btn',life?'Save it as I said it':story&&story.status==='finale'?'Add the finale as I said it':'Add it as I said it');go.type='button';go.onclick=()=>submit(null);ar.append(dr,go);ar.appendChild(Object.assign(mk('span','note'),{id:'contNote'}));box.appendChild(ar);
 box.appendChild(Object.assign(mk('div'),{id:'prevBox'}));if(draft)showDraft();}
 async function submit(d){if(busy)return;const raw=$('raw').value.trim();const n=$('contNote');
@@ -666,46 +704,6 @@ const again=mk('button','btn','Try another style');again.type='button';again.onc
 r.append(add,again);if('speechSynthesis' in window){const l=mk('button','btn','▶ Hear it');l.type='button';l.onclick=()=>speak([draft.text],speakLang==='ml'?'ml-IN':'en-IN');r.appendChild(l);}
 box.appendChild(r);box.appendChild(mk('p','note','Your own words are saved too, so readers can always see what you actually said.'));pb.appendChild(box);}
 
-/* ---------- the live sky behind the stage: visitor's time of day + real weather (free, no key) ---------- */
-const SKYC={dawn:['#3b3f7a','#f7a072','#ffd9a8'],morning:['#6fb7e6','#a9d8f2','#fff0d6'],day:['#4a9be0','#8ccaf0','#d9efff'],sunset:['#2f2b6a','#c4506a','#ffad6b'],night:['#05061a','#141a3e','#2a1f4a']};
-const W={sky:null,phase:'night',wx:'clear',cloud:0,t0:performance.now()};
-function phaseNow(isDay){const h=new Date().getHours()+new Date().getMinutes()/60;
-if(isDay===0&&(h>7&&h<17))return'night';if(h>=5&&h<7)return'dawn';if(h>=7&&h<11)return'morning';if(h>=11&&h<16.5)return'day';if(h>=16.5&&h<19)return'sunset';return'night';}
-function wxFrom(code){if(code==null)return'clear';if(code>=95)return'storm';if(code>=71&&code<=77||code===85||code===86)return'snow';if(code>=51&&code<=67||code>=80&&code<=82)return'rain';if(code===45||code===48)return'fog';if(code>=2)return'cloudy';return'clear';}
-const LABEL={dawn:'dawn',morning:'morning',day:'afternoon',sunset:'evening',night:'night'};
-const WXL={clear:'Clear',cloudy:'Cloudy',rain:'Rainy',storm:'Stormy',fog:'Foggy',snow:'Snowy'};
-function setMood(){const lit=['morning','day'].includes(W.phase)&&!['storm','rain'].includes(W.wx);$('stageBand').classList.toggle('lit',lit);
-$('skychip').textContent=WXL[W.wx]+' '+LABEL[W.phase]+' where you are';}
-(function sky(){const c=$('sky'),x=c.getContext('2d');const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let w=0,h=0,dpr=Math.min(2,devicePixelRatio||1);const fit=()=>{w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);};
-new ResizeObserver(()=>{fit();if(reduce)draw(0);}).observe(c);fit();
-const rnd=(i,s)=>{const v=Math.sin(i*12.9898+s*78.233)*43758.5453;return v-Math.floor(v);};
-let flash=0;
-function draw(t){const P=W.phase,c3=SKYC[P];const g=x.createLinearGradient(0,0,0,h);
-const dim=W.wx==='storm'?.55:W.wx==='rain'?.7:W.wx==='cloudy'||W.wx==='fog'?.85:1;
-g.addColorStop(0,c3[0]);g.addColorStop(.55,c3[1]);g.addColorStop(1,c3[2]);x.fillStyle=g;x.fillRect(0,0,w,h);
-if(dim<1){x.fillStyle='rgba(40,44,58,'+(1-dim)+')';x.fillRect(0,0,w,h);}
-if(P==='night'||P==='dawn'){for(let i=0;i<120;i++){const a=(.4+.6*Math.abs(Math.sin(t/900+i)))*(P==='dawn'?.4:1)*(W.wx==='clear'?1:.35);x.fillStyle='rgba(255,255,255,'+a+')';x.fillRect(rnd(i,1)*w,rnd(i,2)*h*.7,1.6,1.6);}}
-const hr=new Date().getHours()+new Date().getMinutes()/60;const isSun=P!=='night';
-const k=isSun?Math.min(1,Math.max(0,(hr-5)/14)):((hr+24-19)%24)/10;const ox=w*(.08+.84*k),oy=h*(.75-.6*Math.sin(Math.PI*k));
-if(W.wx!=='storm'&&W.wx!=='fog'){const r=isSun?38:28;const glow=x.createRadialGradient(ox,oy,r*.5,ox,oy,r*4);glow.addColorStop(0,isSun?'rgba(255,240,190,.55)':'rgba(240,235,210,.35)');glow.addColorStop(1,'rgba(255,240,190,0)');x.fillStyle=glow;x.fillRect(ox-r*4,oy-r*4,r*8,r*8);
-x.fillStyle=isSun?(P==='sunset'||P==='dawn'?'#ffd08a':'#fff6d8'):'#f3ecd2';x.beginPath();x.arc(ox,oy,r,0,7);x.fill();if(!isSun){x.fillStyle=SKYC.night[0];x.beginPath();x.arc(ox+12,oy-6,r*.85,0,7);x.fill();}}
-const nC=W.wx==='clear'?2:W.wx==='cloudy'?7:W.wx==='fog'?4:9;const cc=P==='night'?'rgba(120,125,150,':'rgba(255,255,255,';
-for(let i=0;i<nC;i++){const sp=8+rnd(i,3)*14;const cx=((rnd(i,4)*w*1.4+t/1000*sp)%(w*1.4))-w*.2,cy=h*(.08+rnd(i,5)*.4),s=50+rnd(i,6)*70;const op=W.wx==='storm'||W.wx==='rain'?.55:.75;
-x.fillStyle=(W.wx==='storm'||W.wx==='rain')?'rgba(70,75,90,'+op+')':cc+op+')';[[0,0,1],[s*.6,-s*.25,.8],[s*1.1,0,.9],[s*.5,s*.15,.85]].forEach(([dx,dy,m])=>{x.beginPath();x.arc(cx+dx,cy+dy,s*.45*m,0,7);x.fill();});}
-if(W.wx==='rain'||W.wx==='storm'){x.strokeStyle='rgba(200,215,235,.55)';x.lineWidth=1.3;x.beginPath();for(let i=0;i<160;i++){const rx=(rnd(i,7)*w+t*.15)%w,ry=(rnd(i,8)*h+t*.9)%h;x.moveTo(rx,ry);x.lineTo(rx-5,ry+16);}x.stroke();}
-if(W.wx==='snow'){x.fillStyle='rgba(255,255,255,.9)';for(let i=0;i<110;i++){const sx=(rnd(i,9)*w+Math.sin(t/1500+i)*20)%w,sy=(rnd(i,10)*h+t*.05)%h;x.beginPath();x.arc(sx,sy,1.5+rnd(i,11)*2,0,7);x.fill();}}
-if(W.wx==='fog'){for(let i=0;i<5;i++){x.fillStyle='rgba(225,228,235,.18)';x.fillRect(((t/40*(i+1))%w)-w,h*(.4+i*.11),w*2,h*.1);}}
-if(W.wx==='storm'){if(flash<=0&&Math.random()<.004)flash=9;if(flash>0){x.fillStyle='rgba(255,255,255,'+flash/20+')';x.fillRect(0,0,w,h);flash--;}}
-x.fillStyle='rgba(20,8,12,.35)';x.fillRect(0,h*.82,w,h*.18);}
-function loop(t){draw(t);requestAnimationFrame(loop);}
-W.phase=phaseNow();setMood();if(reduce)draw(0);else requestAnimationFrame(loop);
-W.redraw=()=>{setMood();if(reduce)draw(0);};
-setInterval(()=>{W.phase=phaseNow(W.isDay);W.redraw();},5*60e3);
-(async()=>{try{let ll=null;try{const g=await fetch('https://get.geojs.io/v1/ip/geo.json').then(r=>r.json());if(g&&g.latitude)ll=[+g.latitude,+g.longitude];}catch(e){}
-if(!ll)return;const m=await fetch('https://api.open-meteo.com/v1/forecast?latitude='+ll[0].toFixed(2)+'&longitude='+ll[1].toFixed(2)+'&current=weather_code,cloud_cover,is_day&timezone=auto').then(r=>r.json());
-const cur=m&&m.current;if(!cur)return;W.wx=wxFrom(cur.weather_code);W.isDay=cur.is_day;W.phase=phaseNow(cur.is_day);W.redraw();}catch(e){}})();})();
-
 /* ---------- film reader: The Boat–style scroll story with weather per scene ---------- */
 const MOOD={night:'rain',rain:'storm',sea:'spray',desert:'dust',city:'drizzle',home:'motes',wedding:'sparks',hospital:'rain',forest:'fireflies',fire:'embers',train:'wind',stars:'drizzle'};Object.assign(MOOD,MOODS_EXTRA);
 const INK=['night','rain','hospital','forest','stars','city'];
@@ -714,7 +712,7 @@ const reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function splitLines(t){return String(t).replace(/\s+/g,' ').match(/[^.!?।]+[.!?।"”']*\s*/g)||[t];}
 function openFilm(opts){opts=opts||{};const life=isLife();const seq=life?lifeSeq():parts;if(!seq.length)return;const fr=$('frames');fr.innerHTML='';
 const t=mk('section','frame');t.dataset.scene=seq[0].scene;const h2=mk('h2',null,story?story.title:'And Then…');h2.dataset.say=h2.textContent;h2.dataset.li='-2';t.appendChild(h2);
-const names=[...new Set(parts.map(p=>p.username))];t.appendChild(mk('p','who',life?'the life story of '+ownerName(story):'told by '+names.slice(0,4).join(', ')+(names.length>4?' and '+(names.length-4)+' more':'')));if(spot&&spotIdx()>0){const rb=mk('button','btn fill','⏯ Continue where I stopped ('+spotLabel()+')');rb.type='button';rb.style.alignSelf='flex-start';rb.onclick=()=>startNarr(spotIdx());t.appendChild(rb);}
+const names=[...new Set(parts.map(p=>p.username))];t.appendChild(mk('p','who',life?'the life story of '+ownerName(story):'told by '+names.slice(0,4).join(', ')+(names.length>4?' and '+(names.length-4)+' more':'')));if(spot&&spotIdx()>0){const rb=mk('button','btn fill','Continue where I stopped ('+spotLabel()+')');rb.type='button';rb.style.alignSelf='flex-start';rb.onclick=()=>startNarr(spotIdx());t.appendChild(rb);}
 t.appendChild(mk('p','hint','Scroll slowly ↓'));fr.appendChild(t);
 let lastCh=null;seq.forEach(p=>{const s=mk('section','frame');s.dataset.scene=p.scene;
 if(life){const c=chapters.find(x=>x.id===p.chapter_id);if(c&&c.id!==lastCh){lastCh=c.id;const fl=feelLine(c);const w=mk('p','who','Chapter '+c.n+': '+c.title+(fl?' · '+fl:''));w.dataset.say='Chapter '+c.n+'. '+c.title+'.';w.dataset.part=p.id;w.dataset.li='-1';s.appendChild(w);}}
@@ -761,7 +759,7 @@ $('spotBtn').onclick=async()=>{const L=sayList();const el=L[N.on?N.i:viewIdx()];
 spot={part_id:el.dataset.part||null,line:+el.dataset.li};try{localStorage.setItem(spotKey(),JSON.stringify(spot));}catch(e){}
 let saved='in this browser';if(me){const {error}=await sb.from('bookmarks').upsert({user_id:me.id,story_id:sid,part_id:spot.part_id,line:spot.line,updated_at:new Date().toISOString()},{onConflict:'user_id,story_id'});if(!error)saved='to your account';}
 $('filmMsg').textContent='Saved '+saved+' at '+spotLabel()+'. Next time, tap "Continue where I stopped".';renderSpotBtn();};
-function renderSpotBtn(){const b=$('resumeBtn');b.hidden=!(spot&&spot.part_id&&parts.some(p=>p.id===spot.part_id));if(!b.hidden)b.textContent='⏯ Continue where I stopped ('+spotLabel()+')';}
+function renderSpotBtn(){const b=$('resumeBtn');b.hidden=!(spot&&spot.part_id&&parts.some(p=>p.id===spot.part_id));if(!b.hidden)b.textContent='Continue where I stopped ('+spotLabel()+')';}
 $('resumeBtn').onclick=()=>openFilm({resume:true});
 $('playall').onclick=()=>openFilm({listen:true});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&F.open)closeFilm();});
