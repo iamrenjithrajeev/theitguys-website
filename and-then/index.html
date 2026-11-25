@@ -158,7 +158,7 @@ mark.who{background:light-dark(#fbe7b8,#4a3815);color:inherit;border-radius:4px;
 .owner input{flex:1 1 220px;width:auto}.owner .note{flex-basis:100%;margin:0}
 .about{font:700 23px/1.35 Caveat,cursive;color:var(--soft);margin:6px 0 0}
 #castBox{margin-top:22px}
-.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:8px 0}
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
 .who-card{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:12px 14px;font-size:14px}
 .who-card b{display:block;font-size:17px}.who-card .r{color:var(--accent);font-weight:600}.who-card p{margin:6px 0 0}.who-card .in{color:var(--soft);font-size:13px}
 .chap{margin-top:34px}
@@ -343,18 +343,18 @@ function setHash(){const k=KEYS[sid];history.replaceState(null,'',sid?'#s='+sid+
 async function openStory(id,quiet){sid=id;newKind=null;draft=null;curKey=KEYS[id]||null;if(!quiet)setHash();await loadStory();if(story&&story.kind!==tab){tab=story.kind;renderTabs();}renderStories();renderCont();}
 function startNew(k){sid=null;story=null;newKind=k;draft=null;curKey=null;if(k!=='choose'){tab=k;renderTabs();}setHash();loadStory();renderStories();renderCont();focusRaw(true);}
 async function loadStory(){if(!sid){story=null;parts=[];reacts=[];ratings=[];comments=[];votes=[];chapters=[];chars=[];sides=[];endings=[];evotes=[];shareKey=null;renderStory();return;}
-const want=sid;
-const [s,p,v]=await Promise.all([sb.from('stories').select(STORY_COLS).eq('id',sid).maybeSingle(),sb.from('parts').select('id,n,user_id,username,lang,raw,drama,style,scene,is_finale,chapter_id,created_at').eq('story_id',sid).order('n'),sb.from('end_votes').select('*').eq('story_id',sid)]);
-if(want!==sid)return;
-story=s.data;parts=p.data||[];votes=v.data||[];const ids=parts.map(x=>x.id);
-if(ids.length){const [r,ra,c]=await Promise.all([sb.from('reactions').select('*').in('part_id',ids),sb.from('ratings').select('*').in('part_id',ids),sb.from('comments').select('*').in('part_id',ids).order('created_at')]);reacts=r.data||[];ratings=ra.data||[];comments=c.data||[];}
-else{reacts=[];ratings=[];comments=[];}
-if(story&&story.kind==='life'){const [c,ch,sd,e]=await Promise.all([sb.from('chapters').select('*').eq('story_id',sid).order('n'),sb.from('characters').select('*').eq('story_id',sid).order('created_at'),sb.from('sides').select('*').eq('story_id',sid).order('created_at'),sb.from('endings').select('*').eq('story_id',sid).order('created_at')]);
-chapters=c.data||[];chars=ch.data||[];sides=sd.data||[];endings=e.data||[];const eids=endings.map(x=>x.id);
-evotes=eids.length?((await sb.from('ending_votes').select('*').in('ending_id',eids)).data||[]):[];
-shareKey=null;if(isOwner()){const k=await sb.from('story_keys').select('key').eq('story_id',sid).maybeSingle();shareKey=k.data&&k.data.key;}}
+const want=sid,on=q=>q.eq('story_id',sid);
+/* everything in one round trip: child rows are filtered through their part or ending */
+const R=await Promise.all([sb.from('stories').select(STORY_COLS).eq('id',sid).maybeSingle(),
+on(sb.from('parts').select('id,n,user_id,username,lang,raw,drama,style,scene,is_finale,chapter_id,created_at')).order('n'),on(sb.from('end_votes').select('*')),
+sb.from('reactions').select('*,parts!inner(story_id)').eq('parts.story_id',sid),sb.from('ratings').select('*,parts!inner(story_id)').eq('parts.story_id',sid),sb.from('comments').select('*,parts!inner(story_id)').eq('parts.story_id',sid).order('created_at'),
+on(sb.from('chapters').select('*')).order('n'),on(sb.from('characters').select('*')).order('created_at'),on(sb.from('sides').select('*')).order('created_at'),on(sb.from('endings').select('*,ending_votes(ending_id,user_id)')).order('created_at'),
+on(sb.from('story_keys').select('key')).maybeSingle()]);
+if(want!==sid)return;const d=i=>R[i].data||[];
+story=R[0].data;parts=d(1);votes=d(2);reacts=d(3);ratings=d(4);comments=d(5);
+if(story&&story.kind==='life'){chapters=d(6);chars=d(7);sides=d(8);endings=d(9);evotes=endings.flatMap(e=>e.ending_votes||[]);shareKey=isOwner()&&R[10].data?R[10].data.key:null;}
 else{chapters=[];chars=[];sides=[];endings=[];evotes=[];shareKey=null;}
-if(want!==sid)return;renderStory();}
+renderStory();}
 async function loadBoard(){const {data}=await sb.from('leaderboard').select('*').order('points',{ascending:false}).limit(10);const ol=$('lb');ol.innerHTML='';
 (data||[]).filter(x=>x.parts>0).forEach((x,i)=>{const li=mk('li');li.append(mk('span','n',i+1),mk('span',null,x.username),mk('span','p',x.points+' pts'));ol.appendChild(li);});
 if(!ol.children.length)ol.appendChild(mk('li','note','Nobody yet. Be the first.'));}
