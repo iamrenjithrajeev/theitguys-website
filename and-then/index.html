@@ -165,7 +165,7 @@ mark.who{background:light-dark(#fbe7b8,#4a3815);color:inherit;border-radius:4px;
 .owner{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px;padding:12px 16px;border-radius:14px;background:var(--paper);border:1px dashed var(--rule)}
 .owner input{flex:1 1 220px;width:auto}.owner .note{flex-basis:100%;margin:0}
 .about{font:700 23px/1.35 Caveat,cursive;color:var(--soft);margin:6px 0 0}
-#castBox{margin-top:22px}
+#castBox{margin-top:18px}.castbtn{min-height:40px}.castpanel{margin-top:12px}
 .cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
 .who-card{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:12px 14px;font-size:14px}
 .who-card b{display:block;font-size:17px}.who-card .r{color:var(--accent);font-weight:600}.who-card p{margin:6px 0 0}.who-card .in{color:var(--soft);font-size:13px}
@@ -468,8 +468,11 @@ box.append(inp,cp);box.appendChild(mk('p','note',story.visibility==='unlisted'?'
 
 /* the people in a life story */
 function chaptersWith(c){const re=nameRe([c.name]);return re?chapters.filter(ch=>parts.some(p=>p.chapter_id===ch.id&&re.test(shown(p)+' '+p.raw))):[];}
-function renderCast(){const box=$('castBox');const cast=chars.filter(c=>!c.ending_id);if(!cast.length&&!isOwner())return;
-box.appendChild(mk('h3',null,'The people in this story'));
+let castOpen=false;
+function renderCast(){let box=$('castBox');const cast=chars.filter(c=>!c.ending_id);if(!cast.length&&!isOwner())return;
+const tg=mk('button','btn castbtn',(castOpen?'Hide the people':'The people in this story')+(cast.length?' ('+cast.length+')':''));tg.type='button';tg.setAttribute('aria-expanded',castOpen);tg.setAttribute('aria-controls','castPanel');
+const panel=mk('div','castpanel');panel.id='castPanel';panel.hidden=!castOpen;tg.onclick=()=>{castOpen=!castOpen;panel.hidden=!castOpen;tg.setAttribute('aria-expanded',castOpen);tg.textContent=(castOpen?'Hide the people':'The people in this story')+(cast.length?' ('+cast.length+')':'');};
+box.appendChild(tg);box.appendChild(panel);const out=box;box=panel;
 if(!cast.length)box.appendChild(mk('p','note','Nobody yet. When you write someone\'s name in a chapter, you can add them here. A nickname is fine if you\'d rather keep them private.'));
 const g=mk('div','cast');cast.forEach(c=>g.appendChild(charCard(c)));box.appendChild(g);
 if(isOwner()){const add=mk('button','link','+ Add a person');add.type='button';add.onclick=()=>{add.hidden=true;charForm(box,'',null,()=>{add.hidden=false;});};box.appendChild(add);}}
