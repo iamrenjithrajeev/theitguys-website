@@ -15,6 +15,7 @@
 :root{color-scheme:light dark;--bg:light-dark(#f6f1ec,#140d10);--paper:light-dark(#fffdfb,#1f161a);--ink:light-dark(#1b1215,#f3e9e4);--soft:light-dark(#6d5d61,#bba9ad);--rule:light-dark(#e6d9d3,#3a2a30);--stage:#6b1023;--stage2:#3d0814;--gold:#f0bf5a;--live:#33d6c2;--accent:light-dark(#6b1023,#f0bf5a)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Archivo,'Noto Sans Malayalam',system-ui,sans-serif;overflow-x:clip}
 .ml{font-family:'Noto Sans Malayalam',Archivo,sans-serif}
 .wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
@@ -137,6 +138,10 @@ dialog::backdrop{background:rgba(20,8,12,.7)}.dlg{padding:24px}.err{color:#c8273
 .film .end{align-items:flex-start}
 .film .said{background:rgba(0,0,0,.45);max-width:34ch;margin:6px 0 0}.film .said p{color:#f0bf5a}
 .film .link{color:#f0bf5a}
+.film .bar{flex-wrap:wrap;background:linear-gradient(rgba(8,4,6,.92),rgba(8,4,6,.72));backdrop-filter:blur(4px);padding-block:10px}
+@media(max-width:560px){.film .bar .btn{min-height:38px;padding:0 12px;font-size:14px}.film .fmsg{order:3;flex-basis:100%}.film .frame{padding-top:24vh}}.film .fmsg{flex:1 1 160px;font-weight:600;color:#f0bf5a;text-shadow:0 1px 6px #000;font-size:15px}
+.film [data-say].reading{opacity:1;transform:none;background:rgba(0,0,0,.5);border-radius:8px;box-shadow:0 0 0 8px rgba(0,0,0,.5);color:#fff6d6}
+.film .frame .btn.fill{background:#f0bf5a;border-color:#f0bf5a;color:#3d0814}
 @media(prefers-reduced-motion:reduce){.film .grain,.film .hint{animation:none}.film .line{transition:none;opacity:1;transform:none}.film .bg{transition:none}}
 footer{padding:26px 0 40px;color:var(--soft);font-size:14px;border-top:1px solid var(--rule)}
 @media(max-width:880px){.hero{grid-template-columns:minmax(0,1fr)}.micwrap{min-height:250px}.cols{grid-template-columns:minmax(0,1fr)}.stage::before,.stage::after{display:none}}
@@ -210,7 +215,7 @@ select{width:100%;font:16px Archivo,sans-serif;border:2px solid var(--rule);bord
 <main class="wrap" id="main">
 <div class="cols">
 <section>
-<div class="titlebar"><h2 id="stitle">Loading the stories…</h2><div class="row" style="margin:0"><button class="btn fill" id="filmBtn" hidden>Read it like a film</button><button class="btn" id="playall" hidden>▶ Listen to it all</button></div></div>
+<div class="titlebar"><h2 id="stitle">Loading the stories…</h2><div class="row" style="margin:0"><button class="btn fill" id="filmBtn" hidden>Read it like a film</button><button class="btn" id="playall" hidden>🎧 Listen like a podcast</button><button class="btn" id="resumeBtn" hidden>⏯ Continue where I stopped</button></div></div>
 <p class="meta" id="smeta"></p>
 <p class="about" id="sabout" hidden></p>
 <div id="ownerBar"></div>
@@ -232,7 +237,7 @@ select{width:100%;font:16px Archivo,sans-serif;border:2px solid var(--rule);bord
 <div class="film" id="film" hidden role="dialog" aria-modal="true" aria-label="Film reader">
 <img class="bg" id="bgA" alt=""><img class="bg" id="bgB" alt="">
 <canvas class="fx" id="fx" aria-hidden="true"></canvas><div class="vig"></div><div class="grain"></div><div class="flash" id="flash"></div>
-<div class="bar"><button class="btn" id="sound" aria-pressed="false">Sound: off</button><button class="btn" id="filmX">Close</button></div>
+<div class="bar"><div class="row" style="margin:0;gap:8px"><button class="btn" id="narr" aria-pressed="false">▶ Listen</button><button class="btn" id="spotBtn">🔖 Stop here</button><button class="btn" id="sound" aria-pressed="false">Sound: off</button></div><span class="fmsg" id="filmMsg" role="status" aria-live="polite"></span><button class="btn" id="filmX">Close</button></div>
 <div id="frames"></div>
 </div>
 
@@ -342,19 +347,20 @@ function parseHash(){const q=new URLSearchParams(location.hash.slice(1));const s
 function setHash(){const k=KEYS[sid];history.replaceState(null,'',sid?'#s='+sid+(k?'&k='+k:''):location.pathname+location.search);}
 async function openStory(id,quiet){sid=id;newKind=null;draft=null;curKey=KEYS[id]||null;if(!quiet)setHash();await loadStory();if(story&&story.kind!==tab){tab=story.kind;renderTabs();}renderStories();renderCont();}
 function startNew(k){sid=null;story=null;newKind=k;draft=null;curKey=null;if(k!=='choose'){tab=k;renderTabs();}setHash();loadStory();renderStories();renderCont();focusRaw(true);}
-async function loadStory(){if(!sid){story=null;parts=[];reacts=[];ratings=[];comments=[];votes=[];chapters=[];chars=[];sides=[];endings=[];evotes=[];shareKey=null;renderStory();return;}
+async function loadStory(){if(!sid){spot=null;renderSpotBtn();story=null;parts=[];reacts=[];ratings=[];comments=[];votes=[];chapters=[];chars=[];sides=[];endings=[];evotes=[];shareKey=null;renderStory();return;}
 const want=sid,on=q=>q.eq('story_id',sid);
 /* everything in one round trip: child rows are filtered through their part or ending */
 const R=await Promise.all([sb.from('stories').select(STORY_COLS).eq('id',sid).maybeSingle(),
 on(sb.from('parts').select('id,n,user_id,username,lang,raw,drama,style,scene,is_finale,chapter_id,created_at')).order('n'),on(sb.from('end_votes').select('*')),
 sb.from('reactions').select('*,parts!inner(story_id)').eq('parts.story_id',sid),sb.from('ratings').select('*,parts!inner(story_id)').eq('parts.story_id',sid),sb.from('comments').select('*,parts!inner(story_id)').eq('parts.story_id',sid).order('created_at'),
 on(sb.from('chapters').select('*')).order('n'),on(sb.from('characters').select('*')).order('created_at'),on(sb.from('sides').select('*')).order('created_at'),on(sb.from('endings').select('*,ending_votes(ending_id,user_id)')).order('created_at'),
-on(sb.from('story_keys').select('key')).maybeSingle()]);
+on(sb.from('story_keys').select('key')).maybeSingle(),me?on(sb.from('bookmarks').select('part_id,line')).eq('user_id',me.id).maybeSingle():Promise.resolve({data:null})]);
 if(want!==sid)return;const d=i=>R[i].data||[];
 story=R[0].data;parts=d(1);votes=d(2);reacts=d(3);ratings=d(4);comments=d(5);
 if(story&&story.kind==='life'){chapters=d(6);chars=d(7);sides=d(8);endings=d(9);evotes=endings.flatMap(e=>e.ending_votes||[]);shareKey=isOwner()&&R[10].data?R[10].data.key:null;}
 else{chapters=[];chars=[];sides=[];endings=[];evotes=[];shareKey=null;}
-renderStory();}
+spot=R[11].data||localSpot();
+renderStory();renderSpotBtn();}
 async function loadBoard(){const {data}=await sb.from('leaderboard').select('*').order('points',{ascending:false}).limit(10);const ol=$('lb');ol.innerHTML='';
 (data||[]).filter(x=>x.parts>0).forEach((x,i)=>{const li=mk('li');li.append(mk('span','n',i+1),mk('span',null,x.username),mk('span','p',x.points+' pts'));ol.appendChild(li);});
 if(!ol.children.length)ol.appendChild(mk('li','note','Nobody yet. Be the first.'));}
@@ -534,7 +540,6 @@ catch(e){out.textContent='Translation is not available in this browser yet. In C
 
 /* ---------- read aloud (browser voice, free) ---------- */
 function speak(texts,lang){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();texts.forEach(t=>{const u=new SpeechSynthesisUtterance(String(t));u.lang=lang;const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.toLowerCase().startsWith(lang.slice(0,2)));if(v)u.voice=v;speechSynthesis.speak(u);});}
-$('playall').onclick=()=>{if(speechSynthesis.speaking){speechSynthesis.cancel();return;}(isLife()?lifeSeq():parts).forEach(p=>{const u=new SpeechSynthesisUtterance(shown(p));u.lang=p.lang==='ml'?'ml-IN':'en-IN';speechSynthesis.speak(u);});};
 
 /* ---------- speech to text (browser, free) ---------- */
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,listening=false;
@@ -704,13 +709,14 @@ const INK=['night','rain','hospital','forest','stars','city'];
 const F={open:false,mood:'rain',bg:0,parts:[],raf:0,io:null,lio:null,ctx:null,src:null,filt:null,gain:null,nextFlash:0,sound:false};
 const reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function splitLines(t){return String(t).replace(/\s+/g,' ').match(/[^.!?।]+[.!?।"”']*\s*/g)||[t];}
-function openFilm(){const life=isLife();const seq=life?lifeSeq():parts;if(!seq.length)return;const fr=$('frames');fr.innerHTML='';
-const t=mk('section','frame');t.dataset.scene=seq[0].scene;t.appendChild(mk('h2',null,story?story.title:'And Then…'));
-const names=[...new Set(parts.map(p=>p.username))];t.appendChild(mk('p','who',life?'the life story of '+ownerName(story):'told by '+names.slice(0,4).join(', ')+(names.length>4?' and '+(names.length-4)+' more':'')));t.appendChild(mk('p','hint','Scroll slowly ↓'));fr.appendChild(t);
+function openFilm(opts){opts=opts||{};const life=isLife();const seq=life?lifeSeq():parts;if(!seq.length)return;const fr=$('frames');fr.innerHTML='';
+const t=mk('section','frame');t.dataset.scene=seq[0].scene;const h2=mk('h2',null,story?story.title:'And Then…');h2.dataset.say=h2.textContent;h2.dataset.li='-2';t.appendChild(h2);
+const names=[...new Set(parts.map(p=>p.username))];t.appendChild(mk('p','who',life?'the life story of '+ownerName(story):'told by '+names.slice(0,4).join(', ')+(names.length>4?' and '+(names.length-4)+' more':'')));if(spot&&spotIdx()>0){const rb=mk('button','btn fill','⏯ Continue where I stopped ('+spotLabel()+')');rb.type='button';rb.style.alignSelf='flex-start';rb.onclick=()=>startNarr(spotIdx());t.appendChild(rb);}
+t.appendChild(mk('p','hint','Scroll slowly ↓'));fr.appendChild(t);
 let lastCh=null;seq.forEach(p=>{const s=mk('section','frame');s.dataset.scene=p.scene;
-if(life){const c=chapters.find(x=>x.id===p.chapter_id);if(c&&c.id!==lastCh){lastCh=c.id;const fl=feelLine(c);s.appendChild(mk('p','who','Chapter '+c.n+': '+c.title+(fl?' · '+fl:'')));}}
-else s.appendChild(mk('p','who','Part '+p.n+(p.is_finale?' · the finale':'')+' · '+p.username));
-splitLines(shown(p)).forEach(l=>s.appendChild(mk('p','line'+(p.lang==='ml'?' ml':''),l.trim())));
+if(life){const c=chapters.find(x=>x.id===p.chapter_id);if(c&&c.id!==lastCh){lastCh=c.id;const fl=feelLine(c);const w=mk('p','who','Chapter '+c.n+': '+c.title+(fl?' · '+fl:''));w.dataset.say='Chapter '+c.n+'. '+c.title+'.';w.dataset.part=p.id;w.dataset.li='-1';s.appendChild(w);}}
+else{const w=mk('p','who','Part '+p.n+(p.is_finale?' · the finale':'')+' · '+p.username);w.dataset.say='Part '+p.n+(p.is_finale?', the finale':'')+'.';w.dataset.part=p.id;w.dataset.li='-1';s.appendChild(w);}
+splitLines(shown(p)).map(l=>l.trim()).filter(Boolean).forEach((l,li)=>{const e=mk('p','line'+(p.lang==='ml'?' ml':''),l);e.dataset.say=l;e.dataset.part=p.id;e.dataset.li=li;e.dataset.lang=p.lang;s.appendChild(e);});
 if(p.drama){const sd=mk('div','said');sd.hidden=true;sd.appendChild(mk('p',p.lang==='ml'?'ml':null,'"'+p.raw+'"'));const sb2=mk('button','link','What they actually said');sb2.setAttribute('aria-expanded','false');sb2.onclick=()=>{sd.hidden=!sd.hidden;sb2.setAttribute('aria-expanded',String(!sd.hidden));sb2.textContent=sd.hidden?'What they actually said':'Hide their words';};s.append(sb2,sd);}
 fr.appendChild(s);});
 const e=mk('section','frame end');e.dataset.scene=seq[seq.length-1].scene;const fin=story&&story.status==='finished';
@@ -720,13 +726,41 @@ $('film').hidden=false;$('film').scrollTop=0;document.body.style.overflow='hidde
 F.io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)setScene(x.target.dataset.scene);}),{root:$('film'),threshold:.5});
 F.lio=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{root:$('film'),threshold:.25});
 fr.querySelectorAll('.frame').forEach(f=>F.io.observe(f));fr.querySelectorAll('.line').forEach(l=>F.lio.observe(l));
-setScene(seq[0].scene,true);fitFx();if(!reduceM){cancelAnimationFrame(F.raf);F.raf=requestAnimationFrame(fxLoop);}$('filmX').focus();}
-function closeFilm(){F.open=false;$('film').hidden=true;document.body.style.overflow='';cancelAnimationFrame(F.raf);F.io&&F.io.disconnect();F.lio&&F.lio.disconnect();setSound(false);}
+setScene(seq[0].scene,true);fitFx();if(!reduceM){cancelAnimationFrame(F.raf);F.raf=requestAnimationFrame(fxLoop);}$('filmMsg').textContent='';narrUi();
+if(opts.resume&&spotIdx()>=0)startNarr(spotIdx());else if(opts.listen)startNarr(0);else $('filmX').focus();}
+function closeFilm(){pauseNarr();F.open=false;$('film').hidden=true;document.body.style.overflow='';cancelAnimationFrame(F.raf);F.io&&F.io.disconnect();F.lio&&F.lio.disconnect();setSound(false);}
 function setScene(k,first){const mood=MOOD[k]||'rain';const cur=F.bg?$('bgB'):$('bgA'),nxt=F.bg?$('bgA'):$('bgB');
 if(cur.dataset.k!==k){nxt.src=sceneUrl(k);nxt.dataset.k=k;nxt.classList.add('on');cur.classList.remove('on');F.bg=1-F.bg;}
 $('film').classList.toggle('ink',INK.includes(k));if(F.mood!==mood||first){F.mood=mood;F.pts=[];tuneSound();}}
 $('film').addEventListener('scroll',()=>{const f=$('film'),p=f.scrollTop/Math.max(1,f.scrollHeight-f.clientHeight);const tr='translateY('+(-p*40).toFixed(1)+'px) scale('+(1.02+p*.06).toFixed(3)+')';$('bgA').style.transform=tr;$('bgB').style.transform=tr;},{passive:true});
-$('filmX').onclick=closeFilm;$('filmBtn').onclick=openFilm;
+$('filmX').onclick=closeFilm;$('filmBtn').onclick=()=>openFilm();
+
+/* ---------- listen like a podcast: the browser reads the film aloud over the ambience, and remembers where you stopped ---------- */
+const N={on:false,i:0,tok:0};
+const sayList=()=>[...$('frames').querySelectorAll('[data-say]')];
+const pickVoice=lang=>{const vs=speechSynthesis.getVoices();return vs.find(v=>v.lang===lang)||vs.find(v=>v.lang&&v.lang.toLowerCase().startsWith(lang.slice(0,2)))||null;};
+function sayFrom(i){const L=sayList();if(i>=L.length){N.i=0;pauseNarr();$('filmMsg').textContent='The end of the story, for now.';return;}
+N.i=i;L.forEach(x=>x.classList.remove('reading'));const el=L[i];el.classList.add('reading','in');el.scrollIntoView({block:'center',behavior:reduceM?'auto':'smooth'});
+const u=new SpeechSynthesisUtterance(el.dataset.say);u.lang=el.dataset.lang==='ml'?'ml-IN':'en-IN';u.rate=.95;const v=pickVoice(u.lang);if(v)u.voice=v;
+const tok=++N.tok;const next=()=>{if(N.on&&tok===N.tok)setTimeout(()=>{if(N.on&&tok===N.tok)sayFrom(i+1);},el.dataset.li==='-1'||el.dataset.li==='-2'?700:250);};u.onend=next;u.onerror=next;speechSynthesis.speak(u);}
+function startNarr(i){if(!('speechSynthesis' in window)){$('filmMsg').textContent='This browser cannot read aloud.';return;}speechSynthesis.cancel();N.on=true;if(!F.sound)setSound(true);narrUi();$('filmMsg').textContent='';sayFrom(i==null?N.i:i);}
+function pauseNarr(){if(!N.on)return;N.on=false;N.tok++;try{speechSynthesis.cancel();}catch(e){}$('frames').querySelectorAll('.reading').forEach(x=>x.classList.remove('reading'));narrUi();}
+function narrUi(){const b=$('narr');b.textContent=N.on?'❚❚ Pause':'▶ Listen';b.setAttribute('aria-pressed',N.on);b.hidden=!('speechSynthesis' in window);tuneSound();}
+function viewIdx(){const L=sayList(),mid=$('film').clientHeight*.45;let best=0;L.forEach((x,i)=>{if(x.getBoundingClientRect().top<=mid)best=i;});return best;}
+$('narr').onclick=()=>{if(N.on)pauseNarr();else startNarr(N.i||viewIdx());};
+/* bookmark: one per reader per story; saved to the account when logged in, and in this browser always */
+let spot=null;
+const spotKey=()=>'atSpot:'+sid;
+function localSpot(){try{return JSON.parse(localStorage.getItem(spotKey())||'null');}catch(e){return null;}}
+function spotIdx(){if(!spot)return -1;const L=sayList();let i=L.findIndex(x=>x.dataset.part===spot.part_id&&+x.dataset.li===spot.line);if(i<0)i=L.findIndex(x=>x.dataset.part===spot.part_id);return i;}
+function spotLabel(){if(!spot)return'';const p=parts.find(x=>x.id===spot.part_id);if(!p)return'the start';if(isLife()){const c=chapters.find(x=>x.id===p.chapter_id);return c?'Chapter '+c.n:'';}return 'Part '+p.n;}
+$('spotBtn').onclick=async()=>{const L=sayList();const el=L[N.on?N.i:viewIdx()];if(!el)return;pauseNarr();
+spot={part_id:el.dataset.part||null,line:+el.dataset.li};try{localStorage.setItem(spotKey(),JSON.stringify(spot));}catch(e){}
+let saved='in this browser';if(me){const {error}=await sb.from('bookmarks').upsert({user_id:me.id,story_id:sid,part_id:spot.part_id,line:spot.line,updated_at:new Date().toISOString()},{onConflict:'user_id,story_id'});if(!error)saved='to your account';}
+$('filmMsg').textContent='Saved '+saved+' at '+spotLabel()+'. Next time, tap "Continue where I stopped".';renderSpotBtn();};
+function renderSpotBtn(){const b=$('resumeBtn');b.hidden=!(spot&&spot.part_id&&parts.some(p=>p.id===spot.part_id));if(!b.hidden)b.textContent='⏯ Continue where I stopped ('+spotLabel()+')';}
+$('resumeBtn').onclick=()=>openFilm({resume:true});
+$('playall').onclick=()=>openFilm({listen:true});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&F.open)closeFilm();});
 const fx=$('fx'),fc=fx.getContext('2d');let FW=0,FH=0;
 function fitFx(){const d=Math.min(2,devicePixelRatio||1);FW=fx.clientWidth;FH=fx.clientHeight;fx.width=FW*d;fx.height=FH*d;fc.setTransform(d,0,0,d,0,0);}
@@ -763,7 +797,7 @@ if(on){if(!F.ctx){F.ctx=new (window.AudioContext||window.webkitAudioContext)();F
 else if(F.gain){F.gain.gain.setTargetAtTime(0,F.ctx.currentTime,.3);}}
 function tuneSound(){if(!F.sound||!F.ctx)return;const m=F.mood,now=F.ctx.currentTime;
 const S={storm:['bandpass',900,.5,.5],rain:['bandpass',1100,.5,.32],drizzle:['bandpass',1600,.6,.16],wind:['lowpass',450,1,.35],spray:['lowpass',700,1,.25],dust:['lowpass',380,1,.15],embers:['highpass',2400,.7,.06],motes:['lowpass',300,1,.05],sparks:['lowpass',300,1,.05],fireflies:['highpass',3200,1,.03]}[m]||['lowpass',300,1,.05];
-F.filt.type=S[0];F.filt.frequency.setTargetAtTime(S[1],now,.5);F.filt.Q.value=S[2];F.gain.gain.setTargetAtTime(S[3],now,.8);}
+F.filt.type=S[0];F.filt.frequency.setTargetAtTime(S[1],now,.5);F.filt.Q.value=S[2];F.gain.gain.setTargetAtTime(S[3]*(N.on?.55:1),now,.8);}
 function thunder(big){const c=F.ctx;if(!c)return;const s=c.createBufferSource();s.buffer=noiseBuf(c);const f=c.createBiquadFilter();f.type='lowpass';f.frequency.value=big?140:90;const g=c.createGain();const t=c.currentTime+.4+Math.random()*.8;
 g.gain.setValueAtTime(0,c.currentTime);g.gain.linearRampToValueAtTime(big?.9:.5,t);g.gain.exponentialRampToValueAtTime(.001,t+2.8);s.connect(f).connect(g).connect(c.destination);s.start();s.stop(t+3);}
 $('sound').onclick=()=>setSound(!F.sound);
