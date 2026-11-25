@@ -138,6 +138,9 @@ dialog::backdrop{background:rgba(20,8,12,.7)}.dlg{padding:24px}.err{color:#c8273
 .film .end{align-items:flex-start}
 .film .said{background:rgba(0,0,0,.45);max-width:34ch;margin:6px 0 0}.film .said p{color:#f0bf5a}
 .film .link{color:#f0bf5a}
+.film .panel{display:flex;flex-direction:column;align-items:flex-start;align-self:flex-start;max-width:min(720px,100%);background:rgba(10,6,8,.66);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:clamp(18px,3vw,30px) clamp(18px,3vw,34px);box-shadow:0 20px 60px -20px rgba(0,0,0,.7)}
+.film .panel .line:last-child{margin-bottom:0}
+.film:not(.ink) .bg.on{filter:brightness(.82) saturate(1.05)}
 .film .bar{flex-wrap:wrap;background:linear-gradient(rgba(8,4,6,.92),rgba(8,4,6,.72));backdrop-filter:blur(4px);padding-block:10px}
 @media(max-width:560px){.film .bar .btn{min-height:38px;padding:0 12px;font-size:14px}.film .fmsg{order:3;flex-basis:100%}.film .frame{padding-top:24vh}}.film .fmsg{flex:1 1 160px;font-weight:600;color:#f0bf5a;text-shadow:0 1px 6px #000;font-size:15px}
 .film [data-say].reading{opacity:1;transform:none;background:rgba(0,0,0,.5);border-radius:8px;box-shadow:0 0 0 8px rgba(0,0,0,.5);color:#fff6d6}
@@ -725,7 +728,7 @@ const go=mk('button','btn fill',fin?'Close':life?'Imagine the ending':'Tell the 
 $('film').hidden=false;$('film').scrollTop=0;document.body.style.overflow='hidden';F.open=true;
 F.io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)setScene(x.target.dataset.scene);}),{root:$('film'),threshold:.5});
 F.lio=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{root:$('film'),threshold:.25});
-fr.querySelectorAll('.frame').forEach(f=>F.io.observe(f));fr.querySelectorAll('.line').forEach(l=>F.lio.observe(l));
+fr.querySelectorAll('.frame').forEach(f=>{const pn=mk('div','panel');pn.append(...f.childNodes);f.appendChild(pn);F.io.observe(f);});fr.querySelectorAll('.line').forEach(l=>F.lio.observe(l));
 setScene(seq[0].scene,true);fitFx();if(!reduceM){cancelAnimationFrame(F.raf);F.raf=requestAnimationFrame(fxLoop);}$('filmMsg').textContent='';narrUi();
 if(opts.resume&&spotIdx()>=0)startNarr(spotIdx());else if(opts.listen)startNarr(0);else $('filmX').focus();}
 function closeFilm(){pauseNarr();F.open=false;$('film').hidden=true;document.body.style.overflow='';cancelAnimationFrame(F.raf);F.io&&F.io.disconnect();F.lio&&F.lio.disconnect();setSound(false);}
