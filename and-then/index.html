@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>And Then… — stories told by strangers</title>
-<meta name="description" content="A story nobody finishes alone. Speak the next part in English or Malayalam and pass it on.">
+<title>And Then… your life, in chapters</title>
+<meta name="description" content="Write your life story in chapters, in English or Malayalam. Friends add their side of what happened and imagine how it ends.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo:wght@400;600;800&family=Caveat:wght@700&family=Noto+Sans+Malayalam:wght@400;600&display=swap">
 <style>
 /* VOICE: theatrical, playful, warm — a story nobody finishes alone
@@ -141,6 +141,45 @@ dialog::backdrop{background:rgba(20,8,12,.7)}.dlg{padding:24px}.err{color:#c8273
 footer{padding:26px 0 40px;color:var(--soft);font-size:14px;border-top:1px solid var(--rule)}
 @media(max-width:880px){.hero{grid-template-columns:minmax(0,1fr)}.micwrap{min-height:250px}.cols{grid-template-columns:minmax(0,1fr)}.stage::before,.stage::after{display:none}}
 @media(prefers-reduced-motion:reduce){.live .ring{animation:none}}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}
+.steps3{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px;counter-reset:s}
+.steps3 li{counter-increment:s;display:flex;gap:10px;align-items:baseline;font-size:16px}
+.steps3 li::before{content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;background:var(--gold);color:#3d0814;display:grid;place-items:center;font:800 14px Archivo,sans-serif}
+.stage.lit .steps3 li::before{background:#6b1023;color:#fff}
+.also{font-size:15px;margin:0}.stage .also .link{color:inherit}
+.example{background:#fffdfb;color:#1b1215;border-radius:18px;padding:20px 22px;box-shadow:0 24px 50px -20px rgba(0,0,0,.6);transform:rotate(-1.2deg);max-width:440px;justify-self:center;position:relative}
+.example .k{font-size:13px;font-weight:700;color:#6b1023;text-transform:uppercase;letter-spacing:.06em;margin:0 0 4px}
+.example h3{margin:0 0 8px;color:#1b1215}.hero .example p{margin:0 0 10px;font-size:16px;color:#1b1215;max-width:none}
+.hero .example .other{border-left:3px solid #f0bf5a;padding:6px 0 6px 12px;font-size:15px;color:#4a3a3e;margin:0}
+.example .tagline{position:absolute;top:-14px;right:14px;background:#f0bf5a;color:#3d0814;font-weight:700;font-size:13px;padding:4px 10px;border-radius:12px}
+mark.who{background:light-dark(#fbe7b8,#4a3815);color:inherit;border-radius:4px;padding:0 3px}.example mark.who{background:#fbe7b8}
+.badge{display:inline-block;font:700 12px Archivo,sans-serif;padding:2px 8px;border-radius:10px;background:var(--bg);border:1px solid var(--rule);color:var(--soft);margin-left:6px;vertical-align:middle}
+.owner{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px;padding:12px 16px;border-radius:14px;background:var(--paper);border:1px dashed var(--rule)}
+.owner input{flex:1 1 220px;width:auto}.owner .note{flex-basis:100%;margin:0}
+.about{font:700 23px/1.35 Caveat,cursive;color:var(--soft);margin:6px 0 0}
+#castBox{margin-top:22px}
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:8px 0}
+.who-card{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:12px 14px;font-size:14px}
+.who-card b{display:block;font-size:17px}.who-card .r{color:var(--accent);font-weight:600}.who-card p{margin:6px 0 0}.who-card .in{color:var(--soft);font-size:13px}
+.chap{margin-top:34px}
+.chap-h{display:flex;gap:6px 14px;align-items:baseline;flex-wrap:wrap;border-bottom:2px solid var(--stage);padding-bottom:8px}
+.chap-h h3{margin:0}.chap-h .num{font:400 15px 'Abril Fatface',serif;color:var(--accent)}
+.feel{font:700 23px Caveat,cursive;color:var(--accent)}
+.sidebox{margin:0 0 10px 56px}.sidebox h4{font:800 15px Archivo,sans-serif;margin:0 0 8px}
+.oside{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:12px;padding:12px 16px;margin:0 0 10px}
+.oside .txt{font-size:17px}
+.hid{opacity:.62}.hidtag{font-size:12px;font-weight:700;color:#c8273e}
+.ending{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:16px 20px;margin-top:12px}
+.ending h4{font:400 22px 'Abril Fatface',serif;margin:0 0 4px}
+.spot{margin-top:10px}.spot .chip{border-style:dashed}
+.kinds{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kind{text-align:left;background:var(--bg);border:2px solid var(--rule);border-radius:16px;padding:16px;cursor:pointer;color:var(--ink);font:inherit}
+.kind b{display:block;font:400 22px 'Abril Fatface',serif;margin-bottom:4px}.kind:hover,.kind:focus-visible{border-color:var(--accent);outline:none}
+select{width:100%;font:16px Archivo,sans-serif;border:2px solid var(--rule);border-radius:12px;padding:10px;background:var(--bg);color:var(--ink);min-height:48px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 12px}
+.form-mini{background:var(--bg);border:1px solid var(--rule);border-radius:12px;padding:4px 14px 14px;margin-top:10px}
+.cont[hidden]{display:none}
+@media(max-width:560px){.two{grid-template-columns:minmax(0,1fr)}.sidebox{margin-left:0}}
 </style>
 </head>
 <body>
@@ -151,28 +190,39 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:14px;border-top:1px solid
 <div class="hero">
 <div>
 <p class="skychip" id="skychip">Looking at your sky…</p>
-<h1>A story nobody finishes alone.</h1>
-<p>Read where the last person stopped. Hit the mic and say what happens next, in English or Malayalam. Pick the scene, pass it on, and let the listeners decide whose part hit hardest.</p>
-<ul class="steps"><li>Read</li><li>Speak</li><li>Pick the scene</li><li>Heartbreak and sacrifice score the most</li></ul>
+<h1>Your life, in chapters.</h1>
+<p>Write your story one chapter at a time: the people who shaped you, the thank-yous you never said, the apologies you still owe. Friends read it, tell their side of what happened, and imagine how it ends.</p>
+<ol class="steps3"><li>Write a chapter. Speak it or type it, in English or Malayalam.</li><li>The people you mention become the characters of your story.</li><li>Readers add their side of a chapter, or write a different ending.</li></ol>
+<div class="cta"><button class="btn fill" id="heroStart">Start my story</button><button class="btn" id="heroRead">Read stories</button></div>
+<p class="also">Just want to play? Try <button class="link" id="heroRelay">Pass it on</button>, where strangers build one story together, one part each.</p>
 </div>
-<div class="micwrap" id="micwrap"><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
-<button class="mic" id="bigmic" aria-label="Start speaking your part"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
-<span class="miclab" id="miclab">Tap to tell the next part</span></div>
+<div class="example" role="img" aria-label="An example chapter: a thank-you to a teacher, with another side from a friend">
+<span class="tagline">An example</span>
+<p class="k">Chapter 3 · A thank-you to Mr. Thomas</p>
+<h3>The teacher who stayed late</h3>
+<p>Every evening after class, <mark class="who">Mr. Thomas</mark> stayed back to teach me maths for free. <mark class="who">Anu</mark> and I were the only two who came. I never said thank you.</p>
+<p class="other"><b>Another side</b>, from Anu: "He stayed for you. I only came for the biscuits."</p>
+</div>
 </div>
 </div>
 </section>
 
-<main class="wrap">
+<main class="wrap" id="main">
 <div class="cols">
 <section>
 <div class="titlebar"><h2 id="stitle">Loading the stories…</h2><div class="row" style="margin:0"><button class="btn fill" id="filmBtn" hidden>Read it like a film</button><button class="btn" id="playall" hidden>▶ Listen to it all</button></div></div>
 <p class="meta" id="smeta"></p>
+<p class="about" id="sabout" hidden></p>
+<div id="ownerBar"></div>
 <div id="status"></div>
+<div id="castBox"></div>
 <ol class="script" id="script"></ol>
+<div id="chaps"></div>
 <section class="cont" id="cont"><h3 id="ch">Your turn: and then…</h3><p class="where" id="where"></p><div id="contBody"></div></section>
+<section id="endBox"></section>
 </section>
 <aside class="side">
-<div><h4>Stories</h4><ul class="stories" id="stories"></ul><button class="btn" id="newStory" style="width:100%">+ Start a new story</button></div>
+<div><h4>Stories</h4><div class="seg" role="group" aria-label="Kind of story" style="margin-bottom:10px"><button type="button" id="tabLife" aria-pressed="true">Life stories</button><button type="button" id="tabRelay" aria-pressed="false">Pass it on</button></div><ul class="stories" id="stories"></ul><button class="btn" id="newStory" style="width:100%">+ Start a new story</button></div>
 <div><h4>Top storytellers</h4><ol class="lb" id="lb"></ol><p class="note">Listeners give points: Sacrifice and Heartbreak 5, Twist 4, Funny 3, Love it 2, plus every star. Writing a finale adds 5.</p></div>
 </aside>
 </div>
@@ -194,12 +244,22 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:14px;border-top:1px solid
 <p class="note" id="authHint">Welcome back.</p><p class="err" id="authErr" role="alert"></p>
 <div class="row"><button class="btn fill" id="authGo" type="submit">Log in</button><button class="btn" type="button" id="authX">Cancel</button></div>
 </form></dialog>
+<dialog id="rep"><form class="dlg" id="repForm" method="dialog">
+<h3>Report this</h3><p class="note">The site admin will read your report. Tell us what is wrong, if you like.</p>
+<label for="repWhy">Reason (optional)</label><textarea id="repWhy" maxlength="300" style="min-height:90px"></textarea>
+<p class="err" id="repErr" role="alert"></p>
+<div class="row"><button class="btn fill" id="repGo" type="submit">Send report</button><button class="btn" type="button" id="repX">Cancel</button></div>
+</form></dialog>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 {
 const SB_URL='https://rkakcdecaetmzklzndtl.supabase.co',SB_KEY='sb_publishable_A42d-9IZBxQSz_lSlBcMNA_vu8oPaXD';
-const sb=supabase.createClient(SB_URL,SB_KEY);
+let curKey=null;/* the secret share key of an unlisted story, sent as a header; the database checks it */
+const sb=supabase.createClient(SB_URL,SB_KEY,{global:{fetch:(u,o={})=>{if(curKey&&String(u).startsWith(SB_URL+'/rest/')){const h=new Headers(o.headers||{});h.set('x-story-key',curKey);o={...o,headers:h};}return fetch(u,o);}}});
+const KEYS=(()=>{try{return JSON.parse(localStorage.getItem('atKeys')||'{}')||{};}catch(e){return {};}})();
+const saveKey=(id,k)=>{KEYS[id]=k;try{localStorage.setItem('atKeys',JSON.stringify(KEYS));}catch(e){}};
+const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const $=id=>document.getElementById(id);
 const mk=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;};
 const TAGS=[['heartbreak','💔 Heartbreak',5],['sacrifice','🕯 Sacrifice',5],['twist','🌀 Twist',4],['funny','😂 Funny',3],['love','❤️ Love it',2]];
@@ -226,72 +286,212 @@ const sceneSvg=k=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"
 const sceneUrl=k=>'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(sceneSvg(k));
 
 let me=null,stories=[],sid=null,story=null,parts=[],reacts=[],ratings=[],comments=[],votes=[],speakLang='en',scene='night',busy=false,style='epic',draft=null;
+let tab='life',newKind=null,newVis='public',chapters=[],chars=[],sides=[],endings=[],evotes=[],shareKey=null,curChap='',lastSaid='';
+const dismissed=new Set();
+const FEEL=[['memory','A memory'],['apology','An apology'],['thanks','A thank-you'],['appreciation','Appreciation'],['letter','A letter']];
+function feelLine(c){const f=(FEEL.find(x=>x[0]===c.feeling)||FEEL[0])[1];if(!c.to_whom)return c.feeling==='memory'?'':f;return f+(c.feeling==='appreciation'?' for ':c.feeling==='memory'?', for ':' to ')+c.to_whom;}
+const isOwner=()=>!!(me&&story&&story.created_by===me.id);
+const isLife=()=>story?story.kind==='life':(newKind==='choose'?false:(newKind||tab)==='life');
+const ownerName=s=>(s&&s.owner&&s.owner.username)||'someone';
+const isMl=t=>/[ഀ-ൿ]/.test(t);
 
 /* ---------- account ---------- */
 const emailFor=u=>u.trim().toLowerCase()+'@users.theitguys.online';
 let authMode='in';
-function setAuthMode(m){authMode=m;$('tabIn').setAttribute('aria-pressed',m==='in');$('tabUp').setAttribute('aria-pressed',m==='up');$('authGo').textContent=m==='in'?'Log in':'Create account';$('ap').autocomplete=m==='in'?'current-password':'new-password';$('authHint').textContent=m==='in'?'Welcome back.':'Pick a username (3 to 20 letters, numbers or underscores) and a password of at least 8 characters. There is no email, so remember your password.';$('authErr').textContent='';}
+function setAuthMode(m){authMode=m;$('tabIn').setAttribute('aria-pressed',m==='in');$('tabUp').setAttribute('aria-pressed',m==='up');$('authGo').textContent=m==='in'?'Log in':'Create account';$('ap').autocomplete=m==='in'?'current-password':'new-password';$('authHint').textContent=m==='in'?'Welcome back.':'Pick a username (3 to 20 letters, numbers or underscores) and a password of at least 8 characters. There is no email, so remember your password. Your username is the name readers see, so a pen name is fine.';$('authErr').textContent='';}
 $('tabIn').onclick=()=>setAuthMode('in');$('tabUp').onclick=()=>setAuthMode('up');$('authX').onclick=()=>$('auth').close();
 function openAuth(m){setAuthMode(m||'in');$('auth').showModal();$('au').focus();}
 $('authForm').onsubmit=async e=>{e.preventDefault();const u=$('au').value.trim().toLowerCase(),p=$('ap').value;$('authErr').textContent='';$('authGo').disabled=true;
 try{if(authMode==='up'){const r=await fetch(SB_URL+'/functions/v1/signup',{method:'POST',headers:{'Content-Type':'application/json',apikey:SB_KEY},body:JSON.stringify({username:u,password:p})});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'Could not create the account.');}
 const {error}=await sb.auth.signInWithPassword({email:emailFor(u),password:p});if(error)throw new Error(authMode==='in'?'Wrong username or password.':error.message);$('auth').close();$('ap').value='';}
 catch(err){$('authErr').textContent=err.message;}finally{$('authGo').disabled=false;}};
-async function loadMe(session){const was=me&&me.id;if(!session){me=null;}else{if(was===session.user.id)return;const {data}=await sb.from('profiles').select('id,username').eq('id',session.user.id).maybeSingle();me=data||null;}if((me&&me.id)===was)return;renderAcct();renderCont();renderStory();}
+async function loadMe(session){const was=me&&me.id;if(!session){me=null;}else{if(was===session.user.id)return;const {data}=await sb.from('profiles').select('id,username').eq('id',session.user.id).maybeSingle();me=data||null;}if((me&&me.id)===was)return;renderAcct();loadStories();await loadStory();renderCont();}
 function renderAcct(){const a=$('acct');a.innerHTML='';
-if(me){const s=mk('span','me');s.append('Telling as ');s.appendChild(mk('b',null,me.username));const o=mk('button','btn','Log out');o.onclick=()=>sb.auth.signOut();a.append(s,o);}
+if(me){const s=mk('span','me');s.append('Writing as ');s.appendChild(mk('b',null,me.username));const o=mk('button','btn','Log out');o.onclick=()=>sb.auth.signOut();a.append(s,o);}
 else{const i=mk('button','btn','Log in');i.onclick=()=>openAuth('in');const u=mk('button','btn fill','Create account');u.onclick=()=>openAuth('up');a.append(i,u);}}
 sb.auth.onAuthStateChange((_e,s)=>{loadMe(s);});
 
+/* ---------- reports ---------- */
+let repTarget=null;
+function report(kind,id){if(!me)return openAuth('in');repTarget={kind,id};$('repWhy').value='';$('repErr').textContent='';$('rep').showModal();}
+$('repX').onclick=()=>$('rep').close();
+$('repForm').onsubmit=async e=>{e.preventDefault();if(!repTarget)return;$('repGo').disabled=true;
+const {error}=await sb.from('reports').insert({target_kind:repTarget.kind,target_id:repTarget.id,user_id:me.id,reason:$('repWhy').value.trim().slice(0,300)||null});
+$('repGo').disabled=false;if(error){$('repErr').textContent='Could not send the report. Try again.';return;}$('rep').close();repTarget=null;};
+
 /* ---------- data ---------- */
-async function loadStories(){const {data}=await sb.from('stories').select('*').order('last_at',{ascending:false}).limit(40);stories=data||[];renderStories();
-if(!sid&&stories[0])await openStory(stories[0].id);else if(!stories.length){renderStory();renderCont();}}
-async function openStory(id){sid=id;renderStories();await loadStory();renderCont();}
-async function loadStory(){if(!sid){story=null;parts=[];reacts=[];ratings=[];comments=[];votes=[];renderStory();return;}
-const [s,p,v]=await Promise.all([sb.from('stories').select('*').eq('id',sid).maybeSingle(),sb.from('parts').select('id,n,user_id,username,lang,raw,drama,style,scene,is_finale,created_at').eq('story_id',sid).order('n'),sb.from('end_votes').select('*').eq('story_id',sid)]);
+const STORY_COLS='*,owner:profiles!stories_created_by_fkey(username)';
+async function loadStories(){const {data}=await sb.from('stories').select(STORY_COLS).order('last_at',{ascending:false}).limit(60);stories=data||[];renderStories();}
+function parseHash(){const q=new URLSearchParams(location.hash.slice(1));const s=q.get('s'),k=q.get('k');return {s:s&&UUID.test(s)?s:null,k:k&&UUID.test(k)?k:null};}
+function setHash(){const k=KEYS[sid];history.replaceState(null,'',sid?'#s='+sid+(k?'&k='+k:''):location.pathname+location.search);}
+async function openStory(id,quiet){sid=id;newKind=null;draft=null;curKey=KEYS[id]||null;if(!quiet)setHash();await loadStory();if(story&&story.kind!==tab){tab=story.kind;renderTabs();}renderStories();renderCont();}
+function startNew(k){sid=null;story=null;newKind=k;draft=null;curKey=null;if(k!=='choose'){tab=k;renderTabs();}setHash();loadStory();renderStories();renderCont();focusRaw(true);}
+async function loadStory(){if(!sid){story=null;parts=[];reacts=[];ratings=[];comments=[];votes=[];chapters=[];chars=[];sides=[];endings=[];evotes=[];shareKey=null;renderStory();return;}
+const want=sid;
+const [s,p,v]=await Promise.all([sb.from('stories').select(STORY_COLS).eq('id',sid).maybeSingle(),sb.from('parts').select('id,n,user_id,username,lang,raw,drama,style,scene,is_finale,chapter_id,created_at').eq('story_id',sid).order('n'),sb.from('end_votes').select('*').eq('story_id',sid)]);
+if(want!==sid)return;
 story=s.data;parts=p.data||[];votes=v.data||[];const ids=parts.map(x=>x.id);
 if(ids.length){const [r,ra,c]=await Promise.all([sb.from('reactions').select('*').in('part_id',ids),sb.from('ratings').select('*').in('part_id',ids),sb.from('comments').select('*').in('part_id',ids).order('created_at')]);reacts=r.data||[];ratings=ra.data||[];comments=c.data||[];}
-else{reacts=[];ratings=[];comments=[];}renderStory();}
+else{reacts=[];ratings=[];comments=[];}
+if(story&&story.kind==='life'){const [c,ch,sd,e]=await Promise.all([sb.from('chapters').select('*').eq('story_id',sid).order('n'),sb.from('characters').select('*').eq('story_id',sid).order('created_at'),sb.from('sides').select('*').eq('story_id',sid).order('created_at'),sb.from('endings').select('*').eq('story_id',sid).order('created_at')]);
+chapters=c.data||[];chars=ch.data||[];sides=sd.data||[];endings=e.data||[];const eids=endings.map(x=>x.id);
+evotes=eids.length?((await sb.from('ending_votes').select('*').in('ending_id',eids)).data||[]):[];
+shareKey=null;if(isOwner()){const k=await sb.from('story_keys').select('key').eq('story_id',sid).maybeSingle();shareKey=k.data&&k.data.key;}}
+else{chapters=[];chars=[];sides=[];endings=[];evotes=[];shareKey=null;}
+if(want!==sid)return;renderStory();}
 async function loadBoard(){const {data}=await sb.from('leaderboard').select('*').order('points',{ascending:false}).limit(10);const ol=$('lb');ol.innerHTML='';
 (data||[]).filter(x=>x.parts>0).forEach((x,i)=>{const li=mk('li');li.append(mk('span','n',i+1),mk('span',null,x.username),mk('span','p',x.points+' pts'));ol.appendChild(li);});
 if(!ol.children.length)ol.appendChild(mk('li','note','Nobody yet. Be the first.'));}
 let reloadT=null;const soon=t=>{clearTimeout(reloadT);reloadT=setTimeout(()=>{if(t==='stories')loadStories();loadStory();loadBoard();},400);};
 sb.channel('live').on('postgres_changes',{event:'*',schema:'public'},p=>soon(p.table)).subscribe();
 
+/* ---------- names: find people in what the owner writes ---------- */
+const esc=t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const nameRe=(names,flags)=>names.length?new RegExp('(?<![\\p{L}\\p{N}])(?:'+names.filter(Boolean).sort((a,b)=>b.length-a.length).map(esc).join('|')+')(?![\\p{L}\\p{N}])',flags||'iu'):null;
+const NOTNAME=new Set('january february march april may june july august september october november december monday tuesday wednesday thursday friday saturday sunday god okay ok mr mrs ms dr sir madam english malayalam hindi tamil i\'m i\'ve i\'ll i\'d don\'t can\'t didn\'t wasn\'t it\'s that\'s everyone everything nothing someone something sometimes still even every each first last next later today yesterday tomorrow now soon once again maybe really please thank thanks sorry dear hello hi chapter story'.split(' '));
+function spotNames(text){const known=chars.filter(c=>!c.ending_id).map(c=>c.name.toLowerCase());const seen=new Map();
+(text.match(/[\p{L}][\p{L}'’.-]*/gu)||[]).forEach(w=>{w=w.replace(/['’]s$/,'').replace(/[.'’-]+$/,'');const lw=w.toLowerCase();
+if(w.length<2||!/^\p{Lu}/u.test(w)||COMMON.has(lw)||NOTNAME.has(lw)||dismissed.has(lw)||seen.has(lw))return;
+if(known.some(k=>k===lw||k.split(/\s+/).includes(lw)))return;seen.set(lw,w);});return [...seen.values()].slice(0,8);}
+function hl(el,text,re){if(!re){el.textContent=text;return el;}let last=0;for(const m of String(text).matchAll(new RegExp(re.source,'giu'))){el.append(text.slice(last,m.index));el.appendChild(mk('mark','who',m[0]));last=m.index+m[0].length;}el.append(text.slice(last));return el;}
+const castRe=()=>nameRe(chars.filter(c=>!c.ending_id).map(c=>c.name));
+
 /* ---------- render ---------- */
-function renderStories(){const ul=$('stories');ul.innerHTML='';if(!stories.length)ul.appendChild(mk('li','note','No stories yet.'));
-stories.forEach(s=>{const li=mk('li'),b=mk('button');b.setAttribute('aria-current',s.id===sid);b.appendChild(mk('b',null,s.title));
-b.appendChild(mk('span',null,s.part_count+' part'+(s.part_count===1?'':'s')+' · '+(s.status==='finished'?'The end':s.status==='finale'?'Finale next':'Open')));b.onclick=()=>openStory(s.id);li.appendChild(b);ul.appendChild(li);});}
+function renderTabs(){$('tabLife').setAttribute('aria-pressed',tab==='life');$('tabRelay').setAttribute('aria-pressed',tab==='relay');}
+function switchTab(t){tab=t;renderTabs();const f=stories.find(s=>s.kind===t);if(f)openStory(f.id);else startNew(t);}
+$('tabLife').onclick=()=>switchTab('life');$('tabRelay').onclick=()=>switchTab('relay');
+function renderStories(){const ul=$('stories');ul.innerHTML='';const list=stories.filter(s=>s.kind===tab);
+if(!list.length)ul.appendChild(mk('li','note',tab==='life'?'No life stories yet. Yours could be the first.':'No stories yet.'));
+list.forEach(s=>{const li=mk('li'),b=mk('button');b.setAttribute('aria-current',s.id===sid);const t=mk('b',null,s.title);if(s.visibility==='unlisted')t.appendChild(mk('span','badge','Unlisted'));b.appendChild(t);
+b.appendChild(mk('span',null,s.kind==='life'?'by '+ownerName(s)+' · '+s.part_count+' part'+(s.part_count===1?'':'s'):s.part_count+' part'+(s.part_count===1?'':'s')+' · '+(s.status==='finished'?'The end':s.status==='finale'?'Finale next':'Open')));
+b.onclick=()=>openStory(s.id);li.appendChild(b);ul.appendChild(li);});}
 const ptsFor=id=>reacts.filter(r=>r.part_id===id).reduce((a,r)=>a+((TAGS.find(t=>t[0]===r.emoji)||[0,0,2])[2]),0)+ratings.filter(r=>r.part_id===id).reduce((a,r)=>a+r.stars,0);
-function renderStory(){$('stitle').textContent=story?story.title:'Start a new story';
+const lifeSeq=()=>chapters.flatMap(c=>parts.filter(p=>p.chapter_id===c.id));
+function renderStory(){const life=isLife();
+$('stitle').textContent=story?story.title:sid?'This story could not be opened':newKind==='choose'?'Start a new story':life?'Start your story':'Start a new story';
+$('sabout').hidden=!(story&&story.about);$('sabout').textContent=(story&&story.about)||'';
 const names=[...new Set(parts.map(p=>p.username))];
-$('smeta').textContent=parts.length?parts.length+' part'+(parts.length===1?'':'s')+' by '+names.length+' storyteller'+(names.length===1?'':'s'):'Give it a title, then tell how it begins: who, where, and what goes wrong.';
+if(!story)$('smeta').textContent=sid?'It may be unlisted, and the link you used is not complete. Ask the person who shared it for the full link.':newKind==='choose'?'Two ways to tell a story here. Pick one.':life?'Give it a title, write your first chapter, and name the people in it. Only you write the chapters; readers can add their side.':'Give it a title, then tell how it begins: who, where, and what goes wrong.';
+else if(life)$('smeta').textContent='The life story of '+ownerName(story)+' · '+chapters.length+' chapter'+(chapters.length===1?'':'s')+(story.visibility==='unlisted'?' · Unlisted':'');
+else $('smeta').textContent=parts.length?parts.length+' part'+(parts.length===1?'':'s')+' by '+names.length+' storyteller'+(names.length===1?'':'s'):'Give it a title, then tell how it begins.';
+renderOwner();
 const st=$('status');st.innerHTML='';
-if(story&&story.status==='finished')st.appendChild(mk('p','banner','The end. This story is finished. Read it from the top, or start a new one.'));
-else if(story&&story.status==='finale')st.appendChild(mk('p','banner','The listeners voted: the next part is the finale. Make it count.'));
-else if(story&&story.part_count>=6){const v=mk('div','vote');const n=votes.length;const mine=me&&votes.some(x=>x.user_id===me.id);
+if(story&&!life){if(story.status==='finished')st.appendChild(mk('p','banner','The end. This story is finished. Read it from the top, or start a new one.'));
+else if(story.status==='finale')st.appendChild(mk('p','banner','The listeners voted: the next part is the finale. Make it count.'));
+else if(story.part_count>=6){const v=mk('div','vote');const n=votes.length;const mine=me&&votes.some(x=>x.user_id===me.id);
 v.appendChild(mk('span',null,'End this story? '+n+' of 3 votes'));const bar=mk('span','bar');const i=mk('i');i.style.width=Math.min(100,n/3*100)+'%';bar.appendChild(i);v.appendChild(bar);
-const b=mk('button','btn',mine?'Take back my vote':'Vote to end it');b.onclick=async()=>{if(!me)return openAuth('in');if(mine)await sb.from('end_votes').delete().match({story_id:sid,user_id:me.id});else await sb.from('end_votes').insert({story_id:sid,user_id:me.id});loadStory();};v.appendChild(b);st.appendChild(v);}
-const ol=$('script');ol.innerHTML='';if(story&&!parts.length)ol.appendChild(mk('li','empty','The stage is empty. Your words open the story.'));
-parts.forEach(p=>ol.appendChild(partEl(p)));
+const b=mk('button','btn',mine?'Take back my vote':'Vote to end it');b.onclick=async()=>{if(!me)return openAuth('in');if(mine)await sb.from('end_votes').delete().match({story_id:sid,user_id:me.id});else await sb.from('end_votes').insert({story_id:sid,user_id:me.id});loadStory();};v.appendChild(b);st.appendChild(v);}}
+const ol=$('script');ol.innerHTML='';$('chaps').innerHTML='';$('castBox').innerHTML='';const eb=$('endBox');eb.innerHTML='';eb.className='';
+if(story&&life){renderCast();renderChapters();renderEndings();}
+else if(story){if(!parts.length)ol.appendChild(mk('li','empty','The stage is empty. Your words open the story.'));parts.forEach(p=>ol.appendChild(partEl(p)));}
 $('playall').hidden=!('speechSynthesis' in window)||!parts.length;$('filmBtn').hidden=!parts.length;
-const last=parts[parts.length-1];
-$('where').textContent=story&&story.status==='finished'?'':last?'…where it stopped: "'+tail(shown(last))+'"':'Nothing yet. Your words open the story.';
-$('ch').textContent=story&&story.status==='finished'?'This story has ended':story&&story.status==='finale'?'Write the finale':last?'Your turn: and then…':'Begin the story';}
+const seq=life?lifeSeq():parts;const last=seq[seq.length-1];
+if(life){$('ch').textContent=!story?(newKind==='choose'?'What kind of story?':'Your first chapter'):isOwner()?'Add to your story':'Be part of this story';
+$('where').textContent=story&&isOwner()&&last?'…where you left off: "'+tail(shown(last))+'"':'';}
+else{$('where').textContent=newKind==='choose'?'':story&&story.status==='finished'?'':last?'…where it stopped: "'+tail(shown(last))+'"':'Nothing yet. Your words open the story.';
+$('ch').textContent=newKind==='choose'?'What kind of story?':story&&story.status==='finished'?'This story has ended':story&&story.status==='finale'?'Write the finale':last?'Your turn: and then…':'Begin the story';}}
 const shown=p=>p.drama||p.raw;
 const styleName=k=>(STYLES.find(x=>x[0]===k)||['',''])[1];
 function tail(t){const s=String(t).split(/(?<=[.!?])\s+/);return s.slice(-2).join(' ').slice(-220);}
-function partEl(p){const li=mk('li','part');li.appendChild(mk('span','no',p.n));const card=mk('div','card');
+
+const shareUrl=()=>location.origin+location.pathname+'#s='+sid+(story&&story.visibility==='unlisted'&&shareKey?'&k='+shareKey:'');
+function renderOwner(){const o=$('ownerBar');o.innerHTML='';if(!story||story.kind!=='life'||!isOwner())return;const box=mk('div','owner');
+box.appendChild(mk('span',null,'Who can read it:'));const seg=mk('div','seg');seg.setAttribute('role','group');seg.setAttribute('aria-label','Who can read it');
+[['public','Everyone'],['unlisted','Only people with the link']].forEach(([k,l])=>{const b=mk('button',null,l);b.type='button';b.setAttribute('aria-pressed',story.visibility===k);
+b.onclick=async()=>{if(story.visibility===k)return;const {error}=await sb.from('stories').update({visibility:k}).eq('id',sid);if(!error){story.visibility=k;loadStories();renderStory();}};seg.appendChild(b);});box.appendChild(seg);
+const link=shareUrl();const inp=mk('input');inp.readOnly=true;inp.value=link;inp.setAttribute('aria-label','Share link');
+const cp=mk('button','btn','Copy share link');cp.type='button';cp.onclick=async()=>{try{await navigator.clipboard.writeText(link);cp.textContent='Copied';}catch(e){inp.select();cp.textContent='Press Ctrl+C to copy';}setTimeout(()=>cp.textContent='Copy share link',2500);};
+box.append(inp,cp);box.appendChild(mk('p','note',story.visibility==='unlisted'?'Unlisted: it is not in the story list, and only this exact link opens it. Share it only with people you trust.':'Everyone: anyone can find it in the story list and read it.'));o.appendChild(box);}
+
+/* the people in a life story */
+function chaptersWith(c){const re=nameRe([c.name]);return re?chapters.filter(ch=>parts.some(p=>p.chapter_id===ch.id&&re.test(shown(p)+' '+p.raw))):[];}
+function renderCast(){const box=$('castBox');const cast=chars.filter(c=>!c.ending_id);if(!cast.length&&!isOwner())return;
+box.appendChild(mk('h3',null,'The people in this story'));
+if(!cast.length)box.appendChild(mk('p','note','Nobody yet. When you write someone\'s name in a chapter, you can add them here. A nickname is fine if you\'d rather keep them private.'));
+const g=mk('div','cast');cast.forEach(c=>g.appendChild(charCard(c)));box.appendChild(g);
+if(isOwner()){const add=mk('button','link','+ Add a person');add.type='button';add.onclick=()=>{add.hidden=true;charForm(box,'',null,()=>{add.hidden=false;});};box.appendChild(add);}}
+function charCard(c){const d=mk('div','who-card');d.appendChild(mk('b',null,c.name));if(c.role)d.appendChild(mk('span','r',c.role));if(c.note)d.appendChild(mk('p',null,c.note));
+if(!c.ending_id){const inn=chaptersWith(c);if(inn.length)d.appendChild(mk('p','in','In chapter'+(inn.length>1?'s ':' ')+inn.map(x=>x.n).join(', ')));}
+if(me&&c.added_by===me.id){const rm=mk('button','link','Remove');rm.type='button';rm.onclick=async()=>{if(!confirm('Remove '+c.name+' from the people in this story?'))return;await sb.from('characters').delete().eq('id',c.id);loadStory();};d.appendChild(rm);}return d;}
+function field(text,el,hint){const l=mk('label');l.appendChild(mk('span',null,text));if(hint){const h=mk('span','note',' '+hint);h.style.fontWeight='400';l.appendChild(h);}l.appendChild(el);el.style.marginTop='6px';return l;}
+function charForm(box,name,after,onClose){const f=mk('form','form-mini');const nm=mk('input');nm.maxLength=40;nm.value=name;nm.required=true;nm.placeholder='Amma, Ravi, Mr. Thomas…';
+const role=mk('input');role.maxLength=60;role.placeholder='My mother · my best friend · my first boss';
+const nt=mk('textarea');nt.maxLength=300;nt.style.minHeight='80px';nt.placeholder='How did they shape you? What did they change?';
+f.append(field('Name',nm,'(a nickname is fine)'),field('Who are they to you?',role),field('How did they influence you?',nt,'(optional)'));
+const r=mk('div','row');const ok=mk('button','btn fill','Add to the story');ok.type='submit';const no=mk('button','btn','Cancel');no.type='button';const msg=mk('span','note');r.append(ok,no,msg);f.appendChild(r);
+const close=()=>{f.remove();onClose&&onClose();};no.onclick=close;
+f.onsubmit=async e=>{e.preventDefault();const n=nm.value.trim();if(!n)return;ok.disabled=true;
+const {error}=await sb.from('characters').insert({story_id:sid,name:n.slice(0,40),role:role.value.trim().slice(0,60)||null,note:nt.value.trim().slice(0,300)||null,added_by:me.id});ok.disabled=false;
+if(error){msg.textContent=/duplicate|unique/i.test(error.message)?n+' is already in your story.':'Could not add them. Try again.';return;}dismissed.add(n.toLowerCase());close();await loadStory();renderSpot();};
+if(after)after.after(f);else box.appendChild(f);nm.focus();return f;}
+
+function renderChapters(){const box=$('chaps');if(!chapters.length){box.appendChild(mk('p','empty','No chapters yet.'));return;}const re=castRe();
+chapters.forEach(ch=>{const sec=mk('section','chap');sec.id='chapter-'+ch.n;const h=mk('div','chap-h');h.appendChild(mk('span','num','Chapter '+ch.n));h.appendChild(mk('h3',null,ch.title));const fl=feelLine(ch);if(fl)h.appendChild(mk('span','feel',fl));sec.appendChild(h);
+const ol=mk('ol','script');const ps=parts.filter(p=>p.chapter_id===ch.id);ps.forEach((p,i)=>ol.appendChild(partEl(p,i+1,re)));if(!ps.length)ol.appendChild(mk('li','empty','This chapter is waiting for its first words.'));sec.appendChild(ol);
+const mine=sides.filter(s=>s.chapter_id===ch.id);const sbx=mk('div','sidebox');sbx.appendChild(mk('h4',null,mine.length?'Another side ('+mine.length+')':'Another side'));
+mine.forEach(s=>sbx.appendChild(sideEl(s)));
+if(!me){const b=mk('button','link','Were you there? Log in to tell your side');b.type='button';b.onclick=()=>openAuth('in');sbx.appendChild(b);}
+else if(!isOwner()){const b=mk('button','btn','Tell your side of this chapter');b.type='button';b.onclick=()=>{b.hidden=true;sideForm(sbx,ch,()=>{b.hidden=false;});};sbx.appendChild(b);}
+else if(!mine.length)sbx.appendChild(mk('p','note','Readers who were there can tell their side of this chapter here.'));
+sec.appendChild(sbx);box.appendChild(sec);});}
+function modActs(table,kind,row){const a=mk('div','acts');
+if(isOwner()&&me&&row.user_id!==me.id){const h=mk('button','link',row.hidden?'Show it again':'Hide it');h.type='button';h.onclick=async()=>{await sb.from(table).update({hidden:!row.hidden}).eq('id',row.id);loadStory();};a.appendChild(h);}
+if(me&&row.user_id===me.id){const del=mk('button','link','Delete mine');del.type='button';del.onclick=async()=>{if(!confirm('Delete this for good?'))return;await sb.from(table).delete().eq('id',row.id);loadStory();};a.appendChild(del);}
+else{const r=mk('button','link','Report');r.type='button';r.onclick=()=>report(kind,row.id);a.appendChild(r);}return a;}
+function byLine(prefix,row){const by=mk('div','by');const w=mk('span');w.append(prefix);w.appendChild(mk('b',null,row.username));if(row.perspective)w.append(' · as '+row.perspective);by.appendChild(w);
+if(row.hidden)by.appendChild(mk('span','hidtag',isOwner()?'Hidden from readers':'Hidden by the owner'));return by;}
+function sideEl(s){const d=mk('div','oside'+(s.hidden?' hid':''));d.appendChild(byLine('',s));d.appendChild(hl(mk('p','txt'+(s.lang==='ml'?' ml':'')),s.body,castRe()));d.appendChild(modActs('sides','side',s));return d;}
+function sideForm(box,ch,onClose){const f=mk('form','form-mini');const who=mk('input');who.maxLength=40;who.placeholder='the cousin, the friend, the teacher…';
+const tx=mk('textarea');tx.maxLength=2500;tx.placeholder='How do you remember it? What did it look like from where you stood?';
+f.append(field('Who were you in this chapter?',who,'(optional)'),field('Your side of it',tx));
+const r=mk('div','row');const ok=mk('button','btn fill','Add my side');ok.type='submit';const no=mk('button','btn','Cancel');no.type='button';const msg=mk('span','note');r.append(ok,no,msg);f.appendChild(r);
+f.appendChild(mk('p','note','It shows up right away. The owner can hide it if it does not belong.'));
+no.onclick=()=>{f.remove();onClose&&onClose();};
+f.onsubmit=async e=>{e.preventDefault();const body=tx.value.trim();if(body.length<8){msg.textContent='Write a little more first.';return;}ok.disabled=true;
+const {error}=await sb.from('sides').insert({story_id:sid,chapter_id:ch.id,user_id:me.id,username:me.username,perspective:who.value.trim().slice(0,40)||null,lang:isMl(body)?'ml':'en',body:body.slice(0,2500)});ok.disabled=false;
+if(error){msg.textContent='Could not add it. Try again.';return;}f.remove();loadStory();};box.appendChild(f);who.focus();}
+
+/* other endings */
+function renderEndings(){const box=$('endBox');box.className='chap';const h=mk('div','chap-h');h.appendChild(mk('h3',null,'How could it end?'));box.appendChild(h);
+box.appendChild(mk('p','note',isOwner()?'Your story is still being written. Readers can imagine where it goes from here, and bring new people into it.':'This story is still being written. Imagine how it ends: bring in new people if you like, and vote for the endings you believe in.'));
+const cnt=id=>evotes.filter(v=>v.ending_id===id).length;
+[...endings].sort((a,b)=>cnt(b.id)-cnt(a.id)||new Date(a.created_at)-new Date(b.created_at)).forEach(e=>box.appendChild(endingEl(e,cnt(e.id))));
+const r=mk('div','row');if(!me){const b=mk('button','btn','Log in to write an ending');b.type='button';b.onclick=()=>openAuth('in');r.appendChild(b);}
+else{const b=mk('button','btn','✍ Write a different ending');b.type='button';b.onclick=()=>{r.hidden=true;endingForm(box,()=>{r.hidden=false;});};r.appendChild(b);}box.appendChild(r);}
+function endingEl(e,n){const d=mk('article','ending'+(e.hidden?' hid':''));d.appendChild(mk('h4',null,e.title));d.appendChild(byLine('imagined by ',e));
+const nc=chars.filter(c=>c.ending_id===e.id);d.appendChild(hl(mk('p','txt'+(e.lang==='ml'?' ml':'')),e.body,nameRe(chars.map(c=>c.name))));
+if(nc.length){d.appendChild(mk('p','note','New people in this ending:'));const g=mk('div','cast');nc.forEach(c=>g.appendChild(charCard(c)));d.appendChild(g);}
+const a=modActs('endings','ending',e);const mine=me&&evotes.some(v=>v.ending_id===e.id&&v.user_id===me.id);
+const vb=mk('button','tag',(mine?'♥ ':'♡ ')+'I believe this one'+(n?' · '+n:''));vb.setAttribute('aria-pressed',!!mine);
+vb.onclick=async()=>{if(!me)return openAuth('in');if(e.user_id===me.id)return note(d,'You cannot vote for your own ending.');if(mine)await sb.from('ending_votes').delete().match({ending_id:e.id,user_id:me.id});else await sb.from('ending_votes').insert({ending_id:e.id,user_id:me.id});loadStory();};
+a.prepend(vb);d.appendChild(a);return d;}
+function endingForm(box,onClose){const f=mk('form','form-mini');const t=mk('input');t.maxLength=80;t.required=true;t.placeholder='The day he came back';
+const tx=mk('textarea');tx.maxLength=3000;tx.placeholder='Pick up from the last chapter and tell how it ends…';
+f.append(field('Name your ending',t),field('Your ending',tx));
+const people=mk('div');f.appendChild(people);const addP=mk('button','link','+ Bring in a new person');addP.type='button';
+const rows=[];addP.onclick=()=>{if(rows.length>=5)return;const w=mk('div','two');const n=mk('input');n.maxLength=40;n.placeholder='Their name';const rl=mk('input');rl.maxLength=60;rl.placeholder='Who they are';
+w.append(field('New person',n),field('Who are they?',rl));people.appendChild(w);rows.push([n,rl]);n.focus();if(rows.length>=5)addP.hidden=true;};f.appendChild(addP);
+const r=mk('div','row');const ok=mk('button','btn fill','Add my ending');ok.type='submit';const no=mk('button','btn','Cancel');no.type='button';const msg=mk('span','note');r.append(ok,no,msg);f.appendChild(r);
+no.onclick=()=>{f.remove();onClose&&onClose();};
+f.onsubmit=async e=>{e.preventDefault();const body=tx.value.trim(),title=t.value.trim();if(!title||body.length<8){msg.textContent='Give it a name and write a little more.';return;}ok.disabled=true;
+const {data,error}=await sb.from('endings').insert({story_id:sid,user_id:me.id,username:me.username,title:title.slice(0,80),lang:isMl(body)?'ml':'en',body:body.slice(0,3000)}).select('id').single();
+if(error){ok.disabled=false;msg.textContent='Could not add your ending. Try again.';return;}
+const add=rows.map(([n,rl])=>({story_id:sid,ending_id:data.id,name:n.value.trim().slice(0,40),role:rl.value.trim().slice(0,60)||null,added_by:me.id})).filter(x=>x.name);
+if(add.length){const {error:ce}=await sb.from('characters').insert(add);if(ce)msg.textContent='Your ending was added, but the new people could not be saved.';}
+f.remove();loadStory();};box.appendChild(f);t.focus();}
+
+function partEl(p,num,re){const life=story&&story.kind==='life';const li=mk('li','part');li.appendChild(mk('span','no',num||p.n));const card=mk('div','card');
 const img=mk('img','scene');img.src=sceneUrl(p.scene);img.alt=(SCENES[p.scene]||SCENES.night)[0];img.loading='lazy';card.appendChild(img);
-const b=mk('div','body');const by=mk('div','by');const w=mk('span');w.append('told by ');w.appendChild(mk('b',null,p.username));if(p.lang==='ml')w.append(' in Malayalam');
+const b=mk('div','body');const by=mk('div','by');const w=mk('span');if(!life){w.append('told by ');w.appendChild(mk('b',null,p.username));if(p.lang==='ml')w.append(' in Malayalam');}else if(p.lang==='ml')w.append('In Malayalam');
 by.append(w,mk('span',null,(p.is_finale?'Finale · ':'')+(SCENES[p.scene]||SCENES.night)[0]+(p.drama&&p.style?' · '+styleName(p.style):'')));b.appendChild(by);
-b.appendChild(mk('p','txt'+(p.lang==='ml'?' ml':''),shown(p)));
+b.appendChild(hl(mk('p','txt'+(p.lang==='ml'?' ml':'')),shown(p),re||null));
 let said=null;if(p.drama){said=mk('div','said');said.hidden=true;said.appendChild(mk('p',p.lang==='ml'?'ml':null,'"'+p.raw+'"'));b.appendChild(said);}
 const tr=mk('p','trans'+(p.lang==='ml'?'':' ml'));tr.hidden=true;b.appendChild(tr);
 const acts=mk('div','acts');
-if(said){const sbtn=mk('button','link','What they actually said');sbtn.setAttribute('aria-expanded','false');sbtn.onclick=()=>{said.hidden=!said.hidden;sbtn.setAttribute('aria-expanded',String(!said.hidden));sbtn.textContent=said.hidden?'What they actually said':'Hide their words';};acts.appendChild(sbtn);}
+if(said){const sbtn=mk('button','link',life?'What I actually said':'What they actually said');sbtn.setAttribute('aria-expanded','false');sbtn.onclick=()=>{said.hidden=!said.hidden;sbtn.setAttribute('aria-expanded',String(!said.hidden));sbtn.textContent=said.hidden?(life?'What I actually said':'What they actually said'):'Hide the original words';};acts.appendChild(sbtn);}
 const tbtn=mk('button','link',p.lang==='ml'?'Translate to English':'മലയാളത്തിൽ വായിക്കുക');tbtn.onclick=()=>translate(p,tr,tbtn);acts.appendChild(tbtn);
 if('speechSynthesis' in window){const l=mk('button','link','▶ Listen');l.onclick=()=>speak([shown(p)],p.lang==='ml'?'ml-IN':'en-IN');acts.appendChild(l);}
+if(me&&p.user_id!==me.id){const r=mk('button','link','Report');r.onclick=()=>report('part',p.id);acts.appendChild(r);}
 acts.appendChild(mk('span','pts',ptsFor(p.id)+' pts'));b.appendChild(acts);
 const tg=mk('div','tags');tg.style.marginTop='12px';TAGS.forEach(([k,l])=>{const n=reacts.filter(r=>r.part_id===p.id&&r.emoji===k).length;const mine=me&&reacts.some(r=>r.part_id===p.id&&r.emoji===k&&r.user_id===me.id);
 const btn=mk('button','tag',l+(n?' '+n:''));btn.setAttribute('aria-pressed',!!mine);btn.onclick=async()=>{if(!me)return openAuth('in');if(p.user_id===me.id)return note(b,'You cannot tag your own part. Let the listeners decide.');
@@ -302,7 +502,7 @@ for(let s=1;s<=5;s++){const sbtn=mk('button',(my?my.stars:Math.round(avg))>=s?'o
 sbtn.onclick=async()=>{if(!me)return openAuth('in');if(p.user_id===me.id)return note(b,'You cannot rate your own part.');if(my)await sb.from('ratings').update({stars:s}).match({part_id:p.id,user_id:me.id});else await sb.from('ratings').insert({part_id:p.id,user_id:me.id,stars:s});loadStory();loadBoard();};stars.appendChild(sbtn);}
 stars.appendChild(mk('span',null,rs.length?avg.toFixed(1)+' from '+rs.length:'no ratings yet'));b.appendChild(stars);
 const th=mk('div','thread');comments.filter(c=>c.part_id===p.id).forEach(c=>{const d=mk('p','cm');d.appendChild(mk('b',null,c.username));d.append(c.body);th.appendChild(d);});
-const f=mk('form','cform');const inp=mk('input');inp.maxLength=500;inp.placeholder=me?'Say something about this part':'Log in to comment';inp.setAttribute('aria-label','Comment on part '+p.n);const send=mk('button','btn','Post');send.type='submit';
+const f=mk('form','cform');const inp=mk('input');inp.maxLength=500;inp.placeholder=me?'Say something about this part':'Log in to comment';inp.setAttribute('aria-label','Comment on part '+(num||p.n));const send=mk('button','btn','Post');send.type='submit';
 f.onsubmit=async e=>{e.preventDefault();if(!me)return openAuth('in');const v=inp.value.trim();if(!v)return;send.disabled=true;await sb.from('comments').insert({part_id:p.id,user_id:me.id,username:me.username,body:v.slice(0,500)});inp.value='';send.disabled=false;loadStory();};
 f.append(inp,send);th.appendChild(f);b.appendChild(th);card.appendChild(b);li.appendChild(card);return li;}
 function note(box,msg){const n=mk('p','note',msg);box.appendChild(n);setTimeout(()=>n.remove(),3500);}
@@ -318,49 +518,82 @@ catch(e){out.textContent='Translation is not available in this browser yet. In C
 
 /* ---------- read aloud (browser voice, free) ---------- */
 function speak(texts,lang){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();texts.forEach(t=>{const u=new SpeechSynthesisUtterance(String(t));u.lang=lang;const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.toLowerCase().startsWith(lang.slice(0,2)));if(v)u.voice=v;speechSynthesis.speak(u);});}
-$('playall').onclick=()=>{if(speechSynthesis.speaking){speechSynthesis.cancel();return;}parts.forEach(p=>{const u=new SpeechSynthesisUtterance(shown(p));u.lang=p.lang==='ml'?'ml-IN':'en-IN';speechSynthesis.speak(u);});};
+$('playall').onclick=()=>{if(speechSynthesis.speaking){speechSynthesis.cancel();return;}(isLife()?lifeSeq():parts).forEach(p=>{const u=new SpeechSynthesisUtterance(shown(p));u.lang=p.lang==='ml'?'ml-IN':'en-IN';speechSynthesis.speak(u);});};
 
 /* ---------- speech to text (browser, free) ---------- */
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,listening=false;
 function toggleMic(){if(!me){openAuth('in');return;}if(story&&story.status==='finished'){focusRaw();return;}
-if(!SR){$('miclab').textContent='This browser cannot listen. Type your part below.';focusRaw();return;}
+if(!SR){const n=$('contNote');if(n)n.textContent='This browser cannot listen. Type instead.';focusRaw();return;}
 if(listening){rec&&rec.stop();return;}
 rec=new SR();rec.lang=speakLang==='ml'?'ml-IN':'en-IN';rec.interimResults=true;rec.continuous=true;
 rec.onresult=e=>{let fin='',part='';for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];if(r.isFinal)fin+=r[0].transcript;else part+=r[0].transcript;}
-const ta=$('raw');if(ta&&fin)ta.value=(ta.value?ta.value.trimEnd()+' ':'')+fin.trim();const pl=$('partial');if(pl)pl.textContent=part?'hearing: '+part:'';};
+const ta=$('raw');if(ta&&fin){ta.value=(ta.value?ta.value.trimEnd()+' ':'')+fin.trim();renderSpot();}const pl=$('partial');if(pl)pl.textContent=part?'hearing: '+part:'';};
 rec.onstart=()=>{listening=true;micUi();};rec.onend=()=>{listening=false;micUi();};
 rec.onerror=e=>{listening=false;micUi();const n=$('contNote');if(n)n.textContent=e.error==='not-allowed'?'Microphone permission was blocked. You can type instead.':'The mic stopped. Tap it again, or type.';};
 try{rec.start();}catch(e){}focusRaw(true);}
-function micUi(){$('micwrap').classList.toggle('live',listening);$('miclab').textContent=listening?'Listening… tap to stop':'Tap to tell the next part';$('bigmic').setAttribute('aria-label',listening?'Stop listening':'Start speaking your part');const m=$('mic2');if(m)m.textContent=listening?'■ Stop':'🎙 Speak';if(!listening&&$('partial'))$('partial').textContent='';}
+function micUi(){const m=$('mic2');if(m)m.textContent=listening?'■ Stop':'🎙 Speak';if(!listening&&$('partial'))$('partial').textContent='';}
 function focusRaw(noFocus){$('cont').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});if(!noFocus&&$('raw'))$('raw').focus();}
-$('bigmic').onclick=toggleMic;
 
-/* ---------- continue panel ---------- */
-function renderCont(){const box=$('contBody');const keep={raw:$('raw')?$('raw').value:'',ttl:$('ttl')?$('ttl').value:''};box.innerHTML='';setTimeout(()=>{if($('raw')&&keep.raw&&!$('raw').value)$('raw').value=keep.raw;if($('ttl')&&keep.ttl&&!$('ttl').value)$('ttl').value=keep.ttl;},0);
+/* ---------- the writing panel ---------- */
+const KEEP=['raw','ttl','abt','ctl','cto','cfeel'];
+let spotT=null;
+function renderSpot(){const box=$('spot');if(!box)return;box.innerHTML='';if(!isLife()||(story&&!isOwner()))return;
+const names=spotNames((($('raw')&&$('raw').value)||'')+' '+lastSaid);if(!names.length){if(speakLang==='ml')box.appendChild(mk('p','note','Names in Malayalam are not spotted automatically. Add the people in your story with "+ Add a person" above your chapters.'));return;}
+box.appendChild(mk('p','note',story?'People you mentioned. Add them to your story:':'People you mentioned. You can add them as soon as this chapter is saved:'));
+const ch=mk('div','chips');names.forEach(n=>{const b=mk('button','chip','+ '+n);b.type='button';b.disabled=!story;b.onclick=()=>{charForm(box,n,ch);};ch.appendChild(b);});
+const ig=mk('button','link','Not people, ignore these');ig.type='button';ig.onclick=()=>{names.forEach(n=>dismissed.add(n.toLowerCase()));renderSpot();};ch.appendChild(ig);box.appendChild(ch);}
+function renderCont(){const box=$('contBody');const keep={};KEEP.forEach(k=>{if($(k))keep[k]=$(k).value;});box.innerHTML='';
+setTimeout(()=>{KEEP.forEach(k=>{if($(k)&&keep[k]&&!$(k).value)$(k).value=keep[k];});renderSpot();},0);
+const life=isLife();$('cont').hidden=!!(sid&&!story);
+if(newKind==='choose'&&!story){const g=mk('div','kinds');
+[['life','My story','Your life, in chapters. The people in it become characters; friends add their side and imagine the ending.'],['relay','Pass it on','A game with strangers: everyone adds the next part of one story, and listeners vote for the best twist.']].forEach(([k,t,d])=>{const b=mk('button','kind');b.type='button';b.appendChild(mk('b',null,t));b.append(d);b.onclick=()=>startNew(k);g.appendChild(b);});box.appendChild(g);return;}
 if(story&&story.status==='finished'){box.appendChild(mk('p','note','Start a new story from the list, and you could be the one who begins it.'));return;}
-if(!me){box.appendChild(mk('p',null,'Make a free account to tell the next part. Anyone can read, listen and see the scenes without one.'));const r=mk('div','row');const a=mk('button','btn fill','Create account');a.onclick=()=>openAuth('up');const b=mk('button','btn','Log in');b.onclick=()=>openAuth('in');r.append(a,b);box.appendChild(r);return;}
-if(!story){const l=mk('label',null,'Story title');l.htmlFor='ttl';box.appendChild(l);const t=mk('input');t.id='ttl';t.maxLength=80;t.placeholder='The Goat Who Saved the Wedding';box.appendChild(t);}
-const lr=mk('div','row');lr.style.marginTop='12px';lr.appendChild(mk('span',null,'I will speak in'));const seg=mk('div','seg');[['en','English'],['ml','മലയാളം']].forEach(([k,l])=>{const b=mk('button',k==='ml'?'ml':'',l);b.type='button';b.setAttribute('aria-pressed',speakLang===k);b.onclick=()=>{const keep=$('raw')?$('raw').value:'';speakLang=k;renderCont();$('raw').value=keep;};seg.appendChild(b);});lr.appendChild(seg);box.appendChild(lr);
-const lab=mk('label',null,'Say it or type it. Names, places, silly details: keep them all.');lab.htmlFor='raw';box.appendChild(lab);
-const ta=mk('textarea',speakLang==='ml'?'ml':'');ta.id='raw';ta.maxLength=2500;ta.addEventListener('input',()=>{if(draft){draft=null;const pb=$('prevBox');if(pb)pb.innerHTML='';}});ta.placeholder=speakLang==='ml'?'എന്നിട്ട്…':'And then my uncle walked in holding a goat…';box.appendChild(ta);
+if(!me){box.appendChild(mk('p',null,life?'Make a free account to start your own story, or to add your side to someone else\'s. Anyone can read without one.':'Make a free account to tell the next part. Anyone can read, listen and see the scenes without one.'));const r=mk('div','row');const a=mk('button','btn fill','Create account');a.onclick=()=>openAuth('up');const b=mk('button','btn','Log in');b.onclick=()=>openAuth('in');r.append(a,b);box.appendChild(r);return;}
+if(life&&story&&!isOwner()){box.appendChild(mk('p',null,'Only '+ownerName(story)+' writes the chapters of this story. You can still be part of it:'));const r=mk('div','row');
+const a=mk('button','btn fill','Tell your side of a chapter');a.type='button';a.onclick=()=>{const s=document.querySelector('.sidebox .btn');if(s){s.scrollIntoView({block:'center'});s.click();}};
+const b=mk('button','btn','Write a different ending');b.type='button';b.onclick=()=>{const e=document.querySelector('#endBox .row .btn');if(e){e.scrollIntoView({block:'center'});e.click();}};r.append(a,b);box.appendChild(r);return;}
+if(!story){const t=mk('input');t.id='ttl';t.maxLength=80;t.placeholder=life?'The boy from the small town':'The Goat Who Saved the Wedding';box.appendChild(field(life?'Name your story':'Story title',t));
+if(life){const ab=mk('input');ab.id='abt';ab.maxLength=300;ab.placeholder='Who you are, in one line. Or who this story is for.';box.appendChild(field('One line about it',ab,'(optional)'));
+const lr=mk('div','row');lr.appendChild(mk('span',null,'Who can read it?'));const seg=mk('div','seg');seg.setAttribute('role','group');seg.setAttribute('aria-label','Who can read it');
+[['public','Everyone'],['unlisted','Only people with my link']].forEach(([k,l])=>{const b=mk('button',null,l);b.type='button';b.setAttribute('aria-pressed',newVis===k);b.onclick=()=>{newVis=k;[...seg.children].forEach(c=>c.setAttribute('aria-pressed',c===b));};seg.appendChild(b);});lr.appendChild(seg);box.appendChild(lr);}}
+let newChap=life&&(!story||!chapters.length);
+if(life&&story&&chapters.length){if(!chapters.some(c=>c.id===curChap)&&curChap!=='new')curChap=chapters[chapters.length-1].id;
+const sel=mk('select');sel.id='chapSel';chapters.forEach(c=>{const o=mk('option',null,'Chapter '+c.n+': '+c.title);o.value=c.id;sel.appendChild(o);});const o=mk('option',null,'+ Start a new chapter');o.value='new';sel.appendChild(o);sel.value=curChap;
+sel.onchange=()=>{curChap=sel.value;renderCont();};box.appendChild(field('Write in',sel));newChap=curChap==='new';}
+if(newChap){const two=mk('div','two');const ct=mk('input');ct.id='ctl';ct.maxLength=80;ct.placeholder=chapters.length?'The year everything changed':'Where I come from';
+const fe=mk('select');fe.id='cfeel';FEEL.forEach(([k,l])=>{const o=mk('option',null,l);o.value=k;fe.appendChild(o);});
+two.append(field(chapters.length?'New chapter title':'First chapter title',ct),field('This chapter is',fe));box.appendChild(two);
+const to=mk('input');to.id='cto';to.maxLength=40;to.placeholder='Amma, my brother, Mr. Thomas…';box.appendChild(field('Written to someone?',to,'(optional: for a thank-you, an apology or a letter)'));}
+const lr=mk('div','row');lr.style.marginTop='12px';lr.appendChild(mk('span',null,'I will speak in'));const seg=mk('div','seg');[['en','English'],['ml','മലയാളം']].forEach(([k,l])=>{const b=mk('button',k==='ml'?'ml':'',l);b.type='button';b.setAttribute('aria-pressed',speakLang===k);b.onclick=()=>{speakLang=k;renderCont();};seg.appendChild(b);});lr.appendChild(seg);box.appendChild(lr);
+const lab=mk('label',null,life?'Say it or type it, the way you would tell a friend. Names, places, small details: keep them all.':'Say it or type it. Names, places, silly details: keep them all.');lab.htmlFor='raw';box.appendChild(lab);
+const ta=mk('textarea',speakLang==='ml'?'ml':'');ta.id='raw';ta.maxLength=2500;ta.addEventListener('input',()=>{if(draft){draft=null;const pb=$('prevBox');if(pb)pb.innerHTML='';}clearTimeout(spotT);spotT=setTimeout(renderSpot,500);});
+ta.placeholder=speakLang==='ml'?'എന്നിട്ട്…':life?'I was six when we left my grandmother\'s house…':'And then my uncle walked in holding a goat…';box.appendChild(ta);
 box.appendChild(Object.assign(mk('p','partial'),{id:'partial'}));
 const mr=mk('div','row');mr.style.marginTop='4px';if(SR){const m=mk('button','btn',listening?'■ Stop':'🎙 Speak');m.id='mic2';m.type='button';m.onclick=toggleMic;mr.appendChild(m);}box.appendChild(mr);
+if(life)box.appendChild(Object.assign(mk('div','spot'),{id:'spot'}));
 box.appendChild(mk('label',null,'Pick the scene'));const g=mk('div','scenes');
 Object.keys(SCENES).forEach(k=>{const b=mk('button','sc');b.type='button';b.setAttribute('aria-pressed',scene===k);const im=mk('img');im.src=sceneUrl(k);im.alt='';b.append(im,mk('span',null,SCENES[k][0]));b.onclick=()=>{scene=k;[...g.children].forEach(c=>c.setAttribute('aria-pressed',c===b));};g.appendChild(b);});box.appendChild(g);
 box.appendChild(mk('label',null,'Make it dramatic? Pick a style'));const ch=mk('div','chips');ch.setAttribute('role','group');ch.setAttribute('aria-label','Drama style');
 STYLES.forEach(([k,l])=>{const b=mk('button','chip',l);b.type='button';b.setAttribute('aria-pressed',style===k);b.onclick=()=>{style=k;[...ch.children].forEach(c=>c.setAttribute('aria-pressed',c===b));};ch.appendChild(b);});box.appendChild(ch);
-box.appendChild(mk('p','note','Tip: listeners give the most points for a sacrifice, a heartbreak or a real twist. The dramatic version keeps every name, place and thing you said.'));
+box.appendChild(mk('p','note',life?'The dramatic version keeps every name, place and thing you said. Readers can always see your original words too.':'Tip: listeners give the most points for a sacrifice, a heartbreak or a real twist. The dramatic version keeps every name, place and thing you said.'));
 const ar=mk('div','row');const dr=mk('button','btn fill','✨ Make it dramatic');dr.id='goDrama';dr.type='button';dr.onclick=()=>dramatize();
-const go=mk('button','btn',story&&story.status==='finale'?'Add the finale as I said it':'Add it as I said it');go.type='button';go.onclick=()=>submit(null);ar.append(dr,go);ar.appendChild(Object.assign(mk('span','note'),{id:'contNote'}));box.appendChild(ar);
+const go=mk('button','btn',life?'Save it as I said it':story&&story.status==='finale'?'Add the finale as I said it':'Add it as I said it');go.type='button';go.onclick=()=>submit(null);ar.append(dr,go);ar.appendChild(Object.assign(mk('span','note'),{id:'contNote'}));box.appendChild(ar);
 box.appendChild(Object.assign(mk('div'),{id:'prevBox'}));if(draft)showDraft();}
 async function submit(d){if(busy)return;const raw=$('raw').value.trim();const n=$('contNote');
 if(raw.length<8){n.textContent='Say or type a little more first.';return;}
-if(listening&&rec)rec.stop();busy=true;n.textContent='Adding…';
-try{let id=sid;if(!story){const title=($('ttl').value.trim()||'Untitled story').slice(0,80);const {data,error}=await sb.from('stories').insert({title,created_by:me.id}).select('id').single();if(error)throw error;id=data.id;}
+const life=isLife();if(listening&&rec)rec.stop();busy=true;n.textContent=life?'Saving…':'Adding…';
+try{let id=sid;
+if(!story){const title=($('ttl').value.trim()||(life?'My story':'Untitled story')).slice(0,80);const ins={title,created_by:me.id,kind:life?'life':'relay'};
+if(life){ins.visibility=newVis;const ab=$('abt')&&$('abt').value.trim();if(ab)ins.about=ab.slice(0,300);}
+const {data,error}=await sb.from('stories').insert(ins).select('id').single();if(error)throw error;id=data.id;}
 const row={story_id:id,user_id:me.id,username:me.username,lang:speakLang,raw:raw.slice(0,2500),scene};if(d&&d.raw===raw){row.drama=d.text.slice(0,4000);row.style=d.style;}
-const {error}=await sb.from('parts').insert(row);if(error)throw error;draft=null;$('raw').value='';if($('ttl'))$('ttl').value='';
-sid=id;await loadStories();await openStory(id);loadBoard();const nn=$('contNote');if(nn)nn.textContent='Added. Thanks for passing it on.';}
-catch(e){n.textContent=/ended/.test(e.message||'')?'This story has already ended.':'Could not add your part. Try again.';}finally{busy=false;}}
+if(life){let chId=$('chapSel')&&$('chapSel').value!=='new'?$('chapSel').value:null;
+if(!chId){const ct=(($('ctl')&&$('ctl').value.trim())||'Chapter '+(chapters.length+1)).slice(0,80);const to=($('cto')&&$('cto').value.trim().slice(0,40))||null;
+const {data:c,error:ce}=await sb.from('chapters').insert({story_id:id,title:ct,feeling:$('cfeel')?$('cfeel').value:'memory',to_whom:to}).select('id').single();if(ce)throw ce;chId=c.id;}
+row.chapter_id=chId;curChap=chId;}
+const {error}=await sb.from('parts').insert(row);if(error)throw error;draft=null;lastSaid=raw;KEEP.forEach(k=>{if($(k)&&k!=='cfeel')$(k).value='';});
+sid=id;newKind=null;curKey=KEYS[id]||null;setHash();await loadStories();await openStory(id);loadBoard();const nn=$('contNote');if(nn)nn.textContent=life?'Saved to your story.':'Added. Thanks for passing it on.';}
+catch(e){n.textContent=/ended/.test(e.message||'')?'This story has already ended.':life?'Could not save it. Try again.':'Could not add your part. Try again.';}finally{busy=false;}}
 
 
 /* ---------- "Make it dramatic": free chain. 1) Chrome's on-device AI, 2) Gemini free tier, 3) the drama engine ---------- */
@@ -404,10 +637,10 @@ function showDraft(){const pb=$('prevBox');if(!pb||!draft)return;pb.innerHTML=''
 const src={device:'Written on your device by Chrome\'s built-in AI',gemini:'Written by the Gemini free tier',engine:'The drama engine: your exact words, with a little theatre around them'}[draft.source];
 box.appendChild(mk('p','src',styleName(draft.style)+' · '+src));box.appendChild(mk('p','txt'+(speakLang==='ml'?' ml':''),draft.text));
 if(geminiNote&&draft.source==='engine')box.appendChild(mk('p','note',geminiNote));
-const r=mk('div','row');const add=mk('button','btn fill',story&&story.status==='finale'?'Add the finale':'Add it to the story');add.type='button';add.onclick=()=>submit(draft);
-const again=mk('button','btn','Try another style');again.type='button';again.onclick=()=>{const i=STYLES.findIndex(x=>x[0]===style);style=STYLES[(i+1)%STYLES.length][0];const ch=document.querySelectorAll('.chip');ch.forEach(c=>c.setAttribute('aria-pressed',c.textContent===styleName(style)));dramatize();};
+const r=mk('div','row');const add=mk('button','btn fill',isLife()?'Save it to my story':story&&story.status==='finale'?'Add the finale':'Add it to the story');add.type='button';add.onclick=()=>submit(draft);
+const again=mk('button','btn','Try another style');again.type='button';again.onclick=()=>{const i=STYLES.findIndex(x=>x[0]===style);style=STYLES[(i+1)%STYLES.length][0];const ch=document.querySelectorAll('#contBody [aria-label="Drama style"] .chip');ch.forEach(c=>c.setAttribute('aria-pressed',c.textContent===styleName(style)));dramatize();};
 r.append(add,again);if('speechSynthesis' in window){const l=mk('button','btn','▶ Hear it');l.type='button';l.onclick=()=>speak([draft.text],speakLang==='ml'?'ml-IN':'en-IN');r.appendChild(l);}
-box.appendChild(r);box.appendChild(mk('p','note','Your own words are saved too, so listeners can always see what you actually said.'));pb.appendChild(box);}
+box.appendChild(r);box.appendChild(mk('p','note','Your own words are saved too, so readers can always see what you actually said.'));pb.appendChild(box);}
 
 /* ---------- the live sky behind the stage: visitor's time of day + real weather (free, no key) ---------- */
 const SKYC={dawn:['#3b3f7a','#f7a072','#ffd9a8'],morning:['#6fb7e6','#a9d8f2','#fff0d6'],day:['#4a9be0','#8ccaf0','#d9efff'],sunset:['#2f2b6a','#c4506a','#ffad6b'],night:['#05061a','#141a3e','#2a1f4a']};
@@ -455,21 +688,23 @@ const INK=['night','rain','hospital','forest','stars','city'];
 const F={open:false,mood:'rain',bg:0,parts:[],raf:0,io:null,lio:null,ctx:null,src:null,filt:null,gain:null,nextFlash:0,sound:false};
 const reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function splitLines(t){return String(t).replace(/\s+/g,' ').match(/[^.!?।]+[.!?।"”']*\s*/g)||[t];}
-function openFilm(){if(!parts.length)return;const fr=$('frames');fr.innerHTML='';
-const t=mk('section','frame');t.dataset.scene=parts[0].scene;t.appendChild(mk('h2',null,story?story.title:'And Then…'));
-const names=[...new Set(parts.map(p=>p.username))];t.appendChild(mk('p','who','told by '+names.slice(0,4).join(', ')+(names.length>4?' and '+(names.length-4)+' more':'')));t.appendChild(mk('p','hint','Scroll slowly ↓'));fr.appendChild(t);
-parts.forEach(p=>{const s=mk('section','frame');s.dataset.scene=p.scene;s.appendChild(mk('p','who','Part '+p.n+(p.is_finale?' · the finale':'')+' · '+p.username));
+function openFilm(){const life=isLife();const seq=life?lifeSeq():parts;if(!seq.length)return;const fr=$('frames');fr.innerHTML='';
+const t=mk('section','frame');t.dataset.scene=seq[0].scene;t.appendChild(mk('h2',null,story?story.title:'And Then…'));
+const names=[...new Set(parts.map(p=>p.username))];t.appendChild(mk('p','who',life?'the life story of '+ownerName(story):'told by '+names.slice(0,4).join(', ')+(names.length>4?' and '+(names.length-4)+' more':'')));t.appendChild(mk('p','hint','Scroll slowly ↓'));fr.appendChild(t);
+let lastCh=null;seq.forEach(p=>{const s=mk('section','frame');s.dataset.scene=p.scene;
+if(life){const c=chapters.find(x=>x.id===p.chapter_id);if(c&&c.id!==lastCh){lastCh=c.id;const fl=feelLine(c);s.appendChild(mk('p','who','Chapter '+c.n+': '+c.title+(fl?' · '+fl:'')));}}
+else s.appendChild(mk('p','who','Part '+p.n+(p.is_finale?' · the finale':'')+' · '+p.username));
 splitLines(shown(p)).forEach(l=>s.appendChild(mk('p','line'+(p.lang==='ml'?' ml':''),l.trim())));
 if(p.drama){const sd=mk('div','said');sd.hidden=true;sd.appendChild(mk('p',p.lang==='ml'?'ml':null,'"'+p.raw+'"'));const sb2=mk('button','link','What they actually said');sb2.setAttribute('aria-expanded','false');sb2.onclick=()=>{sd.hidden=!sd.hidden;sb2.setAttribute('aria-expanded',String(!sd.hidden));sb2.textContent=sd.hidden?'What they actually said':'Hide their words';};s.append(sb2,sd);}
 fr.appendChild(s);});
-const e=mk('section','frame end');e.dataset.scene=parts[parts.length-1].scene;const fin=story&&story.status==='finished';
-e.appendChild(mk('h2',null,fin?'The end.':'And then…?'));e.appendChild(mk('p','line in',fin?'Thank you for listening.':'The story stops here, for now. It is waiting for you.'));
-const go=mk('button','btn fill',fin?'Close':'Tell the next part');go.style.marginTop='18px';go.onclick=()=>{closeFilm();if(!fin)focusRaw();};e.appendChild(go);fr.appendChild(e);
+const e=mk('section','frame end');e.dataset.scene=seq[seq.length-1].scene;const fin=story&&story.status==='finished';
+e.appendChild(mk('h2',null,fin?'The end.':'And then…?'));e.appendChild(mk('p','line in',fin?'Thank you for listening.':life?'This life is still being written. How do you think it ends?':'The story stops here, for now. It is waiting for you.'));
+const go=mk('button','btn fill',fin?'Close':life?'Imagine the ending':'Tell the next part');go.style.marginTop='18px';go.onclick=()=>{closeFilm();if(fin)return;if(life)$('endBox').scrollIntoView({block:'start'});else focusRaw();};e.appendChild(go);fr.appendChild(e);
 $('film').hidden=false;$('film').scrollTop=0;document.body.style.overflow='hidden';F.open=true;
 F.io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)setScene(x.target.dataset.scene);}),{root:$('film'),threshold:.5});
 F.lio=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{root:$('film'),threshold:.25});
 fr.querySelectorAll('.frame').forEach(f=>F.io.observe(f));fr.querySelectorAll('.line').forEach(l=>F.lio.observe(l));
-setScene(parts[0].scene,true);fitFx();if(!reduceM){cancelAnimationFrame(F.raf);F.raf=requestAnimationFrame(fxLoop);}$('filmX').focus();}
+setScene(seq[0].scene,true);fitFx();if(!reduceM){cancelAnimationFrame(F.raf);F.raf=requestAnimationFrame(fxLoop);}$('filmX').focus();}
 function closeFilm(){F.open=false;$('film').hidden=true;document.body.style.overflow='';cancelAnimationFrame(F.raf);F.io&&F.io.disconnect();F.lio&&F.lio.disconnect();setSound(false);}
 function setScene(k,first){const mood=MOOD[k]||'rain';const cur=F.bg?$('bgB'):$('bgA'),nxt=F.bg?$('bgA'):$('bgB');
 if(cur.dataset.k!==k){nxt.src=sceneUrl(k);nxt.dataset.k=k;nxt.classList.add('on');cur.classList.remove('on');F.bg=1-F.bg;}
@@ -517,8 +752,16 @@ function thunder(big){const c=F.ctx;if(!c)return;const s=c.createBufferSource();
 g.gain.setValueAtTime(0,c.currentTime);g.gain.linearRampToValueAtTime(big?.9:.5,t);g.gain.exponentialRampToValueAtTime(.001,t+2.8);s.connect(f).connect(g).connect(c.destination);s.start();s.stop(t+3);}
 $('sound').onclick=()=>setSound(!F.sound);
 
-$('newStory').onclick=()=>{sid=null;story=null;parts=[];renderStories();renderStory();renderCont();focusRaw();};
-renderAcct();renderCont();loadStories();loadBoard();sb.auth.getSession().then(({data})=>loadMe(data.session));
+$('newStory').onclick=()=>startNew('choose');
+const toMain=()=>$('main').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+$('heroStart').onclick=()=>{startNew('life');if(!me)openAuth('up');};
+$('heroRead').onclick=()=>{toMain();};
+$('heroRelay').onclick=()=>{switchTab('relay');toMain();};
+addEventListener('hashchange',()=>{const h=parseHash();if(h.s&&h.s!==sid){if(h.k)saveKey(h.s,h.k);openStory(h.s,true);}});
+(async()=>{renderTabs();renderAcct();await loadStories();const h=parseHash();
+if(h.s){if(h.k)saveKey(h.s,h.k);await openStory(h.s,true);if(story)toMain();}
+else{const f=stories.find(s=>s.kind===tab)||stories[0];if(f)await openStory(f.id,true);else startNew('life');}})();
+loadBoard();sb.auth.getSession().then(({data})=>loadMe(data.session));
 }
 </script>
 </body>
