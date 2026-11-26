@@ -165,7 +165,7 @@ mark.who{background:light-dark(#fbe7b8,#4a3815);color:inherit;border-radius:4px;
 .owner{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px;padding:12px 16px;border-radius:14px;background:var(--paper);border:1px dashed var(--rule)}
 .owner input{flex:1 1 220px;width:auto}.owner .note{flex-basis:100%;margin:0}
 .about{font:700 23px/1.35 Caveat,cursive;color:var(--soft);margin:6px 0 0}
-#castBox{margin-top:18px}.castbtn{min-height:40px}.castpanel{margin-top:12px}
+#castBox{margin-top:18px}.castbtn{min-height:40px}.langseg{margin:10px 0 4px}.langseg button{min-height:40px;padding:0 16px}.ml .txt,.txt.ml{font:400 18px/1.95 'Noto Sans Malayalam',sans-serif}h2.ml,h3.ml{font-family:'Noto Sans Malayalam',sans-serif;font-weight:600}h2.ml{font-size:clamp(26px,3.4vw,38px);line-height:1.3}.about.ml{font:400 18px/1.7 'Noto Sans Malayalam',sans-serif}.who-card.ml{font-family:'Noto Sans Malayalam',sans-serif}.film .line.ml{font-family:'Noto Sans Malayalam',sans-serif;line-height:1.8}.film h2.ml{font:600 clamp(30px,5vw,56px)/1.3 'Noto Sans Malayalam',sans-serif}.film .who.ml{font:600 20px 'Noto Sans Malayalam',sans-serif}.castpanel{margin-top:12px}
 .cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
 .who-card{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:12px 14px;font-size:14px}
 .who-card b{display:block;font-size:17px}.who-card .r{color:var(--accent);font-weight:600}.who-card p{margin:6px 0 0}.who-card .in{color:var(--soft);font-size:13px}
@@ -257,6 +257,7 @@ select{width:100%;font:16px Archivo,sans-serif;border:2px solid var(--rule);bord
 <div class="cols">
 <section>
 <div class="titlebar"><h2 id="stitle">Loading the stories…</h2><div class="row" style="margin:0"><button class="btn fill" id="filmBtn" hidden>Read it like a film</button><button class="btn" id="playall" hidden>Listen like a podcast</button><button class="btn" id="resumeBtn" hidden>Continue where I stopped</button></div></div>
+<div class="seg langseg" id="langSeg" role="group" aria-label="Read in" hidden><button type="button" id="langEn" aria-pressed="true">English</button><button type="button" id="langMl" class="ml" aria-pressed="false">മലയാളം</button></div>
 <p class="meta" id="smeta"></p>
 <p class="about" id="sabout" hidden></p>
 <div id="ownerBar"></div>
@@ -351,6 +352,16 @@ let me=null,stories=[],sid=null,story=null,parts=[],reacts=[],ratings=[],comment
 let tab='life',newKind=null,newVis='public',chapters=[],chars=[],sides=[],endings=[],evotes=[],shareKey=null,curChap='',lastSaid='';
 const dismissed=new Set();
 const FEEL=[['memory','A memory'],['apology','An apology'],['thanks','A thank-you'],['appreciation','Appreciation'],['letter','A letter']];
+let rlang=(()=>{try{return localStorage.getItem('atLang')||'en';}catch(e){return 'en';}})();
+const hasMl=()=>!!(story&&story.kind==='life'&&parts.some(p=>p.ml));
+const ML=()=>rlang==='ml'&&hasMl();
+const ptxt=p=>ML()&&p.ml?p.ml:shown(p);
+const plang=p=>ML()&&p.ml?'ml':p.lang;
+const ctitle=c=>ML()&&c.title_ml?c.title_ml:c.title;
+const cname=c=>ML()&&c.name_ml?c.name_ml:c.name;
+const FEEL_ML={memory:'ഒരു ഓർമ്മ',apology:'ഒരു ക്ഷമാപണം',thanks:'ഒരു നന്ദി',appreciation:'ഒരു അഭിനന്ദനം',letter:'ഒരു കത്ത്'};
+function feelLineAny(c){if(ML()){if(!c.to_whom_ml)return c.feeling==='memory'?'':FEEL_ML[c.feeling]||'';return c.to_whom_ml+' '+(FEEL_ML[c.feeling]||'');}return feelLine(c);}
+function setLang(l){rlang=l;try{localStorage.setItem('atLang',l);}catch(e){}renderStory();}
 function feelLine(c){const f=(FEEL.find(x=>x[0]===c.feeling)||FEEL[0])[1];if(!c.to_whom)return c.feeling==='memory'?'':f;return f+(c.feeling==='appreciation'?' for ':c.feeling==='memory'?', for ':' to ')+c.to_whom;}
 const isOwner=()=>!!(me&&story&&story.created_by===me.id);
 const isLife=()=>story?story.kind==='life':(newKind==='choose'?false:(newKind||tab)==='life');
@@ -392,7 +403,7 @@ async function loadStory(){if(!sid){spot=null;renderSpotBtn();story=null;parts=[
 const want=sid,on=q=>q.eq('story_id',sid);
 /* everything in one round trip: child rows are filtered through their part or ending */
 const R=await Promise.all([sb.from('stories').select(STORY_COLS).eq('id',sid).maybeSingle(),
-on(sb.from('parts').select('id,n,user_id,username,lang,raw,drama,style,scene,is_finale,chapter_id,created_at')).order('n'),on(sb.from('end_votes').select('*')),
+on(sb.from('parts').select('id,n,user_id,username,lang,raw,drama,style,scene,is_finale,chapter_id,created_at,ml')).order('n'),on(sb.from('end_votes').select('*')),
 sb.from('reactions').select('*,parts!inner(story_id)').eq('parts.story_id',sid),sb.from('ratings').select('*,parts!inner(story_id)').eq('parts.story_id',sid),sb.from('comments').select('*,parts!inner(story_id)').eq('parts.story_id',sid).order('created_at'),
 on(sb.from('chapters').select('*')).order('n'),on(sb.from('characters').select('*')).order('created_at'),on(sb.from('sides').select('*')).order('created_at'),on(sb.from('endings').select('*,ending_votes(ending_id,user_id)')).order('created_at'),
 on(sb.from('story_keys').select('key')).maybeSingle(),me?on(sb.from('bookmarks').select('part_id,line')).eq('user_id',me.id).maybeSingle():Promise.resolve({data:null})]);
@@ -417,7 +428,7 @@ function spotNames(text){const known=chars.filter(c=>!c.ending_id).map(c=>c.name
 if(w.length<2||!/^\p{Lu}/u.test(w)||COMMON.has(lw)||NOTNAME.has(lw)||dismissed.has(lw)||seen.has(lw))return;
 if(known.some(k=>k===lw||k.split(/\s+/).includes(lw)))return;seen.set(lw,w);});return [...seen.values()].slice(0,8);}
 function hl(el,text,re){if(!re){el.textContent=text;return el;}let last=0;for(const m of String(text).matchAll(new RegExp(re.source,'giu'))){el.append(text.slice(last,m.index));el.appendChild(mk('mark','who',m[0]));last=m.index+m[0].length;}el.append(text.slice(last));return el;}
-const castRe=()=>nameRe(chars.filter(c=>!c.ending_id).map(c=>c.name));
+const castRe=()=>nameRe(chars.filter(c=>!c.ending_id).map(c=>cname(c)));
 
 /* ---------- render ---------- */
 function renderTabs(){$('tabLife').setAttribute('aria-pressed',tab==='life');$('tabRelay').setAttribute('aria-pressed',tab==='relay');}
@@ -431,11 +442,11 @@ b.onclick=()=>openStory(s.id);li.appendChild(b);ul.appendChild(li);});}
 const ptsFor=id=>reacts.filter(r=>r.part_id===id).reduce((a,r)=>a+((TAGS.find(t=>t[0]===r.emoji)||[0,0,2])[2]),0)+ratings.filter(r=>r.part_id===id).reduce((a,r)=>a+r.stars,0);
 const lifeSeq=()=>chapters.flatMap(c=>parts.filter(p=>p.chapter_id===c.id));
 function renderStory(){const life=isLife();
-$('stitle').textContent=story?story.title:sid?'This story could not be opened':newKind==='choose'?'Start a new story':life?'Start your story':'Start a new story';
-$('sabout').hidden=!(story&&story.about);$('sabout').textContent=(story&&story.about)||'';
+$('stitle').textContent=story?(ML()&&story.title_ml?story.title_ml:story.title):sid?'This story could not be opened':newKind==='choose'?'Start a new story':life?'Start your story':'Start a new story';
+const ab=story&&(ML()&&story.about_ml?story.about_ml:story.about);$('sabout').hidden=!ab;$('sabout').textContent=ab||'';$('stitle').classList.toggle('ml',ML());$('sabout').classList.toggle('ml',ML());renderLangSeg();
 const names=[...new Set(parts.map(p=>p.username))];
 if(!story)$('smeta').textContent=sid?'It may be unlisted, and the link you used is not complete. Ask the person who shared it for the full link.':newKind==='choose'?'Two ways to tell a story here. Pick one.':life?'Give it a title, write your first chapter, and name the people in it. Only you write the chapters; readers can add their side.':'Give it a title, then tell how it begins: who, where, and what goes wrong.';
-else if(life)$('smeta').textContent='The life story of '+ownerName(story)+' · '+chapters.length+' chapter'+(chapters.length===1?'':'s')+(story.visibility==='unlisted'?' · Unlisted':'');
+else if(life)$('smeta').textContent=ML()?'ജീവിതകഥ · '+ownerName(story)+' · '+chapters.length+' അധ്യായങ്ങൾ':'The life story of '+ownerName(story)+' · '+chapters.length+' chapter'+(chapters.length===1?'':'s')+(story.visibility==='unlisted'?' · Unlisted':'');
 else $('smeta').textContent=parts.length?parts.length+' part'+(parts.length===1?'':'s')+' by '+names.length+' storyteller'+(names.length===1?'':'s'):'Give it a title, then tell how it begins.';
 renderOwner();
 const st=$('status');st.innerHTML='';
@@ -476,7 +487,7 @@ box.appendChild(tg);box.appendChild(panel);const out=box;box=panel;
 if(!cast.length)box.appendChild(mk('p','note','Nobody yet. When you write someone\'s name in a chapter, you can add them here. A nickname is fine if you\'d rather keep them private.'));
 const g=mk('div','cast');cast.forEach(c=>g.appendChild(charCard(c)));box.appendChild(g);
 if(isOwner()){const add=mk('button','link','+ Add a person');add.type='button';add.onclick=()=>{add.hidden=true;charForm(box,'',null,()=>{add.hidden=false;});};box.appendChild(add);}}
-function charCard(c){const d=mk('div','who-card');d.appendChild(mk('b',null,c.name));if(c.role)d.appendChild(mk('span','r',c.role));if(c.note)d.appendChild(mk('p',null,c.note));
+function charCard(c){const m=ML();const d=mk('div','who-card'+(m?' ml':''));d.appendChild(mk('b',null,cname(c)));const role=m&&c.role_ml?c.role_ml:c.role,note=m&&c.note_ml?c.note_ml:c.note;if(role)d.appendChild(mk('span','r',role));if(note)d.appendChild(mk('p',null,note));
 if(!c.ending_id){const inn=chaptersWith(c);if(inn.length)d.appendChild(mk('p','in','In chapter'+(inn.length>1?'s ':' ')+inn.map(x=>x.n).join(', ')));}
 if(me&&c.added_by===me.id){const rm=mk('button','link','Remove');rm.type='button';rm.onclick=async()=>{if(!confirm('Remove '+c.name+' from the people in this story?'))return;await sb.from('characters').delete().eq('id',c.id);loadStory();};d.appendChild(rm);}return d;}
 function field(text,el,hint){const l=mk('label');l.appendChild(mk('span',null,text));if(hint){const h=mk('span','note',' '+hint);h.style.fontWeight='400';l.appendChild(h);}l.appendChild(el);el.style.marginTop='6px';return l;}
@@ -492,7 +503,7 @@ if(error){msg.textContent=/duplicate|unique/i.test(error.message)?n+' is already
 if(after)after.after(f);else box.appendChild(f);nm.focus();return f;}
 
 function renderChapters(){const box=$('chaps');if(!chapters.length){box.appendChild(mk('p','empty','No chapters yet.'));return;}const re=castRe();
-chapters.forEach(ch=>{const sec=mk('section','chap');sec.id='chapter-'+ch.n;const h=mk('div','chap-h');h.appendChild(mk('span','num','Chapter '+ch.n));h.appendChild(mk('h3',null,ch.title));const fl=feelLine(ch);if(fl)h.appendChild(mk('span','feel',fl));sec.appendChild(h);
+chapters.forEach(ch=>{const sec=mk('section','chap');sec.id='chapter-'+ch.n;const h=mk('div','chap-h');h.appendChild(mk('span','num',(ML()?'അധ്യായം ':'Chapter ')+ch.n));h.appendChild(mk('h3',ML()?'ml':null,ctitle(ch)));const fl=feelLineAny(ch);if(fl)h.appendChild(mk('span','feel',fl));sec.appendChild(h);
 const ol=mk('ol','script');const ps=parts.filter(p=>p.chapter_id===ch.id);ps.forEach((p,i)=>ol.appendChild(partEl(p,i+1,re)));if(!ps.length)ol.appendChild(mk('li','empty','This chapter is waiting for its first words.'));sec.appendChild(ol);
 const mine=sides.filter(s=>s.chapter_id===ch.id);const sbx=mk('div','sidebox');sbx.appendChild(mk('h4',null,mine.length?'Another side ('+mine.length+')':'Another side'));
 mine.forEach(s=>sbx.appendChild(sideEl(s)));
@@ -550,13 +561,13 @@ function partEl(p,num,re){const life=story&&story.kind==='life';const li=mk('li'
 const img=mk('img','scene');img.src=sceneUrl(p.scene);img.alt=(SCENES[p.scene]||SCENES.night)[0];img.loading='lazy';card.appendChild(img);
 const b=mk('div','body');const by=mk('div','by');const w=mk('span');if(!life){w.append('told by ');w.appendChild(mk('b',null,p.username));if(p.lang==='ml')w.append(' in Malayalam');}else if(p.lang==='ml')w.append('In Malayalam');
 by.append(w,mk('span',null,(p.is_finale?'Finale · ':'')+(SCENES[p.scene]||SCENES.night)[0]+(p.drama&&p.style?' · '+styleName(p.style):'')));b.appendChild(by);
-b.appendChild(hl(mk('p','txt'+(p.lang==='ml'?' ml':'')),shown(p),re||null));
-let said=null;if(p.drama){said=mk('div','said');said.hidden=true;said.appendChild(mk('p',p.lang==='ml'?'ml':null,'"'+p.raw+'"'));b.appendChild(said);}
+b.appendChild(hl(mk('p','txt'+(plang(p)==='ml'?' ml':'')),ptxt(p),re||null));
+let said=null;if(p.drama&&!ML()){said=mk('div','said');said.hidden=true;said.appendChild(mk('p',p.lang==='ml'?'ml':null,'"'+p.raw+'"'));b.appendChild(said);}
 const tr=mk('p','trans'+(p.lang==='ml'?'':' ml'));tr.hidden=true;b.appendChild(tr);
 const acts=mk('div','acts');
 if(said){const sbtn=mk('button','link',life?'What I actually said':'What they actually said');sbtn.setAttribute('aria-expanded','false');sbtn.onclick=()=>{said.hidden=!said.hidden;sbtn.setAttribute('aria-expanded',String(!said.hidden));sbtn.textContent=said.hidden?(life?'What I actually said':'What they actually said'):'Hide the original words';};acts.appendChild(sbtn);}
-const tbtn=mk('button','link',p.lang==='ml'?'Translate to English':'മലയാളത്തിൽ വായിക്കുക');tbtn.onclick=()=>translate(p,tr,tbtn);acts.appendChild(tbtn);
-if('speechSynthesis' in window){const l=mk('button','link','▶ Listen');l.onclick=()=>speak([shown(p)],p.lang==='ml'?'ml-IN':'en-IN');acts.appendChild(l);}
+if(!(life&&p.ml)){const tbtn=mk('button','link',p.lang==='ml'?'Translate to English':'മലയാളത്തിൽ വായിക്കുക');tbtn.onclick=()=>translate(p,tr,tbtn);acts.appendChild(tbtn);}
+if('speechSynthesis' in window){const l=mk('button','link','▶ Listen');l.onclick=()=>speak([ptxt(p)],plang(p)==='ml'?'ml-IN':'en-IN');acts.appendChild(l);}
 if(me&&p.user_id!==me.id){const r=mk('button','link','Report');r.onclick=()=>report('part',p.id);acts.appendChild(r);}
 acts.appendChild(mk('span','pts',ptsFor(p.id)+' pts'));b.appendChild(acts);
 const tg=mk('div','tags');tg.style.marginTop='12px';TAGS.forEach(([k,l])=>{const n=reacts.filter(r=>r.part_id===p.id&&r.emoji===k).length;const mine=me&&reacts.some(r=>r.part_id===p.id&&r.emoji===k&&r.user_id===me.id);
@@ -714,13 +725,13 @@ const F={open:false,mood:'rain',bg:0,parts:[],raf:0,io:null,lio:null,ctx:null,sr
 const reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function splitLines(t){return String(t).replace(/\s+/g,' ').match(/[^.!?।]+[.!?।"”']*\s*/g)||[t];}
 function openFilm(opts){opts=opts||{};const life=isLife();const seq=life?lifeSeq():parts;if(!seq.length)return;const fr=$('frames');fr.innerHTML='';
-const t=mk('section','frame');t.dataset.scene=seq[0].scene;const h2=mk('h2',null,story?story.title:'And Then…');h2.dataset.say=h2.textContent;h2.dataset.li='-2';t.appendChild(h2);
-const names=[...new Set(parts.map(p=>p.username))];t.appendChild(mk('p','who',life?'the life story of '+ownerName(story):'told by '+names.slice(0,4).join(', ')+(names.length>4?' and '+(names.length-4)+' more':'')));if(spot&&spotIdx()>0){const rb=mk('button','btn fill','Continue where I stopped ('+spotLabel()+')');rb.type='button';rb.style.alignSelf='flex-start';rb.onclick=()=>startNarr(spotIdx());t.appendChild(rb);}
+const t=mk('section','frame');t.dataset.scene=seq[0].scene;const h2=mk('h2',ML()?'ml':null,story?(ML()&&story.title_ml?story.title_ml:story.title):'And Then…');h2.dataset.say=h2.textContent;h2.dataset.li='-2';t.appendChild(h2);
+const names=[...new Set(parts.map(p=>p.username))];t.appendChild(mk('p','who',life?(ML()?'ജീവിതകഥ · '+ownerName(story):'the life story of '+ownerName(story)):'told by '+names.slice(0,4).join(', ')+(names.length>4?' and '+(names.length-4)+' more':'')));if(spot&&spotIdx()>0){const rb=mk('button','btn fill','Continue where I stopped ('+spotLabel()+')');rb.type='button';rb.style.alignSelf='flex-start';rb.onclick=()=>startNarr(spotIdx());t.appendChild(rb);}
 t.appendChild(mk('p','hint','Scroll slowly ↓'));fr.appendChild(t);
 let lastCh=null;seq.forEach(p=>{const s=mk('section','frame');s.dataset.scene=p.scene;
-if(life){const c=chapters.find(x=>x.id===p.chapter_id);if(c&&c.id!==lastCh){lastCh=c.id;const fl=feelLine(c);const w=mk('p','who','Chapter '+c.n+': '+c.title+(fl?' · '+fl:''));w.dataset.say='Chapter '+c.n+'. '+c.title+'.';w.dataset.part=p.id;w.dataset.li='-1';s.appendChild(w);}}
+if(life){const c=chapters.find(x=>x.id===p.chapter_id);if(c&&c.id!==lastCh){lastCh=c.id;const fl=feelLineAny(c);const w=mk('p','who'+(ML()?' ml':''),(ML()?'അധ്യായം ':'Chapter ')+c.n+': '+ctitle(c)+(fl?' · '+fl:''));w.dataset.say=(ML()?'അധ്യായം ':'Chapter ')+c.n+'. '+ctitle(c)+'.';if(ML())w.dataset.lang='ml';w.dataset.part=p.id;w.dataset.li='-1';s.appendChild(w);}}
 else{const w=mk('p','who','Part '+p.n+(p.is_finale?' · the finale':'')+' · '+p.username);w.dataset.say='Part '+p.n+(p.is_finale?', the finale':'')+'.';w.dataset.part=p.id;w.dataset.li='-1';s.appendChild(w);}
-splitLines(shown(p)).map(l=>l.trim()).filter(Boolean).forEach((l,li)=>{const e=mk('p','line'+(p.lang==='ml'?' ml':''),l);e.dataset.say=l;e.dataset.part=p.id;e.dataset.li=li;e.dataset.lang=p.lang;s.appendChild(e);});
+splitLines(ptxt(p)).map(l=>l.trim()).filter(Boolean).forEach((l,li)=>{const e=mk('p','line'+(plang(p)==='ml'?' ml':''),l);e.dataset.say=l;e.dataset.part=p.id;e.dataset.li=li;e.dataset.lang=plang(p);s.appendChild(e);});
 if(p.drama){const sd=mk('div','said');sd.hidden=true;sd.appendChild(mk('p',p.lang==='ml'?'ml':null,'"'+p.raw+'"'));const sb2=mk('button','link','What they actually said');sb2.setAttribute('aria-expanded','false');sb2.onclick=()=>{sd.hidden=!sd.hidden;sb2.setAttribute('aria-expanded',String(!sd.hidden));sb2.textContent=sd.hidden?'What they actually said':'Hide their words';};s.append(sb2,sd);}
 fr.appendChild(s);});
 const e=mk('section','frame end');e.dataset.scene=seq[seq.length-1].scene;const fin=story&&story.status==='finished';
@@ -737,6 +748,8 @@ function setScene(k,first){const mood=MOOD[k]||'rain';const cur=F.bg?$('bgB'):$(
 if(cur.dataset.k!==k){nxt.src=sceneUrl(k);nxt.dataset.k=k;nxt.classList.add('on');cur.classList.remove('on');F.bg=1-F.bg;}
 $('film').classList.toggle('ink',INK.includes(k));if(F.mood!==mood||first){F.mood=mood;F.pts=[];tuneSound();}}
 $('film').addEventListener('scroll',()=>{const f=$('film'),p=f.scrollTop/Math.max(1,f.scrollHeight-f.clientHeight);const tr='translateY('+(-p*40).toFixed(1)+'px) scale('+(1.02+p*.06).toFixed(3)+')';$('bgA').style.transform=tr;$('bgB').style.transform=tr;},{passive:true});
+function renderLangSeg(){const on=hasMl();$('langSeg').hidden=!on;$('langEn').setAttribute('aria-pressed',!ML());$('langMl').setAttribute('aria-pressed',ML());}
+$('langEn').onclick=()=>setLang('en');$('langMl').onclick=()=>setLang('ml');
 $('filmX').onclick=closeFilm;$('filmBtn').onclick=()=>openFilm();
 
 /* ---------- listen like a podcast: the browser reads the film aloud over the ambience, and remembers where you stopped ---------- */
